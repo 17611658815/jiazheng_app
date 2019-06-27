@@ -1,0 +1,10 @@
+<template name="scrollX">
+    <view class='scroll-x-content'>
+        <scroll-view class='scroll-x-box' scroll-x="true">
+            <view class='scroll-x-content-item' bindtap='swatchTab' data-index="{{index}}" wx:for='{{navArr}}' wx:key='key'>
+                <text class='{{currentTab==index? "active":""}}'>{{item}}</text>
+                <view class='{{currentTab==index? "borderhover":"border"}}'></view>
+            </view>
+        </scroll-view>
+    </view>
+</template>

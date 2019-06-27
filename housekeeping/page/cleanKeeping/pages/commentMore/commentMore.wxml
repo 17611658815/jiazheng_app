@@ -1,0 +1,28 @@
+<view class='commentBox'>
+    <view class='commentBox-header'>
+        <view class='commentBox-header-top fontSize-24 color1'>
+            <view class='commentBox-header-left'>
+                <view class='radioBox' bindtap='selectedChange'>
+                    <image wx:if='{{selected}}' src='../../../../images/icon/inon_checked.png'></image>
+                </view>
+                只看当前项目
+            </view>
+            <view>好评率94%</view>
+        </view>
+    </view>
+    <view class='comment_sort'>
+        <view class='comment_sort_content'>
+            <view bindtap='swatchChange' data-index='{{index}}' wx:for='{{commentArr}}'  class='comment_sort_content_item {{currentTab == index ? "checkedClass":""}}' wx:key='key'>{{item}}</view>
+        </view>
+    </view>
+    <view class='commentList-box {{isIphoneX ? "paddingBtm180":"paddingBtm90"}}'>
+        <import src="../../../../common/commentList/commentList.wxml"></import>
+        <template is="commentList" data="{{comment:comment,commentMsgArr:commentMsgArr}}"></template>
+    </view>
+</view>
+<!-- 评论文本框 -->
+<view class="inputBox" wx:if='{{isfocus}}' style="bottom:{{bottom}}px">
+    <input class="input" adjust-position="{{false}}" cursor-spacing="90" type='text' bindfocus='onbindfocus' bindconfirm='onbindconfirm' bindblur="onbindblur" placeholder="评论" focus="{{isfocus}}"  bindinput="oncommentMsg" placeholder-style='color:#9a9a9a; font-size: 14px;padding-left:20rpx;' />
+</view>
+<!-- 底部加入购物车 -->
+<add-shop-cart bind:addCart='onaddCart' wx:else></add-shop-cart>

@@ -1,0 +1,254 @@
+.filtrate-content{
+    width: 100%;
+    height: 100%;
+    position: relative;
+    background: #f8f8f8;
+    z-index: 10;
+}
+.filtrate-content-box{
+    width: 90%;
+    margin: auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 30rpx;
+    color: #666666;
+    padding: 40rpx 0;
+}
+.filtrate-content-box view{
+    display: flex;
+    align-items: center;
+}
+.filtrate-content-box view:nth-child(3) image{
+    width: 20rpx;
+    height: 20rpx;
+    vertical-align: middle;
+    transition: All 1s ease; 
+    -webkit-transition: All 1s ease;
+}
+.triangle{
+    width: 18rpx;
+    height: 18rpx;
+    margin-left: 5rpx;
+}   
+.pullList{
+    width: 100%;
+    height: 843rpx;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    background: #ffffff;
+    position: absolute;
+    top: 115rpx;
+    left: 0;
+    z-index: 999;
+    animation: myfirst 0.4s;
+}
+@keyframes myfirst {
+    from {
+        height: 0rpx;
+    }
+ 
+    to {
+       height: 843rpx;
+    }
+}
+@keyframes myfirst2 {
+    from {
+        opacity:0;
+    }
+ 
+    to {
+        opacity:1;
+    }
+}
+.shade{
+    width: 100%;
+    min-height: 100vh;
+    position: absolute;
+    top: 230rpx;
+    left: 0;
+    background: rgba(0,0,0,.5);
+    z-index: 8;
+     animation: myfirst2 0.5s; 
+}
+.rotateRight{
+  transform: rotate(180deg); 
+}
+.pullListScroll{
+    width: 90%;
+    height: 677rpx;
+    padding: 20rpx 0 46rpx 0;
+    animation: myfirst2 0.5s; 
+}
+.pullListBtnBox{
+    width: 100%;
+    height: 98rpx;
+    display: flex;
+    border-top: 1rpx solid #e2e2e2;
+     animation: myfirst2 0.6s; 
+}
+.pullListBtnBox view{
+    width: 50%;
+    height: 98rpx;
+    font-size: 32rpx;
+    text-align: center;
+    line-height: 98rpx;
+}
+
+.pullListBtnBox view:nth-child(1){
+   color: #98b2e0;
+   background: #ffffff;
+   border-right: 1rpx solid #e2e2e2;
+}
+
+.pullListBtnBox view:nth-child(2){
+   background: #6297f3;
+   color: #ffffff;
+}
+.pullListScrollContent{
+    width: 100%;
+    height: 677rpx;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    animation: myfirst2 0.5s;
+}
+.pullListScroll-item{
+    width: 280rpx;
+    height: 90rpx;
+    margin-top: 26rpx;
+    background: #f6f6f6;
+    padding: 0 20rpx;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-radius: 10rpx;
+}
+.pullListScroll-item image{
+    width: 36rpx;
+    height: 36rpx;
+    margin-right: 20rpx;
+}
+.pullListScroll-item-title{
+    display: flex;
+    align-items: center;
+}
+.checkedClass{
+    background: #6297f3!important;
+    color: #ffffff!important;
+}
+/* 排序下拉 */
+.sortList{
+    width: 100%;
+    height: 290rpx;
+    display: flex;
+    padding: 29rpx 0 20rpx 0;
+    flex-direction: column;
+    align-items: center;
+    background: #ffffff;
+    position: absolute;
+    top: 115rpx;
+    left: 0;
+    z-index: 999;
+    animation: mysortfirst 0.5s;
+}
+@keyframes mysortfirst {
+    from {
+        height: 0rpx;
+    }
+ 
+    to {
+       height: 290rpx;
+    }
+}
+.sortList-item{
+    width: 90%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 47rpx;
+}
+.sortList-item image{
+    width: 40rpx;
+    height: 40rpx;
+}
+.filtrateList{
+    width: 100%;
+    height: 684rpx;
+    padding: 29rpx 0 0 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    background: #ffffff;
+    position: absolute;
+    top: 115rpx;
+    left: 0;
+    z-index: 999;
+    animation: myfiltratefirst 0.4s;
+}   
+
+@keyframes myfiltratefirst {
+    from {
+        height: 0rpx;
+    }
+ 
+    to {
+       height: 684rpx;
+    }
+}
+.filtrateList-content{
+    width: 90%;
+    height: 555rpx;
+    /* background: yellow; */
+    display: flex;
+    animation: myfirst2 0.5s;
+}
+.filtrateList-content-left{
+    height: 555rpx;
+}
+.filtrateList-content-right{
+    height: 555rpx;
+    margin-left: 84rpx;
+}
+.filtrateList-content-item{
+    display: flex;
+    align-content: center;
+    justify-content: space-between;
+    margin-bottom: 58rpx;
+    padding-bottom: 14rpxp;
+
+}
+.filtrateList-content-item image{
+    width: 30rpx;
+    height: 30rpx;
+}
+.filtrateActive{
+    color: #6297f3!important;
+    border-bottom: 1rpx solid #6297f3;
+}
+.fontSize-30{
+    font-size: 30rpx;
+}
+.fontSize-26{
+    font-size: 26rpx;
+}
+.fontSize-22{
+    font-size: 22rpx;
+}
+.fontSize-24{
+    font-size: 24rpx;
+}
+.color2{
+    color: #6297f3!important;
+}
+.color3{
+    color: #666666;
+}
+.color4{
+    color: #fa5454;
+}
+

@@ -1,0 +1,116 @@
+<view class="container {{selectShow ? 'maxHeight':''}}">
+    <view class='cleaningDetails-header'>
+        <image src='http://i2.chuimg.com/f30f7ea4346c11e7947d0242ac110002_3264w_2448h.jpg?imageView2/2/w/620/interlace/1/q/90'></image>
+    </view>
+    <view class='cleaningDetails-title'>
+        <view class='cleaningDetails-title-name'>
+            <text class='fontSize-34 fontWeight5'>保洁</text>
+            <image src='../../../../images/icon/icon_noFocus.png'></image>
+        </view>
+        <view class='cleaningDetails-title-price'>
+            <view class='fontSize-34 color4'>
+                <text class='fontWeight5'>24</text>元/小时
+            </view>
+            <view class='fontSize-22 color3'>
+                已售2341
+            </view>
+        </view>
+        <view class='stateBox'>
+            <view class='stateBox-content'>
+                <view class='stateBox-item fontSize-22 color2'>
+                    保障
+                </view>
+                <view class='stateBox-item fontSize-22 color2'>
+                    <image src='../../../../images/icon/icon_mark_2.png'></image> 未服务全额退款
+                </view>
+                <view class='stateBox-item fontSize-22 color2'>
+                    <image src='../../../../images/icon/icon_mark_2.png'></image> 爽约包赔
+                </view>
+                <view class='stateBox-item fontSize-22 color2'>
+                    <image src='../../../../images/icon/icon_mark_2.png'></image> 不满意重服务
+                </view>
+            </view>
+        </view>
+    </view>
+    <!-- 选择服务 -->
+    <view class='cleaningDetails-select'>
+        <view class='cleaningDetails-select-type color2' bindtap='selectItems'>
+            <text class='fontSize-26'>选择</text>
+            <view class='right fontSize-26 color1' wx:if='{{selectName==""}}'>选择保洁项目
+                <image src='../../../../images/icon/icon_right.png'></image>
+            </view>
+            <view class='right fontSize-26 color1' wx:else>
+            {{selectName}}
+            </view>
+        </view>
+        <view class='cleaningDetails-select-time color2' bindtap='goSelectTime'>
+            <text class='fontSize-26'>预约</text>
+            <view class='right fontSize-26 color1'>最近可约
+                <text style='padding-left:10rpx;' class='color4'>{{day}}{{time}}</text>
+                <image src='../../../../images/icon/icon_right.png'></image>
+            </view>
+        </view>
+    </view>
+    <!-- 温馨提示 -->
+    <view class='prompt-message'>
+        <view class='prompt-message-title fontSize-34'>温馨提示</view>
+        <view class='fontSize-28 color2'>1.服务开始后30分钟，客户如果不满意，可以致电客服说明情况并申请退款；</view>
+        <view class='fontSize-28 color2'>2.此承诺仅限客户对保洁师服务过程中的服务质量不满意的申述，不包括超服务范围的要求</view>
+        <view class='fontSize-28 color2'>3.下单前请结合房屋的建筑面积预估服务时长；</view>
+    </view>
+    <!-- 订购须知 -->
+    <view class='prompt-message'>
+        <view class='prompt-message-title fontSize-34 color4'>订购须知</view>
+        <view class='fontSize-28 color4'>1.服务开始后30分钟，客户如果不满意，可以致电客服说明情况并申请退款；</view>
+        <view class='fontSize-28 color4'>2.此承诺仅限客户对保洁师服务过程中的服务质量不满意的申述，不包括超服务范围的要求</view>
+        <view class='fontSize-28 color4'>3.下单前请结合房屋的建筑面积预估服务时长；</view>
+    </view>
+    <!-- 用户评价 -->
+    <view class='comment-message dpfC'>
+        <view class='comment-message-num'> 
+            <view class='fontSize-34 color1 fontWeight5'> 用户评价(343)</view>
+            <view class='fontSize-26 color2 dpf' bindtap='commentMore'>查看更多<image class='icon-right' src='../../../../images/icon/icon_right.png'></image> </view>
+        </view>
+        <view class='comment-message-item' wx:for='{{2}}' wx:key='key'>
+            <view class='comment-message-item-userInfo dpf'>
+                <image class='icon-userPic' src='http://i2.chuimg.com/f30f7ea4346c11e7947d0242ac110002_3264w_2448h.jpg?imageView2/2/w/620/interlace/1/q/90'></image>
+                <text class='fontSize28'>萤火虫</text>
+            </view>
+            <view class='comment-message-item-text fontSize28 color2'>
+            第二次购买了，鞋底不软不硬，很适合人工草地，舒适。
+            </view>
+        </view>
+    </view>
+    <!-- 服务详情 -->
+    <view class='service-details dpfC'>
+        <view class='fontWeight5 paddingBtm'>服务详情</view>
+        <view class='service-details-content dpfC'>
+            <view class='service-details-content-name fontSize28 dpf'>
+                <text class='color3'>被里面料俗称</text>
+                <text class='color1'>法兰绒</text>
+            </view>
+            <view class='service-details-content-name fontSize28 dpf'>
+                <text class='color3'>被里面料俗称</text>
+                <text class='color1'>法兰绒</text>
+            </view>
+            <view class='service-details-content-name fontSize28 dpf'>
+                <text class='color3'>被里面料俗称</text>
+                <text class='color1'>法兰绒</text>
+            </view>
+        </view>
+        <view class='service-details-msg fontSize-28 color2'> 
+            被里面料俗称被里面料俗称被里面料俗称被里面料俗称被里面料俗称被里面料俗称被里面料俗称被里面料俗称被里面料俗称被里面料俗称被里面料俗称被里面料俗称被里面料俗称被里面料俗称被里面料俗称被里面料俗称被里面料俗称被里面料俗称
+        </view>
+    </view>
+    <!-- 为你推荐 -->
+    <view class='recommend dpfC' wx:if='{{!selectShow}}'>
+         <view class='fontWeight5'>为你推荐</view>
+         <import src="../../../../common/cleaningList/cleaningList.wxml"></import>
+         <view class='recommend-list-box {{isIphoneX ? "margin-bottom120":"margin-bottom90"}}'>
+            <template is="cleaningList" data='{{cleaningArr:10,gocleaningDetails:gocleaningDetails,show:false}}'></template>
+          </view>
+    </view>
+    <add-shop-cart bind:addCart='onaddCart'></add-shop-cart>
+</view>
+<import src="../../../../common/selectItems/selectItems.wxml"></import>
+<template is="selectItems" data="{{selectItems:selectItems,selectindex:selectindex,selectItemsType:selectItemsType,changeCount:changeCount,count:count,selectName:selectName,isIphoneX:isIphoneX,selectShow:selectShow}}" wx:if='{{selectShow}}'></template>

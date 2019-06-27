@@ -1,0 +1,60 @@
+<template name="commentList">
+    <view class='commentList' wx:for='{{5}}' wx:key='key'>
+        <view class='commentList-item'>
+            <view class='commentList-item-header'>
+                <view class='commentList-item-header-pic'>
+                    <view class='userPic'>
+                        <image src='http://i2.chuimg.com/e7da54e68b6611e6a9a10242ac110002_1117w_1080h.jpg?imageView2/2/w/620/interlace/1/q/90'></image>
+                    </view>
+                    <view class='userName'>
+                        <view class='fontSize28'>萤火虫</view>
+                    </view>
+                </view>
+                <view class='fontSize-24 color3'>2018-10-12</view>
+            </view>
+            <view class='commentList-item-label'>
+                <text>2小时达</text>
+                <text>价格透明</text>
+                <text>服务行业</text>
+                <text>态度满意</text>
+            </view>
+            <view class='commentList-item-describe fontSize28 color1'>
+                小蝈蝈特别专业,打扫的很干净噢
+            </view>
+            <view class='commentList-item-img'>
+                <image wx:for='{{3}}' src='http://i2.chuimg.com/e7da54e68b6611e6a9a10242ac110002_1117w_1080h.jpg?imageView2/2/w/620/interlace/1/q/90' wx:key='key'></image>
+            </view>
+            <view class='commentList-item-support dpfbetween'>
+                <view class='fontSize-26 color3'>家庭保洁</view>
+                <view class='commentList-item-support-right dpf'>
+                    <view bindtap='comment'>
+                        <image src='../../../../images/icon/icon_comment.png'></image>
+                        <text>468</text>
+                    </view>
+                    <view>
+                        <image src='../../../../images/icon/icon_appreciate.png'></image>
+                        <text>468</text>
+                    </view>
+                </view>
+            </view>
+        </view>
+        <view class='comment-tetx' wx:if="{{index == 1 && commentMsgArr.length>0}}" wx:for-index="idx" wx:for='{{commentMsgArr}}' wx:key='key'>
+            <view class='comment_tetx_item'>
+                <view class='comment_tetx_item_right'>
+                    <view class='dpfbetween'>
+                        <view class='com_icon fontSize28 color1'>
+                             <image src='../../../../images/icon/icon_comment_2.png'></image>萤火虫
+                        </view>
+                        <view class='fontSize-24 color3'>2018-10-12</view>
+                    </view>
+                    <view class='com-tetx fontSize28 color3'>
+                        <view style='width:28rpx;height:28rpx;margin-right: 20rpx;' class='com_icon fontSize28 color1'>
+                             <!-- <image src='../../../../images/icon/icon_comment_2.png'></image>萤火虫 -->
+                        </view>
+                        <view class='comment_py'>{{item}}</view>
+                    </view>
+                </view>
+            </view>
+        </view>
+    </view>
+</template>

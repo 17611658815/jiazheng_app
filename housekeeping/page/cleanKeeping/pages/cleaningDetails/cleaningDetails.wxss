@@ -1,0 +1,180 @@
+page{
+    background: #f8f8f8;
+}
+.cleaningDetails-header{
+    width: 100%;
+    height: 532rpx;
+    background: white;
+}
+.cleaningDetails-header image{
+    width: 100%;
+    height: 100%;
+}
+.cleaningDetails-title{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 35rpx 0 0 0;
+    background: #ffffff;
+}
+.cleaningDetails-title-name image{
+    width: 34rpx;
+    height: 31rpx;
+}
+.cleaningDetails-title-name,
+.cleaningDetails-title-price{
+    width: 90%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.stateBox{
+    width: 100%;
+    padding: 26rpx 0;
+    border-top: 1rpx solid #e2e2e2;
+}
+.stateBox-content{
+    width: 90%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: auto;
+}
+.cleaningDetails-title-price{
+    padding-bottom: 35rpx;
+    margin-top: 20rpx;
+}
+.stateBox-item{
+    display: flex;
+    align-items: center;
+}
+.stateBox-item image{
+    width: 22rpx;
+    height: 22rpx;
+    margin-right: 10rpx;
+}
+.cleaningDetails-select{
+    width: 100%;
+    padding: 40rpx 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: #ffffff;
+    margin-top: 20rpx;
+}
+.cleaningDetails-select-type,.cleaningDetails-select-time{
+    width: 90%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.cleaningDetails-select-time{
+    margin-top: 40rpx;
+}
+.cleaningDetails-select image{
+    width: 30rpx;
+    height: 30rpx;
+}
+.right{
+    display: flex;
+    align-items: center;
+}
+/* 提示信息 */
+.prompt-message{
+    width: 100%;
+    margin-top: 20rpx;
+    background: #ffffff;
+    padding: 37rpx 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.prompt-message view{
+    width: 90%;
+}
+.prompt-message-title{
+    margin-bottom: 29rpx;
+    font-weight: 500;
+}
+.comment-message{
+    width: 100%;
+    padding: 38rpx 0;
+    background: #ffffff;
+    margin-top: 20rpx;
+}
+.comment-message-num{
+    width: 90%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.comment-message-item{
+    width: 90%;
+    padding: 35rpx 0;
+    border-bottom: 1rpx solid #e2e2e2;
+}
+.comment-message>view:last-child{
+    border: none
+}
+/* 用户评论样式 */
+.comment-message-item-userInfo{
+    width: 100%;
+}
+.comment-message-item-text{
+    margin-top: 29rpx;
+    line-height: 36rpx;
+}
+
+/* 服务详情 */
+.service-details,.recommend{
+    width: 100%;
+    padding: 38rpx 0;
+    background: #ffffff;
+    margin-top: 20rpx;
+}
+.service-details>view{
+    width: 90%;
+}
+.service-details-content{
+    padding: 10rpx 0 30rpx 0;
+    background: #FAFAFA;
+}
+.service-details-content-name{
+    width: 95%;
+    margin-top: 20rpx;
+
+}
+.service-details-content-name text:nth-child(1){
+    display: block;
+    width: 180rpx;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+.service-details-msg{
+    margin-top: 20rpx; 
+}
+.recommend{
+    width: 100%;
+}
+.recommend>view:nth-child(1){
+    width: 90%;
+    padding-bottom: 30rpx;
+}
+.recommend-list-box{
+    width: 90%;
+  
+}
+  .margin-bottom90{
+    margin-bottom: 90rpx;
+  }
+  .margin-bottom120{
+      margin-bottom: 120rpx;
+  }
+.paddingBtm{
+    padding-bottom: 30rpx;
+}

@@ -1,0 +1,34 @@
+<template name="filtrate">
+    <view class='filtrate-content'>
+        <view class='filtrate-content-box'>
+            <view bindtap='seleted'>服务商
+                <image class='triangle {{seletedDown1 ? "rotateRight":""}}' src='../../../../images/icon/icon_triangle.png'></image>
+            </view>
+            <view>排序
+                <image class='triangle' src='../../../../images/icon/icon_triangle.png'></image>
+            </view>
+            <view>筛选
+                <image src='../../../../images/icon/icon_filtrate.png'></image>
+            </view>
+        </view>
+        <view class='shade' bindtap='seleted' wx:if='{{seletedDown1 || seletedDown2}}' ></view>
+        <view class='pullList' wx:if='{{seletedDown1}}'>
+             <scroll-view scroll-y="true" class='pullListScroll'>
+                    <view class='pullListScrollContent'>
+                        <view class='pullListScroll-item {{seletedIndex==index ? "checkedClass":""}}' catchtap='checked' data-index="{{index}}" wx:for="{{30}}">
+                            <view class='pullListScroll-item-title fontSize-30'>
+                              <image src='../../../../images/icon/icon_common1.png' wx:if="{{seletedIndex==index}}"></image>
+                            <image src='../../../../images/icon/icon_common2.png' wx:else></image>
+                             <text>大众工匠</text> 
+                            </view>
+                            <view class='fontSize-24 color4'>4.3分</view>
+                        </view>
+                    </view>
+             </scroll-view>
+             <view class='pullListBtnBox'>
+                <view catchtap='resetMerchant'>重置</view>
+                <view catchtap='confirmMerchant'>确认</view>
+             </view>
+        </view>
+    </view>
+</template>

@@ -1,0 +1,21 @@
+page{
+    background: #f8f8f8;
+}
+.cleaningListBox{
+    width: 95%;
+    margin: auto;
+    margin-top: 230rpx;
+    /* display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap; */
+}
+.fixedTop{
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+}
+.maxHeight{
+    max-height: 100vh;
+    overflow: hidden;
+}

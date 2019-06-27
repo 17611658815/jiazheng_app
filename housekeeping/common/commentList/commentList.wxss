@@ -1,0 +1,110 @@
+.commentList{
+    width: 100%;
+    display: flex;
+    background: #ffffff;
+    flex-direction: column;
+    align-items: center;
+    justify-items: center;
+    margin-top: 20rpx;
+}
+.commentList-item-header{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.commentList-item{
+    width: 95%;
+    padding: 40rpx 0 0 0 ;
+}
+.userPic{
+    margin-right: 20rpx;
+}
+.userPic image{
+    width: 56rpx;
+    height: 56rpx;
+    border-radius: 50%;
+}
+.commentList-item-header-pic{
+    display: flex;
+    align-items: center;
+}
+.commentList-item-label{
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    padding: 40rpx 0;
+    font-size: 22rpx;
+    color: #666666;
+
+}
+.commentList-item-label text{
+    padding: 7rpx 10rpx;
+    background: #f8f8f8;
+    margin-right: 20rpx;
+}
+.commentList-item-img{
+    padding: 30rpx 0;
+    display: flex;
+    flex-wrap: wrap
+}
+.commentList-item-img image{
+    width: 223rpx;
+    height: 218rpx;
+    border-radius: 10rpx;
+}
+.commentList-item-img image:nth-child(n+2){
+    margin-left: 20rpx;
+}
+.commentList-item-support{
+    padding: 0 0 30rpx 0;
+}
+
+.commentList-item-support-right image {
+    width: 40rpx;
+    height: 38rpx;
+    margin-right: 10rpx;
+}
+.commentList-item-support-right>view{
+    display: flex;
+    align-items: center;
+    font-size: 24rpx;
+    color: #999999;
+    margin-left: 20rpx;
+}
+.comment-tetx{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: #ffffff;
+    border-top: 20rpx solid #f8f8f8;
+}
+.comment_tetx_item{
+    width: 95%;
+    padding: 30rpx 0;
+    display: flex;
+    
+}
+.comment_tetx_item_right{
+    flex: 10;
+    margin-left: 20rpx;
+}
+.com_icon image{
+    width: 28rpx;
+    height: 28rpx;
+    margin-right: 20rpx;
+}
+.com-tetx{
+    width: 100%;
+    display: flex;
+}
+.comment_tetx_item_right view:nth-child(1){
+    display: flex;
+    align-items: center
+}
+.comment_py{
+    font-size: 28rpx;
+    color: #999999;
+}
+

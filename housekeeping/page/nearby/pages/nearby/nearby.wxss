@@ -1,0 +1,5 @@
+/* page/nearby/pages/nearby/nearby.wxss */
+page{
+    background: #f8f8f8
+}
+

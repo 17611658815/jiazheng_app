@@ -1,0 +1,30 @@
+<!--page/order/pages/payment/payment.wxml-->
+<view class='container'>
+    <view class='payment_money'>
+        <view class='payment_time'>
+            <text>剩余支付时间</text>
+            <text>15:00</text>
+        </view>
+    </view>
+    <view class='payment_msg dpfC'>
+        <view class='fontSize-24 color3'>支付金额</view>
+        <view class='fontWeight5' style='font-size:58rpx;padding:30rpx 0'>￥66.00</view>
+        <view class='fontSize-24 color3'>日常保洁</view>
+    </view>
+    <!-- 支付方式 -->
+    <view style='margin:20rpx 0 0 0' class='width_padding dpfC'>
+        <view style='width:95%' class='dpf'>
+            <view class='fontSize-30 color3'>支付方式</view>
+            <view class='dpf'>
+                <image style='width:38rpx;height:38rpx;margin:0 20rpx; display: block' src='../../../../images/icon/icno_wxplay.png'></image>
+                <text class='fontSize-30 color1'>微信支付</text>
+            </view>
+        </view>
+    </view>
+    <!-- button -->
+    <view class='btnbox'>
+        <view class='btnStyle'>确定</view>
+        <view class='isIphoneXBox' wx:if='{{isIphoneX}}'></view>
+    </view>
+    
+</view>

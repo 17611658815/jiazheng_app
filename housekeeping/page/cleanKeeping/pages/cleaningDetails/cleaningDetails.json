@@ -1,0 +1,5 @@
+{
+  "usingComponents": {
+      "add-shop-cart": "../../../../components/addShopCart/addShopCart"
+  }
+}

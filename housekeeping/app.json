@@ -1,0 +1,78 @@
+{
+    "pages": [
+        "page/tabber/index/index",
+        "page/tabber/other/other",
+        "page/tabber/classify/classify",
+        "page/tabber/may/may"
+    ],
+    "window": {
+        "backgroundTextStyle": "light",
+        "navigationBarBackgroundColor": "#fff",
+        "navigationBarTitleText": "家政服务",
+        "navigationBarTextStyle": "black"
+    },
+    "tabBar": {
+        "color": "#999999",
+        "backgroundColor": "#ffffff",
+        "selectedColor": "#53a2ef",
+        "list": [
+            {
+                "pagePath": "page/tabber/index/index",
+                "text": "首页",
+                "iconPath": "images/tabber/tab_home.png",
+                "selectedIconPath": "images/tabber/tab_home_sl.png"
+            },
+            {
+                "pagePath": "page/tabber/classify/classify",
+                "text": "分类",
+                "iconPath": "images/tabber/tab_class.png",
+                "selectedIconPath": "images/tabber/tab_class_sl.png"
+            },
+            {
+                "pagePath": "page/tabber/other/other",
+                "text": "订单",
+                "iconPath": "images/tabber/tab_order.png",
+                "selectedIconPath": "images/tabber/tab_order_sl.png"
+            },
+            {
+                "pagePath": "page/tabber/may/may",
+                "text": "我的",
+                "iconPath": "images/tabber/tab_may.png",
+                "selectedIconPath": "images/tabber/tab_may_sl.png"
+            }
+        ]
+    },
+    "subPackages": [
+        {
+            "root": "page/cleanKeeping/",
+            "pages": [
+                "pages/cleaningList/cleaningList",
+                "pages/cleaningDetails/cleaningDetails",
+                "pages/selectTime/selectTime",
+                "pages/commentMore/commentMore"
+            ]
+        },
+        {
+            "root": "page/nearby/",
+            "pages": [
+                "pages/nearby/nearby",
+                "pages/techniciandetails/techniciandetails"
+            ]
+        },
+        {
+            "root": "page/order/",
+            "pages": [
+                "pages/placeorder/placeorder",
+                "pages/payment/payment"
+            ]
+        }
+    ],
+    "networkTimeout": {
+        "request": 10000,
+        "connectSocket": 10000,
+        "uploadFile": 10000,
+        "downloadFile": 10000
+    },
+    "debug": false,
+    "sitemapLocation": "sitemap.json"
+}

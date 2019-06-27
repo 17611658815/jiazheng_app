@@ -1,0 +1,24 @@
+<view class='addCartBox'>
+    <view class='addCartBox-box'>
+        <view class='addCartBox-box-left'>
+            <view class='addCartBox-box-left-item' bindtap='goindex'>
+                <image src='../../images/icon/icon_index.png'></image>
+                <text>首页</text>
+            </view>
+            <view class='addCartBox-box-left-item'>
+                <image src='../../images/icon/icon_service.png'></image>
+                <text>客服</text>
+                <button class='contactBtn' open-type='contact'></button>
+            </view>
+            <view class='addCartBox-box-left-item'>
+                <image src='../../images/icon/icon_cart.png'></image>
+                <text>购物车</text>
+            </view>
+        </view>
+        <view class='addCartBox-box-right'>
+            <view>加入购物车</view>
+            <view bindtap='purchase'>立即购买</view>
+        </view>
+    </view>
+    <view class='isIphoneXBox' wx:if='{{isIphoneX}}'></view>
+</view>

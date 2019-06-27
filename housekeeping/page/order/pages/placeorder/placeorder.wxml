@@ -1,0 +1,110 @@
+<!--page/order/pages/placeorder/placeorder.wxml-->
+<view class='container' catch:touchmove>
+    <!-- 请选择地址 -->
+    <view style='margin:20rpx 0' class='width_padding dpfC'>
+        <!-- <view style='width:95%' class='add_address dpfbetween'>
+            <view class='dpf fontSize-32 color1'>
+                <image class='icon_GPS' style='margin-right:10rpx' src='../../../../images/icon/icon_GPS.png'></image> 请选择服务地址
+            </view>
+            <view>
+                <image style='width:35rpx;height:35rpx' src='../../../../images/icon/icon_right.png'></image>
+            </view>
+        </view> -->
+        <view style='width:95%' class='dpfC'>
+            <view style='width:100%' class='dpfbetween'>
+                <view class='dpf fontWeight5 fontSize-32 color1'>
+                    <image class='icon_GPS' style='margin-right:10rpx' src='../../../../images/icon/icon_GPS.png'></image> 芍药居甲4号院子
+                </view>
+                <view>
+                    <image style='width:35rpx;height:35rpx' src='../../../../images/icon/icon_right.png'></image>
+                </view>
+            </view>
+            <view  class='address_info fontSize-24 color1' style='width:90%'>
+                <text>张起灵</text>
+                <text>1551515121212</text>
+            </view>
+        </view>
+    </view>
+    <!-- 商品数量 -->
+    <view class='numBox width_padding dpfC'>
+        <view class='add_address dpfbetween'>
+            <view class='fontSize28 color1'>
+                <image style='width:25rpx;height:25rpx;margin-right:10rpx;' src='../../../../images/icon/icon_common2.png'></image>
+                大众工匠
+            </view>
+        </view>
+        <view style='padding:40rpx 0;' class='dpf'>
+            <view class='service_pic'>
+                <image src='http://i2.chuimg.com/f30f7ea4346c11e7947d0242ac110002_3264w_2448h.jpg?imageView2/2/w/620/interlace/1/q/90'></image>
+            </view>
+            <view class='service_right'>
+                <view class='fontSize-32 color1 fontWeight5'>日常保洁</view>
+                <view class='dpfbetween'>
+                    <view>
+                        <text class='fontSize-32 color4 fontWeight5'>24</text>
+                        <text class='fontSize28 color4'>元/小时</text>
+                    </view>
+                    <view class='dpf'>
+                        <text class='sub'>-</text>
+                        <text class='num'>1</text>
+                        <text class='add'>+</text>
+                    </view>
+                </view>
+            </view>
+        </view>
+        <view class='dpfbetween padding30'>
+            <view class='fontSize-32 color1'>上门时间</view>
+            <view class='dpf'>
+                <text style='margin-right:10rpx' class='fontSize-26 color1'>最近可约</text>
+                <text class='fontSize-26 color4'>明天12:00</text>
+                <image style='width:35rpx;height:35rpx' src='../../../../images/icon/icon_right.png'></image>
+            </view>
+        </view>
+        <view class='dpfbetween'>
+            <view class='fontSize-32 color1'>优惠卷</view>
+            <view class='dpf'>
+                <text class='fontSize-26 color3'>暂无优惠卷</text>
+                <image style='width:35rpx;height:35rpx' src='../../../../images/icon/icon_right.png'></image>
+            </view>
+        </view>
+    </view>
+    <!-- 支付方式 -->
+    <view style='margin:20rpx 0 0 0' class='width_padding dpfC'>
+        <view style='width:95%' class='dpf'>
+            <view class='fontSize-30 color3'>支付方式</view>
+            <view class='dpf'>
+                <image style='width:38rpx;height:38rpx;margin:0 20rpx; display: block' src='../../../../images/icon/icno_wxplay.png'></image>
+                <text class='fontSize-30 color1'>微信支付</text>
+            </view>
+        </view>
+    </view>
+    <!-- 服务金额 -->
+    <view style='margin:20rpx 0' class='width_padding dpfC'>
+        <view style='width:95%' class='dpfbetween'>
+            <text class='fontSize-32 color1'>服务金额</text>
+            <text class='fontSize-30 color4'>24.00元</text>
+        </view>
+    </view>
+    <!-- 备注 -->
+    <view class='width_padding dpfC'>
+        <view class='fontSize-32 color1' style='width:95%;padding-bottom:30rpx;'>
+            备注
+        </view>
+        <view class='textarea_box' style='width:95%'>
+            <textarea placeholder="如特殊需求可以再此给商家留言" placeholder-class="phcolor">
+
+            </textarea>
+        </view>
+    </view>
+    <!-- 立即购买 -->
+    <view class='purchase'>
+        <view style='width:100%;' class='dpf'>
+            <view class='purchase_price'>
+                <text class='fontSize-30 color1'>实付款:</text>
+                <text class='fontSize-30 color4 fontWeight5'>24.00元</text>
+            </view>
+            <view class='purchase_btn' catchtap='goPayment'>立即购买</view>
+        </view>
+        <view class='isIphoneXBox' wx:if='{{isIphoneX}}'></view>
+    </view>
+</view>

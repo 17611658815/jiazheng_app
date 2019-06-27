@@ -1,0 +1,98 @@
+page{
+ position: relative;
+}
+.commentBox{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: #f8f8f8;
+   position: relative;
+}
+.commentBox-header{
+    width: 100%;
+    padding: 25rpx 0;
+    border-bottom: 1rpx solid #e2e2e2;
+    background: white;
+}
+.commentBox-header-top{
+    width: 95%;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+}
+.commentBox-header-left{
+    display: flex;
+    align-items: center;
+}
+.radioBox{
+    width: 26rpx;
+    height: 26rpx;
+    margin-right: 20rpx;
+}
+.commentBox-header-left image{
+    width: 26rpx;
+    height: 26rpx;
+}
+.radioBox{
+    width: 26rpx;
+    height: 26rpx;
+    border: 1rpx solid #e2e2e2;
+    border-radius: 50%;
+}
+
+/* 全部 好评 中评 。。。 */
+.comment_sort{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #ffffff;
+}
+.comment_sort_content{
+    width: 95%;
+    padding: 25rpx 0;
+    display: flex;
+    font-size: 26rpx;
+    justify-content: space-between;
+}
+.comment_sort_content_item{
+    padding: 10rpx 30rpx;
+    background: #f8f8f8;
+    border-radius: 40rpx;
+}
+/* 评论样式 */
+.commentList-box{
+    width: 100%;
+}
+.inputBox{
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 15rpx 0;
+    background: #E9E9E9;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 99;
+    animation: myfirst2 0.8s;
+}
+.input{
+    width: 90%;
+    height: 66rpx;
+    background: #ffffff;
+    padding-left: 20rpx;
+    border: none;
+    border-radius: 5rpx;
+}
+@keyframes myfirst2 {
+    from {
+        opacity:0;
+    }
+ 
+    to {
+        opacity:1;
+    }
+}

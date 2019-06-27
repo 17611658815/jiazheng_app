@@ -1,0 +1,220 @@
+@import "common/loading/loading.wxss";
+
+/* 方向滚动导航 */
+@import "common/scrollX-List/scrollX-List.wxss";
+
+/* 保洁列表模板 */
+@import "common/cleaningList/cleaningList.wxss";
+
+/* 选择项目 */
+@import "common/selectItems/selectItems.wxss";
+
+/* 评论列表 */
+@import "common/commentList/commentList.wxss";
+
+/* 技师列表 */
+@import "common/technicianList/technicianList.wxss";
+
+page {
+    border-top: 1rpx solid #e2e2e2;
+}
+
+.container {
+    height: 100%;
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+    align-items: center;
+    box-sizing: border-box;
+}
+
+.dpfC {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.dpf {
+    display: flex;
+    align-items: center;
+}
+
+.dpfbetween {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.fontSize-32 {
+    font-size: 32rpx;
+}
+
+.fontSize-30 {
+    font-size: 30rpx;
+}
+
+.fontSize-34 {
+    font-size: 34rpx;
+}
+
+.fontSize-36 {
+    font-size: 36rpx;
+}
+
+.fontSize-26 {
+    font-size: 26rpx;
+}
+
+.fontSize-28 {
+    line-height: 46rpx;
+    font-size: 28rpx;
+}
+
+.fontSize28 {
+    font-size: 28rpx;
+}
+
+.fontSize-22 {
+    font-size: 22rpx;
+}
+
+.fontSize-24 {
+    font-size: 24rpx;
+}
+
+.fontWeight5 {
+    font-weight: 500 !important;
+}
+
+.color1 {
+    color: #333;
+}
+
+.color2 {
+    color: #666;
+}
+
+.color3 {
+    color: #999;
+}
+
+.color4 {
+    color: #fa5454;
+}
+.padding30{
+    padding: 30rpx 0;
+}
+.borderTop {
+    border-top: 1rpx solid #e2e2e2;
+}
+
+.icon-right {
+    width: 30rpx;
+    height: 30rpx;
+}
+
+.icon-userPic {
+    width: 52rpx;
+    height: 52rpx;
+    border-radius: 50%;
+    margin-right: 20rpx;
+}
+
+.btnStyle {
+    width: 100%;
+    height: 98rpx;
+    text-align: center;
+    line-height: 98rpx;
+    background: #5994f7;
+    color: #fff;
+    font-size: 34rpx;
+    border-radius: 5rpx;
+}
+
+.maxHeight {
+    max-height: 100vh;
+    overflow: hidden;
+}
+
+/* 选中 */
+
+.checkedClass {
+    background: #6297f3 !important;
+    color: #fff !important;
+}
+
+.paddingBtm90 {
+    padding-bottom: 90rpx;
+}
+
+.paddingBtm180 {
+    padding-bottom: 150rpx;
+}
+
+.isIphoneXBox {
+    width: 100%;
+    height: 50rpx;
+    background: #fff;
+}
+
+.icon_GPS {
+    width: 25rpx;
+    height: 35rpx;
+    margin-right: 10rpx;
+}
+
+.leaberBox {
+    padding: 7rpx 8rpx;
+    background: #f4f5f7;
+    font-size: 22rpx;
+    color: #666;
+    margin-right: 20rpx;
+    border-radius: 5rpx;
+}
+
+.radiusPic {
+    width: 56rpx;
+    height: 56rpx;
+    border-radius: 50%;
+    margin-right: 20rpx;
+}
+
+/* 溢出省略 */
+
+.white_noWrap {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+/*  */
+
+.width_padding {
+    width: 100%;
+    padding: 35rpx 0;
+    background: #fff;
+}
+
+/* 加减按钮 */
+
+.add, .sub {
+     display: inline-block;
+    width: 47rpx;
+    height: 47rpx;
+    text-align: center;
+    line-height: 45rpx;
+    background: #f6f6f6;
+    font-size: 50rpx;
+    color: #999;
+}
+
+.num {
+    display: inline-block;
+    width: 78rpx;
+    height: 47rpx;
+    color: #333;
+    text-align: center;
+    line-height: 47rpx;
+    font-size: 30rpx;
+}

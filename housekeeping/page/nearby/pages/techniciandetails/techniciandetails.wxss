@@ -1,0 +1,131 @@
+/* page/nearby/pages/techniciandetails/techniciandetails.wxss */
+page{
+    background: #f8f8f8;
+    min-height: 100vh;
+}
+/* 名片 */
+.technician_info{
+    width: 100%;
+    display: flex;
+    background: #ffffff;
+    padding: 40rpx 0;
+    align-items: center;
+    justify-content: center;
+}
+.technician_info_content{
+    width: 95%;
+    display: flex;
+}
+.technician_pic image{
+    width: 180rpx;
+    height: 212rpx;
+}
+.technician_card{
+    flex: 1;
+    height: 212rpx;
+    background: white;
+    margin-left: 68rpx;
+}
+.technician_name text:nth-child(2){
+    padding: 7rpx 7rpx;
+    background: #5994F7;
+    color: #ffffff;
+    text-align: center;
+    font-size: 24rpx;
+    border-radius: 30rpx;
+    margin-left: 36rpx;
+}
+.technician_distance{
+    padding: 28rpx 0;
+}
+.technician_distance_left{
+    width: 100%;
+}
+.technician_title{
+    padding: 17rpx 0 23rpx 0;
+}
+.icon_common2{
+    width: 23rpx;
+    height: 23rpx;
+}
+.icon_right{
+    width: 23rpx;
+    height: 23rpx;    
+}
+/* 专业技能 */
+.adept_content{
+    width: 100%;
+    padding: 35rpx 0;
+    background: #ffffff;
+    margin-top: 20rpx;
+}
+.adept_content_part{
+    width: 95%;
+
+}
+.adept_content_icon{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 10rpx;
+}
+.adept_content_icon image{
+    width:40rpx;
+    height: 40rpx; 
+}
+/* TA的评价 */
+.evaluate_content{
+    width: 100%;
+    padding: 40rpx 0 30rpx 0;
+    background: #ffffff;
+    margin-top: 20rpx; 
+}
+.evaluate_content_box{
+    width: 95%;
+}
+.evaluate_content_pic{
+    padding: 30rpx 0 20rpx 0;
+}
+.evaluate_name{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+/* 他的服务项目 */
+.other_content{
+    width: 100%;
+    background: #ffffff;
+    padding: 40rpx 0;
+    margin-top: 20rpx;
+
+}
+.other_content_title{
+    width: 100%;
+}
+.other_content_list{
+    width: 100%;
+    padding: 40rpx 0;
+    border-bottom: 1rpx solid #e2e2e2;
+}
+.other_content_list_left{
+    width: 210rpx;
+    height: 150rpx;
+}
+.other_content_list_left image{
+    width: 100%;
+    height: 100%;
+    border-radius: 10rpx;
+}
+.other_content_list_right{
+    flex: 1;
+    height: 150rpx;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin-left: 20rpx;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+

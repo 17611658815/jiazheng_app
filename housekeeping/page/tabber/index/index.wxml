@@ -1,0 +1,135 @@
+<!--index.wxml-->
+<view class="container">
+    <view class='home-content'>
+        <!-- 头部 -->
+        <view class='home-content-header dpf'>
+            <picker bindchange="bindPickerChange" value="{{index}}" range="{{array}}">
+                <view class='home-content-GPS'>
+                    <image class='icon_GPS' src='../../../images/icon/icon_GPS.png'></image>
+                    <view class="picker">
+                        {{array[index]}}
+                    </view>
+                    <image class='icon_down' src='../../../images/icon/icon_down.png'></image>
+                </view>
+            </picker>
+            <view class='home-content-search'>
+                <image class='icon_search' src='../../../images/icon/icon_search.png'></image>
+                快速搜索商家，服务
+            </view>
+        </view>
+        <view class='home-swiper'>
+            <image src='../../../images/banner/banner1.png'></image>
+        </view>
+        <!-- 导航 -->
+        <view class='home-navList'>
+            <navigator hover-class='none' wx:for='{{navArr}}' wx:key='key' url='{{item.url}}'>
+                <view class='home-navList-item {{index>=5 ? "marginTop":""}}'>
+                    <view class='home-navList-item-icon'>
+                        <image src='{{item.icon}}'></image>
+                    </view>
+                    <view class='home-navList-item-text'>
+                        {{item.name}}
+                    </view>
+                </view>
+            </navigator>
+        </view>
+        <!-- 电话预约 -->
+        <view class='phoneNumber'>
+            <image mode='scaleToFill' src='../../../images/logo/phone_num.png'></image>
+        </view>
+        <!-- 领卷 -->
+        <view class='home-advertising'>
+            <image mode='scaleToFill' src='../../../images/logo/packet_red.png'></image>
+        </view>
+        <!-- 附近技师 -->
+        <view class='home-hot-activity'>
+            <view class='home-hot-activity-left' bindtap='goNearby'>
+                <image src='../../../images/logo/bg_1.png'></image>
+                <view>
+                    附近技师
+                </view>
+            </view>
+            <view class='home-hot-activity-right'>
+                <view>
+                    <image src='../../../images/logo/bg_2.png'></image>
+                    <view class='activity_title'>限时秒杀</view>
+                    <view class='activity_text'>
+                        <text style='margin-right:20rpx;'>限量优惠</text>
+                        <text>先抢先得</text> </view>
+                </view>
+                <view>
+                    <image src='../../../images/logo/bg_3.png'></image>
+                    <view class='activity_title'>特惠精选</view>
+                    <view class='activity_text'>
+                        <text style='margin-right:20rpx;'>优质服务</text>
+                        <text>低至五折</text>
+                    </view>
+                </view>
+            </view>
+        </view>
+    </view>
+    <!-- 服务分类更多 -->
+    <view class='home-class-server' wx:for='{{3}}' wx:key='key'>
+        <view class='home-class-server-item'>
+            <view class='home-class-server-item-title'>
+                <view class='title-text'>保洁</view>
+                <view class='more'>更多
+                    <image src='../../../images/icon/icon_right.png'></image>
+                </view>
+            </view>
+            <view class='home-class-server-item-img'>
+                <view class='home-class-server-item-img-Msg' wx:for='{{2}}' wx:key='key'>
+                    <image src='http://i2.chuimg.com/e7da54e68b6611e6a9a10242ac110002_1117w_1080h.jpg?imageView2/2/w/620/interlace/1/q/90'></image>
+                    <view class='server_name'>
+                        洗衣机维修
+                    </view>
+                    <view class='server_price'>
+                        <text>30</text>元/次
+                    </view>
+                </view>
+            </view>
+        </view>
+    </view>
+    <view class='home-class-server'>
+        <view class='home-class-server-item'>
+            <view class='home-class-server-item-title'>
+                <view class='title-text'>会员福利</view>
+                <view class='more'>更多
+                    <image src='../../../images/icon/icon_right.png'></image>
+                </view>
+            </view>
+            <scroll-view scroll-x="true" class='vip_welfare' style="">
+                <view class='vip_welfare_content' wx:for='{{vipActivity}}' style='background-image: url({{item.bgUrl}});background-size: 100% 100%;' wx:key='key'>
+                    <view>
+                        {{item.text1}}
+                    </view>
+                    <view>
+                        {{item.text2}}
+                    </view>
+                </view>
+            </scroll-view>
+        </view>
+    </view>
+    <view class='home-foot-content'>
+        <view class='btmInit'>
+            <view class='solisView'></view>
+            <view style='margin:0 10rpx;'>到底了哦</view>
+            <view class='solisView'></view>
+        </view>
+        <view class='btmMsg'>
+            <view>
+                <image src='../../../images/icon/icon_tick.png'></image>
+                <text>优质服务</text>
+            </view>
+            <view>
+                <image src='../../../images/icon/icon_tick.png'></image>
+                <text>全程保证</text>
+            </view>
+            <view>
+                <image src='../../../images/icon/icon_tick.png'></image>
+                <text>安全无忧</text>
+            </view>
+        </view>
+
+    </view>
+</view>

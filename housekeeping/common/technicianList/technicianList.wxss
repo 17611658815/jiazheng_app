@@ -1,0 +1,72 @@
+.technician_list{
+    width: 95%;
+    padding-bottom: 30rpx;
+}
+.technician_list_item{
+    width: 93%;
+    padding: 30rpx 22rpx;
+    /* height: 285rpx; */
+    background: #ffffff;
+    margin-top: 20rpx;
+    border-radius: 10rpx;
+    box-shadow:2rpx 2rpx 20rpx #e2e2e2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+.technician_list_item_pic{
+    width: 123rpx;
+    height: 245rpx;
+    display: flex;
+    margin-left: 10rpx;
+}
+.technician_list_item_pic image{
+    width: 86rpx;
+    height: 86rpx;
+    border-radius: 50%;
+}
+.technician_list_item_info{
+    flex: 1;
+    height: 100%;
+    align-items: center;
+}
+.technician_list_item_info_n image{
+   width: 25rpx;
+    height: 35rpx;
+    margin-right: 10rpx;
+}
+.technician_list_item_info_describe{
+    width: 540rpx;
+    padding: 17rpx 0 23rpx 0; 
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    border-bottom: 1rpx solid #e2e2e2
+
+}
+.technician_list_item_info_comment{
+    padding: 22rpx 0 0 0;
+}
+.icon_common2{
+    width: 23rpx;
+    height: 23rpx;
+}
+.icon_right{
+    width: 23rpx;
+    height: 23rpx;    
+}
+.technician_list_item_info_label{
+     width: 540rpx;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.technician_list_item_info_label text{
+    padding: 7rpx 8rpx;
+    background: #F4F5F7;
+    font-size: 22rpx;
+    color: #666666;
+    margin-right: 20rpx;
+    border-radius: 5rpx;
+}
