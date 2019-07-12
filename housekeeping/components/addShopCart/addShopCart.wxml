@@ -10,7 +10,7 @@
                 <text>客服</text>
                 <button class='contactBtn' open-type='contact'></button>
             </view>
-            <view class='addCartBox-box-left-item'>
+            <view class='addCartBox-box-left-item' bindtap='goshopCart'>
                 <image src='../../images/icon/icon_cart.png'></image>
                 <text>购物车</text>
             </view>

@@ -41,6 +41,12 @@ Component({
             wx.navigateTo({
                 url: '/page/order/pages/placeorder/placeorder',
             })
-        }
+        },
+        //去购物车 
+        goshopCart() {
+            wx.navigateTo({
+                url: '/page/order/pages/shopCart/shopCart',
+            })
+        },
     }
 })

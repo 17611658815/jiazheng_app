@@ -1,0 +1,33 @@
+<view class='container {{isIphoneX ? "paddingBtm150":"paddingBtm100"}}'>
+    <view class='addressBox dpfC' wx:for='{{7}}' wx:key='key'>
+        <view class='address_item'>
+          <image class='del delimg' src='../../../../images/icon/icon_colse.png'></image>
+            <view class='item_name padding30'>
+                <view class='dpf'>
+                    <text class='fontSize-30 color1'>张起灵</text>
+                    <text class='fontSize28 color2 marginLeft'>15326856523</text>
+                </view>
+                <view class='fontSize-26 color1 marginTop'>
+                    <text>北京市-朝阳区</text>
+                    <text class='marginLeft'>四惠大厦西配楼</text>
+                </view>
+            </view>
+            <view class='item_select dpfb padding24'>
+                <view class='fontSize-24 color3 dpf' data-index='{{index}}' bindtap='selectAddres'>
+                     <image wx:if='{{index == currentTab}}' class='roundTick marginRight' src='../../../../images/icon/icon_tick_2.png'></image>
+                     <image wx:else class='roundTick marginRight' src='../../../../images/icon/icon_tick_1.png'></image>
+                    <text class='{{index == currentTab ? "selectActive":""}}'>已设为默认</text> 
+                </view> 
+                <view class='fontSize-24 color3'>编辑</view> 
+            </view>
+        </view>
+      
+    </view>
+    <!-- 新建地址 -->
+    <view class='newAddres' bindtap='addNewAddres'>
+        <view class='createAddres fontSize-34'>
+            新建地址
+        </view> 
+        <view class='isIphoneXBox' wx:if='{{isIphoneX}}'></view>
+    </view>
+</view>

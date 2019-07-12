@@ -1,0 +1,16 @@
+.otherPic{
+    width: 190rpx;
+    height: 135rpx;
+}
+.otherPic image{
+    width: 100%;
+    height: 100%;
+    border-radius: 6rpx;
+}
+.otherText{
+    display: flex;
+    height: 135rpx;
+    flex-direction: column;
+    justify-content: space-between;
+    margin-left: 20rpx;
+}

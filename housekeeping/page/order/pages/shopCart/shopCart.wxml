@@ -1,0 +1,66 @@
+<!--page/order/pages/shopCart/shopCart.wxml-->
+
+<view class='container' wx:if='{{Cart.length>0}}'>
+    <view class='goods_content dpfC width100 padding30 marginTop' wx:for='{{Cart}}' wx:key='key'>
+        <view class='goods_content_item width90'>
+            <view class='dpf'>
+                <view class='radioBox marginRight' data-index='{{index}}' bindtap='SingChecked'>
+                    <image wx:if='{{item.checked}}' src='../../../../images/icon/inon_checked.png'></image>
+                </view>
+                <view class='dpf'>
+                    <image style='width:24rpx;height:24rpx' src='../../../../images/icon/icon_common2.png'></image>
+                    <text style='margin:0rpx 10rpx' class='fontSize-28 color1'>大众工匠 {{item.checked}}</text>
+                </view>
+            </view>
+            <view class='itemright dpf'>
+                <view class='radioBox marginRight' data-index='{{index}}' bindtap='SingChecked'>
+                    <image wx:if='{{item.checked}}' src='../../../../images/icon/inon_checked.png'></image>
+                </view>
+                <view style='flex:1' class='dpf'>
+                    <view class='leftImg marginRight'>
+                        <image src='http://i2.chuimg.com/e7da54e68b6611e6a9a10242ac110002_1117w_1080h.jpg?imageView2/2/w/620/interlace/1/q/90'></image>
+                    </view>
+                    <view class='goodsContent'>
+                        <view>
+                            <view class='fontSize-32 color1 fontWeight5'>{{item.name}}</view>
+                            <view class='fontSize-32 color1'>
+                            <text class='fontWeight5'>{{item.price}}</text>/元小时</view>
+                        </view>
+                        <view class='dpfb width100'>
+                            <view class='fontSize-32 color4 fontWeight5'>合计：{{item.price * item.count}}元</view>
+                            <view class='dpf'>
+                                <text class='add' data-type='sub' data-index='{{index}}' catchtap='can'>-</text>
+                                <text class='num'>{{item.count}}</text>
+                                <text class='sub' data-type='add' data-index='{{index}}' catchtap='add'>+</text>
+                            </view>
+                        </view>
+                    </view>
+                </view>
+            </view>
+        </view>
+    </view>
+</view>
+
+<view class='container' wx:else>
+    <view class='empty_box'>
+        <view class='empty_image'></view>
+        <view class='fontSize-28 color2' style='margin-top:60rpx;'>购物车空空如也，去逛逛吧~</view>
+        <view class='fontSize-22 color3' style='margin-top:22rpx;'>优质服务，还是买买买更爽快~</view>
+        <view class='emptyBtn' style='margin-top:52rpx;'>去逛逛</view>
+    </view>
+</view>
+
+  <view class='purchase' wx:if='{{Cart.length>0}}'>
+    <view style='width:100%;' class='dpf'>
+        <view class='purchase_price dpf'>
+             <view class='radioBox marginRight marginLeft' data-index='{{index}}' bindtap='Checked'>
+                <image wx:if='{{selectAll}}' src='../../../../images/icon/inon_checked.png'></image>
+            </view>
+            <view class='fontSize-30 color1 marginRight'>全选</view>
+            <view class='fontSize-30 color1'>合计：</view>
+            <view class='fontSize-30 color4 fontWeight5'>{{total}}元</view>
+        </view>
+        <view class='purchase_btn' catchtap='goPayment'>去下单</view>
+    </view>
+    <view class='isIphoneXBox' wx:if='{{isIphoneX}}'></view>
+</view>

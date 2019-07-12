@@ -1,1 +1,31 @@
 /* pages/tabber/other/other.wxss */
+page{
+    /* background: #f8f8f8 */
+}
+.header{
+    padding: 35rpx 0;
+    background: #f8f8f8;
+    position: fixed;
+    top: 0;
+    left: 0;
+}
+.otherContent{
+    width: 100%;
+    background: #ffffff;
+    border-bottom: 20rpx solid #f8f8f8;
+}
+.otherContent:nth-child(n+2){
+    margin-top: 20rpx;
+}
+.other_item{
+    width: 90%;
+}
+.icon_common2{
+    width: 24rpx;
+    height: 24rpx;
+}
+
+
+.btnBox view{
+    margin-left: 20rpx;
+}

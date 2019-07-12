@@ -1,0 +1,44 @@
+page{
+    background: #f8f8f8;
+}
+.addressBox{
+    width: 100%;
+    background: #ffffff;
+    margin-top: 21rpx;
+}
+.address_item{
+    width: 90%;
+    position: relative;
+}
+.item_select{
+     border-top: 1rpx solid #e2e2e2;
+}
+.padding24{
+    padding: 24rpx 0
+}
+.newAddres{
+    width: 100%;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    z-index: 99;
+}
+.createAddres{
+    width: 100%;
+    height: 102rpx;
+    background: #6297f3;
+    color: #ffffff;
+    text-align: center;
+    line-height: 102rpx;
+}
+.paddingBtm100{
+    padding-bottom: 101rpx;
+}
+.paddingBtm150{
+    padding-bottom: 150rpx;
+}
+.delimg{
+    position: absolute;
+    top: 20rpx;
+    right: 0;
+}

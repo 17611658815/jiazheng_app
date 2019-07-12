@@ -1,41 +1,48 @@
-page{
- position: relative;
+page {
+    position: relative;
 }
-.commentBox{
+
+.commentBox {
     width: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     background: #f8f8f8;
-   position: relative;
+    position: relative;
 }
-.commentBox-header{
+
+.commentBox-header {
     width: 100%;
     padding: 25rpx 0;
     border-bottom: 1rpx solid #e2e2e2;
     background: white;
 }
-.commentBox-header-top{
+
+.commentBox-header-top {
     width: 95%;
     margin: auto;
     display: flex;
     justify-content: space-between;
 }
-.commentBox-header-left{
+
+.commentBox-header-left {
     display: flex;
     align-items: center;
 }
-.radioBox{
+
+.radioBox {
     width: 26rpx;
     height: 26rpx;
     margin-right: 20rpx;
 }
-.commentBox-header-left image{
+
+.commentBox-header-left image {
     width: 26rpx;
     height: 26rpx;
 }
-.radioBox{
+
+.radioBox {
     width: 26rpx;
     height: 26rpx;
     border: 1rpx solid #e2e2e2;
@@ -43,56 +50,64 @@ page{
 }
 
 /* 全部 好评 中评 。。。 */
-.comment_sort{
+
+.comment_sort {
     width: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
-    background: #ffffff;
+    background: #fff;
 }
-.comment_sort_content{
+
+.comment_sort_content {
     width: 95%;
     padding: 25rpx 0;
     display: flex;
     font-size: 26rpx;
     justify-content: space-between;
 }
-.comment_sort_content_item{
+
+.comment_sort_content_item {
     padding: 10rpx 30rpx;
     background: #f8f8f8;
     border-radius: 40rpx;
 }
+
 /* 评论样式 */
-.commentList-box{
+
+.commentList-box {
     width: 100%;
 }
-.inputBox{
+
+.inputBox {
     position: fixed;
     bottom: 0;
     left: 0;
     width: 100%;
     padding: 15rpx 0;
-    background: #E9E9E9;
+    background: #e9e9e9;
     display: flex;
     align-items: center;
     justify-content: center;
     z-index: 99;
     animation: myfirst2 0.8s;
 }
-.input{
+
+.input {
     width: 90%;
     height: 66rpx;
-    background: #ffffff;
+    background: #fff;
     padding-left: 20rpx;
     border: none;
     border-radius: 5rpx;
 }
+
 @keyframes myfirst2 {
     from {
-        opacity:0;
+        opacity: 0;
     }
- 
+
     to {
-        opacity:1;
+        opacity: 1;
     }
 }

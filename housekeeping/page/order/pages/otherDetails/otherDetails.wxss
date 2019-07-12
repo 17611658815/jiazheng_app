@@ -1,0 +1,63 @@
+/* page/order/pages/otherDetails/otherDetails.wxss */
+page{
+    background: #f8f8f8;
+}
+.soliders{
+    width: 80rpx;
+    height: 1rpx;
+    background: #999999;
+    margin-top: 33rpx;
+}
+.status_box{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #ffffff;
+}
+.status_box_item_icon{
+    width: 66rpx;
+    height: 66rpx;
+    border-radius: 50%;
+    border: 2rpx solid #999999;
+    margin-bottom: 17rpx;
+}
+.status_box_content{
+    display: flex;
+    justify-content: space-around;
+}
+.borderActive{
+    border: 2rpx solid #5994f7!important;
+}
+.addresContent{
+    width: 100%;
+    padding: 30rpx 0;
+    background: #ffffff;
+    margin: 20rpx 0;
+}
+.othermoney{
+    background: #ffffff;
+}
+.otherDetails{
+    margin-top: 20rpx;
+}
+.otherFootFd{
+    width: 100%;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    background: #ffffff;
+}
+.otherFootFd>view:nth-child(1){
+    height: 98rpx;
+    width: 100%;
+    
+}
+.otherFootFd_Box{
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+.otherFootFd_Box>view{
+    margin-left: 20rpx;
+}

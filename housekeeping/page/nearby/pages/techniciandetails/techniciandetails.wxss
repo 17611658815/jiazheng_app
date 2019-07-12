@@ -16,6 +16,10 @@ page{
     width: 95%;
     display: flex;
 }
+.technician_pic{
+    width: 180rpx;
+    height: 212rpx;
+}
 .technician_pic image{
     width: 180rpx;
     height: 212rpx;

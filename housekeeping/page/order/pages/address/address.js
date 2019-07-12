@@ -1,4 +1,4 @@
-// page/order/pages/placeorder/placeorder.js
+// page/order/pages/address/address.js
 const app = getApp()
 Page({
 
@@ -6,7 +6,8 @@ Page({
      * 页面的初始数据
      */
     data: {
-        isIphoneX:false
+        isIphoneX: false,
+        currentTab:0
     },
 
     /**
@@ -19,22 +20,16 @@ Page({
         })
         console.log(this.data.isIphoneX)
     },
-    //立即购买
-    goPayment(){
-        wx.navigateTo({
-            url: '/page/order/pages/payment/payment',
+    selectAddres(e){
+        let index = e.currentTarget.dataset.index
+        this.setData({
+            currentTab: index
         })
     },
-    //去添加地址
-    goAddress(){
+    // 新建地址
+    addNewAddres(){
         wx.navigateTo({
-            url: '/page/order/pages/address/address',
-        })
-    },
-    // 选择优惠卷
-    goSelectTime(){
-        wx.navigateTo({
-            url: '/page/cleanKeeping/pages/selectTime/selectTime',
+            url: '/page/order/pages/newAddress/newAddress',
         })
     },
     /**

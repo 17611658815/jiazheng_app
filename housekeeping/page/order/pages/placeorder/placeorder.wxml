@@ -2,16 +2,16 @@
 <view class='container' catch:touchmove>
     <!-- 请选择地址 -->
     <view style='margin:20rpx 0' class='width_padding dpfC'>
-        <!-- <view style='width:95%' class='add_address dpfbetween'>
+        <view style='width:95%' class='add_address dpfb'  bindtap='goAddress'>
             <view class='dpf fontSize-32 color1'>
                 <image class='icon_GPS' style='margin-right:10rpx' src='../../../../images/icon/icon_GPS.png'></image> 请选择服务地址
             </view>
             <view>
                 <image style='width:35rpx;height:35rpx' src='../../../../images/icon/icon_right.png'></image>
             </view>
-        </view> -->
-        <view style='width:95%' class='dpfC'>
-            <view style='width:100%' class='dpfbetween'>
+        </view>
+        <!-- <view style='width:95%' class='dpfC' bindtap='goAddress'>
+            <view style='width:100%' class='dpfb'>
                 <view class='dpf fontWeight5 fontSize-32 color1'>
                     <image class='icon_GPS' style='margin-right:10rpx' src='../../../../images/icon/icon_GPS.png'></image> 芍药居甲4号院子
                 </view>
@@ -23,11 +23,11 @@
                 <text>张起灵</text>
                 <text>1551515121212</text>
             </view>
-        </view>
+        </view> -->
     </view>
     <!-- 商品数量 -->
     <view class='numBox width_padding dpfC'>
-        <view class='add_address dpfbetween'>
+        <view class='add_address dpfb'>
             <view class='fontSize28 color1'>
                 <image style='width:25rpx;height:25rpx;margin-right:10rpx;' src='../../../../images/icon/icon_common2.png'></image>
                 大众工匠
@@ -39,7 +39,7 @@
             </view>
             <view class='service_right'>
                 <view class='fontSize-32 color1 fontWeight5'>日常保洁</view>
-                <view class='dpfbetween'>
+                <view class='dpfb'>
                     <view>
                         <text class='fontSize-32 color4 fontWeight5'>24</text>
                         <text class='fontSize28 color4'>元/小时</text>
@@ -52,7 +52,7 @@
                 </view>
             </view>
         </view>
-        <view class='dpfbetween padding30'>
+        <view class='dpfb padding30'>
             <view class='fontSize-32 color1'>上门时间</view>
             <view class='dpf'>
                 <text style='margin-right:10rpx' class='fontSize-26 color1'>最近可约</text>
@@ -60,7 +60,7 @@
                 <image style='width:35rpx;height:35rpx' src='../../../../images/icon/icon_right.png'></image>
             </view>
         </view>
-        <view class='dpfbetween'>
+        <view class='dpfb' bindtap='goSelectTime'>
             <view class='fontSize-32 color1'>优惠卷</view>
             <view class='dpf'>
                 <text class='fontSize-26 color3'>暂无优惠卷</text>
@@ -80,7 +80,7 @@
     </view>
     <!-- 服务金额 -->
     <view style='margin:20rpx 0' class='width_padding dpfC'>
-        <view style='width:95%' class='dpfbetween'>
+        <view style='width:95%' class='dpfb'>
             <text class='fontSize-32 color1'>服务金额</text>
             <text class='fontSize-30 color4'>24.00元</text>
         </view>

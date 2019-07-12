@@ -1,10 +1,10 @@
 <!--index.wxml-->
 <view class="container">
-    <view class='home-content'>
+    <view class='dpfC' style='width:95%'>
         <!-- 头部 -->
         <view class='home-content-header dpf'>
-            <picker bindchange="bindPickerChange" value="{{index}}" range="{{array}}">
-                <view class='home-content-GPS'>
+            <picker style='flex: 1;' bindchange="bindPickerChange" value="{{index}}" range="{{array}}">
+                <view class='dpf fontSize-32 color1'>
                     <image class='icon_GPS' src='../../../images/icon/icon_GPS.png'></image>
                     <view class="picker">
                         {{array[index]}}
@@ -72,19 +72,19 @@
     <view class='home-class-server' wx:for='{{3}}' wx:key='key'>
         <view class='home-class-server-item'>
             <view class='home-class-server-item-title'>
-                <view class='title-text'>保洁</view>
-                <view class='more'>更多
-                    <image src='../../../images/icon/icon_right.png'></image>
+                <view class='fontSize-36 fontWeight5'>保洁</view>
+                <view class='fontSize-24 color3 dpf'>更多
+                    <image style='width:30rpx;height:30rpx' src='../../../images/icon/icon_right.png'></image>
                 </view>
             </view>
             <view class='home-class-server-item-img'>
                 <view class='home-class-server-item-img-Msg' wx:for='{{2}}' wx:key='key'>
                     <image src='http://i2.chuimg.com/e7da54e68b6611e6a9a10242ac110002_1117w_1080h.jpg?imageView2/2/w/620/interlace/1/q/90'></image>
-                    <view class='server_name'>
+                    <view style='padding: 15rpx 0;' class='fontSize-32 fontWeight5'>
                         洗衣机维修
                     </view>
-                    <view class='server_price'>
-                        <text>30</text>元/次
+                    <view class='fontSize-34 color4'>
+                        <text class='fontWeight5'>30</text>元/次
                     </view>
                 </view>
             </view>
@@ -93,9 +93,9 @@
     <view class='home-class-server'>
         <view class='home-class-server-item'>
             <view class='home-class-server-item-title'>
-                <view class='title-text'>会员福利</view>
-                <view class='more'>更多
-                    <image src='../../../images/icon/icon_right.png'></image>
+                <view class='fontSize-36 fontWeight5'>会员福利</view>
+                <view class='fontSize-24 color3 dpf'>更多
+                    <image style='width:30rpx;height:30rpx' src='../../../images/icon/icon_right.png'></image>
                 </view>
             </view>
             <scroll-view scroll-x="true" class='vip_welfare' style="">

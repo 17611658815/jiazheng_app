@@ -5,7 +5,7 @@ Page({
      * 页面的初始数据
      */
     data: {
-
+        otherArr:[{msg:'待付款',type:1},{msg:'进行中',type:2},{msg:'已完成',type:3},{msg:'已取消',type:4}]
     },
 
     /**
@@ -14,7 +14,40 @@ Page({
     onLoad: function (options) {
 
     },
-
+    //取消订单
+    recallOther(){
+        wx.showModal({
+            title: '温馨提示',
+            content: '确定取消订单吗？',
+            success(res) {
+                if (res.confirm) {
+                    console.log('用户点击确定')
+                } else if (res.cancel) {
+                    console.log('用户点击取消')
+                }
+            }
+        })
+    },
+    //删除订单
+    delOther(){
+        wx.showModal({
+            title: '温馨提示',
+            content: '确定删除订单吗？',
+            success(res) {
+                if (res.confirm) {
+                    console.log('用户点击确定')
+                } else if (res.cancel) {
+                    console.log('用户点击取消')
+                }
+            }
+        })
+    },
+    //订单详情
+    goOtherDetails(){
+        wx.navigateTo({
+            url: '/page/order/pages/otherDetails/otherDetails',
+        })
+    },
     /**
      * 生命周期函数--监听页面初次渲染完成
      */

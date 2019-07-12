@@ -1,7 +1,6 @@
 //index.js
 //获取应用实例
 const app = getApp()
-
 Page({
     data: {
         index: 0,
@@ -24,7 +23,7 @@ Page({
             {
                 name: '搬家拉货',
                 icon: '../../../images/icon/icon_nav_4.png',
-                url: '../../cleanKeeping/cleaningList/cleaningList'
+                url: '../../cleanKeeping/pages/cleaningList/cleaningList'
             },
             {
                 name: '上门安装',
@@ -34,7 +33,7 @@ Page({
             {
                 name: '即刻达',
                 icon: '../../../images/icon/icon_nav_6.png',
-                url: '../../cleanKeeping/cleaningList/cleaningList'
+                url: '../../cleanKeeping/pages/cleaningList/cleaningList'
             },
             {
                 name: '家庭维修',

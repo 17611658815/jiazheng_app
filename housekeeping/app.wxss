@@ -15,6 +15,9 @@
 /* 技师列表 */
 @import "common/technicianList/technicianList.wxss";
 
+/* 订单复用样式模板 */
+@import "common/othertemp/othertemp.wxss";
+
 page {
     border-top: 1rpx solid #e2e2e2;
 }
@@ -28,6 +31,13 @@ page {
     box-sizing: border-box;
 }
 
+.width100{
+    width: 100%;
+    background: #ffffff;
+}
+.width90{
+    width: 90%;
+}
 .dpfC {
     display: flex;
     flex-direction: column;
@@ -40,7 +50,7 @@ page {
     align-items: center;
 }
 
-.dpfbetween {
+.dpfb {
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -102,23 +112,23 @@ page {
 .color4 {
     color: #fa5454;
 }
+.color5 {
+    color: #5994f7;
+}
 .padding30{
     padding: 30rpx 0;
 }
+.marginTop{
+    margin-top: 20rpx;
+}
+.marginLeft{
+    margin-left: 20rpx;
+}
+.marginRight{
+    margin-right: 20rpx;
+}
 .borderTop {
     border-top: 1rpx solid #e2e2e2;
-}
-
-.icon-right {
-    width: 30rpx;
-    height: 30rpx;
-}
-
-.icon-userPic {
-    width: 52rpx;
-    height: 52rpx;
-    border-radius: 50%;
-    margin-right: 20rpx;
 }
 
 .btnStyle {
@@ -143,7 +153,9 @@ page {
     background: #6297f3 !important;
     color: #fff !important;
 }
-
+.selectActive{
+    color: #6297f3!important;
+}
 .paddingBtm90 {
     padding-bottom: 90rpx;
 }
@@ -217,4 +229,56 @@ page {
     text-align: center;
     line-height: 47rpx;
     font-size: 30rpx;
+}
+/* images style */
+/* 删除 */
+.del{
+    width: 24rpx;
+    height: 24rpx;
+}
+/* 选中圆圈 */
+.roundTick{
+    width: 26rpx;
+    height: 26rpx;
+}
+
+
+.icon-right {
+    width: 30rpx;
+    height: 30rpx;
+}
+
+.icon-userPic {
+    width: 52rpx;
+    height: 52rpx;
+    border-radius: 50%;
+    margin-right: 20rpx;
+}
+
+/* 大工匠icon */
+.icon_common2{
+    width: 24rpx;
+    height: 24rpx;
+}
+
+
+.btn_1{
+    width: 156rpx;
+    height: 60rpx;
+    text-align: center;
+    line-height: 60rpx;
+    font-size: 28rpx;
+    color: #333333;
+    border: 2rpx solid #8f8f8f;
+    border-radius: 6rpx;
+}
+.btn_2{
+     width: 156rpx;
+    height: 60rpx;
+    text-align: center;
+    line-height: 60rpx;
+    font-size: 28rpx;
+    color: #5994f7;
+    border: 2rpx solid #5994f7;
+    border-radius: 6rpx;
 }

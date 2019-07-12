@@ -9,7 +9,7 @@
                     <text style='margin-right:20rpx;' class='fontSize-32 color1 fontWeight5'>无邪</text>
                     <text class='fontSize28 color1 fontWeight5'>维修工</text>
                 </view>
-                <view class='technician_list_item_info_n dpfbetween'>
+                <view class='technician_list_item_info_n dpfb'>
                     <view style='font-size:16rpx;' class='color4'>
                         ★ ★ ★ ★ ★
                     </view>
@@ -25,7 +25,7 @@
                 <view class='technician_list_item_info_describe fontSize-26 color2'>
                     技术专业，从事维修专业6年，擅长家电、热...
                 </view>
-                <view class='technician_list_item_info_comment dpfbetween'>
+                <view class='technician_list_item_info_comment dpfb'>
                     <view class='technician_list_item_info_comment_left dpf'>
                         <image class='icon_common2' src='../../../../images/icon/icon_common2.png'></image>
                         <text style='margin:0rpx 10rpx' class='fontSize-22 color3'>大众工匠</text>

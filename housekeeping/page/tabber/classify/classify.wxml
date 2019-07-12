@@ -1,2 +1,41 @@
 <!--pages/tabber/classify/classify.wxml-->
-<text>pages/tabber/classify/classify.wxml</text>
+<view class='searchBox dpfC'>
+    <view class='searchContent dpf'>
+            <image class='marginRight' style='width:40rpx;height:40rpx' src='../../../images/icon/icon_search.png'></image>
+        <input style='text' placeholder='小区/写字楼/学校等'></input>
+    </view>
+</view>
+<view class='containerBox'>
+    <view class='leftBox'>
+        <view class='leftitme {{index==currentTab ? "selseActive":""}}' data-index='{{index}}' data-id="{{item.id}}" bindtap='scrollToViewFn' wx:for='{{listArr}}' wx:key='key'>
+            <view class='{{index==currentTab ? "borderLeft":""}}'>{{item.name}}</view>
+        </view>
+    </view>
+    <scroll-view class="rightBox" style='height:{{winHeight}}px' scroll-into-view="{{toView}}" scroll-y="true" scroll-with-animation="true">
+        <view class='contenItem' id="{{'toView'+item.id}}" wx:for-index="index" wx:for='{{listArr}}' wx:key='key'>
+                <!-- 推荐样式 -->
+                <view class='right_title_1 fontWeight5' wx:if='{{index == 0}}'>为您推荐</view>
+                <!-- 大众样式 -->
+                <view class='right_title_1 dpfb' wx:else>
+                    <view class='fontSize-32 color1 fontWeight5'>{{item.name}}</view>
+                    <view class='fontSize-24 color3 dpf'>更多
+                        <image style='width:30rpx;height:30rpx' src='../../../images/icon/icon_right.png'></image>
+                     </view>
+                </view>
+                <view class='conten_cover'>
+                    <view class='conten_cover_box' wx:for='{{2}}' wx:for-index="keys" wx:key='key'>
+                         <image src='http://i2.chuimg.com/e7da54e68b6611e6a9a10242ac110002_1117w_1080h.jpg?imageView2/2/w/620/interlace/1/q/90'></image>
+                         <!-- 为您推荐 -->
+                        <view class='hotTitle dpf' wx:if='{{index == 0}}'>
+                            <text class='dpf fontSize-30 color1 fontWeight5' style='padding-left:20rpx'>洗衣机维修
+                            </text> 
+                        </view>
+                        <view class='hotTitle dpf' wx:else>
+                             <text class='dpf fontSize-24 color1' style='text-align: center'>洗衣机维修
+                            </text> 
+                        </view>
+                    </view>
+                </view>
+        </view>     
+    </scroll-view>
+</view>

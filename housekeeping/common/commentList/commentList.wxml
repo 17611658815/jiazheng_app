@@ -24,7 +24,7 @@
             <view class='commentList-item-img'>
                 <image wx:for='{{3}}' src='http://i2.chuimg.com/e7da54e68b6611e6a9a10242ac110002_1117w_1080h.jpg?imageView2/2/w/620/interlace/1/q/90' wx:key='key'></image>
             </view>
-            <view class='commentList-item-support dpfbetween'>
+            <view class='commentList-item-support dpfb'>
                 <view class='fontSize-26 color3'>家庭保洁</view>
                 <view class='commentList-item-support-right dpf'>
                     <view bindtap='comment'>
@@ -41,7 +41,7 @@
         <view class='comment-tetx' wx:if="{{index == 1 && commentMsgArr.length>0}}" wx:for-index="idx" wx:for='{{commentMsgArr}}' wx:key='key'>
             <view class='comment_tetx_item'>
                 <view class='comment_tetx_item_right'>
-                    <view class='dpfbetween'>
+                    <view class='dpfb'>
                         <view class='com_icon fontSize28 color1'>
                              <image src='../../../../images/icon/icon_comment_2.png'></image>萤火虫
                         </view>

@@ -153,7 +153,7 @@
     top: 115rpx;
     left: 0;
     z-index: 999;
-    animation: mysortfirst 0.5s;
+    animation: mysortfirst 0.4s;
 }
 @keyframes mysortfirst {
     from {

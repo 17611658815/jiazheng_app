@@ -1,2 +1,55 @@
 <!--pages/tabber/other/other.wxml-->
-<text>pages/tabber/other/other.wxml</text>
+<import src="../../../common/othertemp/othertemp.wxml"></import>
+<view class="container">
+    <view class='header width100 dpfC'>
+        <view class='width90 dpfb'>
+            <text class='fontSize-34 color1 fontWeight5'>历史订单</text>
+            <image style='width:60rpx;height:60rpx;' src='../../../images/icon/icon_cart.png'></image>
+        </view>
+    </view>
+    <view style='height:110rpx;background: #ffffff;'></view>
+    <view class='otherContent dpfC padding30' wx:for='{{otherArr}}' wx:key='key' catchtap='goOtherDetails'>
+        <view class='other_item width90'>
+            <!-- 订单状态 -->
+            <view class='width100 dpfb'>
+                <view class='dpf'>
+                      <image class='icon_common2' src='../../../images/icon/icon_common2.png'></image>
+                        <text style='margin:0rpx 10rpx' class='fontSize-30 color3'>大众工匠</text>
+                        <image class='icon_right' src='../../../images/icon/icon_right.png'></image>   
+                </view>
+                <view class='fontSize-30 color5'>{{item.msg}}</view>
+            </view> 
+            <!-- 订单内容 -->
+            <!-- <view style='margin:40rpx 0' class='width100 dpf'>
+                <view class='otherPic'>
+                      <image src='http://i2.chuimg.com/e7da54e68b6611e6a9a10242ac110002_1117w_1080h.jpg?imageView2/2/w/620/interlace/1/q/90'></image>
+                </view>
+                <view class='otherText'>
+                    <view class='fontSize-32 color1 fontWeight5'>
+                        日常保洁
+                    </view>
+                    <view>
+                        <view class='fontSize-26 color2'>数量 : 1</view>
+                        <view class='fontSize-26 color2'>总价 : 24.00元</view>
+                    </view>
+                </view>
+            </view> -->
+             <template is="othertemp" data></template>
+            <!-- 订单日期 -->
+            <view class='width100 dpfb'>
+                <view class='fontSize-24 color3'>2109-04-12</view>
+                <view class='btnBox dpf'>
+                    <view catchtap='recallOther' class='btn_1' wx:if='{{item.type == 1 || item.type == 2}}'>取消订单</view> 
+                            
+                    <view class='btn_2' wx:if='{{item.type == 1}}'>去付款</view>
+                    <view catchtap='delOther' class='btn_1' wx:if='{{item.type == 3 || item.type == 4}}'>删除订单</view>
+                    <view class='btn_2' wx:if='{{item.type == 3}}'>评价</view>
+                    <view class='btn_1' wx:if='{{item.type == 4}}'>再来一单</view>
+                </view>
+            </view>
+            <view wx:if='{{index == 1}}' style='margin:20rpx 0 0 0;padding:15rpx 0 0 0;border-top:1rpx solid #e0e0e0' class='width100 dpfb fontSize-22 color3'>
+                商家接单后或服务开始后30分钟内，如不满意可致电客服说明情况申请
+            </view>
+        </view>
+    </view>
+</view>

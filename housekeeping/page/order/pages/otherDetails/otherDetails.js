@@ -1,4 +1,4 @@
-// page/order/pages/placeorder/placeorder.js
+// page/order/pages/otherDetails/otherDetails.js
 const app = getApp()
 Page({
 
@@ -6,7 +6,8 @@ Page({
      * 页面的初始数据
      */
     data: {
-        isIphoneX:false
+        isIphoneX:false,
+        progressArr: [{ name: '派单中', flag: true }, { name: '已接单', flag: true }, { name: '服务中', flag: true }, { name: '已完成', flag: false }] 
     },
 
     /**
@@ -19,24 +20,7 @@ Page({
         })
         console.log(this.data.isIphoneX)
     },
-    //立即购买
-    goPayment(){
-        wx.navigateTo({
-            url: '/page/order/pages/payment/payment',
-        })
-    },
-    //去添加地址
-    goAddress(){
-        wx.navigateTo({
-            url: '/page/order/pages/address/address',
-        })
-    },
-    // 选择优惠卷
-    goSelectTime(){
-        wx.navigateTo({
-            url: '/page/cleanKeeping/pages/selectTime/selectTime',
-        })
-    },
+
     /**
      * 生命周期函数--监听页面初次渲染完成
      */

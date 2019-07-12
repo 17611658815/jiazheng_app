@@ -51,7 +51,7 @@
     <!-- TA的评价 -->
     <view class='evaluate_content dpfC'>
         <view class='evaluate_content_box'>
-            <view class='dpfbetween'>
+            <view class='dpfb'>
                 <view class='fontSize-34 color1 fontWeight5'>TA的评价</view>
                 <view class='dpf fontSize-26 color2'>32条评价 <image style='width:35rpx;height:35rpx' src='../../../../images/icon/icon_right.png'></image> </view>
             </view>
@@ -79,7 +79,7 @@
     <!-- 他服务的项目 -->
     <view class='other_content dpfC'>
         <view style='width:95%' class='dpfC'>
-            <view class='other_content_title dpfbetween'>
+            <view class='other_content_title dpfb'>
                 <view class='fontSize-34 color1 fontWeight5'>他服务的项目</view>
                 <view class='dpf'>
                     <text style='margin-right:10rpx' class='fontSize-26 color1'>最近可约</text>

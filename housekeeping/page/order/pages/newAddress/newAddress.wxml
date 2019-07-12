@@ -1,0 +1,45 @@
+<!--page/order/pages/newAddress/newAddress.wxml-->
+<view class='container'>
+    <view class='width100 dpfC marginTop'>
+        <view class='width90'>
+            <view class='itembox dpf'>
+                <!-- <view class='leaberleft fontSize-30 color2'>联系人</view> -->
+                <input placeholder='联系人' type='tetx'></input>
+
+            </view>
+            <view class='itembox dpf'>
+                <!-- <view class='leaberleft fontSize-30 color2'>手机号码</view> -->
+                <input placeholder='手机号码' type='number'></input>
+            </view>
+            <view class='itembox dpf'>
+                <view class='leaberleft fontSize-30 color2'>
+                
+                 <text class='fontSize-30 color1' wx:if='{{pickerFlag}}'>{{array[index]}}</text>
+                <text  wx:else >所在地区</text>
+                </view>
+                <picker bindchange="bindPickerChange" value="{{index}}" range="{{array}}">
+                    <view class="picker">
+                       
+                        <image class='icon-right' src='../../../../images/icon/icon_right.png'></image>
+                    </view>
+                </picker>
+            </view>
+            <view class='itembox' style='border:none'>
+                <view class='fontSize-30 color2'>
+                    <textarea value='{{addresMsg}}' bindinput='ontextareaChange' placeholder-class='textAreaCtyle' placeholder='详细地址:如街道、楼牌号等' placeholder-style>
+                    
+                    </textarea>
+                </view>
+                <view class='default dpf' bindtap='selectAcquiescent'>
+                    <image wx:if='{{defaultFlag}}' src='../../../../images/icon/icon_tick_2.png'></image>
+                    <image wx:else src='../../../../images/icon/icon_tick_1.png'></image>
+                    <text class='fontSize-24 color3 {{defaultFlag ? "selectActive":""}}'>设置默认</text> 
+                </view>
+            </view>
+        </view>
+    </view>
+    <view class='btnBox'>
+        <button class='btnStyle'>保存</button>
+    </view>
+
+</view>
