@@ -1,0 +1,27 @@
+<!--page/order/pages/coupons/coupons.wxml-->
+<view class='container' wx:if='{{flag}}'>
+    <view class='coupons_item width90 marginTop'>
+        <view class='coupons_item_money'>
+             <view>
+                <text>¥</text>
+                <text>20</text>
+            </view>
+        </view>
+        <view class='coupons_item_time'>
+            <view class='fontSize-26 color6'>日常保洁卷</view>
+            <view class='fontSize-20 color6' style='margin-top:30rpx;'>
+                <text class='marginRight'>2018-10.5</text>
+                <text>2018-11.11</text>
+            </view>
+        </view>
+        <view class='coupons_item_get marginRight'>
+            <view class='btn_get'>立即使用</view>
+        </view>
+    </view>
+</view>
+<view class='container' wx:else>
+    <view class='nocoupons'>
+        <view class='nocoupons_icon'></view>
+        <view class='fontSize-30 color2' style='margin-top:110rpx;'>你暂时还没优惠卷哦~</view>
+    </view> 
+</view>

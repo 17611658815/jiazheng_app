@@ -1,31 +1,20 @@
-// page/order/pages/otherDetails/otherDetails.js
-const app = getApp()
+// page/order/pages/coupons/coupons.js
 Page({
 
     /**
      * 页面的初始数据
      */
     data: {
-        isIphoneX:false,
-        progressArr: [{ name: '派单中', flag: true }, { name: '已接单', flag: true }, { name: '服务中', flag: true }, { name: '已完成', flag: false }] 
+        flag:true,
     },
 
     /**
      * 生命周期函数--监听页面加载
      */
     onLoad: function (options) {
-        let isIphoneX = app.globalData.isIphoneX
-        this.setData({
-            isIphoneX: isIphoneX
-        })
-        console.log(this.data.isIphoneX)
+
     },
-    //去评价
-    goEvaluate(){
-        wx.navigateTo({
-            url: '/page/order/pages/evaluate/evaluate',
-        })
-    },
+
     /**
      * 生命周期函数--监听页面初次渲染完成
      */

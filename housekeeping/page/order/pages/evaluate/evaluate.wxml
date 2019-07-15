@@ -1,0 +1,75 @@
+<!--page/order/pages/evaluate/evaluate.wxml-->
+<view class='container'>
+    <view class='width100 dpfC padding30'>
+        <view class='width90'>
+            <!-- 用户头像 名称 -->
+            <view class='userInfo dpf'>
+                <image class='userimg' src='http://i2.chuimg.com/e7da54e68b6611e6a9a10242ac110002_1117w_1080h.jpg?imageView2/2/w/620/interlace/1/q/90'></image>
+                <text class='fontSize-32 color1 marginLeft'>张起灵</text>
+            </view>
+            <!-- 选择评价 -->
+            <view class='evaluate_icon_content padding30'>
+                <view class='evaluate_icon_content_item' bindtap='selectEvaluate' data-index='{{index}}' wx:for='{{evaluateIcon}}' wx:key='key'>
+                    <image class='evaluate_icon_img' src='{{ evaluateCurrent == index ?item.newPath : item.oldPath }}'></image>
+                    <view class='fontSize-24 color3' wx:if='{{evaluateCurrent == index}}'>{{item.text}}</view>
+                </view>
+            </view>
+            <!-- 差评选项 -->
+            <view class='evaluate_icon_content'>
+                <view class='tab_item' wx:for='{{tabArr}}' wx:key='key'>
+                    {{item}}
+                </view>
+            </view>
+        </view>
+    </view>
+     <!-- 星级评价 -->
+    <view style='margin-top:20rpx' class='width100 dpfC padding30'>
+        <view class='width90'>
+            <view class='dpfb'>
+                <view class='dpf'>
+                    <image class='userimg' src='http://i2.chuimg.com/e7da54e68b6611e6a9a10242ac110002_1117w_1080h.jpg?imageView2/2/w/620/interlace/1/q/90'></image>
+                    <text class='fontSize-32 color1 marginLeft'>大众工匠</text>
+                </view>
+                <view class='fontSize-26 color3 dpf'>
+                    <image style='width:28rpx;height:28rpx' class='marginRight' src='../../../../images/icon/tick_dddddd.png'></image>
+                    <text>匿名评价</text>
+                </view>
+            </view>
+            <!-- 星级评价 -->
+            <view class='starBox' style='margin-top:30rpx;'>
+                <view class='star_item'>
+                    <view class='rui-star'wx:for="{{[1,2,3,4,5]}}" wx:key="star1" bindtap='getStar' data-star='{{item}}' style='background:url({{diagnosisStar >= item ? iconArr[1] : iconArr[0]}}) no-repeat center center/6.7vw 6.7vw;'></view>
+                </view>
+                 <view style='margin-top:20rpx;' class='fontSize-24 color3'>{{diagnosistext}}</view>
+            </view>
+        </view>
+    </view>
+    <!-- 留言反馈 图片上传 -->
+    <view class='feedbackBox dpfC  padding30'>
+        <!-- 文字反馈 -->
+        <view class='textareaBox'>
+            <textarea placeholder-class='holderStyle' placeholder='您对我们此次的服务还满意吗，说说您的体验，分享给想买该服务的伙伴吧～'>
+
+            
+            </textarea>
+        </view>
+        <!-- 图片反馈 -->
+        <view class='imgContent width90 dpf' style='margin-top:20rpx;'>
+            <view class='imgBox' wx:for='{{imgs}}'>
+                <image mode='aspectFill' catchtap='previewImg' data-index='{{index}}' class='list_img_item' src='{{item}}'></image>
+                <view class='delicon_Box' data-index='{{index}}' catchtap='deletePic'>
+                <image class='del_icon' src='../../../../images/icon/icon_del.png'></image>
+                </view>
+            </view>
+            <view class='camera_box' bindtap='chooseImageTap'>
+                <image class='icon_camera' src='../../../../images/icon/icon_camera.png'></image>
+                <view>添加图片</view>
+            </view>
+        </view>
+    </view>
+    <view class='width90 dpfC'>
+        <view class='btnStyle' style='margin-top:60rpx;'>
+             提交
+        </view>
+    </view>
+</view>

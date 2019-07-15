@@ -39,7 +39,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 13,
+			"current": 18,
 			"list": [
 				{
 					"id": -1,
@@ -136,6 +136,42 @@
 					"id": -1,
 					"name": "订单详情",
 					"pathName": "page/order/pages/otherDetails/otherDetails",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "评价",
+					"pathName": "page/order/pages/evaluate/evaluate",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "个人中心",
+					"pathName": "page/tabber/may/may",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "优惠卷",
+					"pathName": "page/order/pages/coupons/coupons",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "我的收藏",
+					"pathName": "page/order/pages/collectible/collectible",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "附近技师",
+					"pathName": "page/nearby/pages/nearby/nearby",
+					"query": "",
 					"scene": null
 				}
 			]

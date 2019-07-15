@@ -1,11 +1,11 @@
+
 .technician_list{
-    width: 95%;
+    width: 100%;
     padding-bottom: 30rpx;
 }
 .technician_list_item{
-    width: 93%;
-    padding: 30rpx 22rpx;
-    /* height: 285rpx; */
+    width: 90%;
+    padding: 30rpx 0;
     background: #ffffff;
     margin-top: 20rpx;
     border-radius: 10rpx;
@@ -19,7 +19,7 @@
     width: 123rpx;
     height: 245rpx;
     display: flex;
-    margin-left: 10rpx;
+    justify-content: center;
 }
 .technician_list_item_pic image{
     width: 86rpx;
@@ -30,6 +30,7 @@
     flex: 1;
     height: 100%;
     align-items: center;
+    margin-right: 20rpx;
 }
 .technician_list_item_info_n image{
    width: 25rpx;
@@ -63,7 +64,7 @@
 }
 
 .technician_list_item_info_label text{
-    padding: 7rpx 8rpx;
+    /* padding: 7rpx 8rpx; */
     background: #F4F5F7;
     font-size: 22rpx;
     color: #666666;

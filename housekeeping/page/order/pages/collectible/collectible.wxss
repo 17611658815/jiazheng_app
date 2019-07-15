@@ -1,0 +1,75 @@
+page{
+    background: #f8f8f8;
+}
+.header_nav{
+    position: fixed;
+    top: 0;
+    left: 0;
+    border-top: 1rpx solid #e0e0e0;
+    display: flex;
+    padding: 30rpx 0;
+    background: #ffffff;
+    z-index: 99;
+    box-shadow:0 5rpx 20rpx #eee;
+
+}
+.header_nav>view{
+    flex: 1;
+    text-align: center;
+}
+.item_text{
+    padding-bottom: 15rpx;
+}
+.active{
+    color: #5994f7;
+    border-bottom: 5rpx solid #5994f7;
+}
+swiper-item{
+  overflow-y: auto;
+}
+/* 回答列表 */
+.swiper-box{ 
+  display: block; 
+  width: 100%;
+  margin: auto;
+  /* padding: 20rpx; */
+  overflow: auto; 
+} 
+
+scroll-view{
+    width: 100%;
+    min-height: 100vh;
+    /* background: yellow; */
+}
+.listBox{
+    width: 90%;
+    margin: auto;
+    padding: 140rpx 0 30rpx 0;
+}
+.technician_list{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 60rpx 0 30rpx 0;
+}
+.noContent{
+    width: 90%;
+    margin: auto;
+    /* min-height: 100vh; */
+    padding: 140rpx 0 30rpx 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.noContent_icon{
+    width: 340rpx;
+    height: 270rpx;
+    background: #5994f7;
+    margin-top: 175rpx;
+}
+.noContent_text{
+    margin-top: 110rpx;
+}

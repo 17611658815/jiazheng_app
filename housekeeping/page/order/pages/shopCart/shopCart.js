@@ -12,19 +12,19 @@ Page({
         arr: [{
                 name: '日常服务1',
                 price:24,
-                checked:false,
+                checked:true,
                 count:1
             },
             {
                 name: '日常服务2',
                 price: 23,
-                checked: false,
+                checked: true,
                 count: 2
             },
             {
                 name: '日常服务3',
                 price: 25,
-                checked: false,
+                checked: true,
                 count: 3
             }
         ]

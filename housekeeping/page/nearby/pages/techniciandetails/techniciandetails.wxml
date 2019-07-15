@@ -78,7 +78,7 @@
     </view>
     <!-- 他服务的项目 -->
     <view class='other_content dpfC'>
-        <view style='width:95%' class='dpfC'>
+        <view style='width:90%' class='dpfC'>
             <view class='other_content_title dpfb'>
                 <view class='fontSize-34 color1 fontWeight5'>他服务的项目</view>
                 <view class='dpf'>

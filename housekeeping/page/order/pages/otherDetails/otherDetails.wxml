@@ -92,6 +92,7 @@
     <view style='width:95%;' class='otherFootFd_Box'>
         <view class='btn_1'>取消订单</view>
         <view class='btn_2'>联系客服</view>
+        <view class='btn_2' bindtap='goEvaluate'>评价</view>
     </view>
     <view class='isIphoneXBox' wx:if='{{isIphoneX}}'></view>
 </view>

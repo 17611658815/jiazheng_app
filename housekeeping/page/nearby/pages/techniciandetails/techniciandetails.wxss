@@ -13,7 +13,7 @@ page{
     justify-content: center;
 }
 .technician_info_content{
-    width: 95%;
+    width: 90%;
     display: flex;
 }
 .technician_pic{
@@ -64,7 +64,7 @@ page{
     margin-top: 20rpx;
 }
 .adept_content_part{
-    width: 95%;
+    width: 90%;
 
 }
 .adept_content_icon{
@@ -86,7 +86,7 @@ page{
     margin-top: 20rpx; 
 }
 .evaluate_content_box{
-    width: 95%;
+    width: 90%;
 }
 .evaluate_content_pic{
     padding: 30rpx 0 20rpx 0;

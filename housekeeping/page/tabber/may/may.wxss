@@ -1,1 +1,55 @@
 /* pages/tabber/may/may.wxss */
+page{
+    background: #f8f8f8;
+}
+.userPic{
+    width: 110rpx;
+    height: 110rpx;
+    border-radius: 50%;
+}
+.openVip{
+    border-radius: 4rpx;
+    background: #f9e9e4;
+    
+}
+.padding40{
+    padding: 40rpx 0;
+}
+.vip_icon{
+    width: 34rpx;
+    height: 36rpx;
+    background: #ff4a26;
+}
+.otherList{
+    display: flex;
+     align-items: center;
+    justify-content: space-around;
+}
+.other_nav_item{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+   
+}
+.other_nav_icon{
+    width: 60rpx;
+    height: 60rpx;
+    background: #ff4a26
+}
+.icon_box{
+    width: 40rpx;
+    height: 40rpx;
+    background: #ff4a26;
+}
+.content_box{
+    height: 110rpx;
+    display: flex;
+    align-items: center;
+}
+.borderACtive{
+    border-bottom: 2rpx solid #e0e0e0;
+}
+.marginBottom{
+    border-bottom: 20rpx solid #f8f8f8;
+}

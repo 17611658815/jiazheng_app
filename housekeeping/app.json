@@ -67,7 +67,10 @@
                 "pages/address/address",
                 "pages/newAddress/newAddress",
                 "pages/shopCart/shopCart",
-                "pages/otherDetails/otherDetails"
+                "pages/otherDetails/otherDetails",
+                "pages/evaluate/evaluate",
+                "pages/coupons/coupons",
+                "pages/collectible/collectible"
             ]
         }
     ],

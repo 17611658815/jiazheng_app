@@ -9,6 +9,6 @@
     </view>
     <view class='cleaningListBox'>
         <template is="cleaningList" data='{{cleaningArr:10,gocleaningDetails:gocleaningDetails,show:true}}'></template>
-        <template is="loading" data></template>
+        <!-- <template is="loading" data></template> -->
     </view>
 </view>

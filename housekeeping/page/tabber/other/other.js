@@ -14,6 +14,12 @@ Page({
     onLoad: function (options) {
 
     },
+    //去购物车 
+    goshopCart() {
+        wx.navigateTo({
+            url: '/page/order/pages/shopCart/shopCart',
+        })
+    },
     //取消订单
     recallOther(){
         wx.showModal({

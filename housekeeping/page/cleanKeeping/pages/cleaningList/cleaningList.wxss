@@ -5,6 +5,7 @@ page{
     width: 95%;
     margin: auto;
     margin-top: 230rpx;
+    padding-bottom: 30rpx;
     /* display: flex;
     justify-content: space-between;
     flex-wrap: wrap; */

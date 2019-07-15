@@ -5,11 +5,13 @@
 
 .scroll-x-content {
     width: 100%;
-    background: #fff;
+    background: #ffffff;
     display: flex;
     align-items: center;
     justify-content: center;
     white-space: nowrap;
+    box-shadow:0 5rpx 20rpx #eee;
+
 }
 
 .scroll-x-content-item {

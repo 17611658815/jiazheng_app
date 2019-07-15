@@ -1,2 +1,55 @@
 <!--pages/tabber/may/may.wxml-->
-<text>pages/tabber/may/may.wxml</text>
+<view class='container'>
+    <view class='width100 dpfC'>
+        <view class='width90' style='padding-bottom:30rpx;'>
+            <!-- 头像昵称 -->
+            <view class='dpf padding40'>
+                <image class='userPic' src='http://i2.chuimg.com/e7da54e68b6611e6a9a10242ac110002_1117w_1080h.jpg?imageView2/2/w/620/interlace/1/q/90'></image>
+                <text class='fontSize-34 color1'>保罗.沃克</text>
+            </view>
+            <!-- 开通会员 -->
+            <view class='openVip dpfb padding30 fontSize28 color6'>
+                <view class='marginLeft dpf'>
+                 <view class='vip_icon marginRight'>
+                 
+                 </view>   VIP会员 · 特惠专享
+                </view>
+                <view class='marginRight dpf'>开通会员
+                    <image style='width:30rpx;height:30rpx' src='../../../images/icon/icon_right_ff4a26.png'></image>
+                </view>
+            </view>
+        </view>
+    </view>
+    <!-- 我的订单 -->
+    <view class='width100 dpfC padding30 marginTop'>
+        <view class='width90'>
+           <view class='dpfb'>
+                <view class='fontSize-32 color1 fontWeight5'>我的订单</view>
+                <view class='fontSize-26 color3 dpf'>查看更多
+                      <image style='width:30rpx;height:30rpx' src='../../../images/icon/icon_right.png'></image>
+                </view>
+           </view>
+           <view class='otherList' style='padding-top:50rpx;'>
+                <view class='other_nav_item' wx:for="{{arr}}">
+                    <view class='other_nav_icon'>
+                        <!-- icon图片 -->
+                    </view>
+                    <view style='padding-top:30rpx;' class='fontSize-26 color1'>{{item}}</view>
+                </view>
+           </view>
+        </view>
+    </view>
+   
+    <view class='width100 dpfC {{index == 0 ? "marginTop":""}} {{ index == 2 || index == 4 ? "marginBottom":""}}' wx:for='{{navigateArr}}'>
+        <navigator class='content_box width90 {{index == 0 || index==1 || index== 3 ? "borderACtive":""}}' hover-class='none' url='{{item.path}}'>
+            <view class='dpfb width100'>
+                <view class='dpf'>
+                    <view class='icon_box marginRight'></view>
+                    <view class='fontSize-30 color1'>{{item.title}}</view>
+                </view>
+                <image style='width:30rpx;height:30rpx' src='../../../images/icon/icon_right.png'></image>
+            </view>
+        </navigator>
+    </view>
+   
+</view>

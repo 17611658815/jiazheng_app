@@ -1,0 +1,57 @@
+/* page/order/pages/coupons/coupons.wxss */
+page{
+  background:#f8f8f8;
+}
+.coupons_item{
+    display: flex;
+    align-items: center;
+    height: 170rpx;
+    background: #ffffff;
+    border: 2rpx solid #ff3a3a;
+}
+.coupons_item_money{
+    width: 188rpx;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #ff3a3a;
+    color: #ffffff;
+}
+.coupons_item_money>view>text:nth-child(1){
+    font-size:37rpx;
+
+}
+.coupons_item_money>view>text:nth-child(2){
+    font-size:67rpx;
+}
+.coupons_item_time{
+    flex: 1;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    /* background: yellow; */
+    padding-left: 30rpx;
+}
+.btn_get{
+    width: 138rpx;
+    height: 53rpx;
+    border-radius: 26rpx;
+    background: #ff3a3a;
+    color: #ffffff;font-size: 26rpx;
+    text-align: center;
+    line-height: 53rpx;
+}
+.nocoupons{
+    margin-top:239rpx;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.nocoupons_icon{
+    width: 175rpx;
+    height: 190rpx;
+    background: #ff3a3a;
+}

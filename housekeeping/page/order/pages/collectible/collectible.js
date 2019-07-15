@@ -1,5 +1,4 @@
-// page/order/pages/otherDetails/otherDetails.js
-const app = getApp()
+// page/order/pages/collectible/collectible.js
 Page({
 
     /**
@@ -7,24 +6,40 @@ Page({
      */
     data: {
         isIphoneX:false,
-        progressArr: [{ name: '派单中', flag: true }, { name: '已接单', flag: true }, { name: '服务中', flag: true }, { name: '已完成', flag: false }] 
+        currentTab:0,
+        winHeight:'',
+        navArr:['服务','技师','商家'],
+        flag:false
     },
 
     /**
      * 生命周期函数--监听页面加载
      */
     onLoad: function (options) {
-        let isIphoneX = app.globalData.isIphoneX
-        this.setData({
-            isIphoneX: isIphoneX
-        })
-        console.log(this.data.isIphoneX)
+        var that = this;
+        wx.getSystemInfo({
+            success: function (res) {
+                that.setData({
+                    winWidth: res.windowWidth,
+                    winHeight: res.windowHeight
+                });
+            }
+        });
     },
-    //去评价
-    goEvaluate(){
-        wx.navigateTo({
-            url: '/page/order/pages/evaluate/evaluate',
-        })
+    // 点击tab切换
+    swichNav: function (e) {
+        var that = this;
+        console.log(e)
+        that.setData({
+            currentTab: e.currentTarget.dataset.index,
+        });
+    },
+    //滑动切换
+    bindChange: function (e) {
+        var that = this;
+        that.setData({
+            currentTab: e.detail.current,
+        });
     },
     /**
      * 生命周期函数--监听页面初次渲染完成

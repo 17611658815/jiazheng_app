@@ -194,7 +194,7 @@
 }
 
 .home-class-server-item-title {
-    width: 95%;
+    width: 90%;
     padding: 30rpx 0;
     display: flex;
     align-content: center;
@@ -202,7 +202,7 @@
 }
 
 .home-class-server-item-img {
-    width: 95%;
+    width: 90%;
     display: flex;
     padding-bottom: 30rpx;
     justify-content: space-between;
@@ -223,7 +223,7 @@
 }
 
 .vip_welfare {
-    width: 95%;
+    width: 90%;
     white-space: nowrap;
     display: flex;
     padding-left: 10rpx;

@@ -1,7 +1,10 @@
 <!--page/nearby/pages/nearby/nearby.wxml-->
 <view class='container'>
     <import src="../../../../common/scrollX-List/scrollX-List.wxml"></import>
-    <template is="scrollX" data='{{navArr:navArr,currentTab:currentTab,swatchTab:swatchTab}}'></template>
+    <view class='navbox'>
+         <template is="scrollX" data='{{navArr:navArr,currentTab:currentTab,swatchTab:swatchTab}}'></template>
+    </view>
+    <view style='height:120rpx;'></view>
     <import src="../../../../common/technicianList/technicianList.wxml"></import>
      <template is="technicianList" data='{{isIphoneX:isIphoneX,goTechnicianDetails:goTechnicianDetails}}'></template>
 </view>

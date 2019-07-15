@@ -4,7 +4,7 @@
     <view class='header width100 dpfC'>
         <view class='width90 dpfb'>
             <text class='fontSize-34 color1 fontWeight5'>历史订单</text>
-            <image style='width:60rpx;height:60rpx;' src='../../../images/icon/icon_cart.png'></image>
+            <image style='width:60rpx;height:60rpx;' bindtap='goshopCart' src='../../../images/icon/icon_cart.png'></image>
         </view>
     </view>
     <view style='height:110rpx;background: #ffffff;'></view>

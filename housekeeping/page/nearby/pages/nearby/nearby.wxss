@@ -1,5 +1,11 @@
 /* page/nearby/pages/nearby/nearby.wxss */
 page{
-    background: #f8f8f8
+    /* background: #f8f8f8 */
+}
+.navbox{
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
 }
 

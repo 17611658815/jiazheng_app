@@ -1,0 +1,112 @@
+/* page/order/pages/evaluate/evaluate.wxss */
+page{
+    background: #f8f8f8;
+}
+.userimg{
+    width: 70rpx;
+    height: 70rpx;
+    border-radius: 6rpx;
+}
+.evaluate_icon_img{
+    width: 58rpx;
+    height: 58rpx;
+}
+.evaluate_icon_content{
+    display: flex;
+    align-items: center;
+    justify-content: center; 
+    text-align: center;
+}
+.evaluate_icon_content_item{
+    height: 100rpx;
+    text-align: center;
+}
+.evaluate_icon_content_item:nth-child(n+2){
+    margin-left: 70rpx;
+}
+.tab_item{
+    font-size: 22rpx;
+    padding: 7rpx 10rpx;
+    border: 2rpx solid #8f8f8f;
+    border-radius: 44rpx;
+    color: #666666;
+}
+.tab_item:nth-child(n+2){
+    margin-left: 20rpx;
+}
+.starBox{
+    display: flex;
+    /* align-items: center; */
+    /* justify-content: center; */
+    flex-direction: column;
+    text-align: center;
+}
+.rui-star{
+    display: inline-block;
+    width: 50rpx;
+    height: 50rpx;
+}
+.rui-star:nth-child(n+1){
+    margin-left: 30rpx;
+}
+.feedbackBox{
+    width: 100%;
+    background: #ffffff;
+    border-top: 1rpx solid #e0e0e0;
+}
+.textareaBox{
+    width: 90%;
+}
+.textareaBox textarea{
+    width: 100%;
+    font-size: 26rpx;
+    color: #333333;
+}
+.holderStyle{
+    font-size: 26rpx;
+    color: #aaaaaa;
+}
+.camera_box{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 104rpx;
+    width: 104rpx;border: 2rpx dashed #e0e0e0;
+    font-size: 14rpx;
+    color: #aaaaaa;
+    margin-bottom: 20rpx;
+}
+.icon_camera{
+    width: 50rpx;
+    height: 50rpx;
+}
+.imgBox{
+    width: 104rpx;
+    height: 104rpx;
+     margin-bottom: 20rpx;
+     position: relative;
+}
+.imgBox:nth-child(n+1){
+    margin-right: 20rpx;
+}
+.imgBox .list_img_item{
+    width: 100%;
+    height: 100%;
+}
+.delicon_Box{
+    width: 30rpx;
+    height: 30rpx;
+    position: absolute;
+    top: -20rpx;
+    right: -10rpx;
+    z-index: 99;
+    background: #ffffff;
+}
+.del_icon{
+     width: 30rpx;
+    height: 30rpx;
+}
+.imgContent{
+    flex-wrap: wrap;
+}
