@@ -6,7 +6,6 @@
     z-index: 10;
 }
 .filtrate-content-box{
-    width: 90%;
     margin: auto;
     display: flex;
     align-items: center;
@@ -77,7 +76,6 @@
   transform: rotate(180deg); 
 }
 .pullListScroll{
-    width: 90%;
     height: 677rpx;
     padding: 20rpx 0 46rpx 0;
     animation: myfirst2 0.5s; 

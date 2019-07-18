@@ -7,7 +7,7 @@
         <template is="scrollX" data='{{navArr:navArr,currentTab:currentTab,swatchTab:swatchTab}}'></template>
         <filtrate id='filtrate' navArr='{{navArr}}' bind:confirmSF='onconfirmSF' bind:seleted='onSeleted' bind:parentEvent='parentFn' bind:checked="onChecked"></filtrate>
     </view>
-    <view class='cleaningListBox'>
+    <view class='cleaningListBox width90'>
         <template is="cleaningList" data='{{cleaningArr:10,gocleaningDetails:gocleaningDetails,show:true}}'></template>
         <!-- <template is="loading" data></template> -->
     </view>

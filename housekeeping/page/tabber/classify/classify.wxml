@@ -1,6 +1,6 @@
 <!--pages/tabber/classify/classify.wxml-->
 <view class='searchBox dpfC'>
-    <view class='searchContent dpf'>
+    <view class='searchContent dpf width90'>
             <image class='marginRight' style='width:40rpx;height:40rpx' src='../../../images/icon/icon_search.png'></image>
         <input style='text' placeholder='小区/写字楼/学校等'></input>
     </view>
@@ -12,7 +12,7 @@
         </view>
     </view>
     <scroll-view class="rightBox" style='height:{{winHeight}}px' scroll-into-view="{{toView}}" scroll-y="true" scroll-with-animation="true">
-        <view class='contenItem' id="{{'toView'+item.id}}" wx:for-index="index" wx:for='{{listArr}}' wx:key='key'>
+        <view class='contenItem width90' id="{{'toView'+item.id}}" wx:for-index="index" wx:for='{{listArr}}' wx:key='key'>
                 <!-- 推荐样式 -->
                 <view class='right_title_1 fontWeight5' wx:if='{{index == 0}}'>为您推荐</view>
                 <!-- 大众样式 -->

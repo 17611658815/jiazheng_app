@@ -12,7 +12,7 @@
 		"autoAudits": false
 	},
 	"compileType": "miniprogram",
-	"libVersion": "2.7.2",
+	"libVersion": "2.6.6",
 	"appid": "wx09475e1c13deb589",
 	"projectname": "%E5%AE%B6%E6%94%BF",
 	"debugOptions": {
@@ -39,7 +39,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 18,
+			"current": 19,
 			"list": [
 				{
 					"id": -1,
@@ -171,6 +171,13 @@
 					"id": -1,
 					"name": "附近技师",
 					"pathName": "page/nearby/pages/nearby/nearby",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "地址",
+					"pathName": "page/order/pages/address/address",
 					"query": "",
 					"scene": null
 				}

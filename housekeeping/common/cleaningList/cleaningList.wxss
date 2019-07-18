@@ -22,7 +22,7 @@
     border-radius: 10rpx 10rpx 0 0;
 }
 .cleaningList-item-text{
-    width: 90%;
+    width: 92%;
     margin: auto;
     padding: 20rpx;
 }

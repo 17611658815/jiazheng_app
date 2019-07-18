@@ -1,9 +1,9 @@
 <!--index.wxml-->
 <view class="container">
-    <view class='dpfC' style='width:95%'>
+    <view class='dpfC width90'>
         <!-- 头部 -->
         <view class='home-content-header dpf'>
-            <picker style='flex: 1;' bindchange="bindPickerChange" value="{{index}}" range="{{array}}">
+            <picker style='flex:1;' bindchange="bindPickerChange" value="{{index}}" range="{{array}}">
                 <view class='dpf fontSize-32 color1'>
                     <image class='icon_GPS' src='../../../images/icon/icon_GPS.png'></image>
                     <view class="picker">
@@ -34,7 +34,7 @@
             </navigator>
         </view>
         <!-- 电话预约 -->
-        <view class='phoneNumber'>
+        <view class='phoneNumber width90'>
             <image mode='scaleToFill' src='../../../images/logo/phone_num.png'></image>
         </view>
         <!-- 领卷 -->
@@ -71,13 +71,13 @@
     <!-- 服务分类更多 -->
     <view class='home-class-server' wx:for='{{3}}' wx:key='key'>
         <view class='home-class-server-item'>
-            <view class='home-class-server-item-title'>
+            <view class='home-class-server-item-title width90'>
                 <view class='fontSize-36 fontWeight5'>保洁</view>
                 <view class='fontSize-24 color3 dpf'>更多
                     <image style='width:30rpx;height:30rpx' src='../../../images/icon/icon_right.png'></image>
                 </view>
             </view>
-            <view class='home-class-server-item-img'>
+            <view class='home-class-server-item-img width90'>
                 <view class='home-class-server-item-img-Msg' wx:for='{{2}}' wx:key='key'>
                     <image src='http://i2.chuimg.com/e7da54e68b6611e6a9a10242ac110002_1117w_1080h.jpg?imageView2/2/w/620/interlace/1/q/90'></image>
                     <view style='padding: 15rpx 0;' class='fontSize-32 fontWeight5'>
@@ -98,7 +98,7 @@
                     <image style='width:30rpx;height:30rpx' src='../../../images/icon/icon_right.png'></image>
                 </view>
             </view>
-            <scroll-view scroll-x="true" class='vip_welfare' style="">
+            <scroll-view scroll-x="true" class='vip_welfare width90'>
                 <view class='vip_welfare_content' wx:for='{{vipActivity}}' style='background-image: url({{item.bgUrl}});background-size: 100% 100%;' wx:key='key'>
                     <view>
                         {{item.text1}}

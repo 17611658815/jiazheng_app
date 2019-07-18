@@ -13,6 +13,7 @@
         <view class='shade' bindtap='hideShade' wx:if='{{seletedDown1 || seletedDown2 || seletedDown3}}' catch:touchmove></view>
         <!-- 服务商下拉 -->
         <view class='pullList' wx:if='{{seletedDown1}}'>
+         <view class='pullList-content'>
              <scroll-view scroll-y="true" class='pullListScroll'>
                     <view class='pullListScrollContent'>
                         <view class='pullListScroll-item {{seletedIndex==index ? "checkedClass":""}}' catchtap='checked' data-index="{{index}}" wx:for="{{30}}" wx:key='key'>
@@ -25,13 +26,14 @@
                         </view>
                     </view>
              </scroll-view>
+             </view>
              <view class='pullListBtnBox'>
                 <view catchtap='resetMerchant'>重置</view>
                 <view catchtap='confirmMerchant'>确认</view>
              </view>
         </view>
         <!-- 排序下拉 -->
-        <view class='sortList' wx:if='{{seletedDown2}}'>
+        <view class='sortList' wx:if='{{seletedDown2}}' wx:key='key'>
                 <view bindtap='selectSort' data-index='{{index}}' class='sortList-item fontSize-30 color3 {{sortTypeIndex==index ? "color2":""}}' wx:for='{{sortTypeArr}}' wx:key='key'>
                     <text>{{item}}</text> 
                     <image wx:if='{{sortTypeIndex==index}}' src='../../images/icon/icon_mark.png'></image>

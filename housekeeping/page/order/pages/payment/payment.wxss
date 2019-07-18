@@ -26,7 +26,7 @@ page{
     padding: 50rpx 0;
 }
 .btnbox{
-    width: 95%;
+    width: 92%;
     position: absolute;
     bottom: -3%;
     left: 50%;

@@ -1,13 +1,13 @@
-<view class="container {{selectShow ? 'maxHeight':''}}">
+<view class="container">
     <view class='cleaningDetails-header'>
         <image src='http://i2.chuimg.com/f30f7ea4346c11e7947d0242ac110002_3264w_2448h.jpg?imageView2/2/w/620/interlace/1/q/90'></image>
     </view>
     <view class='cleaningDetails-title'>
-        <view class='cleaningDetails-title-name'>
+        <view class='cleaningDetails-title-name width90'>
             <text class='fontSize-34 fontWeight5'>保洁</text>
             <image src='../../../../images/icon/icon_noFocus.png'></image>
         </view>
-        <view class='cleaningDetails-title-price'>
+        <view class='cleaningDetails-title-price width90'>
             <view class='fontSize-34 color4'>
                 <text class='fontWeight5'>24</text>元/小时
             </view>
@@ -16,7 +16,7 @@
             </view>
         </view>
         <view class='stateBox'>
-            <view class='stateBox-content'>
+            <view class='stateBox-content width90'>
                 <view class='stateBox-item fontSize-22 color2'>
                     保障
                 </view>
@@ -34,7 +34,7 @@
     </view>
     <!-- 选择服务 -->
     <view class='cleaningDetails-select'>
-        <view class='cleaningDetails-select-type color2' bindtap='selectItems'>
+        <view class='cleaningDetails-select-type color2 width90' bindtap='selectItems'>
             <text class='fontSize-26'>选择</text>
             <view class='right fontSize-26 color1' wx:if='{{selectName==""}}'>选择保洁项目
                 <image src='../../../../images/icon/icon_right.png'></image>
@@ -43,7 +43,7 @@
             {{selectName}}
             </view>
         </view>
-        <view class='cleaningDetails-select-time color2' bindtap='goSelectTime'>
+        <view class='cleaningDetails-select-time color2 width90' bindtap='goSelectTime'>
             <text class='fontSize-26'>预约</text>
             <view class='right fontSize-26 color1'>最近可约
                 <text style='padding-left:10rpx;' class='color4'>{{day}}{{time}}</text>
@@ -67,11 +67,11 @@
     </view>
     <!-- 用户评价 -->
     <view class='comment-message dpfC'>
-        <view class='comment-message-num'> 
+        <view class='comment-message-num width90'> 
             <view class='fontSize-34 color1 fontWeight5'> 用户评价(343)</view>
             <view class='fontSize-26 color2 dpf' bindtap='commentMore'>查看更多<image class='icon-right' src='../../../../images/icon/icon_right.png'></image> </view>
         </view>
-        <view class='comment-message-item' wx:for='{{2}}' wx:key='key'>
+        <view class='comment-message-item width90' wx:for='{{2}}' wx:key='key'>
             <view class='comment-message-item-userInfo dpf'>
                 <image class='icon-userPic' src='http://i2.chuimg.com/f30f7ea4346c11e7947d0242ac110002_3264w_2448h.jpg?imageView2/2/w/620/interlace/1/q/90'></image>
                 <text class='fontSize28'>萤火虫</text>
@@ -83,22 +83,22 @@
     </view>
     <!-- 服务详情 -->
     <view class='service-details dpfC'>
-        <view class='fontWeight5 paddingBtm'>服务详情</view>
-        <view class='service-details-content dpfC'>
-            <view class='service-details-content-name fontSize28 dpf'>
+        <view class='fontWeight5 paddingBtm width90'>服务详情</view>
+        <view class='service-details-content dpfC width90'>
+            <view class='service-details-content-name fontSize28 dpf width90 marginTop'>
                 <text class='color3'>被里面料俗称</text>
                 <text class='color1'>法兰绒</text>
             </view>
-            <view class='service-details-content-name fontSize28 dpf'>
+            <view class='service-details-content-name fontSize28 dpf width90 marginTop'>
                 <text class='color3'>被里面料俗称</text>
                 <text class='color1'>法兰绒</text>
             </view>
-            <view class='service-details-content-name fontSize28 dpf'>
+            <view class='service-details-content-name fontSize28 dpf width90 marginTop'>
                 <text class='color3'>被里面料俗称</text>
                 <text class='color1'>法兰绒</text>
             </view>
         </view>
-        <view class='service-details-msg fontSize-28 color2'> 
+        <view class='service-details-msg fontSize-28 color2 width90'> 
             被里面料俗称被里面料俗称被里面料俗称被里面料俗称被里面料俗称被里面料俗称被里面料俗称被里面料俗称被里面料俗称被里面料俗称被里面料俗称被里面料俗称被里面料俗称被里面料俗称被里面料俗称被里面料俗称被里面料俗称被里面料俗称
         </view>
     </view>
@@ -106,7 +106,7 @@
     <view class='recommend dpfC' wx:if='{{!selectShow}}'>
          <view class='fontWeight5'>为你推荐</view>
          <import src="../../../../common/cleaningList/cleaningList.wxml"></import>
-         <view class='recommend-list-box {{isIphoneX ? "margin-bottom120":"margin-bottom90"}}'>
+         <view class='recommend-list-box width90 {{isIphoneX ? "margin-bottom120":"margin-bottom90"}}'>
             <template is="cleaningList" data='{{cleaningArr:10,gocleaningDetails:gocleaningDetails,show:false}}'></template>
           </view>
     </view>

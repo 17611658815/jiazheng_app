@@ -10,7 +10,6 @@
     z-index: 99;
 }
 .searchContent{
-    width: 90%;
     padding: 0 24rpx;
     background: #f8f8f8;
     height: 60rpx;
@@ -76,7 +75,6 @@ input{
     margin-left: 20rpx;
 }
 .contenItem{
-    width: 90%;
     padding-bottom: 20rpx;
     margin: auto;
 }

@@ -4,7 +4,6 @@
     padding-bottom: 30rpx;
 }
 .technician_list_item{
-    width: 90%;
     padding: 30rpx 0;
     background: #ffffff;
     margin-top: 20rpx;

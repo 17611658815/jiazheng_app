@@ -1,4 +1,4 @@
-<view class='container {{isIphoneX ? "paddingBtm150":"paddingBtm100"}}'>
+<view class='container {{isIphoneX ? "paddingBtm150":"paddingBtm100"}}' wx:if='{{flag}}'>
     <view class='addressBox dpfC' wx:for='{{7}}' wx:key='key'>
         <view class='address_item'>
           <image class='del delimg' src='../../../../images/icon/icon_colse.png'></image>
@@ -30,4 +30,12 @@
         </view> 
         <view class='isIphoneXBox' wx:if='{{isIphoneX}}'></view>
     </view>
+</view>
+
+<view class='noAddres dpfC' wx:else>
+        <view class='noAddres_icon'>
+
+        </view>
+        <view class='noAddres_text fontSize-30 color2'>暂无可用地址</view>
+        <view class='noAddres_btn'>添加可用地址</view>
 </view>

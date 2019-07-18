@@ -1,6 +1,6 @@
 <template name="commentList">
     <view class='commentList' wx:for='{{5}}' wx:key='key'>
-        <view class='commentList-item'>
+        <view class='commentList-item width90'>
             <view class='commentList-item-header'>
                 <view class='commentList-item-header-pic'>
                     <view class='userPic'>
@@ -39,7 +39,7 @@
             </view>
         </view>
         <view class='comment-tetx' wx:if="{{index == 1 && commentMsgArr.length>0}}" wx:for-index="idx" wx:for='{{commentMsgArr}}' wx:key='key'>
-            <view class='comment_tetx_item'>
+            <view class='comment_tetx_item width90'>
                 <view class='comment_tetx_item_right'>
                     <view class='dpfb'>
                         <view class='com_icon fontSize28 color1'>

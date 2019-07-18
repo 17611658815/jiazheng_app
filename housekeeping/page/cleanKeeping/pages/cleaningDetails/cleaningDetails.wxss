@@ -25,7 +25,6 @@ page{
 }
 .cleaningDetails-title-name,
 .cleaningDetails-title-price{
-    width: 90%;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -36,7 +35,6 @@ page{
     border-top: 1rpx solid #e2e2e2;
 }
 .stateBox-content{
-    width: 90%;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -66,7 +64,6 @@ page{
     margin-top: 20rpx;
 }
 .cleaningDetails-select-type,.cleaningDetails-select-time{
-    width: 90%;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -93,8 +90,8 @@ page{
     align-items: center;
     justify-content: center;
 }
-.prompt-message view{
-    width: 90%;
+.prompt-message>view{
+    width: 92%;
 }
 .prompt-message-title{
     margin-bottom: 29rpx;
@@ -107,13 +104,11 @@ page{
     margin-top: 20rpx;
 }
 .comment-message-num{
-    width: 90%;
     display: flex;
     align-items: center;
     justify-content: space-between;
 }
 .comment-message-item{
-    width: 90%;
     padding: 35rpx 0;
     border-bottom: 1rpx solid #e2e2e2;
 }
@@ -136,17 +131,12 @@ page{
     background: #ffffff;
     margin-top: 20rpx;
 }
-.service-details>view{
-    width: 90%;
-}
+/* .service-details>view{
+    width: 92%;
+} */
 .service-details-content{
     padding: 10rpx 0 30rpx 0;
     background: #FAFAFA;
-}
-.service-details-content-name{
-    width: 95%;
-    margin-top: 20rpx;
-
 }
 .service-details-content-name text:nth-child(1){
     display: block;
@@ -162,13 +152,10 @@ page{
     width: 100%;
 }
 .recommend>view:nth-child(1){
-    width: 90%;
+    width: 92%;
     padding-bottom: 30rpx;
 }
-.recommend-list-box{
-    width: 90%;
-  
-}
+
   .margin-bottom90{
     margin-bottom: 90rpx;
   }

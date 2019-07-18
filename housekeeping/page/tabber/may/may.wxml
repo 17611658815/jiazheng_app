@@ -30,7 +30,7 @@
                 </view>
            </view>
            <view class='otherList' style='padding-top:50rpx;'>
-                <view class='other_nav_item' wx:for="{{arr}}">
+                <view class='other_nav_item' wx:for="{{arr}}" wx:key='key'>
                     <view class='other_nav_icon'>
                         <!-- icon图片 -->
                     </view>
@@ -40,7 +40,7 @@
         </view>
     </view>
    
-    <view class='width100 dpfC {{index == 0 ? "marginTop":""}} {{ index == 2 || index == 4 ? "marginBottom":""}}' wx:for='{{navigateArr}}'>
+    <view class='width100 dpfC {{index == 0 ? "marginTop":""}} {{ index == 2 || index == 4 ? "marginBottom":""}}' wx:for='{{navigateArr}}'  wx:key='key'>
         <navigator class='content_box width90 {{index == 0 || index==1 || index== 3 ? "borderACtive":""}}' hover-class='none' url='{{item.path}}'>
             <view class='dpfb width100'>
                 <view class='dpf'>

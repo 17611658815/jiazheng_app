@@ -7,7 +7,8 @@ Page({
      */
     data: {
         isIphoneX: false,
-        currentTab:0
+        currentTab:0,
+        flag:true
     },
 
     /**

@@ -1,6 +1,6 @@
 <template name="filtrate">
     <view class='filtrate-content'>
-        <view class='filtrate-content-box'>
+        <view class='filtrate-content-box width90'>
             <view bindtap='seleted'>服务商
                 <image class='triangle {{seletedDown1 ? "rotateRight":""}}' src='../../../../images/icon/icon_triangle.png'></image>
             </view>
@@ -13,7 +13,7 @@
         </view>
         <view class='shade' bindtap='seleted' wx:if='{{seletedDown1 || seletedDown2}}' ></view>
         <view class='pullList' wx:if='{{seletedDown1}}'>
-             <scroll-view scroll-y="true" class='pullListScroll'>
+             <scroll-view scroll-y="true" class='pullListScroll width90'>
                     <view class='pullListScrollContent'>
                         <view class='pullListScroll-item {{seletedIndex==index ? "checkedClass":""}}' catchtap='checked' data-index="{{index}}" wx:for="{{30}}">
                             <view class='pullListScroll-item-title fontSize-30'>

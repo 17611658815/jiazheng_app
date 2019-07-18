@@ -17,14 +17,10 @@ page{
 .otherContent:nth-child(n+2){
     margin-top: 20rpx;
 }
-.other_item{
-    width: 90%;
-}
 .icon_common2{
     width: 24rpx;
     height: 24rpx;
 }
-
 
 .btnBox view{
     margin-left: 20rpx;

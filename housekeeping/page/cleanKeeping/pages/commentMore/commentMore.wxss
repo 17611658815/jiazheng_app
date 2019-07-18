@@ -20,7 +20,7 @@ page {
 }
 
 .commentBox-header-top {
-    width: 95%;
+    width: 92%;
     margin: auto;
     display: flex;
     justify-content: space-between;
@@ -60,7 +60,7 @@ page {
 }
 
 .comment_sort_content {
-    width: 95%;
+    width: 92%;
     padding: 25rpx 0;
     display: flex;
     font-size: 26rpx;
@@ -94,7 +94,7 @@ page {
 }
 
 .input {
-    width: 90%;
+    width: 92%;
     height: 66rpx;
     background: #fff;
     padding-left: 20rpx;

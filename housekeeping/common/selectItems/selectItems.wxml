@@ -2,7 +2,7 @@
     <view class='selectItems-content' catchtap='selectItems' catch:touchmove>
         
     </view>
-    <view class='selectItems-content-box' catch:touchmove>
+    <view class='{{selectShow ? "selectItems-content-box2":"selectItems-content-box"}}' catch:touchmove>
             <view class='selectItems-content-item'>
                 <view class='selectItems-content-header'>
                     <view class='header-image'> <image src='../../../../images/logo/bg_4.png'></image> </view>

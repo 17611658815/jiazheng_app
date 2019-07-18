@@ -2,7 +2,6 @@ page{
     background: #f8f8f8;
 }
 .cleaningListBox{
-    width: 95%;
     margin: auto;
     margin-top: 230rpx;
     padding-bottom: 30rpx;

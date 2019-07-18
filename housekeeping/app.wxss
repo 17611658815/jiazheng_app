@@ -37,7 +37,7 @@ page {
     background: #ffffff;
 }
 .width90{
-    width: 90%;
+    width: 92%;
 }
 .dpfC {
     display: flex;
@@ -228,7 +228,7 @@ page {
     width: 47rpx;
     height: 47rpx;
     text-align: center;
-    line-height: 45rpx;
+    line-height: 43rpx;
     background: #f6f6f6;
     font-size: 50rpx;
     color: #999;

@@ -13,7 +13,6 @@
     justify-content: space-between;
 }
 .commentList-item{
-    width: 95%;
     padding: 40rpx 0 0 0 ;
 }
 .userPic{
@@ -48,7 +47,7 @@
     flex-wrap: wrap
 }
 .commentList-item-img image{
-    width: 223rpx;
+    width: 217rpx;
     height: 218rpx;
     border-radius: 10rpx;
 }
@@ -81,7 +80,6 @@
     border-top: 20rpx solid #f8f8f8;
 }
 .comment_tetx_item{
-    width: 95%;
     padding: 30rpx 0;
     display: flex;
     

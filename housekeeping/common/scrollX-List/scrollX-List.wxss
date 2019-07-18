@@ -1,5 +1,6 @@
 .scroll-x-box {
     width: 95%;
+    padding-left: 5%;
     display: flex;
 }
 

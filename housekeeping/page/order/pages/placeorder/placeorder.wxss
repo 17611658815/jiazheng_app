@@ -10,7 +10,7 @@ page{
     margin-right: 20rpx;
 }
 .numBox > view{
-    width: 95%;
+    width: 92%;
 }
 .service_pic image{
     width: 150rpx;

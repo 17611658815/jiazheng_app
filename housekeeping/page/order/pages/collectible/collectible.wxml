@@ -1,7 +1,7 @@
 <!--page/order/pages/collectible/collectible.wxml-->
 <import src="../../../../common/cleaningList/cleaningList.wxml"></import>
 <view class='width100 header_nav'>
-    <view wx:for='{{navArr}}' data-index='{{index}}' bindtap='swichNav'>
+    <view wx:for='{{navArr}}' data-index='{{index}}' bindtap='swichNav'  wx:key='key'>
         <text class='item_text fontSize-30 color1 {{currentTab == index ? "active":""}}'>{{item}}</text>
     </view>
 </view>
