@@ -71,6 +71,7 @@
                 "pages/evaluate/evaluate",
                 "pages/coupons/coupons",
                 "pages/collectible/collectible"
+                
             ]
         }
     ],

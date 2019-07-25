@@ -1,0 +1,459 @@
+服务器配置
+	1.填写基本信息域名 https://wx.dkjis.com
+	2.Tonken：dkjiscom2019715
+	3.EncodingAESKey:U0YOu6XbGQ6JNnXE1vaiYMhJtFLhEBaOUvDSBKrqaXT
+	4.消息加解密方式:兼容模式
+	5.AppSecret:9f17528f763e5e8e3bcd0961ec944640
+	6.AppID:wx01a468cb5aaa007f
+
+
+微信接口文档：
+	
+	域: https://wx.dkjis.com (该地址定义位常量，方便后期更换)
+
+	登录接口:
+		/api/login/
+
+		POST请求(array)
+			
+			openid	用户的标识，对当前公众号唯一
+			nickname	用户的昵称
+			sex	用户的性别，值为1时是男性，值为2时是女性，值为0时是未知
+			city	用户所在城市
+			country	用户所在国家
+			province	用户所在省份
+			headimgurl	用户头像，最后一个数值代表正方形头像大小（有0、46、64、96、132数值可选，0代表640*640正方形头像），用户没有头像时该项为空。若用户更换头像，原有头像URL将失效。
+			subscribe	用户是否订阅该公众号标识，值为0时，代表此用户没有关注该公众号，拉取不到其余信息 (此处指针对公众号)
+			subscribe_time	用户关注时间，为时间戳。如果用户曾多次关注，则取最后关注时间 (此处指针对公众号)
+			subscribe_scene	用户关注的渠道来源，ADD_SCENE_SEARCH 公众号搜索，ADD_SCENE_ACCOUNT_MIGRATION 公众号迁移，ADD_SCENE_PROFILE_CARD 名片分享，ADD_SCENE_QR_CODE 扫描二维码，ADD_SCENEPROFILE LINK 图文页内名称点击，ADD_SCENE_PROFILE_ITEM 图文页右上角菜单，ADD_SCENE_PAID 支付后关注，ADD_SCENE_OTHERS 其他 (此处指针对公众号)
+
+	    返回json字符串：
+	        authinfo:基本信息	       		
+				openid	用户的标识，对当前公众号唯一
+				nickname	用户的昵称
+				sex	用户的性别，值为1时是男性，值为2时是女性，值为0时是未知
+				city	用户所在城市
+				country	用户所在国家
+				province	用户所在省份
+				headimgurl	用户头像，最后一个数值代表正方形头像大小（有0、46、64、96、132数值可选，0代表640*640正方形头像），用户没有头像时该项为空。若用户更换头像，原有头像URL将失效。
+				subscribe	用户是否订阅该公众号标识，值为0时，代表此用户没有关注该公众号，拉取不到其余信息。
+				subscribe_time	用户关注时间，为时间戳。如果用户曾多次关注，则取最后关注时间
+				subscribe_scene	返回用户关注的渠道来源，ADD_SCENE_SEARCH 公众号搜索，ADD_SCENE_ACCOUNT_MIGRATION 公众号迁移，ADD_SCENE_PROFILE_CARD 名片分享，ADD_SCENE_QR_CODE 扫描二维码，ADD_SCENEPROFILE LINK 图文页内名称点击，ADD_SCENE_PROFILE_ITEM 图文页右上角菜单，ADD_SCENE_PAID 支付后关注，ADD_SCENE_OTHERS 其他
+			code:状态
+               200：正常
+               400：错误
+
+    获取登陆用户基本信息
+    	/api/getuserinfo/
+
+    	POST请求(array)
+    		data:
+    		 	mid	用户的唯一标识
+
+    		返回json字符串：
+	        	userinfo:用户基本信息
+					`id`:用户ID,
+					`from_user`:'邀请者',
+					`type`:'注册类型:0=主动;1=微信;2=qq;3=新浪',
+					`roleid`:'用户分组',
+					`shopid`:'店铺ID',
+					`is_notice_boss`:'是否是老板',
+					`username`:'用户名',
+					`mobile`:'手机号',
+					`email`:'邮箱',
+					`avatar`:'用户头像',
+					`credits`:'总积分',
+					`ordernums`:'累计下单量',
+					`order_price`:'下单金额',
+					`success_price`:'成交金额',
+					`status`:'状态 1:未审核2:审核3:下线',
+					`lastip`:'最后登陆IP',
+					`lastdate`:'最后登陆时间',
+					`lastorderdate`:'最后下单时间',
+					`areaid`:'区域id',
+					`remark`:'备注',
+					`lat`:'经度',
+					`lng`:'纬度',
+					`cityname`:'城市名称',
+					`islock`:'是否锁定 0:锁定1:开启',
+					#以下信息是绑定第三方用户信息
+					`oauth_open_id`:'openid',
+					`unionid`:'用户统一标识',
+					`oauth_token`：'oauth_token',
+					`nickname`:'昵称',
+					`gender`:'性别：0=未知;1=男;2=女',
+					`country`:'国籍',
+					`province`:'省份',
+					`city`:'城市',
+					`is_concerned`:'是否关注 0:未关注;1:关注',
+					`subscribe_time`:'用户关注时间，为时间戳。如果用户曾多次关注，则取最后关注时间',
+					`subscribe_scene` :'关注渠道：用户关注的渠道来源，ADD_SCENE_SEARCH 公众号搜索，ADD_SCENE_ACCOUNT_MIGRATION 公众号迁移，ADD_SCENE_PROFILE_CARD 名片分享，ADD_SCENE_QR_CODE 扫描二维码，ADD_SCENEPROFILE LINK 图文页内名称点击，ADD_SCENE_PROFILE_ITEM 图文页右上角菜单，ADD_SCENE_PAID 支付后关注，ADD_SCENE_OTHERS 其他',
+					`scene`:'注册渠道 1:微信公众号 2:小程序 3:微信开放平台',
+					`status`: '状态 0:关闭1：开启',
+
+				code :状态
+	               200：正常
+	               404：获取用户信息不存在
+	               502:该用户已被系统锁定
+
+	首页数据接口
+	    /api/index/
+
+	    GET请求
+	      参考示例：
+	         /doc/index.json
+	    
+	    返回json字符串：
+	    	数据集介绍：
+	    	data:
+	    	  recommendBannerData: 头部轮播图5条
+	    	  	data:
+	    	  	   title:标题
+	    	  	   pic:图片地址
+	    	  	   desc:描述
+	    	  	   url:链接地址
+
+	    	  recommendTelData: 分类下方电话热线1条
+	    	  		data:
+		    	  	   title:标题
+		    	  	   pic:图片地址
+		    	  	   desc:描述
+		    	  	   url:链接地址
+
+	    	  recommendHdData: 活动抢券1条
+	    	  		data:
+		    	  	   title:标题
+		    	  	   pic:图片地址
+		    	  	   desc:描述
+		    	  	   url:链接地址
+
+	    	  typeData:平台分类及平台分类对应4条下的项目
+	    	  		id:平台分类ID
+	    	  		parentid:平台分类父级ID
+	    	  		name:平台分类名称
+	    	  		thumb:平台分类图标
+	    	  		shopProjectData:平台分类4条项目
+	    	  		  `id`:项目ID
+					  `typeid`:'分类ID;存储子级',
+					  `shop_typeid`:'店铺分类ID',
+					  `unitid`:'单位ID',
+					  `shopid`:'店铺ID',
+					  `name`:'项目名称',
+					  `thumb`:'项目图片',
+					  `video`:'项目视频',
+					  `describe`:'项目描述',
+					  `original_price`:'原价',
+					  `price`: '销售价格',
+					  `purchase`: '加购 0:不能直接加购;1:支持现场加购2:只能现场加购',
+					  `purchase_price`:'加购价格',
+					  `trade_num`:'起购数量',
+					  `service_length_time`:'服务时长',
+					  `service_areaid`:'服务地区,以json方式存储',
+					  `service_time`：'服务时间,以json方式存储',
+					  		start:开始时间
+					  		end:结束时间
+					  `making_time`：'可预约时间,以json方式存储',
+					  		start:开始时间
+					  		end:结束时间
+					  `advance_making_time`：'提前预约时间,预约时间不能大于72小时',
+					  `content`：'详情',
+					  `ordernum`：'销量',
+					  `sort`：'排序',
+					  `status`： '状态 0:未上架;1:上架',
+					  `created`：'添加时间',
+					  `modify`：'修改时间',
+					  `typename`:平台分类名称,
+					  `shoptypename`:店铺自定义分类名称,
+					  `areaArr`:服务地区为数组,
+					       name:城市名称,
+					  `shopname`:店铺名称
+
+    分类页
+    	/api/type/
+
+	    GET请求
+	      参考示例：
+	         /doc/type.json
+	    
+	    返回json字符串：
+	    	数据集介绍：
+	    		Data
+	    		  `id`:'唯一标识',
+				  `name`：'分类名称',
+				  `thumb`:'分类图片',
+				  `sontype`:子分类列表,
+				  		`id`:'唯一标识',
+					  	`name`：'分类名称',
+					  	`thumb`:'分类图片',
+					  	
+    项目列表
+    	/api/type/list/
+
+    	GET请求
+    		参考示例
+    			/doc/type_list.json
+
+    		参数：
+    			typeid:分类ID
+    			shopid：店铺ID
+    			field:排序字段
+    			orderbytype:排序类型，desc：降序 asc:升序
+    			projecttagid:项目分类标签ID
+    			nums:获取条数
+    			papge:页码
+
+    		返回json字符串：
+	    		数据集介绍：
+
+	    			typeData: 类目数据列表
+	    				id:类目ID
+	    				name:类目名称
+
+	    			shopData: 店铺数据列表
+						`id`:店铺ID,						
+						`name`:店铺名称
+
+	    			tagData:标签数据列表
+	    				`id`:标签唯一标识,
+						`name`:标签名称
+
+	    			data:项目数据列表
+	    			  `id`:项目ID
+					  `typeid`:'分类ID;存储子级',
+					  `shop_typeid`:'店铺分类ID',
+					  `unitid`:'单位ID',
+					  `shopid`:'店铺ID',
+					  `name`:'项目名称',
+					  `thumb`:'项目图片',
+					  `video`:'项目视频',
+					  `describe`:'项目描述',
+					  `original_price`:'原价',
+					  `price`: '销售价格',
+					  `purchase`: '加购 0:不能直接加购;1:支持现场加购2:只能现场加购',
+					  `purchase_price`:'加购价格',
+					  `trade_num`:'起购数量',
+					  `service_length_time`:'服务时长',
+					  `service_areaid`:'服务地区,以json方式存储',
+					  `service_time`：'服务时间,以json方式存储',
+					  		start:开始时间
+					  		end:结束时间
+					  `making_time`：'可预约时间,以json方式存储',
+					  		start:开始时间
+					  		end:结束时间
+					  `advance_making_time`：'提前预约时间,预约时间不能大于72小时',
+					  `content`：'详情',
+					  `ordernum`：'销量',
+					  `sort`：'排序',
+					  `status`： '状态 0:未上架;1:上架',
+					  `created`：'添加时间',
+					  `modify`：'修改时间',
+					  `typename`:平台分类名称,
+					  `shoptypename`:店铺自定义分类名称,
+					  `areaArr`:服务地区为数组,
+					       name:城市名称,
+					  `shopname`:店铺名称
+
+	项目详情
+		/api/details/
+
+		GET请求
+    		参考示例
+    			/doc/details.json
+
+		参数：
+    		pid:项目ID
+
+    	返回:
+    		code 状态 404:错误; 200:输出
+    		Data : 数据集
+    			projectData: 项目数据集
+    			  `id`:项目ID
+				  `typeid`:'分类ID;存储子级',
+				  `shop_typeid`:'店铺分类ID',
+				  `unitid`:'单位ID',
+				  `shopid`:'店铺ID',
+				  `name`:'项目名称',
+				  `thumb`:'项目图片',
+				  `video`:'项目视频',
+				  `describe`:'项目描述',
+				  `original_price`:'原价',
+				  `price`: '销售价格',
+				  `purchase`: '加购 0:不能直接加购;1:支持现场加购2:只能现场加购',
+				  `purchase_price`:'加购价格',
+				  `trade_num`:'起购数量',
+				  `service_length_time`:'服务时长',
+				  `service_areaid`:'服务地区,以json方式存储',
+				  `service_time`：'服务时间,以json方式存储',
+				  	start:开始时间
+				  	end:结束时间
+				  `making_time`：'可预约时间,以json方式存储',
+				  	start:开始时间
+				  	end:结束时间
+				  `advance_making_time`：'提前预约时间,预约时间不能大于72小时',
+				  `content`：'详情',
+				  `ordernum`：'销量',
+				  `sort`：'排序',
+				  `status`： '状态 0:未上架;1:上架',
+				  `created`：'添加时间',
+				  `modify`：'修改时间',
+				  `typename`:平台分类名称,
+				  `shoptypename`:店铺自定义分类名称,
+				  `areaArr`:服务地区为数组,
+				    name:城市名称,
+				  `shopname`:店铺名称
+
+				shopProjectCommentsData: 评论数据列表2条
+					`id`:'唯一标识',
+					`shopid`:'店铺ID',
+					`shop_member_id`:'店铺用户ID',
+					`member_id`:'用户ID',
+					`type`:'默认:0;好评:1;中评:2;差评:3;投诉:4;',
+					`pics`: '图片',
+					`is_pic`:'是否有图',
+					`details`:'评论详情',
+					`tagids`:'标签ID,多个用逗号隔开',
+					`support`:'点赞数',
+					`reply`:'回复数',
+					`score`:'总评分1~5',
+					`punctual`:'守时评分',
+					`aunt`:'阿姨评分',
+					`costeffective`:'价格评分',
+					`status`:'状态 0:未通过;1:已通过',
+					`username`:用户名,
+					`avatar`:用户头像
+
+				shopProjectRelevantData: 相关推荐
+					`id`:项目ID
+					`typeid`:'分类ID;存储子级',
+					`shop_typeid`:'店铺分类ID',
+					`unitid`:'单位ID',
+					`shopid`:'店铺ID',
+					`name`:'项目名称',
+					`thumb`:'项目图片',
+					`video`:'项目视频',
+					`describe`:'项目描述',
+					`original_price`:'原价',
+					`price`: '销售价格',
+					`purchase`: '加购 0:不能直接加购;1:支持现场加购2:只能现场加购',
+					`purchase_price`:'加购价格',
+					`trade_num`:'起购数量',
+					`service_length_time`:'服务时长',
+					`service_areaid`:'服务地区,以json方式存储',
+					`service_time`：'服务时间,以json方式存储',
+						start:开始时间
+						end:结束时间
+					`making_time`：'可预约时间,以json方式存储',
+						start:开始时间
+						end:结束时间
+					`advance_making_time`：'提前预约时间,预约时间不能大于72小时',
+					`content`：'详情',
+					`ordernum`：'销量',
+					`sort`：'排序',
+					`status`： '状态 0:未上架;1:上架',
+					`created`：'添加时间',
+					`modify`：'修改时间',
+					`typename`:平台分类名称,
+					`shoptypename`:店铺自定义分类名称,
+					`areaArr`:服务地区为数组,
+					   name:城市名称,
+					`shopname`:店铺名称
+
+	项目服务时间详情
+		/api/details/datetime/
+
+		GET请求
+    		参考示例
+    			/doc/time.json
+
+		参数：
+    		pid:项目ID
+
+    	返回:
+    		code 状态 404:错误; 200:输出
+    		Data : 数据集	
+    			day: 星期
+    			time:日期
+    			hourArr:小时
+    				is_making:是否已预约
+    				hour:小时
+
+	评论列表
+		/api/comments/
+
+		参数：
+    		pid:项目ID
+    		shopid:店铺ID
+    		type:类型
+    		nums:每一页条数
+    		page:页数
+
+    	返回:
+    		code 状态 404:错误; 200:输出
+    		Data : 数据集
+    			`id`:'唯一标识',
+				`shopid`:'店铺ID',
+				`shop_member_id`:'店铺用户ID',
+				`member_id`:'用户ID',
+				`type`:'默认:0;好评:1;中评:2;差评:3;投诉:4;',
+				`pics`: '图片',
+				`is_pic`:'是否有图',
+				`details`:'评论详情',
+				`tagids`:'标签ID,多个用逗号隔开',
+				`support`:'点赞数',
+				`reply`:'回复数',
+				`score`:'总评分1~5',
+				`punctual`:'守时评分',
+				`aunt`:'阿姨评分',
+				`costeffective`:'价格评分',
+				`status`:'状态 0:未通过;1:已通过',
+				`username`:用户名,
+				`avatar`:用户头像
+
+	评论详情
+		/api/comments/details
+
+		参数：
+    		cid:评论ID   		
+
+    	返回:
+    		code 状态 404:错误; 200:输出
+    		Data : 数据集
+    			`id`:'唯一标识',
+				`shopid`:'店铺ID',
+				`shop_member_id`:'店铺用户ID',
+				`member_id`:'用户ID',
+				`type`:'默认:0;好评:1;中评:2;差评:3;投诉:4;',
+				`pics`: '图片',
+				`is_pic`:'是否有图',
+				`details`:'评论详情',
+				`tagids`:'标签ID,多个用逗号隔开',
+				`support`:'点赞数',
+				`reply`:'回复数',
+				`score`:'总评分1~5',
+				`punctual`:'守时评分',
+				`aunt`:'阿姨评分',
+				`costeffective`:'价格评分',
+				`status`:'状态 0:未通过;1:已通过',
+				`username`:用户名,
+				`avatar`:用户头像
+
+	地区列表
+		/api/comments/area
+
+		GET请求
+    		参考示例
+    			/doc/area.json
+
+    	返回:
+    		Data: 数据集
+    			id:地区唯一标识
+    			name:地区名称
+    			sonareaData:二级地区
+    				id:地区唯一标识
+    				name:地区名称
+
+    
+    		
+	
+
+

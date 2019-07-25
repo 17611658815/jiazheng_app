@@ -43,9 +43,9 @@
         <view class='width90'>
             <view class='width100 dpfb' style='padding-top:30rpx'>
                 <view class='dpf'>
-                      <image class='icon_common2' src='../../../../images/icon/icon_common2.png'></image>
-                        <text style='margin:0rpx 10rpx' class='fontSize-30 color3'>大众工匠</text>
-                        <image class='icon_right' src='../../../../images/icon/icon_right.png'></image>   
+                    <image class='icon_common2' src='../../../../images/icon/icon_common2.png'></image>
+                    <text style='margin:0rpx 10rpx' class='fontSize-30 color3'>大众工匠</text>
+                    <image class='icon_right' src='../../../../images/icon/icon_right.png'></image>   
                 </view>
                 <view class='fontSize-24 color3'>2019-05-02</view>
             </view>

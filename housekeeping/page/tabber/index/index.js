@@ -59,10 +59,11 @@ Page({
         classList: [{
 
         }],
-        vipActivity: [{
-            bgUrl: 'http://pic.39yst.com/group1/M00/5D/1C/Pb832l0K7xOAF6a_AABNE3A_0V8898.png',
-            text1:'充值',
-            text2:'立即返现'
+        vipActivity: [
+            {
+                bgUrl: 'http://pic.39yst.com/group1/M00/5D/1C/Pb832l0K7xOAF6a_AABNE3A_0V8898.png',
+                text1:'充值',
+                text2:'立即返现'
             },
             {
                 bgUrl: 'http://pic.39yst.com/group1/M00/27/1B/Co0f9V0K7xKAIFcYAABFPSr2ZXY897.png',

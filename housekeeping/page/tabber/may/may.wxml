@@ -1,5 +1,5 @@
 <!--pages/tabber/may/may.wxml-->
-<view class='container'>
+<view class='container' wx:if='{{flag}}'>
     <view class='width100 dpfC'>
         <view class='width90' style='padding-bottom:30rpx;'>
             <!-- 头像昵称 -->
@@ -52,4 +52,8 @@
         </navigator>
     </view>
    
+</view>
+
+<view wx:else>
+  <button  open-type="getUserInfo" lang="zh_CN" bindgetuserinfo="bindgetUserInfo">微信登录</button>
 </view>

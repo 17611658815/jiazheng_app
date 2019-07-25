@@ -14,8 +14,8 @@
             <view class='itembox dpf'>
                 <view class='leaberleft fontSize-30 color2'>
                 
-                 <text class='fontSize-30 color1' wx:if='{{pickerFlag}}'>{{array[index]}}</text>
-                <text  wx:else >所在地区</text>
+                <text class='fontSize-30 color1' wx:if='{{pickerFlag}}'>{{array[index]}}</text>
+                <text wx:else>所在地区</text>
                 </view>
                 <picker bindchange="bindPickerChange" value="{{index}}" range="{{array}}">
                     <view class="picker">
