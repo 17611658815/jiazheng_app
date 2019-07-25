@@ -61,7 +61,7 @@ Page({
     goSelectTime(){
         let that = this;
         wx.navigateTo({
-            url: '/page/cleanKeeping/pages/selectTime/selectTime',
+            url: '/page/classnav/pages/selectTime/selectTime',
         })
     },
     //选择服务类型
@@ -103,7 +103,7 @@ Page({
     commentMore(){
         let that = this;
         wx.navigateTo({
-            url: '/page/cleanKeeping/pages/commentMore/commentMore',
+            url: '/page/classnav/pages/commentMore/commentMore',
         })
     },
     /**

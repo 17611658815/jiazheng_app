@@ -1,4 +1,4 @@
-// page/cleanKeeping/pages/commentMore/commentMore.js
+// page/classnav/pages/commentMore/commentMore.js
 var app = getApp();
 Page({
 

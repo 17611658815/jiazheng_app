@@ -1,11 +1,11 @@
 <!--pages/tabber/may/may.wxml-->
-<view class='container' wx:if='{{flag}}'>
+<view class='container' wx:if='{{userInfo!=null}}'>
     <view class='width100 dpfC'>
         <view class='width90' style='padding-bottom:30rpx;'>
             <!-- 头像昵称 -->
             <view class='dpf padding40'>
-                <image class='userPic' src='http://i2.chuimg.com/e7da54e68b6611e6a9a10242ac110002_1117w_1080h.jpg?imageView2/2/w/620/interlace/1/q/90'></image>
-                <text class='fontSize-34 color1'>保罗.沃克</text>
+                <image class='userPic' src='{{userInfo.headimgurl}}'></image>
+                <text class='fontSize-34 color1'>{{userInfo.nickname}}</text>
             </view>
             <!-- 开通会员 -->
             <view class='openVip dpfb padding30 fontSize28 color6'>

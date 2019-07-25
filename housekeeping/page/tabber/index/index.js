@@ -3,57 +3,58 @@
 const app = getApp()
 Page({
     data: {
+        homePicData:{},//轮播图片
         index: 0,
         array: ['北京城市学院', '北京城市学院', '北京城市学院', '北京城市学院'],
         navArr: [{
                 name: '保洁',
                 icon: '../../../images/icon/icon_nav_1.png',
-                url:'../../cleanKeeping/pages/cleaningList/cleaningList'
+                url:'../../classnav/pages/cleaningList/cleaningList'
             },
             {
                 name: '上门维修',
                 icon: '../../../images/icon/icon_nav_2.png',
-                url: '../../cleanKeeping/pages/cleaningList/cleaningList'
+                url: '../../classnav/pages/cleaningList/cleaningList'
             },
             {
                 name: '家电清洗',
                 icon: '../../../images/icon/icon_nav_3.png',
-                url: '../../cleanKeeping/pages/cleaningList/cleaningList'
+                url: '../../classnav/pages/cleaningList/cleaningList'
             },
             {
                 name: '搬家拉货',
                 icon: '../../../images/icon/icon_nav_4.png',
-                url: '../../cleanKeeping/pages/cleaningList/cleaningList'
+                url: '../../classnav/pages/cleaningList/cleaningList'
             },
             {
                 name: '上门安装',
                 icon: '../../../images/icon/icon_nav_5.png',
-                url: '../../cleanKeeping/pages/cleaningList/cleaningList'
+                url: '../../classnav/pages/cleaningList/cleaningList'
             },
             {
                 name: '即刻达',
                 icon: '../../../images/icon/icon_nav_6.png',
-                url: '../../cleanKeeping/pages/cleaningList/cleaningList'
+                url: '../../classnav/pages/cleaningList/cleaningList'
             },
             {
                 name: '家庭维修',
                 icon: '../../../images/icon/icon_nav_7.png',
-                url: '../../cleanKeeping/pages/cleaningList/cleaningList'
+                url: '../../classnav/pages/cleaningList/cleaningList'
             },
             {
                 name: '家电维修',
                 icon: '../../../images/icon/icon_nav_8.png',
-                url: '../../cleanKeeping/pages/cleaningList/cleaningList'
+                url: '../../classnav/pages/cleaningList/cleaningList'
             },
             {
                 name: '管道疏通',
                 icon: '../../../images/icon/icon_nav_9.png',
-                url: '../../cleanKeeping/pages/cleaningList/cleaningList'
+                url: '../../classnav/pages/cleaningList/cleaningList'
             },
             {
                 name: '开锁换锁',
                 icon: '../../../images/icon/icon_nav_10.png',
-                url: '../../cleanKeeping/pages/cleaningList/cleaningList'
+                url: '../../classnav/pages/cleaningList/cleaningList'
             }
         ],
         classList: [{
@@ -75,6 +76,21 @@ Page({
                 text2: '免单等你来'
             }
         ]
+    },
+    onLoad(){
+        let that = this;
+        that.getindexImg()
+    },
+    // 获取首页图片
+    // 获取openid
+    getindexImg() {
+        let that = this,
+            params = {}
+        app.net.$Api.getindexImg(params).then((res) => {
+            that.setData({
+                homePicData: res.data
+            })
+        })
     },
     //附近技术
     goNearby(){

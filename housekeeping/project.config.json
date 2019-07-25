@@ -53,28 +53,28 @@
 				{
 					"id": -1,
 					"name": "保洁",
-					"pathName": "page/cleanKeeping/pages/cleaningList/cleaningList",
+					"pathName": "page/classnav/pages/cleaningList/cleaningList",
 					"query": "",
 					"scene": null
 				},
 				{
 					"id": -1,
 					"name": "保洁详情",
-					"pathName": "page/cleanKeeping/pages/cleaningDetails/cleaningDetails",
+					"pathName": "page/classnav/pages/cleaningDetails/cleaningDetails",
 					"query": "",
 					"scene": null
 				},
 				{
 					"id": -1,
 					"name": "选择时间",
-					"pathName": "page/cleanKeeping/pages/selectTime/selectTime",
+					"pathName": "page/classnav/pages/selectTime/selectTime",
 					"query": "",
 					"scene": null
 				},
 				{
 					"id": -1,
 					"name": "更多评论",
-					"pathName": "page/cleanKeeping/pages/commentMore/commentMore",
+					"pathName": "page/classnav/pages/commentMore/commentMore",
 					"query": "",
 					"scene": null
 				},

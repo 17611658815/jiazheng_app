@@ -1,4 +1,5 @@
 // pages/tabber/classify/classify.js
+const app = getApp()
 Page({
 
     /**
@@ -8,37 +9,7 @@ Page({
         toView: '',
         currentTab: 0,
         winHeight:0,
-        listArr: [{
-            name: '热门',
-            id: 1
-        }, {
-            name: '上门维修',
-            id: 2
-        }, {
-            name: '家电清洗',
-            id: 3
-        }, {
-            name: '搬家拉货',
-            id: 4
-        }, {
-            name: '上门安装',
-            id: 5
-        }, {
-            name: '即刻达',
-            id: 6
-        }, {
-            name: '家庭维修',
-            id: 7
-        }, {
-            name: '家电维修',
-            id: 8
-        }, {
-            name: '管道疏通',
-            id: 9
-        }, {
-            name: '开锁换锁',
-            id: 10
-        }]
+        listArr: []
     },
 
     /**
@@ -52,16 +23,24 @@ Page({
                     winHeight: res.windowHeight-60
                 })
             }
-        })
+        });
+        that.getClassTitle()
     },
     scrollToViewFn: function(e) {
         let id = e.currentTarget.dataset.id;
         let index = e.currentTarget.dataset.index;
         this.setData({
-            toView: 'toView' + id, //toViewG
             currentTab: index
         });
-        console.log(this.data.toView)
+    },
+    getClassTitle(){
+        let that = this;
+        app.net.$Api.getClassTitle().then((res) => {
+            console.log(res)
+            that.setData({
+                listArr: res.data.Data
+            })
+        })
     },
     /**
      * 生命周期函数--监听页面初次渲染完成

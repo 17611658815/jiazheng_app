@@ -1,3 +1,11 @@
+swiper{
+    width: 100%;
+    height: 100%;
+}
+swiper-item {
+    width: 100rpx;
+    height: 100rpx;
+}
 .home-content-header {
     width: 100%;
     padding: 45rpx 0;

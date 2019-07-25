@@ -1,4 +1,4 @@
-// page/cleanKeeping/pages/selectTime/selectTime.js
+// page/classnav/pages/selectTime/selectTime.js
 var app = getApp();
 Page({
 

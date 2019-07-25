@@ -34,7 +34,7 @@ Page({
     // 选择优惠卷
     goSelectTime(){
         wx.navigateTo({
-            url: '/page/cleanKeeping/pages/selectTime/selectTime',
+            url: '/page/classnav/pages/selectTime/selectTime',
         })
     },
     /**

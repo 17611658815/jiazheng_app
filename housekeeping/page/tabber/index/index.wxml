@@ -17,15 +17,20 @@
                 快速搜索商家，服务
             </view>
         </view>
+        <!-- 轮播图部分 -->
         <view class='home-swiper'>
-            <image src='../../../images/banner/banner1.png'></image>
+            <swiper class="swiper" indicator-dots='true' indicator-color='rgba(255,255, 255, .3)' indicator-active-color="#ffffff" autoplay="true" circular='true' duration="1000" interval="5000">
+                <swiper-item wx:for='{{homePicData.recommendBannerData}}' wx:key='key'>
+                    <image mode="aspectFit" src="{{item.data.pic}}"></image>
+                </swiper-item>
+            </swiper>
         </view>
         <!-- 导航 -->
         <view class='home-navList'>
-            <navigator hover-class='none' wx:for='{{navArr}}' wx:key='key' url='{{item.url}}'>
+            <navigator hover-class='none' wx:for='{{homePicData.typeData}}' wx:key='key' url='../../classnav/pages/cleaningList/cleaningList?id={{item.id}}'>
                 <view class='home-navList-item {{index>=5 ? "marginTop":""}}'>
                     <view class='home-navList-item-icon'>
-                        <image src='{{item.icon}}'></image>
+                        <image src='{{item.thumb}}'></image>
                     </view>
                     <view class='home-navList-item-text'>
                         {{item.name}}
@@ -34,12 +39,12 @@
             </navigator>
         </view>
         <!-- 电话预约 -->
-        <view class='phoneNumber width90'>
-            <image mode='scaleToFill' src='../../../images/logo/phone_num.png'></image>
+        <view class='phoneNumber width90' wx:for='{{homePicData.recommendTelData}}' wx:key='key'>
+            <image mode='scaleToFill' src='{{item.data.pic}}'></image>
         </view>
         <!-- 领卷 -->
-        <view class='home-advertising'>
-            <image mode='scaleToFill' src='../../../images/logo/packet_red.png'></image>
+        <view class='home-advertising' wx:for='{{homePicData.recommendHdData}}' wx:key='key'>
+             <image mode='scaleToFill' src='{{item.data.pic}}'></image>
         </view>
         <!-- 附近技师 -->
         <view class='home-hot-activity'>

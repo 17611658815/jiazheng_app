@@ -26,7 +26,7 @@ Page({
             title: '商家入驻',
             path: ''
         }],
-        flag: false
+        userInfo:null
     },
     bindgetUserInfo(res) {
         let that = this,
@@ -45,8 +45,17 @@ Page({
                     wx.hideToast()
                 },
             })
-        } else {
-            app.alert('49')
+        } else { 
+            // 拒绝授权登录
+            wx.showModal({
+                title: '提示',
+                icon: 'success',
+                content: '请确认授权登录',
+                showCancel: false,
+                success:function(){
+                    console.log('确定')
+                }
+            })
         }
 
     },
@@ -65,17 +74,34 @@ Page({
     },
     // 登录
     wxLogin(userInfo) {
+        console.log('登录=>',68)
         let that = this,
-            params = userInfo;
+            params = {
+                openid: userInfo.openid,
+				nickname: userInfo.nickName,
+                sex: userInfo.gender,
+				city: userInfo.city,
+				country: userInfo.country,
+                province: userInfo.province,
+                headimgurl: userInfo.avatarUrl,
+                subscribe:'0',
+                subscribe_time: new Date().getTime(),
+				subscribe_scene:"2",
+            }
         app.net.$Api.wxLogin(params).then((res) => {
-            console.log(res)
+            // 存储用户信息
+            that.data.userInfo = res.data.authinfo
+            wx.setStorageSync("userinfo", that.data.userInfo);
+            that.setData({
+                userInfo: that.data.userInfo
+            })
         })
     },
-    getmsg(){
+    getMsg(){
         wx.request({
-            url: 'https://wx.dkjis.com/api/index/',
+            url: 'https://wx.dkjis.com/api/index',
             success:function(res){
-                console.log(res,78)
+                console.log(res,91)
             }
         })
     },
@@ -83,7 +109,12 @@ Page({
      * 生命周期函数--监听页面加载
      */
     onLoad: function(options) {
-        this.getmsg()
+        let that = this;
+        let userInfo = wx.getStorageSync('userinfo') || null;
+        that.setData({
+            userInfo
+        })
+        this.getMsg()
     },
 
     onShareAppMessage: function() {

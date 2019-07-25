@@ -44,7 +44,7 @@
     },
     "subPackages": [
         {
-            "root": "page/cleanKeeping/",
+            "root": "page/classnav/",
             "pages": [
                 "pages/cleaningList/cleaningList",
                 "pages/cleaningDetails/cleaningDetails",
