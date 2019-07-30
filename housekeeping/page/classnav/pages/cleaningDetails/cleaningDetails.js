@@ -5,13 +5,16 @@ Page({
      * 页面的初始数据
      */
     data: {
+        pid: 0,//商品id
+        shopName:'选择保洁项目',//选择项目名称
+        shopDetailed:{},//商品详情数据
         isIphoneX:false,
         selectShow:false,//选择项目
         selectindex:0,//默认选中服务
         selectName:'',
         count:1,//服务数量
-        day:'今天',//日期
-        time:"12:00",//服务时间
+        day:'今天',//预约日期
+        time:"12:00",//预约时间
     },
     /**
      * 生命周期函数--监听页面显示
@@ -35,13 +38,34 @@ Page({
     onLoad: function (options) {
         let isIphoneX = app.globalData.isIphoneX
         this.setData({
-            isIphoneX: isIphoneX
+            isIphoneX: isIphoneX,
+            pid: options.id || 1
         })
+        this.getShopDetaile()
         console.log(this.data.isIphoneX)
     },
+    // 获取服务详情
+    getShopDetaile() {
+        let that = this,
+            params = {
+                pid: that.data.pid
+            }
+        app.loading()
+        app.net.$Api.getShopdetails(params).then((res) => {
+            wx.hideLoading();
+            console.log(res)
+            if(res.data.code == 200){
+                that.setData({
+                    shopDetailed: res.data.Data
+                })
+            }else{
+                
+            }
+        })
+    },  
     //子组件事件
     onaddCart(){
-        var that = this;
+        let that = this;
         wx.showLoading({
             title: '加入购物车',
         })
@@ -54,19 +78,28 @@ Page({
     selectItems(){
         let that = this;
         that.setData({
-            selectShow: !that.data.selectShow
+            selectShow: !that.data.selectShow,
         })
+    },
+    //确定服务项目
+    confirm(){
+        let that = this;
+        that.setData({
+            selectShow: !that.data.selectShow,
+            shopName: that.data.shopDetailed.shopProjectRelevantData[that.data.selectindex].name
+        })
+        console.log('项目名称=>', that.data.shopName, '项目数量=>',that.data.count)
     },
     //选择项目
     goSelectTime(){
         let that = this;
+        let id = that.data.pid;
         wx.navigateTo({
-            url: '/page/classnav/pages/selectTime/selectTime',
+            url: '/page/classnav/pages/selectTime/selectTime?id='+id,
         })
     },
     //选择服务类型
     selectItemsType(e){
-        console.log(e)
         let that = this;
         let index = e.currentTarget.dataset.index
         let name = e.currentTarget.dataset.name
@@ -74,11 +107,13 @@ Page({
             selectindex: index,
             selectName: name
         })
-        console.log(that.data.selectName)
     },
-    //服务详情
+    //相关推荐
     gocleaningDetails(e){
-
+        let id = e.currentTarget.dataset.id;
+        wx.navigateTo({
+            url: 'cleaningDetails?id=' + id,
+        })
     },
     changeCount(e){
         let that = this;

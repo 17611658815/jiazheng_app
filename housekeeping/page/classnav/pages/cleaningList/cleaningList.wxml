@@ -2,13 +2,13 @@
 <import src="../../../../common/scrollX-List/scrollX-List.wxml"></import>
 <import src="../../../../common/filtrate/filtrate.wxml"></import>
 <import src="../../../../common/cleaningList/cleaningList.wxml"></import>
-<view style='width:100%' class='{{!seletedDown ? "maxHeight":""}}'>
+<view style='width:100%'>
     <view class='fixedTop'>
         <template is="scrollX" data='{{navArr:typeData,currentTab:currentTab,swatchTab:swatchTab}}'></template>
-        <filtrate id='filtrate' navArr='{{navArr}}' bind:confirmSF='onconfirmSF' bind:seleted='onSeleted' bind:parentEvent='parentFn' bind:checked="onChecked"></filtrate>
+        <filtrate id='filtrate' navArr='{{navArr}}' shopData='{{shopData}}' tagData='{{tagData}}' bind:confirmSF='onconfirmsf' bind:seleted='onSeleted'  bind:checked="onChecked"></filtrate>
     </view>
     <view class='cleaningListBox width90'>
-        <template is="cleaningList" data='{{cleaningArr:10,gocleaningDetails:gocleaningDetails,show:true}}'></template>
+        <template is="cleaningList" data='{{cleaningArr:data,gocleaningDetails:gocleaningDetails,show:true}}'></template>
         <!-- <template is="loading" data></template> -->
     </view>
 </view>

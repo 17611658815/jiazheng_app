@@ -6,14 +6,18 @@ Page({
      * 页面的初始数据
      */
     data: {
+        data:[],//列表数据
         typeid:'',// 分类ID
         shopid: '',//店铺ID
         field: '',//排序字段
-        orderbytype: '',//排序类型，desc：降序 asc: 升序
+        orderbyIndex:0,//排序索引
+        orderbytype: ['desc','asc','',''],//排序类型，desc：降序 asc: 升序
         projecttagid: '',//项目分类标签ID
         nums: 10,//获取条数
         page: 1,// 页码
-        typeData: [],
+        typeData: [],//
+        tagData:[],//筛选
+        shopData:[],//服务商
         currentTab:0,//导航默认选中
         seletedDown:true,//是否固定高度
     },
@@ -23,7 +27,7 @@ Page({
     onLoad: function (options) {
         let that = this;
         that.setData({
-            typeid: options.id
+            // typeid: options.id
         })
         that.getTypeList()
         console.log(options)
@@ -36,43 +40,49 @@ Page({
             currentTab:index
         })
     },
+    // 初始化数据
     getTypeList(){
         let that = this,
             params = {
                 typeid: that.data.typeid,// 分类ID
-    			shopid: '',//店铺ID
-    			field: '',//排序字段
-    			orderbytype: '',//排序类型，desc：降序 asc: 升序
-    			projecttagid:'',//项目分类标签ID
+                shopid: that.data.shopid,//店铺ID
+                field: that.data.field,//排序字段
+                orderbytype: that.data.orderbytype[that.data.orderbyIndex],//排序类型，desc：降序 asc: 升序
+                projecttagid: that.data.projecttagid,//项目分类标签ID
                 nums: that.data.nums,//获取条数
                 page: that.data.page,// 页码
             }
+        app.loading()
         app.net.$Api.getTypeList(params).then((res) => {
-            console.log(res)
+            wx.hideLoading();
             that.setData({
+                data: res.data.data,
                 typeData: res.data.typeData,//导航list
-
+                tagData: res.data.tagData,//筛选
+                shopData: res.data.shopData,//服务商
             })
         })
     },  
-    //接收子组件方法
+    //排序
     onChecked(e){
-        console.log(e.detail)
+        this.setData({
+            orderbyIndex: e.detail.index
+        })
+        this.getTypeList()
     },
-    parentFn(e) {
-        console.log('123')
-    },
+    //服务商确定选中
     onSeleted(e){
         this.setData({
-            seletedDown: e.detail.seletedDown
+            shopid: e.detail.id
         })
-        console.log(e)
+        this.getTypeList()
     },
-    onconfirmSF(e){ 
+    //筛选更新数据
+    onconfirmsf(e){ 
         this.setData({
-            seletedDown: e.detail.seletedDown
+            typeid: e.detail.id
         })
-        console.log(e.detail.seletedDown)
+        this.getTypeList()
     },
     //保洁服务详情
     gocleaningDetails(e){
@@ -83,12 +93,6 @@ Page({
         })
     },
    
-    /**
-     * 生命周期函数--监听页面初次渲染完成
-     */
-    // onReady: function () {
-    //     this.filtrate = this.selectComponent('#filtrate')
-    // },
     /**
      * 生命周期函数--监听页面隐藏
      */

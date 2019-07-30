@@ -22,4 +22,17 @@ export default class Url {
     static getTypeListUrl() {
         return Url.PATH + '/api/type/list';
     };
+    //项目详情
+    static getShopdetailsUrl() {
+        return Url.PATH + '/api/details';
+    };
+    //项目服务时间
+    static getShopTimeUrl() {
+        return Url.PATH + '/api/details/datetime';
+    };
+    //所在地区列表
+    static getAreaUrl() {
+        return Url.PATH + '/api/comments/area';
+    };
+
 }

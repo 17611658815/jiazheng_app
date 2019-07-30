@@ -1,3 +1,24 @@
-<timeList  bind:confirm='onconfirm'>
-
-</timeList>
+<view class='timer_content' wx:if='{{code==200}}'>
+    <scroll-view class='timer_content_day' scroll-x="true">
+        <view class='timer_content_day_item {{index == currentDay ? "daycheckedClass":"" }}' wx:for='{{daysData}}' data-index='{{index}}' data-day="{{item.day}}" bindtap="selectDays" wx:key='key'>
+            <text class="fontSize-32 color1">{{item.day}}</text>
+            <text class="fontSize-22 color3">{{item.time}}</text>
+        </view>
+    </scroll-view>
+    <view class='timer_content_time'>
+        <view bindtap='selectTime'  data-index='{{index}}' data-time='{{item.hour}}' wx:for='{{daysData[currentDay].hourArr}}' class='timer_content_time_item {{currentTime == index ? "checkedClass":"time"}}' wx:key="key">
+            <text>{{item.hour}}</text> 
+            <!-- <text class='{{index==8 ? "colors":""}}'>{{item.hour}}</text>  -->
+            <!-- <text class='{{index==8 ? "colors":""}}' wx:if='{{index==8}}'>约满</text>  -->
+        </view>
+    </view>
+    <view class='timer_content_text'>
+        <image src='../../../../images/icon/icon_tanhao.png'></image>
+        实际到达时间可能有30分钟左右的浮动
+    </view>
+    <view class='timer_content_sub'>
+        <view bindtap='onconfirm' class='btnStyle'>
+            确定
+        </view>
+    </view>
+</view>

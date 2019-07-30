@@ -4,7 +4,13 @@ Component({
      * 组件的属性列表
      */
     properties: {
-        navArr: {          
+        navArr: {      //导航 
+            type: Array,    
+        },
+        tagData: {     //筛选列表      
+            type: Array,    
+        },
+        shopData: {     //服务商      
             type: Array,    
         },
         parentFn:{
@@ -24,7 +30,8 @@ Component({
         sortTypeArr:['销量高','好评多','上门快','价格低'],
         sortTypeIndex:0,
         filtrate_row_1:0,//第一列
-        filtrate_row_2:0,//第二列
+        filtrateId:0,//筛选id
+        seletedid:0,//服务商id
     },
 
     /**
@@ -38,10 +45,6 @@ Component({
                 seletedDown2: false,
                 seletedDown3: false,
             })
-            let data = {
-                seletedDown: !this.data.seletedDown1
-            }
-            this.triggerEvent("seleted", data);
         },
         //排序下拉框
         sortseleted() {
@@ -50,10 +53,6 @@ Component({
                 seletedDown1: false,
                 seletedDown3: false
             })
-            let data = {
-                seletedDown: !this.data.seletedDown2
-            }
-            this.triggerEvent("seleted", data);
         },
         //筛选下拉框
         filtratSeleted() {
@@ -62,25 +61,22 @@ Component({
                 seletedDown1: false,
                 seletedDown2: false
             })
-            let data = {
-                seletedDown: !this.data.seletedDown3
-            }
-            this.triggerEvent("seleted", data);
         },
-        //父组件方法
+        //切换服务商刷新数据
         parentFn(e){
-            this.triggerEvent("parentEvent");
+            let id = e.currentTarget.dataset.id;
+            let data = {
+                index: index
+            }
         },
         //服务商切换
         checked(e) {
             let index = e.currentTarget.dataset.index;
-            let data = {
-                index: index
-            }
+            let id = e.currentTarget.dataset.id;
             this.setData({
-                seletedIndex: index
+                seletedIndex: index,
+                seletedid: id
             })
-            this.triggerEvent("checked", data );
         },
         //重置服务商
         resetMerchant() {
@@ -95,10 +91,6 @@ Component({
                 seletedDown2: false,
                 seletedDown3: false,
             })
-            let data = {
-                seletedDown: !this.data.seletedDown1
-            }
-            this.triggerEvent("seleted", data);
         },
         //确定服务商
         confirmMerchant() {
@@ -107,7 +99,8 @@ Component({
                 seletedDown1: false,
             })
             let data = {
-                seletedDown: !this.data.seletedDown1
+                seletedDown: !this.data.seletedDown1,
+                id: this.data.seletedid
             }
             this.triggerEvent("seleted", data);
         },
@@ -115,22 +108,21 @@ Component({
         selectSort(e){
             let index = e.currentTarget.dataset.index;
             this.setData({
-                sortTypeIndex:index
+                sortTypeIndex:index,
+                seletedDown2:false
             })
+            let data = {
+                index: index
+            }
+            this.triggerEvent("checked", data);
         },
         //选择筛选方式
-        // 第一行
         selectFiltrate_1(e){
             let index = e.currentTarget.dataset.index;
+            let id = e.currentTarget.dataset.id
             this.setData({
-                filtrate_row_1:index
-            })
-        },
-        // 第二行
-        selectFiltrate_2(e){
-            let index = e.currentTarget.dataset.index;
-            this.setData({
-                filtrate_row_2:index
+                filtrate_row_1:index,
+                filtrateId: id
             })
         },
         //确认筛选
@@ -140,8 +132,9 @@ Component({
                 seletedDown3: false,
             })
             let data = {
-                seletedDown: !this.data.seletedDown3,
-                index: this.data.filtrate_row_2
+                // seletedDown: !this.data.seletedDown3,
+                index: this.data.filtrate_row_1,
+                id: this.data.filtrateId
             }
             this.triggerEvent("confirmSF", data);
         },

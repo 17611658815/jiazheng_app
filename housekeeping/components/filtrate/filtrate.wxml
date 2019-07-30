@@ -1,4 +1,4 @@
-    <view class='filtrate-content'>
+    <view class='filtrate-content' catch:touchmove>
         <view class='filtrate-content-box'>
             <view bindtap='seleted'>服务商
                 <image class='triangle {{seletedDown1 ? "rotateRight":""}}' src='../../images/icon/icon_triangle.png'></image>
@@ -13,14 +13,14 @@
         <view class='shade' bindtap='hideShade' wx:if='{{seletedDown1 || seletedDown2 || seletedDown3}}' catch:touchmove></view>
         <!-- 服务商下拉 -->
         <view class='pullList' wx:if='{{seletedDown1}}'>
-         <view class='pullList-content'>
+         <view class='pullList-content' catch:touchmove>
              <scroll-view scroll-y="true" class='pullListScroll'>
                     <view class='pullListScrollContent'>
-                        <view class='pullListScroll-item {{seletedIndex==index ? "checkedClass":""}}' catchtap='checked' data-index="{{index}}" wx:for="{{30}}" wx:key='key'>
+                        <view class='pullListScroll-item {{seletedIndex==index ? "checkedClass":""}}' catchtap='checked' data-id="{{item.id}}" data-index="{{index}}" wx:for="{{shopData}}" wx:key='key'>
                             <view class='pullListScroll-item-title fontSize-30'>
                               <image src='../../images/icon/icon_common1.png' wx:if="{{seletedIndex==index}}"></image>
                             <image src='../../images/icon/icon_common2.png' wx:else></image>
-                             <text>大众工匠</text> 
+                             <text>{{item.name}}</text> 
                             </view>
                             <view class='fontSize-24 color4'>4.3分</view>
                         </view>
@@ -33,7 +33,7 @@
              </view>
         </view>
         <!-- 排序下拉 -->
-        <view class='sortList' wx:if='{{seletedDown2}}' wx:key='key'>
+        <view class='sortList' wx:if='{{seletedDown2}}'>
                 <view bindtap='selectSort' data-index='{{index}}' class='sortList-item fontSize-30 color3 {{sortTypeIndex==index ? "color2":""}}' wx:for='{{sortTypeArr}}' wx:key='key'>
                     <text>{{item}}</text> 
                     <image wx:if='{{sortTypeIndex==index}}' src='../../images/icon/icon_mark.png'></image>
@@ -42,16 +42,11 @@
         <!-- 筛选下拉 -->
         <view class='filtrateList' wx:if='{{seletedDown3}}'>
              <view class='filtrateList-content'>
-                 <scroll-view scroll-y="true" class='filtrateList-content-left'>
-                    <view bindtap='selectFiltrate_1' data-index='{{index}}' class='filtrateList-content-item fontSize-30 color3 {{filtrate_row_1==index ? "filtrateActive":""}}' wx:for='{{100}}'>
-                        <text>{{item}}</text>  <image wx:if="{{filtrate_row_1==index}}" src='../../images/icon/icon_mark.png'></image>
+                 <view class='filtrateList-content-left'>
+                    <view bindtap='selectFiltrate_1' data-index='{{index}}' data-id='{{item.id}}' class='filtrateList-content-item fontSize-30 color3 {{filtrate_row_1==index ? "filtrateActive":""}}' wx:for='{{tagData}}' wx:key='key'>
+                        <text>{{item.name}}</text>  <image wx:if="{{filtrate_row_1==index}}" src='../../images/icon/icon_mark.png'></image>
                     </view>
-                 </scroll-view>
-                 <scroll-view scroll-y="true" class='filtrateList-content-right'>
-                    <view  bindtap='selectFiltrate_2' data-index='{{index}}' class='filtrateList-content-item fontSize-30 color3 {{filtrate_row_2==index ? "filtrateActive":""}}' wx:for='{{100}}'>
-                     <text>{{item}}</text>  <image wx:if="{{filtrate_row_2==index}}"  src='../../images/icon/icon_mark.png'></image>
-                    </view>
-                 </scroll-view>
+                 </view>
              </view>
              <view class='pullListBtnBox'>
                 <view catchtap='resetFiltrate'>重置</view>

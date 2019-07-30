@@ -30,4 +30,16 @@ export const api = {
     getTypeList: function (paramObj) {
         return Promise.get(Url.default.getTypeListUrl(), paramObj);
     },
+    // 项目详情
+    getShopdetails: function (paramObj) {
+        return Promise.get(Url.default.getShopdetailsUrl(), paramObj);
+    },
+    // 项目服务时间
+    getShopTime: function (paramObj) {
+        return Promise.get(Url.default.getShopTimeUrl(), paramObj);
+    },
+    // 所在地区列表
+    getArea: function (paramObj) {
+        return Promise.get(Url.default.getAreaUrl(), paramObj);
+    },
 }

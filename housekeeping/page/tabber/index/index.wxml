@@ -97,7 +97,7 @@
     </view>
     <view class='home-class-server'>
         <view class='home-class-server-item'>
-            <view class='home-class-server-item-title'>
+            <view class='home-class-server-item-title width90'>
                 <view class='fontSize-36 fontWeight5'>会员福利</view>
                 <view class='fontSize-24 color3 dpf'>更多
                     <image style='width:30rpx;height:30rpx' src='../../../images/icon/icon_right.png'></image>

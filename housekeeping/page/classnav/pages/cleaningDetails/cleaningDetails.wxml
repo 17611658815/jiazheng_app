@@ -1,15 +1,15 @@
 <view class="container">
     <view class='cleaningDetails-header'>
-        <image src='http://i2.chuimg.com/f30f7ea4346c11e7947d0242ac110002_3264w_2448h.jpg?imageView2/2/w/620/interlace/1/q/90'></image>
+        <image src='{{shopDetailed.projectData.thumb}}'></image>
     </view>
     <view class='cleaningDetails-title'>
         <view class='cleaningDetails-title-name width90'>
-            <text class='fontSize-34 fontWeight5'>保洁</text>
+            <text class='fontSize-34 fontWeight5'>{{shopDetailed.projectData.name}}</text>
             <image src='../../../../images/icon/icon_noFocus.png'></image>
         </view>
         <view class='cleaningDetails-title-price width90'>
             <view class='fontSize-34 color4'>
-                <text class='fontWeight5'>24</text>元/小时
+                <text class='fontWeight5'>{{shopDetailed.projectData.price}}</text>元/小时
             </view>
             <view class='fontSize-22 color3'>
                 已售2341
@@ -36,7 +36,7 @@
     <view class='cleaningDetails-select'>
         <view class='cleaningDetails-select-type color2 width90' bindtap='selectItems'>
             <text class='fontSize-26'>选择</text>
-            <view class='right fontSize-26 color1' wx:if='{{selectName==""}}'>选择保洁项目
+            <view class='right fontSize-26 color1' wx:if='{{selectName==""}}'>{{shopName}}
                 <image src='../../../../images/icon/icon_right.png'></image>
             </view>
             <view class='right fontSize-26 color1' wx:else>
@@ -107,10 +107,10 @@
          <view class='fontWeight5'>为你推荐</view>
          <import src="../../../../common/cleaningList/cleaningList.wxml"></import>
          <view class='recommend-list-box width90 {{isIphoneX ? "margin-bottom120":"margin-bottom90"}}'>
-            <template is="cleaningList" data='{{cleaningArr:10,gocleaningDetails:gocleaningDetails,show:false}}'></template>
+            <template is="cleaningList" data='{{cleaningArr:shopDetailed.shopProjectRelevantData,gocleaningDetails:gocleaningDetails,show:false}}'></template>
           </view>
     </view>
     <add-shop-cart bind:addCart='onaddCart'></add-shop-cart>
 </view>
 <import src="../../../../common/selectItems/selectItems.wxml"></import>
-<template is="selectItems" data="{{selectItems:selectItems,selectindex:selectindex,selectItemsType:selectItemsType,changeCount:changeCount,count:count,selectName:selectName,isIphoneX:isIphoneX,selectShow:selectShow}}" wx:if='{{selectShow}}'></template>
+<template is="selectItems" data="{{selectItems:shopDetailed.shopProjectRelevantData,selectindex:selectindex,selectItemsType:selectItemsType,changeCount:changeCount,count:count,selectName:selectName,isIphoneX:isIphoneX,selectShow:selectShow,confirm:confirm}}" wx:if='{{selectShow}}'></template>

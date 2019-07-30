@@ -1,14 +1,14 @@
 <template name="selectItems">
-    <view class='selectItems-content' catchtap='selectItems' catch:touchmove>
+    <view class='selectItems-content' catchtap='selectItems' catchtouchmove='ture'>
         
     </view>
-    <view class='{{selectShow ? "selectItems-content-box2":"selectItems-content-box"}}' catch:touchmove>
+    <view class='{{selectShow ? "selectItems-content-box2":"selectItems-content-box"}}' catchtouchmove='ture'>
             <view class='selectItems-content-item'>
                 <view class='selectItems-content-header'>
                     <view class='header-image'> <image src='../../../../images/logo/bg_4.png'></image> </view>
                     <view class='header-text'>
-                        <view style='margin-bottom: 22rpx;' class='fontSize-32 fontWeight5'>日常保洁</view>
-                        <view style='margin-bottom: 30rpx;' class='fontSize-32 color4'>24/元小时</view>
+                        <view style='margin-bottom: 22rpx;' class='fontSize-32 fontWeight5'>{{selectItems[selectindex].name}}</view>
+                        <view style='margin-bottom: 30rpx;' class='fontSize-32 color4'>{{selectItems[selectindex].price}}/元小时</view>
                     </view>
                 </view>
                 <view class='header-item'>
@@ -16,8 +16,8 @@
                        
                        服务项目</view>
                     <view class='header-item-box'>
-                        <view class='header-item-box-item {{selectindex==index ? "checkedClass":""}}' catchtap='selectItemsType' data-index='{{index}}' data-name='日常保洁1小时' wx:for='{{8}}' wx:key='key'>
-                            日常保洁1小时
+                        <view class='header-item-box-item {{selectindex==index ? "checkedClass":""}}' catchtap='selectItemsType' data-index='{{index}}' data-name='日常保洁1小时' wx:for='{{selectItems}}' wx:key='key'>
+                            {{item.name}}
                         </view>
                     </view>
                 </view>
@@ -30,7 +30,7 @@
                     </view>
                 </view>
             </view>
-            <view class='btnStyle' catchtap='selectItems'>确定</view>
+            <view class='btnStyle' catchtap='confirm'>确定</view>
             <view class='isIphoneXBox' wx:if='{{isIphoneX}}'></view>
         </view>
 </template>

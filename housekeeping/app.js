@@ -73,11 +73,10 @@ App({
         $Api: Api.api,
     },
     loading: function() {
-        wx.showToast({
+        wx.showLoading({
             mask: true,
             title: '加载中',
             icon: 'loading',
-            duration: 30000
         })
     },
     alert: function (content) {
