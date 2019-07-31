@@ -10,6 +10,7 @@ Page({
         currentTime: 0,//时间索引
         currentDay: 0,//日期索引
         day:'',
+        daynum:'',
         time: '',
         daysData: [],
         code:0,
@@ -43,9 +44,11 @@ Page({
     },
     onconfirm(){
         app.globalData.data = {
-            day: this.data.day,
-            time: this.data.time
+            daynum: this.data.daysData[this.data.currentDay].time,
+            day: this.data.daysData[this.data.currentDay].day,
+            time: this.data.daysData[this.data.currentDay].hourArr[this.data.currentTime].hour
         };
+        console.log(app.globalData.data)
         wx.navigateBack({
             delta: 1
         })
@@ -78,7 +81,7 @@ Page({
         console.log(index)
         that.setData({
             currentDay: index,
-            day:day
+            day: that.data.daysData[index].day
         })
     },
     //选择时间

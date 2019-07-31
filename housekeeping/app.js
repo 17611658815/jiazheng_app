@@ -81,7 +81,7 @@ App({
     },
     alert: function (content) {
         wx.showModal({
-            title: '提示',
+            title: '温馨提示',
             content: content,
             showCancel: false
         })

@@ -1,0 +1,15 @@
+{
+    "Data": [
+        {
+            "couponid": "1",
+            "status": "1",
+            "name": "现金券",
+            "price": "2000",
+            "thumb": "",
+            "start_time": "1564329600",
+            "end_time": "1567008000",
+            "expire": 1
+        }
+    ],
+    "code": 200
+}

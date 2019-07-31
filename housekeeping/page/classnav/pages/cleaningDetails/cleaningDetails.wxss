@@ -1,6 +1,9 @@
 page{
     background: #f8f8f8;
 }
+.swiper{
+    height: 100%;
+}
 .cleaningDetails-header{
     width: 100%;
     height: 532rpx;

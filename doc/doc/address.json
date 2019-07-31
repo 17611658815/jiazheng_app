@@ -1,0 +1,14 @@
+{
+    "code": 200,
+    "Data": [
+        {
+            "id": "1",
+            "username": "娄莹",
+            "mobile": "18611139881",
+            "province": "1",
+            "city": "72",
+            "address": "北京 朝阳区 安立路86号",
+            "status": "1"
+        }
+    ]
+}

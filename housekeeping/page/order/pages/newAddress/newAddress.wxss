@@ -11,7 +11,7 @@ page{
     border-bottom: 1rpx solid #e2e2e2;
 }
 .leaberleft{
-    width: 150rpx;
+    min-width: 150rpx;
 }
 input{
     font-size: 30rpx;

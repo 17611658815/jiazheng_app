@@ -1,4 +1,6 @@
 // page/order/pages/newAddress/newAddress.js
+const data = require('area.js')
+const app = getApp()
 Page({
 
     /**
@@ -6,8 +8,10 @@ Page({
      */
     data: {
         index:0,
-        array: ['美国', '中国', '巴西', '日本'],
-        pickerFlag:false,//地区选择标记
+        city: [],
+        multiArray:[],
+        multiIndex:[0,0],
+        pickerFlag:true,//地区选择标记
         defaultFlag:false,//添加默认地址标记
         addresMsg:'',//详细地址
 
@@ -18,12 +22,51 @@ Page({
             details:''
         }
     },
-    bindPickerChange(e){
-        console.log('picker发送选择改变，携带值为', e.detail.value)
-        this.setData({
-            index: e.detail.value,
-            pickerFlag:true
+    /**
+    * 生命周期函数--监听页面加载
+    */
+    onLoad: function (options) {
+        let that = this;
+        let index = that.data.multiIndex
+        that.data.city = data.data
+        that.data.multiArray = [[...that.data.city], [...that.data.city[index[0]].sonareaData]];
+        console.log(that.data.multiArray)
+        that.setData({
+            multiArray: that.data.multiArray,
+            // city: that.data.city
         })
+    },
+    getArea() {
+        let that = this,
+            params = {}
+        app.net.$Api.getArea(params).then((res) => {
+            console.log(res)
+        })
+    },
+    bindMultiPickerColumnChange: function (e) {
+        let city = this.data.city
+        var data = {
+            multiArray: this.data.multiArray,
+            multiIndex: this.data.multiIndex
+        };
+        data.multiIndex[e.detail.column] = e.detail.value;
+        switch (e.detail.column) {
+            case 0:
+                data.multiArray[1] = city[e.detail.value].sonareaData;
+                break;
+        }
+        this.setData({
+            multiArray: this.data.multiArray,
+            multiIndex: this.data.multiIndex
+        })
+    },
+    bindMultiPickerChange: function (e) {
+        this.multiIndex = e.detail.value;
+        this.setData({
+            multiIndex: e.detail.value,
+            pickerFlag: true
+        })
+        console.log(this.data.multiIndex)
     },
     ontextareaChange(e){
         console.log(e)
@@ -36,12 +79,7 @@ Page({
         }) 
         console.log(this.data.defaultFlag)
     },
-    /**
-     * 生命周期函数--监听页面加载
-     */
-    onLoad: function (options) {
-
-    },
+   
 
     /**
      * 生命周期函数--监听页面初次渲染完成

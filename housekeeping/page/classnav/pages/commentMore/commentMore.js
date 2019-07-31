@@ -6,13 +6,18 @@ Page({
      * 页面的初始数据
      */
     data: {
-        selected:false,
-        currentTab:0,
+        pid:'',// 项目ID
+        shopid:'',//店铺ID
+        type:'',//类型
+        nums:10,// 每一页条数
+        page:1,// 页数
+        selected:false,//只看当前选中状态
+        currentTab:0,// 好评/中评/差评/筛选/当前选中项
         isIphoneX:false,
         commentArr:['全部','好评','中评','差评','有图'],
-        isfocus:false,
-        bottom:'',
-        commentMsgArr: [],
+        isfocus: false,//评论文本框
+        bottom:'',//文本框据底部距离
+        commentMsgArr: [],//评论列表
         oncommentMsg:''
     },
 
@@ -20,11 +25,14 @@ Page({
      * 生命周期函数--监听页面加载
      */
     onLoad: function (options) {
-        let isIphoneX = app.globalData.isIphoneX
+        let isIphoneX = app.globalData.isIphoneX;
+        let optData = JSON.parse(options.data)
         this.setData({
-            isIphoneX: isIphoneX
+            isIphoneX: isIphoneX,
+            pid: optData.pid,// 项目ID
+            shopid: optData.shopid,//店铺ID
         })
-        console.log(this.data.isIphoneX)
+        this.getcommentList()
     },
     oncommentMsg(e){
         let that = this;
@@ -35,11 +43,22 @@ Page({
         })
         console.log(e)
     },
-    /**
-     * 生命周期函数--监听页面初次渲染完成
-     */
-    onReady: function () {
-
+    getcommentList(){
+        let that = this;
+        let params = {
+            pid: that.data.pid,//用户ID
+            shopid: that.data.shopid,//项目/产品/服务人员ID
+            nums: that.data.nums,//订购数
+            page: that.data.page,//项目/产品规格
+        }
+        app.net.$Api.getcommentList(params).then((res) => {
+            console.log(res)
+            if (res.data.code == 200) {
+              
+            } else {
+               
+            }
+        })
     },
     swatchChange(e){
         let index = e.currentTarget.dataset.index;

@@ -1,11 +1,16 @@
-服务器配置
+﻿服务器配置
+http://doc.dkjis.com/doc/%E5%BE%AE%E4%BF%A1%E9%85%8D%E7%BD%AE%E6%96%87%E6%A1%A3.txt
 	1.填写基本信息域名 https://wx.dkjis.com
-	2.Tonken：dkjiscom2019715
-	3.EncodingAESKey:U0YOu6XbGQ6JNnXE1vaiYMhJtFLhEBaOUvDSBKrqaXT
-	4.消息加解密方式:兼容模式
-	5.AppSecret:9f17528f763e5e8e3bcd0961ec944640
-	6.AppID:wx01a468cb5aaa007f
+	公众号配置：
+		2.Tonken：dkjiscom2019715
+		3.EncodingAESKey:U0YOu6XbGQ6JNnXE1vaiYMhJtFLhEBaOUvDSBKrqaXT
+		4.消息加解密方式:兼容模式
+		5.AppSecret:9f17528f763e5e8e3bcd0961ec944640
+		6.AppID:wx01a468cb5aaa007f
 
+	小程序配置
+		7.AppSecret:e59d0cdd609f571d478f9b482a55cea3
+		8.AppID:wx2490759807dcf531
 
 微信接口文档：
 	
@@ -14,18 +19,18 @@
 	登录接口:
 		/api/login/
 
-		POST请求(array)
-			
-			openid	用户的标识，对当前公众号唯一
-			nickname	用户的昵称
-			sex	用户的性别，值为1时是男性，值为2时是女性，值为0时是未知
-			city	用户所在城市
-			country	用户所在国家
-			province	用户所在省份
-			headimgurl	用户头像，最后一个数值代表正方形头像大小（有0、46、64、96、132数值可选，0代表640*640正方形头像），用户没有头像时该项为空。若用户更换头像，原有头像URL将失效。
-			subscribe	用户是否订阅该公众号标识，值为0时，代表此用户没有关注该公众号，拉取不到其余信息 (此处指针对公众号)
-			subscribe_time	用户关注时间，为时间戳。如果用户曾多次关注，则取最后关注时间 (此处指针对公众号)
-			subscribe_scene	用户关注的渠道来源，ADD_SCENE_SEARCH 公众号搜索，ADD_SCENE_ACCOUNT_MIGRATION 公众号迁移，ADD_SCENE_PROFILE_CARD 名片分享，ADD_SCENE_QR_CODE 扫描二维码，ADD_SCENEPROFILE LINK 图文页内名称点击，ADD_SCENE_PROFILE_ITEM 图文页右上角菜单，ADD_SCENE_PAID 支付后关注，ADD_SCENE_OTHERS 其他 (此处指针对公众号)
+		POST提交(array)
+			authinfo:
+				openid	用户的标识，对当前公众号唯一
+				nickname	用户的昵称
+				sex	用户的性别，值为1时是男性，值为2时是女性，值为0时是未知
+				city	用户所在城市
+				country	用户所在国家
+				province	用户所在省份
+				headimgurl	用户头像，最后一个数值代表正方形头像大小（有0、46、64、96、132数值可选，0代表640*640正方形头像），用户没有头像时该项为空。若用户更换头像，原有头像URL将失效。
+				subscribe	用户是否订阅该公众号标识，值为0时，代表此用户没有关注该公众号，拉取不到其余信息 (此处指针对公众号)
+				subscribe_time	用户关注时间，为时间戳。如果用户曾多次关注，则取最后关注时间 (此处指针对公众号)
+				subscribe_scene	用户关注的渠道来源，ADD_SCENE_SEARCH 公众号搜索，ADD_SCENE_ACCOUNT_MIGRATION 公众号迁移，ADD_SCENE_PROFILE_CARD 名片分享，ADD_SCENE_QR_CODE 扫描二维码，ADD_SCENEPROFILE LINK 图文页内名称点击，ADD_SCENE_PROFILE_ITEM 图文页右上角菜单，ADD_SCENE_PAID 支付后关注，ADD_SCENE_OTHERS 其他 (此处指针对公众号)
 
 	    返回json字符串：
 	        authinfo:基本信息	       		
@@ -200,11 +205,10 @@
     			orderbytype:排序类型，desc：降序 asc:升序
     			projecttagid:项目分类标签ID
     			nums:获取条数
-    			papge:页码
+    			page:页码
 
     		返回json字符串：
 	    		数据集介绍：
-
 	    			typeData: 类目数据列表
 	    				id:类目ID
 	    				name:类目名称
@@ -452,8 +456,196 @@
     				id:地区唯一标识
     				name:地区名称
 
-    
-    		
+   	会员购物车列表页
+   		/api/cart
+
+   		GET请求
+    		参考示例
+    			/doc/cart.json
+    	参数：
+    		mid:用户ID
+
+    	返回:
+    		code: 404错误 200正确
+    		msg: 错误时返回
+    		Data:json数据集
+    			`id`:购物车基本信息,
+    			`project_name`:项目/产品名称,
+    			`project_thumb`:项目/产品图片,
+    			`num`:购物数量,
+    			`shopname`:商家名称
+    			`price`:项目价格 
+    			
+    会员添加购物车
+    	/api/cart/created
+
+    	POST请求
+
+    		参数：
+    		mid:用户ID
+    		projectid:项目/产品/服务人员ID
+    		num:订购数
+    		spec:项目/产品规格
+
+    	返回:
+    		code:404错误 200正确
+    		msg: 错误时返回
+    		cart_id:购物车ID 
+
+    会员修改购物车信息
+    	/api/cart/modify
+
+    	POST请求
+
+    		参数：
+    		mid:用户ID
+    		projectid:项目/产品/服务人员ID
+    		num:订购数
+    		cartid:购物车ID
+
+    	返回:
+    		code:404错误 200正确
+    		msg: 错误时返回	
+
+   	会员修删除物车信息
+    	/api/cart/remove
+
+    	POST请求
+
+    		参数：
+    		cartid:购物车ID
+
+    	返回:
+    		code:404错误 200正确
+    		msg: 错误时返回
+
+
+    用户订单确认
+
+    	/api/order
+
+		GET请求
+    		参考示例
+    			/doc/order.json
+    	参数：
+    		pid:项目/产品ID 		
+    		mid:用户ID
+    		maktime:预约时间
+    		number:采购数
+    	返回:
+    		code: 404错误 200正确
+    		msg: 错误时返回
+    		Data: json数据集
+    			"id": 项目唯一标识ID,
+		        "shopid": 店铺ID,
+		        "name": 项目名称,
+		        "thumb": 项目图片,
+		        "price": 价格,
+		        "unitid": 单位ID,
+		        "shopname": 店铺名称,
+		        "unitname": 单位名称,
+		        "shopMemberCouponNum": 优惠券张数,
+		        "maktime": 预约时间,
+		        "number": 订购数,
+		        "address":用户服务地址
+
+	创建订单
+
+		/api/order/created
+
+		POST请求
+    		参数：
+    			projectid:项目ID
+    			shopid:店铺
+    			member_id:用户ID
+    			address_id:收货人地址ID
+    			making_time:可以预约时间
+    			price:单价
+    			ordernum:订单数量
+    			spec:项目规格ID
+
+    		返回：
+    			code: 404:错误码 200:正确码
+    			msg: 提示信息
+    			
+	客户收货地址
+
+		/api/address
+
+		GET请求
+    		参考示例
+    			/doc/address.json
+    	参数：
+    		mid : 客户ID
+
+    	返回:
+    		code: 200：正确 
+    		Data:
+	            "username": 收货人姓名,
+	            "mobile": 收货人手机号,
+	            "address": 收货人详细地址,
+	            "status": 是否默认 1:默认;0:正常
+
 	
+	新增客户收货地址
+
+		/api/address/created
+
+		POST数据提交
+
+			参数：
+    			mid : 客户ID
+    			username: 收货人姓名
+    			mobile: 收货人手机号
+    			province: 收货人所在省份
+    			city: 收货人城市
+    			address: 收货人详细地址
+    			status:	是否为默认
+
+    		返回:
+    			code: 200:正确 404:错误
+    			msg:提示信息
+
+
+    修改客户收货地址
+
+		/api/address/remove
+
+		POST数据提交
+
+			参数：
+    			addressid : 唯一标识ID
+    			username: 收货人姓名
+    			mobile: 收货人手机号
+    			province: 收货人所在省份
+    			city: 收货人城市
+    			address: 收货人详细地址
+    			status: 是否为默认
+
+			返回:
+				code: 200:正确 404:错误
+				msg:提示信息
+
+    优惠券列表页
+    	/api/coupon
+
+    	GET请求
+    		参考示例
+    			/doc/coupon.json
+    	参数：
+    		mid : 客户ID
+
+    	返回:
+			code: 200:正确 404:错误
+			msg:提示信息
+			Data:
+				"couponid": 优惠券唯一标识ID,
+	            "status": 使用状态 0:未使用 1:使用,
+	            "name": 优惠券名称,
+	            "price": 面值,
+	            "thumb": 缩略图,
+	            "start_time": 开始时间,
+	            "end_time": 结束时间,
+	            "expire": 是否已过期 0：未过期 1:过期
 
 

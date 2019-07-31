@@ -281,7 +281,8 @@ swiper-item {
 
 .solisView {
     width: 30rpx;
-    border-top: 1rpx solid #ababab;
+    height: 2rpx;
+    background: #ababab;
 }
 
 .btmMsg {

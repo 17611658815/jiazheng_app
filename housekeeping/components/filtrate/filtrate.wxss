@@ -80,14 +80,14 @@
     width: 100%;
     height: 677rpx;
     padding: 20rpx 0 46rpx 0;
-    /* animation: myfirst2 0.5s;  */
+    animation: myfirst2 0.5s; 
 }
 .pullListBtnBox{
     width: 100%;
     height: 98rpx;
     display: flex;
     border-top: 1rpx solid #e2e2e2;
-     animation: myfirst2 0.4s; 
+    animation: myfirst2 0.10s; 
 }
 .pullListBtnBox view{
     width: 50%;

@@ -32,7 +32,6 @@ Page({
         let that = this,
             userInfo = res.detail.userInfo;
         if (res.detail.userInfo) {
-            app.loading()
             wx.login({
                 success: function(res) {
                     console.log(res)

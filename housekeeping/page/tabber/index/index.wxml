@@ -37,6 +37,16 @@
                     </view>
                 </view>
             </navigator>
+            <!-- <navigator hover-class='none' wx:for='{{navArr}}' wx:key='key' url='{{item.url}}'>
+                <view class='home-navList-item {{index>=5 ? "marginTop":""}}'>
+                    <view class='home-navList-item-icon'>
+                        <image src='{{item.icon}}'></image>
+                    </view>
+                    <view class='home-navList-item-text'>
+                        {{item.name}}
+                    </view>
+                </view>
+            </navigator> -->
         </view>
         <!-- 电话预约 -->
         <view class='phoneNumber width90' wx:for='{{homePicData.recommendTelData}}' wx:key='key'>

@@ -34,6 +34,10 @@ export const api = {
     getShopdetails: function (paramObj) {
         return Promise.get(Url.default.getShopdetailsUrl(), paramObj);
     },
+    // 项目详情
+    getcommentList: function (paramObj) {
+        return Promise.get(Url.default.getcommentListUrl(), paramObj);
+    },
     // 项目服务时间
     getShopTime: function (paramObj) {
         return Promise.get(Url.default.getShopTimeUrl(), paramObj);
@@ -41,5 +45,21 @@ export const api = {
     // 所在地区列表
     getArea: function (paramObj) {
         return Promise.get(Url.default.getAreaUrl(), paramObj);
+    },
+    // 购物车列表
+    getcartList: function (paramObj) {
+        return Promise.get(Url.default.getcartListUrl(), paramObj);
+    },
+    // 添加购物车
+    addCart: function (paramObj) {
+        return Promise.post(Url.default.addCartUrl(), paramObj);
+    },
+    // 修改购物车内容
+    changeCart: function (paramObj) {
+        return Promise.post(Url.default.changeCartUrl(), paramObj);
+    },
+    // 立即购买
+    instantBuy: function (paramObj) {
+        return Promise.post(Url.default.instantBuyUrl(), paramObj);
     },
 }

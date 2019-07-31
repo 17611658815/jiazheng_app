@@ -1,6 +1,10 @@
 <view class="container">
     <view class='cleaningDetails-header'>
-        <image src='{{shopDetailed.projectData.thumb}}'></image>
+     <swiper class="swiper" indicator-dots='true' indicator-color='rgba(255,255, 255, .3)' indicator-active-color="#ffffff"  circular='true' duration="1000" interval="5000">
+        <swiper-item wx:for='{{3}}' wx:key='key'>
+            <image src='{{shopDetailed.projectData.thumb}}'></image>
+        </swiper-item>
+    </swiper>
     </view>
     <view class='cleaningDetails-title'>
         <view class='cleaningDetails-title-name width90'>
@@ -46,7 +50,7 @@
         <view class='cleaningDetails-select-time color2 width90' bindtap='goSelectTime'>
             <text class='fontSize-26'>预约</text>
             <view class='right fontSize-26 color1'>最近可约
-                <text style='padding-left:10rpx;' class='color4'>{{day}}{{time}}</text>
+                <text style='padding-left:10rpx;' class='color4'>{{day}}  {{time}}</text>
                 <image src='../../../../images/icon/icon_right.png'></image>
             </view>
         </view>
@@ -110,7 +114,7 @@
             <template is="cleaningList" data='{{cleaningArr:shopDetailed.shopProjectRelevantData,gocleaningDetails:gocleaningDetails,show:false}}'></template>
           </view>
     </view>
-    <add-shop-cart bind:addCart='onaddCart'></add-shop-cart>
+    <add-shop-cart bind:addCart='onaddCart' bind:instantBuy='oninstantBuy'></add-shop-cart>
 </view>
 <import src="../../../../common/selectItems/selectItems.wxml"></import>
 <template is="selectItems" data="{{selectItems:shopDetailed.shopProjectRelevantData,selectindex:selectindex,selectItemsType:selectItemsType,changeCount:changeCount,count:count,selectName:selectName,isIphoneX:isIphoneX,selectShow:selectShow,confirm:confirm}}" wx:if='{{selectShow}}'></template>

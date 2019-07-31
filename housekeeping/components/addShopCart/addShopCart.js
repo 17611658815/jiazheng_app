@@ -31,6 +31,10 @@ Component({
         addCart(e) {
             this.triggerEvent("addCart");
         },
+         //加入购物车
+        instantBuy(e) {
+            this.triggerEvent("instantBuy");
+        },
         goindex() {
             wx.switchTab({
                 url: "/page/tabber/index/index",

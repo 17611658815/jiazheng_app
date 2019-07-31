@@ -1,0 +1,17 @@
+{
+    "code": 200,
+    "Data": {
+        "id": "1",
+        "shopid": "1",
+        "projecttagid": "3,4,5,6,7,8,9,10",
+        "name": "日常保洁",
+        "thumb": "http://sj.dkjis.com/uploads/projectthumb/projectthumb20190717112743.jpg",
+        "price": "2900",
+        "unitid": "2",
+        "shopname": "娄小包",
+        "unitname": "元/小时",
+        "shopMemberCouponNum": 0,
+        "maktime": "",
+        "number": 0
+    }
+}
