@@ -58,6 +58,10 @@ export const api = {
     changeCart: function (paramObj) {
         return Promise.post(Url.default.changeCartUrl(), paramObj);
     },
+    // 删除购物车项目
+    delCartMsg: function (paramObj) {
+        return Promise.post(Url.default.delCartMsgUrl(), paramObj);
+    },
     // 立即购买
     instantBuy: function (paramObj) {
         return Promise.post(Url.default.instantBuyUrl(), paramObj);

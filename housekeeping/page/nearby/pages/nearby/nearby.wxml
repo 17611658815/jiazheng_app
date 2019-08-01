@@ -2,7 +2,7 @@
 <view class='container'>
     <import src="../../../../common/scrollX-List/scrollX-List.wxml"></import>
     <view class='navbox'>
-         <template is="scrollX" data='{{navArr:navArr,currentTab:currentTab,swatchTab:swatchTab}}'></template>
+         <template is="scrollX" data='{{navArr:navArr,currentTab:currentTab,swatchTab:swatchTab,scrollLeft:scrollLeft}}'></template>
     </view>
     <view style='height:120rpx;'></view>
     <import src="../../../../common/technicianList/technicianList.wxml"></import>

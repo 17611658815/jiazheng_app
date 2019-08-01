@@ -77,7 +77,7 @@
 
         </view>
           <view class='btn_1 marginRight'>移到收藏夹</view>
-           <view class='btn_2 marginRight'>删除</view>
+           <view bindtap="delCartMsg" class='btn_2 marginRight'>删除</view>
     </view>
     <view class='isIphoneXBox' wx:if='{{isIphoneX}}'></view>
 </view>

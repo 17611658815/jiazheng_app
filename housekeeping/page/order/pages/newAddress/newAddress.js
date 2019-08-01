@@ -11,7 +11,7 @@ Page({
         city: [],
         multiArray:[],
         multiIndex:[0,0],
-        pickerFlag:true,//地区选择标记
+        pickerFlag:false,//地区选择标记
         defaultFlag:false,//添加默认地址标记
         addresMsg:'',//详细地址
 
@@ -43,6 +43,7 @@ Page({
             console.log(res)
         })
     },
+    // picker-Change事件
     bindMultiPickerColumnChange: function (e) {
         let city = this.data.city
         var data = {
@@ -60,6 +61,7 @@ Page({
             multiIndex: this.data.multiIndex
         })
     },
+    // picker-确定事件
     bindMultiPickerChange: function (e) {
         this.multiIndex = e.detail.value;
         this.setData({
@@ -68,6 +70,7 @@ Page({
         })
         console.log(this.data.multiIndex)
     },
+    // 文本域val-change事件
     ontextareaChange(e){
         console.log(e)
     },

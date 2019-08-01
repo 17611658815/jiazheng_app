@@ -18,7 +18,8 @@ Page({
         selectName:'',
         count:1,//服务数量
         day:'今天',//预约日期
-        time:"12:00",//预约时间
+        time:"",//预约时间
+        daynum:"",//预约日期
     },
     /**
      * 生命周期函数--监听页面显示
@@ -27,26 +28,47 @@ Page({
         let that = this;
         let day = that.data.day
         let time = that.data.time
+        let daynum = that.data.daynum
         if (app.globalData.data) {
             day = app.globalData.data.day
-            time = app.globalData.data.time
+            time = app.globalData.data.time,
+            daynum = app.globalData.data.daynum
         }
         that.setData({
             day: day,
-            time: time
+            time: time,
+            daynum: daynum
         })
+        console.log('日期=>' + that.data.day, '日期num=>', that.data.daynum,'time=>', that.data.time,)
+    },
+    formatTime(date) {
+        var year = date.getFullYear();
+        var month = date.getMonth() + 1;
+        var day = date.getDate();
+        var hour = date.getHours();
+        var minute = date.getMinutes() < 10 ? '0' + date.getMinutes() : date.getMinutes()
+        var second = date.getSeconds()
+        return [year + "" + month + "" +day, hour+1+":"+minute].map(this.formatNumber)
+    },
+    formatNumber(n) {
+        n = n.toString()
+        return n[1] ? n : '0' + n
     },
     /**
      * 生命周期函数--监听页面加载
      */
     onLoad: function (options) {
+        console.log(this.formatTime(new Date()))
         let isIphoneX = app.globalData.isIphoneX
         let userInfo = wx.getStorageSync('userinfo');
         this.setData({
             isIphoneX: isIphoneX,
             pid: options.id,
+            time: this.formatTime(new Date())[1],//默认预约时间
+            daynum: this.formatTime(new Date())[0],
             userId: userInfo.member_id || 0
         })
+        console.log('日期=>' + this.data.day, '日期num=>', this.data.daynum, 'time=>', this.data.time)
         this.getShopDetaile()
         console.log(this.data.isIphoneX)
     },
@@ -163,7 +185,9 @@ Page({
     onaddCart(){
         let that = this;
         if (that.data.specid == ''){
-            app.alert('您还没选择服务项目~')
+            // app.alert('您还没选择服务项目~')
+            // return;
+            that.selectItems();
             return;
         }
         let params = {
@@ -171,6 +195,7 @@ Page({
             projectid: that.data.pid,//项目/产品/服务人员ID
             num: that.data.count,//订购数
             spec: that.data.specid,//项目/产品规格
+            making_time: that.data.daynum+","+that.data.time
         }
         app.net.$Api.addCart(params).then((res) => {
             console.log(res)
@@ -192,25 +217,24 @@ Page({
     //立即购买
     oninstantBuy(){
         let that = this;
-        that.verifyTonken();
-        let params = {
-            mid: that.data.userId,//用户ID
-            projectid: that.data.pid,//项目/产品/服务人员ID
-            maktime:'',//预约时间
-    		number: that.data.count//采购数
-        }
-        app.net.$Api.instantBuy(params).then((res) => {
-            console.log(res)
+        wx.navigateTo({
+            url: '/page/order/pages/placeorder/placeorder',
         })
+        // that.verifyTonken();
+        // let params = {
+        //     mid: that.data.userId,//用户ID
+        //     projectid: that.data.pid,//项目/产品/服务人员ID
+        //     maktime:'',//预约时间
+    	// 	number: that.data.count//采购数
+        // }
+        // app.net.$Api.instantBuy(params).then((res) => {
+        //     console.log(res)
+        // })
     },
     // 校验判断
     verifyTonken(){
         if (that.data.specid == '') {
             app.alert('您还没选择服务项目~')
-            return;
-        }
-        if (that.data.day == '' || that.data.time == '') {
-            app.alert('您还没选择预约时间~')
             return;
         }
         if (that.data.userId == 0) {

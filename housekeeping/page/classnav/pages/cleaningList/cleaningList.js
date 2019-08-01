@@ -20,6 +20,7 @@ Page({
         shopData:[],//服务商
         currentTab:0,//导航默认选中
         seletedDown:true,//是否固定高度
+        scrollLeft:0,//导航自动滚动距离
     },
     /**
     * 生命周期函数--监听页面加载
@@ -32,10 +33,26 @@ Page({
         that.getTypeList()
         console.log(options)
     },
-
+    // 获取元素位置
+    handleScroll(selectedId) {
+        var that = this;
+        var query = wx.createSelectorQuery();//创建节点查询器
+        query.select('#item-' + selectedId).boundingClientRect();//选择id='#item-' + selectedId的节点，获取节点位置信息的查询请求
+        query.select('#scroll-view').boundingClientRect();//获取滑块的位置信息
+        //获取滚动位置
+        query.select('#scroll-view').scrollOffset();//获取页面滑动位置的查询请求
+        query.exec(function (res) {
+            console.log("res:", res)
+            that.setData({
+                scrollLeft: res[2].scrollLeft + res[0].left + res[0].width / 2 - res[1].width / 2
+            });
+            console.log(that.data.scrollLeft)
+        });
+    },
     // 导航tab切换
     swatchTab(e){
-        let index = e.currentTarget.dataset.index
+        let index = e.currentTarget.dataset.index;
+        this.handleScroll(index)
         this.setData({
             currentTab:index
         })

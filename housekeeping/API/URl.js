@@ -50,6 +50,10 @@ export default class Url {
     static changeCartUrl() {
         return Url.PATH + '/api/cart/modify';
     };
+    // 删除购物车项目
+    static delCartMsgUrl() {
+        return Url.PATH + '/api/cart/remove';
+    };
     // 立即购买
     static instantBuyUrl() {
         return Url.PATH + '/api/order';

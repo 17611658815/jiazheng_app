@@ -6,9 +6,10 @@ Page({
      * 页面的初始数据
      */
     data: {
+        scrollLeft: 0,
         currentTab:0,
         isIphoneX:false,
-        navArr: ['推荐即使', '维修安装', '推拿按摩', '美容美妆','美容美妆']
+        navArr: [{ name: '推荐即使' }, { name: '推荐即使' }, { name: '推荐即使' }, { name: '推荐即使' }, { name: '推荐即使' }, { name: '推荐即使' }, { name: '推荐即使' }]
     },
 
     /**
@@ -29,9 +30,26 @@ Page({
         })
 
     },
+    // 获取元素位置
+    handleScroll(selectedId) {
+        var that = this;
+        var query = wx.createSelectorQuery();//创建节点查询器
+        query.select('#item-' + selectedId).boundingClientRect();//选择id='#item-' + selectedId的节点，获取节点位置信息的查询请求
+        query.select('#scroll-view').boundingClientRect();//获取滑块的位置信息
+        //获取滚动位置
+        query.select('#scroll-view').scrollOffset();//获取页面滑动位置的查询请求
+        query.exec(function (res) {
+            console.log("res:", res)
+            that.setData({
+                scrollLeft: res[2].scrollLeft + res[0].left + res[0].width / 2 - res[1].width / 2
+            });
+            console.log(that.data.scrollLeft)
+        });
+    },
     // 导航tab切换
     swatchTab(e) {
-        let index = e.currentTarget.dataset.index
+        let index = e.currentTarget.dataset.index;
+        this.handleScroll(index)
         this.setData({
             currentTab: index
         })

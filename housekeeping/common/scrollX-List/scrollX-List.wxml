@@ -1,7 +1,7 @@
 <template name="scrollX">
     <view class='scroll-x-content'>
-        <scroll-view class='scroll-x-box' scroll-x="true">
-            <view class='scroll-x-content-item' bindtap='swatchTab' data-id="{{item.id}}" data-index="{{index}}" wx:for='{{navArr}}' wx:key='key'>
+        <scroll-view scroll-x="true" class='scroll-x-box' scroll-with-animation="true" id="scroll-view" scroll-left="{{ scrollLeft }}" >
+            <view class='scroll-x-content-item' bindtap='swatchTab' data-id="{{index}}" id="item-{{index}}" data-index="{{index}}" wx:for='{{navArr}}' wx:key='index'>
                 <text class='{{currentTab==index? "active":""}}'>{{item.name}}</text>
                 <view class='{{currentTab==index? "borderhover":"border"}}'></view>
             </view>

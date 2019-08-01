@@ -10,8 +10,10 @@ Page({
         selectAll: false,//全选
         isIphoneX:false,//判断机型
         Cart:[],//购物车数据
-        CartData:[],
-        flag:true
+        CartData: [],
+        flag:true,
+        tapTime: '',//方式快速点击
+        cartStr:[],//选中状态
     },
     /**
      * 生命周期函数--监听页面加载
@@ -54,6 +56,29 @@ Page({
         this.setData({
             flag:true
         })
+    },
+    //删除购物车数据
+    delCartMsg(){
+        let Cart = this.data.Cart;
+        let cartStr = [];
+        Cart.forEach((item,index)=>{
+            if (item.checked){
+                cartStr.push(item.id);
+                Cart.splice(index,1)
+            }
+        })
+        this.setData({
+            Cart: Cart,
+            CartData: Cart
+        })
+       /*  let that = this,
+            params = {
+                cartid: that.data.userId
+            }
+        app.net.$Api.delCartMsg(params).then((res) => {
+
+          
+        }) */
     },
     //合计单选
     summation(){
@@ -124,7 +149,6 @@ Page({
         let CartData = this.data.CartData;
         let index = e.currentTarget.dataset.index;
         CartData[index].checked = !CartData[index].checked
-
         let Num = 0;
         for (var i = 0; i < CartData.length; i++) {
             if (CartData[i].checked) {
@@ -167,6 +191,11 @@ Page({
     },
     // 加法
     add: function (e) {
+        var nowTime = new Date();
+        if (nowTime - this.data.tapTime < 1000) {
+            console.log('阻断')
+            return;
+        }
         let CartData = this.data.CartData;
         let index = e.currentTarget.dataset.index
         
@@ -186,7 +215,8 @@ Page({
         //更新数据
         this.setData({
             total: sum.toFixed(2),
-            Cart: CartData
+            Cart: CartData,
+            tapTime: nowTime
         })
         this.changeCart(CartData[index]);//同时后台也进行修改
         wx.setStorage({
@@ -197,6 +227,11 @@ Page({
     },
     // 减法  
     can: function (e) {
+        var nowTime = new Date();
+        if (nowTime - this.data.tapTime < 1000) {
+            console.log('阻断')
+            return;
+        }
         let CartData = this.data.CartData;
         let index = e.currentTarget.dataset.index
         CartData[index].num--
@@ -213,6 +248,7 @@ Page({
         this.setData({
             total: sum.toFixed(2),
             Cart: CartData,
+            tapTime: nowTime
         })
         this.changeCart(CartData[index])//同时后台也进行修改
         wx.setStorage({

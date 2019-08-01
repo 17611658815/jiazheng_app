@@ -4,7 +4,7 @@
 <import src="../../../../common/cleaningList/cleaningList.wxml"></import>
 <view style='width:100%'>
     <view class='fixedTop'>
-        <template is="scrollX" data='{{navArr:typeData,currentTab:currentTab,swatchTab:swatchTab}}'></template>
+        <template is="scrollX" data='{{navArr:typeData,currentTab:currentTab,swatchTab:swatchTab,scrollLeft:scrollLeft}}'></template>
         <filtrate id='filtrate' navArr='{{navArr}}' shopData='{{shopData}}' tagData='{{tagData}}' bind:confirmSF='onconfirmsf' bind:seleted='onSeleted'  bind:checked="onChecked"></filtrate>
     </view>
     <view class='cleaningListBox width90'>
