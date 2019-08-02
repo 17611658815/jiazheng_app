@@ -3,11 +3,11 @@
     <view class='width100 dpfC marginTop'>
         <view class='width90'>
             <view class='itembox dpf'>
-                <input placeholder='联系人' type='tetx'></input>
+                <input placeholder='联系人' value="{{username}}" bindinput="usernameInpt" type='tetx'></input>
 
             </view>
             <view class='itembox dpf'>
-                <input placeholder='手机号码' type='number'></input>
+                <input placeholder='手机号码' value="{{mobile}}" bindinput="mobileInpt" type='number'></input>
             </view>
             <view class='itembox dpf'>
                 <view class='leaberleft fontSize-30 color2'>
@@ -22,7 +22,7 @@
                     </view>
                 </picker>
             </view>
-            <view class='itembox' style='border:none'>
+            <view class='itembox' style='border:none;padding-bottom:0'>
                 <view class='fontSize-30 color2'>
                     <textarea value='{{addresMsg}}' bindinput='ontextareaChange' placeholder-class='textAreaCtyle' placeholder='详细地址:如街道、楼牌号等' placeholder-style>
                     
@@ -37,7 +37,8 @@
         </view>
     </view>
     <view class='btnBox'>
-        <button class='btnStyle'>保存</button>
+        <button class='btnStyle' bindtap="changeAddres" wx:if='{{changeBtn}}'>确认修改</button>
+        <button class='btnStyle' bindtap="saveAddres" wx:else>保存</button>
     </view>
 
 </view>

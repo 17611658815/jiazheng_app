@@ -2,7 +2,7 @@
 <view class='container' catch:touchmove>
     <!-- 请选择地址 -->
     <view style='margin:20rpx 0' class='width_padding dpfC'>
-        <view class='add_address dpfb width90'  bindtap='goAddress'>
+        <view class='add_address dpfb width90'  bindtap='goAddress' wx:if="{{addresList.length==0}}">
             <view class='dpf fontSize-32 color1'>
                 <image class='icon_GPS' style='margin-right:10rpx' src='../../../../images/icon/icon_GPS.png'></image> 请选择服务地址
             </view>
@@ -10,20 +10,20 @@
                 <image style='width:35rpx;height:35rpx' src='../../../../images/icon/icon_right.png'></image>
             </view>
         </view>
-        <!-- <view style='width:95%' class='dpfC' bindtap='goAddress'>
+        <view style='width:95%' class='dpfC' bindtap='goAddress' wx:else>
             <view style='width:100%' class='dpfb'>
                 <view class='dpf fontWeight5 fontSize-32 color1'>
-                    <image class='icon_GPS' style='margin-right:10rpx' src='../../../../images/icon/icon_GPS.png'></image> 芍药居甲4号院子
+                    <image class='icon_GPS' style='margin-right:10rpx' src='../../../../images/icon/icon_GPS.png'></image> {{addresList[0].address}}
                 </view>
                 <view>
                     <image style='width:35rpx;height:35rpx' src='../../../../images/icon/icon_right.png'></image>
                 </view>
             </view>
             <view  class='address_info fontSize-24 color1' style='width:90%'>
-                <text>张起灵</text>
-                <text>1551515121212</text>
+                <text>{{addresList[0].username}}</text>
+                <text>{{addresList[0].mobile}}</text>
             </view>
-        </view> -->
+        </view>
     </view>
     <!-- 商品数量 -->
     <view class='numBox width_padding dpfC'>
@@ -35,28 +35,28 @@
         </view>
         <view style='padding:40rpx 0;' class='dpf'>
             <view class='service_pic'>
-                <image src='http://i2.chuimg.com/f30f7ea4346c11e7947d0242ac110002_3264w_2448h.jpg?imageView2/2/w/620/interlace/1/q/90'></image>
+                <image src='{{otherData.thumb}}'></image>
             </view>
             <view class='service_right'>
-                <view class='fontSize-32 color1 fontWeight5'>日常保洁</view>
+                <view class='fontSize-32 color1 fontWeight5'>{{otherData.name}}</view>
                 <view class='dpfb'>
                     <view>
-                        <text class='fontSize-32 color4 fontWeight5'>24</text>
-                        <text class='fontSize28 color4'>元/小时</text>
+                        <text class='fontSize-32 color4 fontWeight5'>{{otherData.price}}</text>
+                        <text class='fontSize28 color4'>{{otherData.unitname}}</text>
                     </view>
                     <view class='dpf'>
-                        <text class='sub'>-</text>
-                        <text class='num'>1</text>
-                        <text class='add'>+</text>
+                        <text class='sub' data-type='sub' bindtap="changeCount">-</text>
+                        <text class='num'>{{count}}</text>
+                        <text class='add' data-type='add' bindtap="changeCount">+</text>
                     </view>
                 </view>
             </view>
         </view>
-        <view class='dpfb padding30'>
+        <view class='dpfb padding30' bindtap="goSelectTime">
             <view class='fontSize-32 color1'>上门时间</view>
             <view class='dpf'>
                 <text style='margin-right:10rpx' class='fontSize-26 color1'>最近可约</text>
-                <text class='fontSize-26 color4'>明天12:00</text>
+                <text class='fontSize-26 color4'>{{day}}  {{time}}</text>
                 <image style='width:35rpx;height:35rpx' src='../../../../images/icon/icon_right.png'></image>
             </view>
         </view>
@@ -82,7 +82,7 @@
     <view style='margin:20rpx 0' class='width_padding dpfC'>
         <view  class='dpfb width90'>
             <text class='fontSize-32 color1'>服务金额</text>
-            <text class='fontSize-30 color4'>24.00元</text>
+            <text class='fontSize-30 color4'>29元</text>
         </view>
     </view>
     <!-- 备注 -->
@@ -101,7 +101,7 @@
         <view style='width:100%;' class='dpf'>
             <view class='purchase_price'>
                 <text class='fontSize-30 color1'>实付款:</text>
-                <text class='fontSize-30 color4 fontWeight5'>24.00元</text>
+                <text class='fontSize-30 color4 fontWeight5'>{{total}}元</text>
             </view>
             <view class='purchase_btn' catchtap='goPayment'>立即购买</view>
         </view>

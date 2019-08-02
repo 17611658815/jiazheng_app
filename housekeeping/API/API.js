@@ -62,8 +62,24 @@ export const api = {
     delCartMsg: function (paramObj) {
         return Promise.post(Url.default.delCartMsgUrl(), paramObj);
     },
-    // 立即购买
+    // 订单确认页
     instantBuy: function (paramObj) {
         return Promise.post(Url.default.instantBuyUrl(), paramObj);
+    },
+    // 收获地址
+    addresList: function (paramObj) {
+        return Promise.post(Url.default.addresListUrl(), paramObj);
+    },
+    // 保存收获地址
+    saveaddres: function (paramObj) {
+        return Promise.post(Url.default.saveaddresUrl(), paramObj);
+    },
+    // 修改请求地址
+    detailsAddres: function (paramObj) {
+        return Promise.post(Url.default.detailsAddresUrl(), paramObj);
+    },
+    // 修改收获地址
+    changeAddres: function (paramObj) {
+        return Promise.post(Url.default.changeAddresUrl(), paramObj);
     },
 }

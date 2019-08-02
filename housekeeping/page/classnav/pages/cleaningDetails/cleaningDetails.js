@@ -70,7 +70,6 @@ Page({
         })
         console.log('日期=>' + this.data.day, '日期num=>', this.data.daynum, 'time=>', this.data.time)
         this.getShopDetaile()
-        console.log(this.data.isIphoneX)
     },
     // 获取服务详情
     getShopDetaile() {
@@ -195,7 +194,7 @@ Page({
             projectid: that.data.pid,//项目/产品/服务人员ID
             num: that.data.count,//订购数
             spec: that.data.specid,//项目/产品规格
-            making_time: that.data.daynum+","+that.data.time
+            making_time: that.data.daynum+" "+that.data.time
         }
         app.net.$Api.addCart(params).then((res) => {
             console.log(res)
@@ -203,7 +202,13 @@ Page({
                 wx.showToast({
                     title: '添加成功',
                     icon: 'success',
-                    duration: 2000
+                    duration: 2000,
+                    success:function(){
+                        // that.setData({
+                        //     specid: '',
+                        //     count:1,
+                        // })
+                    }
                 })
             } else {
                 wx.showToast({
@@ -217,24 +222,15 @@ Page({
     //立即购买
     oninstantBuy(){
         let that = this;
-        wx.navigateTo({
-            url: '/page/order/pages/placeorder/placeorder',
-        })
-        // that.verifyTonken();
-        // let params = {
-        //     mid: that.data.userId,//用户ID
-        //     projectid: that.data.pid,//项目/产品/服务人员ID
-        //     maktime:'',//预约时间
-    	// 	number: that.data.count//采购数
-        // }
-        // app.net.$Api.instantBuy(params).then((res) => {
-        //     console.log(res)
-        // })
-    },
-    // 校验判断
-    verifyTonken(){
+        let data = {
+            pid: this.data.pid,
+            mid: this.data.userId,
+            maktime: that.data.daynum + "," + that.data.time,
+            number: this.data.count,
+            specid: this.data.specid,
+        }
         if (that.data.specid == '') {
-            app.alert('您还没选择服务项目~')
+            that.selectItems();
             return;
         }
         if (that.data.userId == 0) {
@@ -250,6 +246,19 @@ Page({
             })
             return;
         }
+        wx.navigateTo({
+            url: '/page/order/pages/placeorder/placeorder?data=' + JSON.stringify(data),
+        })
+     
+        // let params = {
+        //     mid: that.data.userId,//用户ID
+        //     projectid: that.data.pid,//项目/产品/服务人员ID
+        //     maktime:'',//预约时间
+    	// 	number: that.data.count//采购数
+        // }
+        // app.net.$Api.instantBuy(params).then((res) => {
+        //     console.log(res)
+        // })
     },
     /**
      * 生命周期函数--监听页面隐藏

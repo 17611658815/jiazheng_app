@@ -29,6 +29,7 @@ Page({
         // 获取购物车列表
         that.getcartList()
     },
+    // 获取购物车数据
     getcartList() {
         let that = this,
             params = {
@@ -48,7 +49,7 @@ Page({
     //编辑购物车
     redactCart(){
         this.setData({
-            flag:false
+            flag: false
         })
     },
     //完成编辑
@@ -59,48 +60,86 @@ Page({
     },
     //删除购物车数据
     delCartMsg(){
-        let Cart = this.data.Cart;
-        let cartStr = [];
-        Cart.forEach((item,index)=>{
-            if (item.checked){
-                cartStr.push(item.id);
-                Cart.splice(index,1)
-            }
-        })
-        this.setData({
-            Cart: Cart,
-            CartData: Cart
-        })
-       /*  let that = this,
-            params = {
-                cartid: that.data.userId
-            }
-        app.net.$Api.delCartMsg(params).then((res) => {
-
-          
-        }) */
+        let that = this;
+        let Cart = that.data.Cart;
+        let cartStr = that.data.cartStr;
+        console.log(cartStr)
+        let params = {
+            cartidstr: cartStr.join(',')
+        }
+        console.log(cartStr)
+        if (cartStr.length == 0){
+            wx.showModal({
+                title: '提示',
+                content: '请选择要删除的项目',
+                showCancel: false,
+            })
+            return;
+        }else{
+            wx.showModal({
+                title: '提示',
+                content: '确认删除此商品？',
+                success(res) {
+                    if (res.confirm) {
+                        for (var i = 0; i < Cart.length; i++) {
+                            if (Cart[i].checked) {
+                                Cart.splice(i,1)
+                            }
+                        }
+                        app.net.$Api.delCartMsg(params).then((res) => {
+                            wx.showToast({
+                                title: res.data.msg,
+                                icon: 'success',
+                                duration:500,
+                                success:function(){
+                                    setTimeout(function () {
+                                       that.setData({
+                                           Cart: Cart,
+                                           CartData: Cart
+                                       })
+                                    }, 550);
+                                }
+                            })
+                            wx.removeStorage({
+                                key: 'CartData',
+                            })
+                        })
+                      
+                        console.log(that.data.Cart, that.data.CartData)
+                    } else if (res.cancel) {
+                        console.log('用户点击取消')
+                    }
+                }
+            })
+        }
+       
+       
+       
     },
     //合计单选
     summation(){
         let CartData = this.data.CartData;
         // 合计
         var sum = 0
+        let cartStr = []
         for (var i = 0; i < CartData.length; i++) {
             if (CartData[i].checked) {
+                cartStr.push(CartData[i].id)
                 sum += CartData[i].num * CartData[i].price
             }
         }
         this.setData({
             Cart: CartData,
-            total: sum.toFixed(2)
+            cartStr: cartStr,//选中状态
+            total: sum.toFixed(2)//合计
         })
+        console.log(cartStr)
         // 单选
         let Num = 0;
         for (var i = 0; i < CartData.length; i++) {
             console.log(Num, 107)
             if (CartData[i].checked) {
                 Num++;
-               
             }
             if (CartData[i].checked) {
                 this.setData({
@@ -128,21 +167,24 @@ Page({
         }
         //  合计
         var sum = 0
+        let cartStr = []
         for (var i = 0; i < CartData.length; i++) {
             if (CartData[i].checked) {
+                cartStr.push(CartData[i].id)
                 sum += CartData[i].num * CartData[i].price
             }
         }
         this.setData({
             selectAll: selectAll,
             Cart: CartData,
+            cartStr: cartStr,
             total: sum.toFixed(2)
         })
         wx.setStorage({
             key: 'CartData',
             data: CartData,
         })
-
+        console.log(cartStr)
     },
     // 单选
     SingChecked: function (e) {
@@ -150,9 +192,13 @@ Page({
         let index = e.currentTarget.dataset.index;
         CartData[index].checked = !CartData[index].checked
         let Num = 0;
+        let cartStr = []
         for (var i = 0; i < CartData.length; i++) {
             if (CartData[i].checked) {
+                cartStr.push(CartData[i].id)
                 Num++;
+            }else{
+                cartStr.splice(i,1)
             }
             if (CartData[i].checked) {
                 this.setData({
@@ -169,6 +215,7 @@ Page({
                     selectAll: false
                 })
             }
+            console.log(cartStr)
         }
         // 合计
         var sum = 0
@@ -180,7 +227,8 @@ Page({
         //更新数据
         this.setData({
             total: sum.toFixed(2),
-            Cart: CartData
+            Cart: CartData,
+            cartStr: cartStr
         })
 
         wx.setStorage({
@@ -191,11 +239,11 @@ Page({
     },
     // 加法
     add: function (e) {
-        var nowTime = new Date();
-        if (nowTime - this.data.tapTime < 1000) {
-            console.log('阻断')
-            return;
-        }
+        // var nowTime = new Date();
+        // if (nowTime - this.data.tapTime < 1000) {
+        //     console.log('阻断')
+        //     return;
+        // }
         let CartData = this.data.CartData;
         let index = e.currentTarget.dataset.index
         
@@ -216,7 +264,7 @@ Page({
         this.setData({
             total: sum.toFixed(2),
             Cart: CartData,
-            tapTime: nowTime
+            // tapTime: nowTime
         })
         this.changeCart(CartData[index]);//同时后台也进行修改
         wx.setStorage({
@@ -227,11 +275,11 @@ Page({
     },
     // 减法  
     can: function (e) {
-        var nowTime = new Date();
-        if (nowTime - this.data.tapTime < 1000) {
-            console.log('阻断')
-            return;
-        }
+        // var nowTime = new Date();
+        // if (nowTime - this.data.tapTime < 1000) {
+        //     console.log('阻断')
+        //     return;
+        // }
         let CartData = this.data.CartData;
         let index = e.currentTarget.dataset.index
         CartData[index].num--
@@ -248,7 +296,7 @@ Page({
         this.setData({
             total: sum.toFixed(2),
             Cart: CartData,
-            tapTime: nowTime
+            // tapTime: nowTime
         })
         this.changeCart(CartData[index])//同时后台也进行修改
         wx.setStorage({

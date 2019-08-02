@@ -7,44 +7,164 @@ Page({
      * 页面的初始数据
      */
     data: {
-        index:0,
+        changeBtn: false,
+        index: 0,
+        addressid: '', //地址id
         city: [],
-        multiArray:[],
-        multiIndex:[0,0],
-        pickerFlag:false,//地区选择标记
-        defaultFlag:false,//添加默认地址标记
-        addresMsg:'',//详细地址
+        multiArray: [],
+        multiIndex: [0, 0], //地址索引
+        multiId: [], //地址id
+        pickerFlag: false, //地区选择标记
+        defaultFlag: false, //添加默认地址标记
+        addresMsg: '', //详细地址
 
-        addresObj:{
-            name:'',
-            phone:'',
-            addres:'',
-            details:''
-        }
+        mid: '', // 客户ID
+        username: '', // 收货人姓名
+        mobile: '', //收货人手机号
+        province: '', //收货人所在省份
+        city: '', //收货人城市
+        address: '', //收货人详细地址
     },
     /**
-    * 生命周期函数--监听页面加载
-    */
-    onLoad: function (options) {
+     * 生命周期函数--监听页面加载
+     */
+    onLoad: function(options) {
         let that = this;
-        let index = that.data.multiIndex
-        that.data.city = data.data
-        that.data.multiArray = [[...that.data.city], [...that.data.city[index[0]].sonareaData]];
-        console.log(that.data.multiArray)
+        let userInfo = wx.getStorageSync('userinfo');
+        that.getArea()
         that.setData({
-            multiArray: that.data.multiArray,
-            // city: that.data.city
+            mid: userInfo.member_id || 0
+        })
+        // 编辑地址回显数据
+        if (options.data) {
+            let data = JSON.parse(options.data);
+            that.detailsAddres(data.id)
+        }
+    },
+    // 联系人姓名
+    mobileInpt(e) {
+        console.log(e)
+        this.setData({
+            mobile: e.detail.value
+        })
+    },
+    // 联系人姓名
+    usernameInpt(e) {
+        console.log(e)
+        this.setData({
+            username: e.detail.value
+        })
+    },
+    // 文本域val-change事件
+    ontextareaChange(e) {
+        this.setData({
+            addresMsg: e.detail.value
+        })
+    },
+    // 回显数据
+    detailsAddres(id) {
+        let that = this,
+            params = {
+                mid: that.data.mid, // 客户ID
+                addressid: id, //地址id
+            }
+        app.net.$Api.detailsAddres(params).then((res) => {
+            let data = res.data.Data;
+            for (var i = 0; i < that.data.multiArray[0].length; i++) {
+                if (data.province == that.data.multiArray[0][i].id) {
+                    that.data.multiIndex[0] = i
+                }
+            }
+            for (var i = 0; i < that.data.multiArray[1].length; i++) {
+                if (data.province == that.data.multiArray[1][i].id) {
+                    that.data.multiIndex[1] = i
+                }
+            }
+            that.setData({
+                username: data.username, //姓名
+                mobile: data.mobile, //手机号
+                addresMsg: data.address, //详细地址
+                multiIndex: that.data.multiIndex, //省，市索引
+                pickerFlag: true, //回显显示省市
+                multiId: [data.province, data.city], //省，市id
+                addressid: data.id, //地址id
+                changeBtn: true, //显示修改按钮
+                defaultFlag: data.status == 1 ? true : false
+            })
+        })
+    },
+    // 保存新增地址
+    saveAddres() {
+        let that = this,
+            params = {
+                mid: that.data.mid, // 客户ID
+                username: that.data.username, // 收货人姓名
+                mobile: that.data.mobile, //收货人手机号
+                province: that.data.multiId[0], //收货人所在省份
+                city: that.data.multiId[1], //收货人城市
+                address: that.data.addresMsg, // 收货人详细地址
+                status: that.data.defaultFlag ? 1 : 0, // 是否为默认
+            }
+        app.net.$Api.saveaddres(params).then((res) => {
+            wx.showToast({
+                title: '添加成功',
+                icon: 'success',
+                duration: 2000,
+                success: function() {
+                    setTimeout(function() {
+                        wx.navigateBack({
+                            delta: 1,
+                        })
+                    }, 2000);
+                }
+            })
+        })
+    },
+    // 修改地址
+    changeAddres() {
+        let that = this,
+            params = {
+                addressid: that.data.addressid, //地址id
+                mid: that.data.mid, // 客户ID
+                username: that.data.username, // 收货人姓名
+                mobile: that.data.mobile, //收货人手机号
+                province: that.data.multiId[0], //收货人所在省份
+                city: that.data.multiId[1], //收货人城市
+                address: that.data.addresMsg, // 收货人详细地址
+                status: that.data.defaultFlag ? 1 : 0, // 是否为默认
+            }
+        app.net.$Api.changeAddres(params).then((res) => {
+            wx.showToast({
+                title: '修改成功',
+                icon: 'success',
+                duration: 2000,
+                success: function() {
+                    setTimeout(function() {
+                        wx.navigateBack({
+                            delta: 1,
+                        })
+                    }, 2000);
+                }
+            })
         })
     },
     getArea() {
-        let that = this,
-            params = {}
+        let that = this;
+        let index = that.data.multiIndex,
+        params = {}
         app.net.$Api.getArea(params).then((res) => {
-            console.log(res)
+            that.data.city = res.data.Data;
+            that.data.multiArray = [
+                [...that.data.city],
+                [...that.data.city[index[0]].sonareaData]
+            ];
+            that.setData({
+                multiArray: that.data.multiArray,
+            })
         })
     },
     // picker-Change事件
-    bindMultiPickerColumnChange: function (e) {
+    bindMultiPickerColumnChange: function(e) {
         let city = this.data.city
         var data = {
             multiArray: this.data.multiArray,
@@ -62,74 +182,74 @@ Page({
         })
     },
     // picker-确定事件
-    bindMultiPickerChange: function (e) {
+    bindMultiPickerChange: function(e) {
         this.multiIndex = e.detail.value;
+        console.log(this.data.multiArray)
         this.setData({
             multiIndex: e.detail.value,
+            "multiId[0]": this.data.multiArray[0][e.detail.value[0]].id,
+            "multiId[1]": this.data.multiArray[1][e.detail.value[1]].id,
             pickerFlag: true
         })
-        console.log(this.data.multiIndex)
+        console.log(this.data.multiId)
     },
-    // 文本域val-change事件
-    ontextareaChange(e){
-        console.log(e)
-    },
+
     //点击默认地址
-    selectAcquiescent(){
+    selectAcquiescent() {
         console.log(111)
         this.setData({
             defaultFlag: !this.data.defaultFlag
-        }) 
+        })
         console.log(this.data.defaultFlag)
     },
-   
+
 
     /**
      * 生命周期函数--监听页面初次渲染完成
      */
-    onReady: function () {
+    onReady: function() {
 
     },
 
     /**
      * 生命周期函数--监听页面显示
      */
-    onShow: function () {
+    onShow: function() {
 
     },
 
     /**
      * 生命周期函数--监听页面隐藏
      */
-    onHide: function () {
+    onHide: function() {
 
     },
 
     /**
      * 生命周期函数--监听页面卸载
      */
-    onUnload: function () {
+    onUnload: function() {
 
     },
 
     /**
      * 页面相关事件处理函数--监听用户下拉动作
      */
-    onPullDownRefresh: function () {
+    onPullDownRefresh: function() {
 
     },
 
     /**
      * 页面上拉触底事件的处理函数
      */
-    onReachBottom: function () {
+    onReachBottom: function() {
 
     },
 
     /**
      * 用户点击右上角分享
      */
-    onShareAppMessage: function () {
+    onShareAppMessage: function() {
 
     }
 })

@@ -36,7 +36,7 @@ export default class Url {
     };
     // 所在地区列表
     static getAreaUrl() {
-        return Url.PATH + '/api/comments/area';
+        return Url.PATH + '/api/area';
     };
     // 购物车列表
     static getcartListUrl() {
@@ -57,6 +57,22 @@ export default class Url {
     // 立即购买
     static instantBuyUrl() {
         return Url.PATH + '/api/order';
+    };
+    // 收货地址
+    static addresListUrl() {
+        return Url.PATH + '/api/address';
+    };
+    // 保存收货地址
+    static saveaddresUrl() {
+        return Url.PATH + '/api/address/created';
+    };
+    // 修改请求地址
+    static detailsAddresUrl() {
+        return Url.PATH + '/api/address/details';
+    };
+    // 修改收获地址
+    static changeAddresUrl() {
+        return Url.PATH + '/api/address/modify';
     };
 
 }

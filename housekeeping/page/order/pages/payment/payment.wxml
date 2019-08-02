@@ -3,7 +3,7 @@
     <view class='payment_money'>
         <view class='payment_time'>
             <text>剩余支付时间</text>
-            <text>15:00</text>
+            <text>{{minute}}:{{second}}</text>
         </view>
     </view>
     <view class='payment_msg dpfC'>
