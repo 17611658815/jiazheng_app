@@ -5,11 +5,16 @@ Page({
      * 页面的初始数据
      */
     data: {
-        Settimer:'',
+        timer:'',
         num: 30,
         minute: "15", //分
         second: "00", //秒
         isIphoneX: false,
+        total:'',//支付金额
+        mid:0,//用户id
+        order_id:'',// 订单ID
+        order_sn: '',//  订单编号
+        pay_type: '',//  支付方式
     },
 
     /**
@@ -17,11 +22,18 @@ Page({
      */
     onLoad: function(options) {
         let that = this;
-        let isIphoneX = app.globalData.isIphoneX
+        let isIphoneX = app.globalData.isIphoneX;
+        let userInfo = wx.getStorageSync('userinfo');
+        let data = JSON.parse(options.data)
         that.setData({
-            isIphoneX: isIphoneX
+            mid: userInfo.member_id,
+            isIphoneX: isIphoneX,
+            order_id:data.order_id,
+            order_sn:data.order_sn,
+            pay_type:data.pay_type,
+            total: data.total,
         })
-        console.log(this.data.isIphoneX)
+        
         that.countDown()
     },
     // 倒计时
@@ -29,8 +41,7 @@ Page({
         let that = this;
         let num = that.data.num;
         // 记录录音时长
-        that.data.Settimer = setInterval(function() {
-            console.log(that.data.timer)
+        that.data.timer = setInterval(function() {
             num--;
             let time = num;
             let second = (time % 60) < 10 ? "0" + (time % 60) : (time % 60); //秒
@@ -46,13 +57,24 @@ Page({
             }
         }, 1000);
     },
+    wxpay(){
+        let that = this,
+            params = {
+                mid: that.data.mid,//客户ID
+                order_id: that.data.order_id,// 订单ID
+                pay_type: that.data.pay_type,// 支付类型
+                order_sn: that.data.order_sn,//支付订单号
+            }
+        app.net.$Api.wxpay(params).then((res) => {
+            console.log(res)
+            if (res.data.code == 200) {
+              
+                console.log(res.data.Data)
+            } else {
 
-    /**
-     * 生命周期函数--监听页面显示
-     */
-    onShow: function() {
+            }
+        })
     },
-
     /**
      * 生命周期函数--监听页面隐藏
      */

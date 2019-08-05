@@ -8,7 +8,7 @@
     </view>
     <view class='payment_msg dpfC'>
         <view class='fontSize-24 color3'>支付金额</view>
-        <view class='fontWeight5' style='font-size:58rpx;padding:30rpx 0'>￥66.00</view>
+        <view class='fontWeight5' style='font-size:58rpx;padding:30rpx 0'>￥{{total}}</view>
         <view class='fontSize-24 color3'>日常保洁</view>
     </view>
     <!-- 支付方式 -->
@@ -23,7 +23,7 @@
     </view>
     <!-- button -->
     <view class='btnbox'>
-        <view class='btnStyle'>确定</view>
+        <view class='btnStyle' bindtap="wxpay">确定</view>
         <view class='isIphoneXBox' wx:if='{{isIphoneX}}'></view>
     </view>
     

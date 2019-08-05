@@ -222,6 +222,13 @@ Page({
     //立即购买
     oninstantBuy(){
         let that = this;
+        let params = {
+            mid: that.data.userId,//用户ID
+            projectid: that.data.pid,//项目/产品/服务人员ID
+            num: that.data.count,//订购数
+            spec: that.data.specid,//项目/产品规格
+            making_time: that.data.daynum + " " + that.data.time
+        }
         let data = {
             pid: this.data.pid,
             mid: this.data.userId,
@@ -246,9 +253,22 @@ Page({
             })
             return;
         }
-        wx.navigateTo({
-            url: '/page/order/pages/placeorder/placeorder?data=' + JSON.stringify(data),
+        app.net.$Api.addCart(params).then((res) => {
+            console.log(res)
+            data.cart_id = res.data.cart_id
+            if (res.data.code == 200) {
+                wx.navigateTo({
+                    url: '/page/order/pages/placeorder/placeorder?data=' + JSON.stringify(data),
+                })
+            } else {
+                wx.showToast({
+                    title: res.data.msg,
+                    icon: 'none',
+                    duration: 2000
+                })
+            }
         })
+       
      
         // let params = {
         //     mid: that.data.userId,//用户ID

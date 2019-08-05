@@ -74,5 +74,13 @@ export default class Url {
     static changeAddresUrl() {
         return Url.PATH + '/api/address/modify';
     };
+    //  立即购买
+    static purchaseUrl() {
+        return Url.PATH + '/api/order/created';
+    };
+    //  微信支付
+    static wxpayUrl() {
+        return Url.PATH + '/api/shop/pay/wxpay';
+    };
 
 }

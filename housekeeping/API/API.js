@@ -82,4 +82,12 @@ export const api = {
     changeAddres: function (paramObj) {
         return Promise.post(Url.default.changeAddresUrl(), paramObj);
     },
+    // 立即购买
+    purchase: function (paramObj) {
+        return Promise.post(Url.default.purchaseUrl(), paramObj);
+    },
+    // 微信支付
+    wxpay: function (paramObj) {
+        return Promise.post(Url.default.wxpayUrl(), paramObj);
+    },
 }

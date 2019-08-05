@@ -148,6 +148,7 @@ Page({
             })
         })
     },
+    // 获取地区数据
     getArea() {
         let that = this;
         let index = that.data.multiIndex,

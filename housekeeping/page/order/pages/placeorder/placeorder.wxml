@@ -91,7 +91,7 @@
             备注
         </view>
         <view class='textarea_box width90'>
-            <textarea placeholder="如特殊需求可以再此给商家留言" placeholder-class="phcolor">
+            <textarea placeholder="如特殊需求可以再此给商家留言" bindinput="changeText" value="{{textVal}}" placeholder-class="phcolor">
 
             </textarea>
         </view>

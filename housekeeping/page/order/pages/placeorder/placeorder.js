@@ -19,17 +19,21 @@ Page({
         daynum: "",//预约日期
         total:'',//总价
         addresList:[],//用户地址
+        cart_id:'',//购物车id
+        address_id:'',//常用地址id
+        textVal:"",//备注信息
+        couponid:0,//优惠卷id
         isIphoneX:false
     },
     onShow: function () {
         let that = this;
-        let day = that.data.day
-        let time = that.data.time
-        let daynum = that.data.daynum
+        let day = that.data.day;
+        let time = that.data.time;
+        let daynum = that.data.daynum;
         if (app.globalData.data) {
             day = app.globalData.data.day
             time = app.globalData.data.time,
-                daynum = app.globalData.data.daynum
+            daynum = app.globalData.data.daynum
         }
         that.setData({
             day: day,
@@ -44,6 +48,7 @@ Page({
     onLoad: function (options) {
         let isIphoneX = app.globalData.isIphoneX;
         let data = JSON.parse(options.data);
+        console.log(data)
         this.setData({
             isIphoneX: isIphoneX,
             pid: data.pid,// 项目 / 产品ID 	
@@ -51,6 +56,7 @@ Page({
             maktime: data.maktime.split(","),//预约时间
             number: data.number,//采购数	
             specid: data.specid,
+            cart_id: data.cart_id,//购物车id
            
         })
         this.getaddresList()
@@ -68,8 +74,10 @@ Page({
             console.log(res)
             if (res.data.code == 200) {
                 this.setData({
-                    addresList: res.data.Data
+                    addresList: res.data.Data,
+                    address_id: res.data.Data[0].id,
                 })
+                console.log(res.data.Data)
             } else {
 
             }
@@ -96,9 +104,10 @@ Page({
                     total: res.data.Data.price * res.data.Data.number.toFixed(2),//合计
                     day: res.data.Data.maktime.slice(11, 13),//截取 周几
                     time: res.data.Data.maktime.slice(14, 19),//时间
-                    price: res.data.Data.price
+                    price: res.data.Data.price,
+                    daynum: res.data.Data.maktime.slice(0, 10).replace(/\r?-/g, "")
                 })
-                console.log(res.data.Data.maktime,res.data.Data.maktime.slice(14,19) )
+                console.log(that.data.daynum)
             } else {
 
             }
@@ -120,8 +129,9 @@ Page({
                     count: count,
                     total: total
                 })
+                that.changeCart()
             }
-
+            
         }
         if (type == 'sub') {
             if (that.data.count != 1) {
@@ -131,17 +141,55 @@ Page({
                     count: count,
                     total: total
                 })
+                that.changeCart()
             } else {
                 console.log('减不下去了')
             }
 
         }
     },
+    // 修改数量
+    changeCart() {
+        let that = this,
+            params = {
+                mid: that.data.mid,// 用户ID
+                projectid: that.data.specid,// 项目 / 产品 / 服务人员ID
+                num: that.data.count,// 订购数
+                cartid: that.data.cart_id,//购物车ID
+            }
+        app.net.$Api.changeCart(params).then((res) => {
+            console.log(res)
+        })
+    },
+    
     //立即购买
     goPayment(){
-        wx.navigateTo({
-            url: '/page/order/pages/payment/payment',
+        let that = this,
+            params = {
+                mid: that.data.mid,// 用户ID
+                cart_id: that.data.cart_id,//购物车id
+                couponid: that.data.couponid,//优惠卷id
+                pay_type:'weixin',// 支付方式
+                address_id: that.data.address_id, //会员常用地址ID对应
+                remark: that.data.textVal,//留言
+                making_time: that.data.daynum + " "+that.data.time,// 预约时间
+            }
+        app.net.$Api.purchase(params).then((res) => {
+            let data = res.data.Data
+            data.total = that.data.total;
+            if (res.data.code == 200) {
+                wx.navigateTo({
+                    url: '/page/order/pages/payment/payment?data=' + JSON.stringify(data),
+                })
+            } else {
+                wx.showToast({
+                    title: res.data.msg,
+                    icon: 'none',
+                    duration: 2000
+                })
+            }
         })
+       
     },
     //去添加地址
     goAddress(){
@@ -161,6 +209,11 @@ Page({
         let id = that.data.pid;
         wx.navigateTo({
             url: '/page/classnav/pages/selectTime/selectTime?id=' + id,
+        })
+    },
+    changeText(e){
+        this.setData({
+            textVal: e.detail.value
         })
     },
     /**
