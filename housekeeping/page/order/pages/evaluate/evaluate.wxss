@@ -98,7 +98,7 @@ page{
     width: 30rpx;
     height: 30rpx;
     position: absolute;
-    top: -20rpx;
+    top: -10rpx;
     right: -10rpx;
     z-index: 99;
     background: #ffffff;
@@ -109,4 +109,9 @@ page{
 }
 .imgContent{
     flex-wrap: wrap;
+}
+.activeClass{
+    color: #ffffff;
+    background: #5994f7;
+    border: #ffffff;
 }

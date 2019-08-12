@@ -1,17 +1,17 @@
 <!--page/order/pages/coupons/coupons.wxml-->
-<view class='container' wx:if='{{flag}}'>
-    <view class='coupons_item width90 marginTop'>
+<view class='container' wx:if='{{couponList.length>0}}'>
+    <view class='coupons_item width90 marginTop' wx:for='{{couponList}}' style="background-image: url({{item.thumb}});background-size: 100% 100%;">
         <view class='coupons_item_money'>
              <view>
                 <text>¥</text>
-                <text>20</text>
+                <text>{{item.price}}</text>
             </view>
         </view>
         <view class='coupons_item_time'>
-            <view class='fontSize-26 color6'>日常保洁卷</view>
+            <view class='fontSize-26 color6'>{{item.name}}</view>
             <view class='fontSize-20 color6' style='margin-top:30rpx;'>
-                <text class='marginRight'>2018-10.5</text>
-                <text>2018-11.11</text>
+                <text class='marginRight'>{{item.start_time}}</text>
+                <text>{{item.end_time}}</text>
             </view>
         </view>
         <view class='coupons_item_get marginRight'>

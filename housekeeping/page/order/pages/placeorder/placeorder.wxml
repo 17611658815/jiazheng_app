@@ -60,10 +60,10 @@
                 <image style='width:35rpx;height:35rpx' src='../../../../images/icon/icon_right.png'></image>
             </view>
         </view>
-        <view class='dpfb' bindtap='goSelectTime'>
+        <view class='dpfb' bindtap='goCoupon'>
             <view class='fontSize-32 color1'>优惠卷</view>
             <view class='dpf'>
-                <text class='fontSize-26 color3'>暂无优惠卷</text>
+                <text class='fontSize-26 color3'>{{otherData.shopMemberCouponNum == 0 ? "暂无优惠卷" : otherData.shopMemberCouponNum}}</text>
                 <image style='width:35rpx;height:35rpx' src='../../../../images/icon/icon_right.png'></image>
             </view>
         </view>

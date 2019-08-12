@@ -74,6 +74,14 @@ export default class Url {
     static changeAddresUrl() {
         return Url.PATH + '/api/address/modify';
     };
+    // 删除收获地址
+    static removeAddresUrl() {
+        return Url.PATH + '/api/address/remove';
+    };
+    // 修改默认地址
+    static modifystatusUrl() {
+        return Url.PATH + '/api/address/modifystatus';
+    };
     //  立即购买
     static purchaseUrl() {
         return Url.PATH + '/api/order/created';
@@ -81,6 +89,34 @@ export default class Url {
     //  微信支付
     static wxpayUrl() {
         return Url.PATH + '/api/shop/pay/wxpay';
+    };
+    //  优惠卷列表
+    static couponUrl() {
+        return Url.PATH + '/api/coupon';
+    };
+    //  订单列表
+    static getorderListUrl() {
+        return Url.PATH + '/api/home/order';
+    };
+    //  订单详情
+    static otherDetailsUrl() {
+        return Url.PATH + '/api/home/order/details';
+    };
+    //  取消订单
+    static removeOtherUrl() {
+        return Url.PATH + '/api/home/order/remove';
+    };
+    //  我的订单评价
+    static commentsUrl() {
+        return Url.PATH + '/api/home/comments';
+    };
+    //  我的订单评价详情页
+    static comdetailsUrl() {
+        return Url.PATH + '/api/home/comdetails';
+    };
+    //  提交评价
+    static createdUrl() {
+        return Url.PATH + '/api/comments/created';
     };
 
 }

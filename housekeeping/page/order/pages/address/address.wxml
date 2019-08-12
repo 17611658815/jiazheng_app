@@ -1,7 +1,7 @@
 <view class='container {{isIphoneX ? "paddingBtm150":"paddingBtm100"}}' wx:if='{{addresList.length>0}}'>
     <view class='addressBox dpfC' wx:for='{{addresList}}' wx:key='key'>
         <view class='address_item'>
-          <image class='del delimg' src='../../../../images/icon/icon_colse.png'></image>
+          <image class='del delimg' catchtap="removeAddres" data-id="{{item.id}}" src='../../../../images/icon/icon_colse.png'></image>
             <view class='item_name padding30'>
                 <view class='dpf'>
                     <text class='fontSize-30 color1'>{{item.username}}</text>
@@ -14,7 +14,7 @@
                 </view>
             </view>
             <view class='item_select dpfb padding24'>
-                <view class='fontSize-24 color3 dpf' data-index='{{index}}' bindtap='selectAddres'>
+                <view class='fontSize-24 color3 dpf' data-item='{{item}}' data-index='{{index}}' catchtap='setaddres'>
                      <image wx:if='{{item.status == 1}}' class='roundTick marginRight' src='../../../../images/icon/icon_tick_2.png'></image>
                      <image wx:else class='roundTick marginRight' src='../../../../images/icon/icon_tick_1.png'></image>
                     <text class='{{item.status == 1 ? "selectActive":""}}'>已设为默认</text> 
@@ -25,7 +25,7 @@
       
     </view>
     <!-- 新建地址 -->
-    <view class='newAddres' bindtap='addNewAddres'>
+    <view class='newAddres' catchtap="addNewAddres">
         <view class='createAddres fontSize-34'>
             新建地址
         </view> 

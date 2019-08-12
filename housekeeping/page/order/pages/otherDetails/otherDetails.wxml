@@ -4,23 +4,23 @@
     <view class='status_box padding30'>
         <view class='width90 status_box_content'>
             <view class='status_box_item dpfC'>
-                <view class='status_box_item_icon {{progressArr[0].flag ? "borderActive":""}}'></view>
-                <view class='fontSize-24 color3 {{progressArr[0].flag ? "color5":""}}'>派单中</view>
+                <view class='status_box_item_icon {{status == 1 ||  status == 2 ||  status == 3 || status == 4? "borderActive":""}}'></view>
+                <view class='fontSize-24 color3 {{status == 1 ||  status == 2 ||  status == 3 || status == 4 ? "color5":""}}'>派单中</view>
             </view>
             <view class='soliders'></view>
             <view class='status_box_item dpfC'>
-                <view class='status_box_item_icon {{progressArr[1].flag ? "borderActive":""}}'></view>
-                <view class='fontSize-24 color3 {{progressArr[1].flag ? "color5":""}}'>已结单</view>
+                <view class='status_box_item_icon {{ status == 2 ||  status == 3 || status == 4 ? "borderActive":""}}'></view>
+                <view class='fontSize-24 color3 {{ status == 2 ||  status == 3 || status == 4 ? "color5":""}}'>已结单</view>
             </view>
         <view class='soliders'></view>
             <view class='status_box_item dpfC'>
-                <view class='status_box_item_icon {{progressArr[2].flag ? "borderActive":""}}'></view>
-                <view class='fontSize-24 color3 {{progressArr[2].flag ? "color5":""}}'>服务中</view>
+                <view class='status_box_item_icon {{ status == 3 || status == 4 ? "borderActive":""}}'></view>
+                <view class='fontSize-24 color3 {{ status == 3 || status == 4 ? "color5":""}}'>服务中</view>
             </view>
             <view class='soliders'></view>
             <view class='status_box_item dpfC'>
-                <view class='status_box_item_icon {{progressArr[3].flag ? "borderActive":""}}'></view>
-                <view class='fontSize-24 color3 {{progressArr[3].flag ? "color5":""}}'>已完成</view>
+                <view class='status_box_item_icon {{ status == 4  ? "borderActive":""}}'></view>
+                <view class='fontSize-24 color3 {{ status == 4  ? "color5":""}}'>已完成</view>
             </view>
         </view>
     </view>
@@ -29,12 +29,12 @@
          <view style='width:90%' class='dpfC' bindtap='goAddress'>
             <view style='width:100%' class='dpfb'>
                 <view class='dpf fontWeight5 fontSize-32 color1'>
-                    <image class='icon_GPS' style='margin-right:10rpx' src='../../../../images/icon/icon_GPS.png'></image> 芍药居甲4号院子
+                    <image class='icon_GPS' style='margin-right:10rpx' src='../../../../images/icon/icon_GPS.png'></image>{{otherObj.address}}
                 </view>
             </view>
             <view  class='address_info fontSize-24 color1' style='width:90%;margin-top:15rpx'>
-                <text class='marginRight'>张起灵</text>
-                <text>1551515121212</text>
+                <text class='marginRight'>{{otherObj.username}}</text>
+                <text>{{otherObj.mobile}}</text>
             </view>
         </view>
     </view>
@@ -47,13 +47,13 @@
                     <text style='margin:0rpx 10rpx' class='fontSize-30 color3'>大众工匠</text>
                     <image class='icon_right' src='../../../../images/icon/icon_right.png'></image>   
                 </view>
-                <view class='fontSize-24 color3'>2019-05-02</view>
+                <view class='fontSize-24 color3'>{{otherObj.making_time}}</view>
             </view>
             <import src="../../../../common/othertemp/othertemp.wxml"></import>
-            <template is="othertemp" data></template>
+            <template is="othertemp" data='{{item:otherObj}}'></template>
             <view class='dpfb fontSize-30 color1'>
                 <view>优惠卷</view>
-                <view>-10.00元</view>
+                <view>-{{otherObj.couponprice}}元</view>
             </view>
             <view style='border-bottom:1rpx solid #e0e0e0' class='dpfb fontSize-30 color1 padding30'>
                 <view>上门费</view>
@@ -73,11 +73,11 @@
             </view>
             <view class='width100 dpfb fontSize-32' style='margin-bottom:30rpx'>
                 <view class='color3'>订单编号</view>
-                <view class='color1'>5185843697742124854</view>
+                <view class='color1'>{{otherObj.order_sn}}</view>
             </view>
             <view class='width100 dpfb fontSize-32' style='margin-bottom:30rpx'>
                 <view class='color3'>预约时间</view>
-                <view class='color1'>2018-11-05(明天) 12:00</view>
+                <view class='color1'>{{otherObj.maktime}}</view>
             </view>
             <view class='width100 dpfb fontSize-32' style='margin-bottom:30rpx'>
                 <view class='color3'>预约备注</view>

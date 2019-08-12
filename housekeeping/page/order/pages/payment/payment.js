@@ -5,16 +5,16 @@ Page({
      * 页面的初始数据
      */
     data: {
-        timer:'',
-        num: 30,
+        timer: '',
+        num: 900,
         minute: "15", //分
         second: "00", //秒
         isIphoneX: false,
-        total:'',//支付金额
-        mid:0,//用户id
-        order_id:'',// 订单ID
-        order_sn: '',//  订单编号
-        pay_type: '',//  支付方式
+        total: '', //支付金额
+        mid: 0, //用户id
+        order_id: '', // 订单ID
+        order_sn: '', //  订单编号
+        pay_type: '', //  支付方式
     },
 
     /**
@@ -25,15 +25,16 @@ Page({
         let isIphoneX = app.globalData.isIphoneX;
         let userInfo = wx.getStorageSync('userinfo');
         let data = JSON.parse(options.data)
+        console.log(data)
         that.setData({
             mid: userInfo.member_id,
             isIphoneX: isIphoneX,
-            order_id:data.order_id,
-            order_sn:data.order_sn,
-            pay_type:data.pay_type,
-            total: data.total,
+            order_id: data.order_id,
+            order_sn: data.order_sn,
+            pay_type: data.pay_type,
+            total: data.total || data.price,
         })
-        
+
         that.countDown()
     },
     // 倒计时
@@ -57,22 +58,32 @@ Page({
             }
         }, 1000);
     },
-    wxpay(){
+    wxpay() {
         let that = this,
             params = {
-                mid: that.data.mid,//客户ID
-                order_id: that.data.order_id,// 订单ID
-                pay_type: that.data.pay_type,// 支付类型
-                order_sn: that.data.order_sn,//支付订单号
+                mid: that.data.mid, //客户ID
+                order_id: that.data.order_id, // 订单ID
+                pay_type: that.data.pay_type, // 支付类型
+                order_sn: that.data.order_sn, //支付订单号
             }
         app.net.$Api.wxpay(params).then((res) => {
             console.log(res)
-            if (res.data.code == 200) {
-              
-                console.log(res.data.Data)
-            } else {
-
-            }
+            wx.requestPayment({
+                timeStamp: res.data.data.timeStamp, //时间戳
+                nonceStr: res.data.data.nonceStr, //随机字符串
+                package: res.data.data.package, //prepay_id 
+                signType: 'MD5',
+                paySign: res.data.data.paySign, //签名
+                success(res) {
+                    wx.switchTab({
+                        url: '/page/tabber/index/index',
+                    })
+                    console.log(res)
+                },
+                fail(res) {
+                    console.log(res)
+                }
+            })
         })
     },
     /**

@@ -1,11 +1,17 @@
 // page/order/pages/evaluate/evaluate.js
-const beas64 = require('beas64.js')
+const beas64 = require('beas64.js');
+const app = getApp();
 Page({
 
     /**
      * 页面的初始数据
      */
     data: {
+        mid:0,//用户id
+        orderid: 0,//订单ID
+        projectid:0,
+        is_comments: 0,//是否评价 0:未评 1:已评
+        tagid:0,//标签id
         imgs:[],//图片数组
         tempFilePaths:{},
         iconArr:[],
@@ -29,16 +35,83 @@ Page({
                 text: '好评'
             }
         ],
-        tabArr:['态度不好','吃到晚点','服务不专业','工具不齐全']
+        tabArr:['态度不好','吃到晚点','服务不专业','工具不齐全'],
+        comdetails:{},
+        tagCurrent:null,
     },
 
     /**
      * 生命周期函数--监听页面加载
      */
     onLoad: function (options) {
+        console.log(options)
+        let userInfo = wx.getStorageSync('userinfo');
         this.setData({
-            iconArr: beas64
+            mid: userInfo.member_id,
+            orderid: options.orderid,
+            projectid: options.projectid,
+            iconArr: beas64//星星beas64地址
         })
+        this.comments();
+        this.comdetails();
+    },
+    //我的订单评价
+    comments(){
+        let that = this,
+            params = {
+                mid: that.data.mid,//客户ID
+                orderid: that.data.orderid,
+            }
+        app.net.$Api.comments(params).then((res) => {
+            console.log(res)
+            that.setData({
+                is_comments: res.data.Data.is_comments
+            })
+        })
+    },
+    //我的订单评价详情页
+    comdetails(){
+        let that = this,
+            params = {
+                mid: that.data.mid,//客户ID
+                orderid: that.data.orderid,
+                projectid: that.data.projectid
+            }
+        app.net.$Api.comdetails(params).then((res) => {
+            console.log(res)
+            that.setData({
+                comdetails: res.data.Data
+            })
+           
+        })
+    },
+
+    // 提交订单评价
+    created(){
+        let that = this,
+            params = {
+                mid: that.data.mid,//客户ID
+                orderid: that.data.orderid,// 订单ID
+                type: that.data.evaluateCurrent+1,//1: 好评; 2: 中评; 3: 差评;
+                tagid: that.data.tagid,//评价标签
+                projectid: that.data.projectid,//商品/产品/项目ID
+                score: that.data.diagnosisStar,//评分
+                pics: '',//评论图
+                is_anonymous: that.data.is_comments,//是否已评
+            }
+        app.net.$Api.created(params).then((res) => {
+            console.log(res)
+        })
+    },
+    // 选择标签
+    changeTag(e){
+        let id = e.currentTarget.dataset.id;
+        let index = e.currentTarget.dataset.index;
+        this.setData({
+            tagid: id,
+            tagCurrent: index
+        })
+
     },
     // 选取图片
     chooseImageTap: function () {
@@ -148,6 +221,7 @@ Page({
         this.setData({
             evaluateCurrent:index
         })
+        console.log(this.data.evaluateCurrent+1)
     },
     /**
      * 生命周期函数--监听页面初次渲染完成

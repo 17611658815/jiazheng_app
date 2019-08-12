@@ -26,6 +26,13 @@ Page({
         });
         that.getClassTitle()
     },
+    //服务详情
+    gocleaningDetails(e) {
+        let id = e.currentTarget.dataset.id
+        wx.navigateTo({
+            url: '/page/classnav/pages/cleaningDetails/cleaningDetails?id=' + id,
+        })
+    },
     scrollToViewFn: function(e) {
         let id = e.currentTarget.dataset.id;
         let index = e.currentTarget.dataset.index;

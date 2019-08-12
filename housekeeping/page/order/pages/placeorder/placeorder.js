@@ -40,6 +40,7 @@ Page({
             time: time,
             daynum: daynum
         })
+        this.getaddresList()
         console.log('日期=>' + that.data.day, '日期num=>', that.data.daynum, 'time=>', that.data.time)
     },
     /**
@@ -102,10 +103,10 @@ Page({
                     otherData:res.data.Data,
                     count: res.data.Data.number,//数量
                     total: res.data.Data.price * res.data.Data.number.toFixed(2),//合计
-                    day: res.data.Data.maktime.slice(11, 13),//截取 周几
-                    time: res.data.Data.maktime.slice(14, 19),//时间
+                      day: res.data.Data.maktime.slice(11, 13),//截取 周几
+                     time: res.data.Data.maktime.slice(14, 19),//时间
                     price: res.data.Data.price,
-                    daynum: res.data.Data.maktime.slice(0, 10).replace(/\r?-/g, "")
+                   daynum: res.data.Data.maktime.slice(0, 10).replace(/\r?-/g, "")
                 })
                 console.log(that.data.daynum)
             } else {
@@ -198,9 +199,9 @@ Page({
         })
     },
     // 选择优惠卷
-    goSelectTime(){
+    goCoupon(){
         wx.navigateTo({
-            url: '/page/classnav/pages/selectTime/selectTime',
+            url: '/page/order/pages/coupons/coupons',
         })
     },
     //选择事件

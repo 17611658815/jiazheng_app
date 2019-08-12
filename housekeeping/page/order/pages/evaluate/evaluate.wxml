@@ -4,8 +4,8 @@
         <view class='width90'>
             <!-- 用户头像 名称 -->
             <view class='userInfo dpf'>
-                <image class='userimg' src='http://i2.chuimg.com/e7da54e68b6611e6a9a10242ac110002_1117w_1080h.jpg?imageView2/2/w/620/interlace/1/q/90'></image>
-                <text class='fontSize-32 color1 marginLeft'>张起灵</text>
+                <image class='userimg' src='{{comdetails.memberData.avatar}}'></image>
+                <text class='fontSize-32 color1 marginLeft'>{{comdetails.memberData.username}}</text>
             </view>
             <!-- 选择评价 -->
             <view class='evaluate_icon_content padding30'>
@@ -16,7 +16,7 @@
             </view>
             <!-- 差评选项 -->
             <view class='evaluate_icon_content'>
-                <view class='tab_item' wx:for='{{tabArr}}' wx:key='key'>
+                <view class='tab_item {{tagCurrent == index ? "activeClass":""}}' wx:for='{{tabArr}}' data-index="{{index}}" bindtap="changeTag" data-id='{{index}}' wx:key='key'>
                     {{item}}
                 </view>
             </view>

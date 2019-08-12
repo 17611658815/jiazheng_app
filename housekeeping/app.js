@@ -10,13 +10,50 @@ App({
                 }
             }
         })
-        this.getUserLocation()
+        this.checkauth()
+        // this.getUserLocation()
     },
-    // 获取地图信息
+    checkauth: function () {
+        var that = this;
+        wx.getSetting({
+            success(res) {
+                if (!res.authSetting['scope.userLocation']) {
+                    wx.showModal({
+                        title: '提示',
+                        content: '录音功能需要您的授权',
+                        success: function (res) {
+                            if (res.confirm) {
+                                wx.authorize({
+                                    scope: "scope.userLocation",
+                                    success: function (res) {
+                                        that.getLocation()
+                                    },
+                                    fail: function (res) {
+                                        console.log(res)
+                                        if (res.errMsg == 'authorize:fail auth deny') { //用户拒绝授权，需删除小程序重新进入授权
+                                            that.alert('您已拒绝授权');
+                                        }
+                                    },
+                                    complete: function (res) {
+                                        console.log('complete')
+                                    },
+                                });
+                            } else if (res.cancel) { //拒绝授权退回列表
+                                console.log('拒绝授权')
+                              
+                            }
+                        }
+                    })
+                }
+            }
+        })
+    },
+/*     // 获取地图信息
     getUserLocation() {
         let that = this;
         wx.getSetting({
             success: res => {
+                console.log(res)
                 if (res.authSetting['scope.userLocation'] != undefined && res.authSetting['scope.userLocation'] != true) {
                     wx.showModal({
                         title: '请求授权当前位置',
@@ -51,15 +88,25 @@ App({
                         }
                     })
                 } else if (res.authSetting['scope.userLocation'] == undefined) {
+                    console.log('1111')
                     // 调用getLoaction
-                    // that.getLocation()
+                    that.getLocation()
                 } else {
-                    // that.getLocation()
+                    console.log('2222')
+                    that.getLocation()
                 }
             },
             fail: res => {
                 console.error(res, 'fail')
             }
+        })
+    }, */
+    getLocation() {
+        let that = this;
+        wx.getLocation({
+            success: function (res) {
+                console.log(res)
+            },
         })
     },
     globalData: {

@@ -82,6 +82,14 @@ export const api = {
     changeAddres: function (paramObj) {
         return Promise.post(Url.default.changeAddresUrl(), paramObj);
     },
+    // 修改收获地址
+    removeAddres: function (paramObj) {
+        return Promise.post(Url.default.removeAddresUrl(), paramObj);
+    },
+    // 修改默认地址
+    modifystatus: function (paramObj) {
+        return Promise.post(Url.default.modifystatusUrl(), paramObj);
+    },
     // 立即购买
     purchase: function (paramObj) {
         return Promise.post(Url.default.purchaseUrl(), paramObj);
@@ -89,5 +97,33 @@ export const api = {
     // 微信支付
     wxpay: function (paramObj) {
         return Promise.post(Url.default.wxpayUrl(), paramObj);
+    },
+    // 优惠卷列表
+    couponList: function (paramObj) {
+        return Promise.post(Url.default.couponUrl(), paramObj);
+    },
+    // 订单列表
+    getorderList: function (paramObj) {
+        return Promise.post(Url.default.getorderListUrl(), paramObj);
+    },
+    // 订单详情
+    otherDetails: function (paramObj) {
+        return Promise.post(Url.default.otherDetailsUrl(), paramObj);
+    },
+    // 取消订单
+    removeOther: function (paramObj) {
+        return Promise.post(Url.default.removeOtherUrl(), paramObj);
+    },
+    // 我的评价
+    comments: function (paramObj) {
+        return Promise.post(Url.default.commentsUrl(), paramObj);
+    },
+    // 我的订单评价详情页
+    comdetails: function (paramObj) {
+        return Promise.post(Url.default.comdetailsUrl(), paramObj);
+    },
+    // 提交评价
+    created: function (paramObj) {
+        return Promise.post(Url.default.createdUrl(), paramObj);
     },
 }

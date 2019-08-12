@@ -1,20 +1,39 @@
 // page/order/pages/coupons/coupons.js
+const app = getApp()
 Page({
 
     /**
      * 页面的初始数据
      */
     data: {
+        mid:0,
         flag:true,
+        couponid:0,//优惠卷id
+        couponPrice:0,//优惠卷面值
+        couponList:[],//优惠卷列表
     },
 
     /**
      * 生命周期函数--监听页面加载
      */
     onLoad: function (options) {
-
+        let userInfo = wx.getStorageSync('userinfo');
+        this.setData({
+            mid: userInfo.member_id
+        })
+        this.couponList()
     },
-
+    couponList(){
+        let that = this;
+        let params = {
+            mid: that.data.mid, // 客户ID
+        }
+        app.net.$Api.couponList(params).then((res) => {
+            that.setData({
+                couponList: res.data.Data
+            })
+        })  
+    },
     /**
      * 生命周期函数--监听页面初次渲染完成
      */

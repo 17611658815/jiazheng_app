@@ -6,7 +6,11 @@ Page({
      * 页面的初始数据
      */
     data: {
+        mid:0,
+        status:0,//订单状态
+        orderid:0,//订单id
         isIphoneX:false,
+        otherObj:{},//订单详情
         progressArr: [{ name: '派单中', flag: true }, { name: '已接单', flag: true }, { name: '服务中', flag: true }, { name: '已完成', flag: false }] 
     },
 
@@ -14,11 +18,30 @@ Page({
      * 生命周期函数--监听页面加载
      */
     onLoad: function (options) {
-        let isIphoneX = app.globalData.isIphoneX
+        let userInfo = wx.getStorageSync('userinfo');
+        let isIphoneX = app.globalData.isIphoneX;
         this.setData({
+            mid: userInfo.member_id,
+            status: options.status,
+            orderid: options.orderid,//订单id
             isIphoneX: isIphoneX
         })
-        console.log(this.data.isIphoneX)
+        this.otherDetails()
+    },
+    // 订单详情
+    otherDetails(){
+        let that = this,
+            params = {
+                mid: that.data.mid,//会员ID
+                orderid: that.data.orderid,// 订单ID
+                status: that.data.status,//状态 1.待付款 2.待发货3.待确认4.已完成5.退款中6
+            }
+        app.net.$Api.otherDetails(params).then((res) => {
+            that.setData({
+                otherObj:res.data.Data,
+                status: res.data.Data.status
+            })
+        })
     },
     //去评价
     goEvaluate(){

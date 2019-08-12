@@ -17,6 +17,7 @@ page{
     justify-content: center;
     background: #ff3a3a;
     color: #ffffff;
+    
 }
 .coupons_item_money>view>text:nth-child(1){
     font-size:37rpx;
