@@ -28,6 +28,7 @@ Page({
         })
         this.otherDetails()
     },
+    
     // 订单详情
     otherDetails(){
         let that = this,
@@ -47,6 +48,55 @@ Page({
     goEvaluate(){
         wx.navigateTo({
             url: '/page/order/pages/evaluate/evaluate',
+        })
+    },
+    //取消订单
+    recallOther() {
+        let that = this;
+        wx.showModal({
+            title: '温馨提示',
+            content: '确定取消订单吗？',
+            success(res) {
+                if (res.confirm) {
+                    console.log('用户点击确定')
+                    that.removeOther()
+                } else if (res.cancel) {
+                    console.log('用户点击取消')
+                }
+            }
+        })
+    },
+    // 取消订单
+    removeOther() {
+        let that = this,
+            params = {
+                mid: that.data.mid,//会员ID
+                orderid: that.data.orderid,// 订单ID
+                status: that.data.status,//状态 1.待付款 2.待发货3.待确认4.已完成5.退款中6
+            }
+        app.net.$Api.removeOther(params).then((res) => {
+            if (res.data.code == 200) {
+                wx.showToast({
+                    title: res.data.msg,
+                    icon: 'success',
+                    duration: 2000,
+                    success: function () {
+                        setTimeout(function () {
+                            wx.navigateBack({
+                                delta: 1
+                            })
+                        }, 2000)
+                    }
+                })
+            } else {
+                wx.showToast({
+                    title: res.data.msg,
+                    icon: 'success',
+                    duration: 2000,
+                   
+                })
+            }
+
         })
     },
     /**

@@ -9,10 +9,11 @@ Page({
     data: {
         mid:0,//用户id
         orderid: 0,//订单ID
-        projectid:0,
+        projectid: 0,//商品/产品/项目ID
         is_comments: 0,//是否评价 0:未评 1:已评
         tagid:0,//标签id
         imgs:[],//图片数组
+        pics:[],//评论图片
         tempFilePaths:{},
         iconArr:[],
         diagnosisStar: 1 ,//默认一星
@@ -20,9 +21,9 @@ Page({
         evaluateCurrent:0,//评价当前选中
         evaluateIcon:[
             {
-                oldPath:'../../../../images/icon/icon_nogood_1.png',
-                newPath:'../../../../images/icon/icon_nogood_2.png',
-                text:'差评'
+                oldPath: '../../../../images/icon/icon_good_1.png',
+                newPath: '../../../../images/icon/icon_good_2.png',
+                text: '好评'
             },
             {
                 oldPath:'../../../../images/icon/icon_medium_1.png',
@@ -30,9 +31,9 @@ Page({
                 text: '中评'
             },
             {
-                oldPath:'../../../../images/icon/icon_good_1.png',
-                newPath:'../../../../images/icon/icon_good_2.png',
-                text: '好评'
+                oldPath: '../../../../images/icon/icon_nogood_1.png',
+                newPath: '../../../../images/icon/icon_nogood_2.png',
+                text: '差评'
             }
         ],
         tabArr:['态度不好','吃到晚点','服务不专业','工具不齐全'],
@@ -63,9 +64,9 @@ Page({
                 orderid: that.data.orderid,
             }
         app.net.$Api.comments(params).then((res) => {
-            console.log(res)
+            console.log(res.data.Data,67)
             that.setData({
-                is_comments: res.data.Data.is_comments
+                is_comments: res.data.Data[0].is_comments
             })
         })
     },
@@ -78,11 +79,9 @@ Page({
                 projectid: that.data.projectid
             }
         app.net.$Api.comdetails(params).then((res) => {
-            console.log(res)
             that.setData({
                 comdetails: res.data.Data
             })
-           
         })
     },
 
@@ -96,11 +95,30 @@ Page({
                 tagid: that.data.tagid,//评价标签
                 projectid: that.data.projectid,//商品/产品/项目ID
                 score: that.data.diagnosisStar,//评分
-                pics: '',//评论图
+                pics: that.data.pics.join(","),//评论图
                 is_anonymous: that.data.is_comments,//是否已评
             }
         app.net.$Api.created(params).then((res) => {
-            console.log(res)
+            if (res.data.code == 200) {
+                wx.showToast({
+                    title: res.data.msg,
+                    icon: 'success',
+                    duration: 2000,
+                    success: function () {
+                        setTimeout(function () {
+                            wx.navigateBack({
+                                delta: 1
+                            })
+                        }, 2000)
+                    }
+                })
+            } else {
+                wx.showToast({
+                    title: res.data.msg,
+                    icon: 'success',
+                    duration: 2000,
+                })
+            }
         })
     },
     // 选择标签
@@ -142,7 +160,7 @@ Page({
                 var imgsLimit = [];
                 var tempFilePaths = that.data.tempFilePaths;
                 var imgs = that.data.imgs;
-                // that.upImgs(res.tempFilePaths[0], 0, 2)//上传
+                that.upImgs(res.tempFilePaths[0], 0)//上传
                 for (var i = 0; i < res.tempFilePaths.length; i++) {
                     tempFilePaths[res.tempFilePaths[i]] = '';
                     console.log(res.tempFilePaths[i])
@@ -164,6 +182,43 @@ Page({
                     });
                 }
             },
+        })
+    },
+    upImgs: function (imgurl, index) {
+        console.log(imgurl)
+        var that = this;
+        wx.showLoading({
+            title: '上传中',
+            mask: true,
+        })
+        wx.uploadFile({
+            url: 'https://wx.dkjis.com/api/uploadimg',
+            filePath: imgurl,
+            name: 'file',
+            header: {
+                'content-type': 'multipart/form-data'
+            },
+            formData: {
+                mid: that.data.mid,
+                fieldName:"file"
+            },
+            success: function (res) {
+                let data = JSON.parse(res.data)
+                console.log(data)
+                if(data.code == 200){
+                    that.data.pics.push(data.url)
+                    that.setData({
+                        pics: that.data.pics
+                    })
+                    console.log(that.data.pics)
+                }else{
+                    app.alert(res.data.msg)
+                }
+              
+            },
+            complete:function(){
+                wx.hideLoading()
+            }
         })
     },
     //图片预览

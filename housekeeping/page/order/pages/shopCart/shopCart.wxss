@@ -64,10 +64,8 @@ page{
     justify-content: center;
 }
 .empty_image{
-    width: 169rpx;
-    height: 169rpx;
-    background: #5994f7;
-    border-radius: 50%;
+    width: 246rpx;
+    height: 210rpx;
 }
 .empty_image image{
     width: 100%;

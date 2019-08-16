@@ -152,7 +152,7 @@ Page({
     getArea() {
         let that = this;
         let index = that.data.multiIndex,
-        params = {}
+        params = {};
         app.net.$Api.getArea(params).then((res) => {
             that.data.city = res.data.Data;
             that.data.multiArray = [
@@ -185,23 +185,19 @@ Page({
     // picker-确定事件
     bindMultiPickerChange: function(e) {
         this.multiIndex = e.detail.value;
-        console.log(this.data.multiArray)
         this.setData({
             multiIndex: e.detail.value,
             "multiId[0]": this.data.multiArray[0][e.detail.value[0]].id,
             "multiId[1]": this.data.multiArray[1][e.detail.value[1]].id,
             pickerFlag: true
         })
-        console.log(this.data.multiId)
     },
 
     //点击默认地址
     selectAcquiescent() {
-        console.log(111)
         this.setData({
             defaultFlag: !this.data.defaultFlag
         })
-        console.log(this.data.defaultFlag)
     },
 
 

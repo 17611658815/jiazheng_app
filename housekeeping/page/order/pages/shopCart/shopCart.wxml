@@ -48,10 +48,14 @@
 
 <view class='container' wx:else>
     <view class='empty_box'>
-        <view class='empty_image'></view>
+        <view class='empty_image'>
+            <image src="../../../../images/icon/icon_noMsg_cart.png"></image>
+        </view>
         <view class='fontSize-28 color2' style='margin-top:60rpx;'>购物车空空如也，去逛逛吧~</view>
         <view class='fontSize-22 color3' style='margin-top:22rpx;'>优质服务，还是买买买更爽快~</view>
-        <view class='emptyBtn' style='margin-top:52rpx;'>去逛逛</view>
+        <navigator open-type='switchTab' hover-class='none' url='/page/tabber/index/index'>
+            <view class='emptyBtn' style='margin-top:52rpx;'>去逛逛</view>
+        </navigator>
     </view>
 </view>
 

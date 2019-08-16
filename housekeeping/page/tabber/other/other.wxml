@@ -15,7 +15,7 @@
                 <view class='dpf'>
                     <image class='icon_common2' src='../../../images/icon/icon_common2.png'></image>
                     <text style='margin:0rpx 10rpx' class='fontSize-30 color3'>大众工匠</text>
-                    <image class='icon_right' src='../../../images/icon/icon_right.png'></image>   
+                    <image class='icon_right' src='../../../images/icon/icon_right.png'></image>
                 </view>
                 <view class='fontSize-30 color5' wx:if='{{item.status == 1}}'>待付款</view>
                 <view class='fontSize-30 color5' wx:if='{{item.status == 2}}'>待发货</view>
@@ -24,7 +24,7 @@
                 <view class='fontSize-30 color5' wx:if='{{item.status == 5}}'>退款中</view>
                 <view class='fontSize-30 color5' wx:if='{{item.status == 6}}'>已退款</view>
                 <view class='fontSize-30 color5' wx:if='{{item.status == 7}}'>退款拒绝</view>
-            </view> 
+            </view>
             <!-- 订单内容 -->
             <!-- <view style='margin:40rpx 0' class='width100 dpf'>
                 <view class='otherPic'>
@@ -40,14 +40,14 @@
                     </view>
                 </view>
             </view> -->
-             <template is="othertemp" data='{{item}}'></template>
+            <template is="othertemp" data='{{item}}'></template>
             <!-- 订单日期 -->
             <view class='width100 dpfb'>
                 <view class='fontSize-24 color3'>{{item.making_time}}</view>
                 <view class='btnBox dpf'>
-                    <view catchtap='recallOther' data-item='{{item}}' class='btn_1' wx:if='{{item.status == 1}}'>取消订单</view> 
-                            
-                    <view class='btn_2' data-item='{{item}}' catchtap="gopayment"  wx:if='{{item.status == 1}}'>去付款</view>
+                    <view catchtap='recallOther' data-item='{{item}}' class='btn_1' wx:if='{{item.status == 1}}'>取消订单</view>
+
+                    <view class='btn_2' data-item='{{item}}' catchtap="gopayment" wx:if='{{item.status == 1}}'>去付款</view>
                     <view catchtap='delOther' class='btn_1' wx:if='{{item.status == 4 || item.status==6}}'>删除订单</view>
                     <!-- <view class='btn_2' wx:if='{{item.status == 4}}'>评价</view> -->
                     <view class='btn_2' data-orderid="{{item.orderid}}" data-projectid="{{item.projectid}}" catchtap="goCommentMore">评价</view>
@@ -60,3 +60,9 @@
         </view>
     </view>
 </view>
+<!-- <view class='container' wx:else>
+    <view class='nocoupons'>
+        <view class='nocoupons_icon'></view>
+        <view class='fontSize-30 color2' style='margin-top:110rpx;'>你暂时还没优惠卷哦~</view>
+    </view> 
+</view> -->

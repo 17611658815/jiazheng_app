@@ -68,7 +68,7 @@
         </view>
     </view>
     <view class='width90 dpfC'>
-        <view class='btnStyle' style='margin-top:60rpx;'>
+        <view class='btnStyle' bindtap="created" style='margin-top:60rpx;'>
              提交
         </view>
     </view>

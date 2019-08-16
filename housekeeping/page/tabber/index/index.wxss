@@ -230,9 +230,10 @@ swiper-item {
 }
 
 .vip_welfare {
+    width: 96%;
     white-space: nowrap;
     display: flex;
-    padding-left: 10rpx;
+    padding-left: 4%;
     padding-bottom: 30rpx;
 }
 

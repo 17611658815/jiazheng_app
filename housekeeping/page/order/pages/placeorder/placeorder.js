@@ -7,7 +7,7 @@ Page({
      */
     data: {
         otherData:{},
-        pid:'',// 项目 / 产品ID 		
+        pid:'',//项目/产品ID 		
         mid: '',//用户ID
         maktime: '',//预约时间
         number: '',//采购数
@@ -58,7 +58,6 @@ Page({
             number: data.number,//采购数	
             specid: data.specid,
             cart_id: data.cart_id,//购物车id
-           
         })
         this.getaddresList()
         this.instantBuy()

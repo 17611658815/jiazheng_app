@@ -6,7 +6,7 @@ Page({
      * 页面的初始数据
      */
     data: {
-        userId:0,
+        mid:0,
         selectAll: false,//全选
         isIphoneX:false,//判断机型
         Cart:[],//购物车数据
@@ -24,7 +24,7 @@ Page({
         let userInfo = wx.getStorageSync('userinfo');
         that.setData({
             isIphoneX: isIphoneX,
-            userId: userInfo.member_id
+            mid: userInfo.member_id
         })
         // 获取购物车列表
         that.getcartList()
@@ -33,7 +33,7 @@ Page({
     getcartList() {
         let that = this,
             params = {
-                mid: that.data.userId
+                mid: that.data.mid
             }
         app.net.$Api.getcartList(params).then((res) => {
             res.data.Data.forEach(item => {
@@ -63,7 +63,6 @@ Page({
         let that = this;
         let Cart = that.data.Cart;
         let cartStr = that.data.cartStr;
-        console.log(cartStr)
         let params = {
             cartidstr: cartStr.join(',')
         }
@@ -104,7 +103,6 @@ Page({
                                 key: 'CartData',
                             })
                         })
-                      
                         console.log(that.data.Cart, that.data.CartData)
                     } else if (res.cancel) {
                         console.log('用户点击取消')
@@ -334,6 +332,19 @@ Page({
             }
         app.net.$Api.changeCart(params).then((res) => {
             console.log(res)
+        })
+    },
+    // 去下单
+    goPayment(e){
+        let data = {
+         /*    pid: this.data.pid,
+            mid: this.data.mid,
+            maktime: that.data.daynum + "," + that.data.time,
+            number: this.data.count,
+            specid: this.data.specid, */
+        }
+        wx.navigateTo({
+            url: '/page/order/pages/placeorder/placeorder',
         })
     },
     // 下单

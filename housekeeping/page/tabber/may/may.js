@@ -6,7 +6,12 @@ Page({
      * 页面的初始数据
      */
     data: {
-        arr: ['待付款', '进行中', '已完成', '已取消'],
+        arr: [
+            { status: '待付款', icon:'../../../images/icon/icon_DD_1.png'},
+           { status: '进行中', icon: '../../../images/icon/icon_DD_2.png' },
+            { status: '已完成', icon: '../../../images/icon/icon_DD_4.png' },
+            { status: '已取消', icon: '../../../images/icon/icon_DD_3.png' },
+            ],
         navigateArr: [{
             title: '我的购物车',
             path: '/page/order/pages/shopCart/shopCart'

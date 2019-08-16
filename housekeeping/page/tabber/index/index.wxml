@@ -113,7 +113,7 @@
                     <image style='width:30rpx;height:30rpx' src='../../../images/icon/icon_right.png'></image>
                 </view>
             </view>
-            <scroll-view scroll-x="true" class='vip_welfare width90'>
+            <scroll-view scroll-x="true" class='vip_welfare'>
                 <view class='vip_welfare_content' wx:for='{{vipActivity}}' style='background-image: url({{item.bgUrl}});background-size: 100% 100%;' wx:key='key'>
                     <view>
                         {{item.text1}}

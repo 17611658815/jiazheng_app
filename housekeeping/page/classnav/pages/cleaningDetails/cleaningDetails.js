@@ -31,7 +31,7 @@ Page({
         let daynum = that.data.daynum
         if (app.globalData.data) {
             day = app.globalData.data.day
-            time = app.globalData.data.time,
+            time = app.globalData.data.time
             daynum = app.globalData.data.daynum
         }
         that.setData({

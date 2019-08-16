@@ -8,7 +8,7 @@ Page({
     data: {
         mid:0,//用户id
         // otherArr:[{msg:'待付款',type:1},{msg:'进行中',type:2},{msg:'已完成',type:3},{msg:'已取消',type:4}]
-        otherArr:[{msg:'待付款',type:1},{msg:'进行中',type:2},{msg:'已完成',type:3},{msg:'已取消',type:4}],
+        otherArr:[],
     },
 
     /**

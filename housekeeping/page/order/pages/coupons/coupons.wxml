@@ -3,8 +3,8 @@
     <view class='coupons_item width90 marginTop' wx:for='{{couponList}}' style="background-image: url({{item.thumb}});background-size: 100% 100%;">
         <view class='coupons_item_money'>
              <view>
-                <text>¥</text>
-                <text>{{item.price}}</text>
+                <text style="font-size:37rpx;">¥</text>
+                <text style="font-size:67rpx;">{{item.price}}</text>
             </view>
         </view>
         <view class='coupons_item_time'>
@@ -21,7 +21,9 @@
 </view>
 <view class='container' wx:else>
     <view class='nocoupons'>
-        <view class='nocoupons_icon'></view>
+        <view class='nocoupons_icon'>
+            <image src="../../../../images/icon/icon_noMsg_coupon.png"></image>
+        </view>
         <view class='fontSize-30 color2' style='margin-top:110rpx;'>你暂时还没优惠卷哦~</view>
     </view> 
 </view>

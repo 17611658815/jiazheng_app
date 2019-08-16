@@ -5,7 +5,13 @@
 <view style='width:100%'>
     <view class='fixedTop'>
         <template is="scrollX" data='{{navArr:typeData,currentTab:currentTab,swatchTab:swatchTab,scrollLeft:scrollLeft}}'></template>
-        <filtrate id='filtrate' navArr='{{navArr}}' shopData='{{shopData}}' tagData='{{tagData}}' bind:confirmSF='onconfirmsf' bind:seleted='onSeleted'  bind:checked="onChecked"></filtrate>
+        <filtrate id='filtrate' 
+                navArr='{{navArr}}' 
+                shopData='{{shopData}}' 
+                tagData='{{tagData}}' 
+                bind:confirmSF='onconfirmsf' 
+                bind:seleted='onSeleted'  
+                bind:checked="onChecked"></filtrate>
     </view>
     <view class='cleaningListBox width90'>
         <template is="cleaningList" data='{{cleaningArr:data,gocleaningDetails:gocleaningDetails,show:true}}'></template>

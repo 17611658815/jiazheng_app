@@ -1,6 +1,12 @@
 <view class="container">
     <view class='cleaningDetails-header'>
-     <swiper class="swiper" indicator-dots='true' indicator-color='rgba(255,255, 255, .3)' indicator-active-color="#ffffff"  circular='true' duration="1000" interval="5000">
+     <swiper class="swiper" 
+        indicator-dots='true' 
+        indicator-color='rgba(255,255, 255, .3)' 
+        indicator-active-color="#ffffff"  
+        circular='true'
+        duration="1000" 
+        interval="5000">
         <swiper-item wx:for='{{3}}' wx:key='key'>
             <image src='{{shopDetailed.projectData.thumb}}'></image>
         </swiper-item>
@@ -20,17 +26,17 @@
             </view>
         </view>
         <view class='stateBox'>
-            <view class='stateBox-content width90'>
-                <view class='stateBox-item fontSize-22 color2'>
+            <view class='stateBox-content width90 fontSize-22 color2'>
+                <view class='stateBox-item'>
                     保障
                 </view>
-                <view class='stateBox-item fontSize-22 color2'>
+                <view class='stateBox-item'>
                     <image src='../../../../images/icon/icon_mark_2.png'></image> 未服务全额退款
                 </view>
-                <view class='stateBox-item fontSize-22 color2'>
+                <view class='stateBox-item'>
                     <image src='../../../../images/icon/icon_mark_2.png'></image> 爽约包赔
                 </view>
-                <view class='stateBox-item fontSize-22 color2'>
+                <view class='stateBox-item'>
                     <image src='../../../../images/icon/icon_mark_2.png'></image> 不满意重服务
                 </view>
             </view>
@@ -103,7 +109,7 @@
             </view>
         </view>
         <view class='service-details-msg fontSize-28 color2 width90'> 
-            被里面料俗称被里面料俗称被里面料俗称被里面料俗称被里面料俗称被里面料俗称被里面料俗称被里面料俗称被里面料俗称被里面料俗称被里面料俗称被里面料俗称被里面料俗称被里面料俗称被里面料俗称被里面料俗称被里面料俗称被里面料俗称
+            被里面料俗称被里面料俗称被里面料俗称被里面料俗称被里面料俗称被里面料俗称被里面料俗称被
         </view>
     </view>
     <!-- 为你推荐 -->

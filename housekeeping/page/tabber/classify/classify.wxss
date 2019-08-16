@@ -34,10 +34,8 @@ input{
     min-height: 100vh;
 }
 .rightBox{
-    background: #ffffff;
     flex: 1;
-    /* height: 300rpx;
-    min-height: 100vh; */
+    background: #ffffff;
 }
 .leftitme{
     width: 100%;
@@ -66,7 +64,6 @@ input{
     display: flex;
 }
 .conten_cover>view{
-    /* flex: 1; */
     height: 235rpx;
     border-radius: 6rpx;
     box-shadow:2rpx 2rpx 20rpx #e2e2e2;

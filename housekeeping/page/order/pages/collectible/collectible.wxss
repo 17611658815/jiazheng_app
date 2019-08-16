@@ -32,14 +32,12 @@ swiper-item{
   display: block; 
   width: 100%;
   margin: auto;
-  /* padding: 20rpx; */
   overflow: auto; 
 } 
 
 scroll-view{
     width: 100%;
     min-height: 100vh;
-    /* background: yellow; */
 }
 .listBox{
     width: 90%;
@@ -57,7 +55,6 @@ scroll-view{
 .noContent{
     width: 90%;
     margin: auto;
-    /* min-height: 100vh; */
     padding: 140rpx 0 30rpx 0;
     display: flex;
     flex-direction: column;
@@ -65,10 +62,11 @@ scroll-view{
     justify-content: center;
 }
 .noContent_icon{
-    width: 340rpx;
-    height: 270rpx;
-    background: #5994f7;
     margin-top: 175rpx;
+}
+.noContent_icon image{
+    width: 341rpx;
+    height: 270rpx;
 }
 .noContent_text{
     margin-top: 110rpx;

@@ -16,8 +16,8 @@
             </view>
         </view>
         <view class='addCartBox-box-right'>
-            <view bindtap="addCart">加入购物车</view>
-            <view bindtap='instantBuy'>立即购买</view>
+            <view bindtap="addCart" style=" background: #FF9743;">加入购物车</view>
+            <view bindtap='instantBuy' style="background: #6297F3;">立即购买</view>
         </view>
     </view>
     <view class='isIphoneXBox' wx:if='{{isIphoneX}}'></view>

@@ -56,12 +56,12 @@ button::after{
     font-size: 28rpx;
     color: #ffffff;
 }
-.addCartBox-box-right view:nth-child(1){
+/* .addCartBox-box-right view:nth-child(1){
     background: #FF9743;
 }
 .addCartBox-box-right view:nth-child(2){
     background: #6297F3;
-}
+} */
 .color2{
     color: #666666;
     white-space: nowrap;

@@ -34,9 +34,9 @@ Page({
     // 获取用户地址
     getaddresList(){
         let that = this,
-            params = {
-                mid: that.data.userId,//客户ID
-            }
+        params = {
+            mid: that.data.userId,//客户ID
+        }
         app.loading()
         app.net.$Api.addresList(params).then((res) => {
             wx.hideLoading();
