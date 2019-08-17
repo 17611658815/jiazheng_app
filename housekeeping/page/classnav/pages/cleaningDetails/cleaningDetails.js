@@ -5,7 +5,7 @@ Page({
      * 页面的初始数据
      */
     data: {
-        userId:0,
+        mid:0,
         pid: '',//商品id
         shopid:'',
         type:'',//类型
@@ -66,7 +66,7 @@ Page({
             pid: options.id,
             time: this.formatTime(new Date())[1],//默认预约时间
             daynum: this.formatTime(new Date())[0],
-            userId: userInfo.member_id || 0
+            mid: userInfo.member_id || 0
         })
         console.log('日期=>' + this.data.day, '日期num=>', this.data.daynum, 'time=>', this.data.time)
         this.getShopDetaile()
@@ -190,7 +190,7 @@ Page({
             return;
         }
         let params = {
-            mid: that.data.userId,//用户ID
+            mid: that.data.mid,//用户ID
             projectid: that.data.pid,//项目/产品/服务人员ID
             num: that.data.count,//订购数
             spec: that.data.specid,//项目/产品规格
@@ -223,7 +223,7 @@ Page({
     oninstantBuy(){
         let that = this;
         let params = {
-            mid: that.data.userId,//用户ID
+            mid: that.data.mid,//用户ID
             projectid: that.data.pid,//项目/产品/服务人员ID
             num: that.data.count,//订购数
             spec: that.data.specid,//项目/产品规格
@@ -231,7 +231,7 @@ Page({
         }
         let data = {
             pid: this.data.pid,
-            mid: this.data.userId,
+            mid: this.data.mid,
             maktime: that.data.daynum + "," + that.data.time,
             number: this.data.count,
             specid: this.data.specid,
@@ -240,7 +240,7 @@ Page({
             that.selectItems();
             return;
         }
-        if (that.data.userId == 0) {
+        if (that.data.mid == 0) {
             wx.showModal({
                 title: '温馨提示',
                 content: '您还未登录',
@@ -271,7 +271,7 @@ Page({
        
      
         // let params = {
-        //     mid: that.data.userId,//用户ID
+        //     mid: that.data.mid,//用户ID
         //     projectid: that.data.pid,//项目/产品/服务人员ID
         //     maktime:'',//预约时间
     	// 	number: that.data.count//采购数

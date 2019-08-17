@@ -6,7 +6,7 @@ Page({
      * 页面的初始数据
      */
     data: {
-        userId:'',//用户id
+        mid:'',//用户id
         addresList:[],//用户地址
         isIphoneX: false,
         currentTab:0,//默认地址选中
@@ -27,7 +27,7 @@ Page({
         let isIphoneX = app.globalData.isIphoneX
         this.setData({
             isIphoneX: isIphoneX,
-            userId: userInfo.member_id
+            mid: userInfo.member_id
         })
         this.getaddresList()
     },
@@ -35,7 +35,7 @@ Page({
     getaddresList(){
         let that = this,
         params = {
-            mid: that.data.userId,//客户ID
+            mid: that.data.mid,//客户ID
         }
         app.loading()
         app.net.$Api.addresList(params).then((res) => {
@@ -55,7 +55,7 @@ Page({
         let that = this,
             id = e.currentTarget.dataset.id,
             params = {
-                mid: that.data.userId,//客户ID
+                mid: that.data.mid,//客户ID
                 addressid: id
             }
         wx.showModal({
@@ -83,7 +83,7 @@ Page({
         let data = e.currentTarget.dataset.item;
         let  params = {
                 addressid: data.id, //地址id
-                mid: that.data.userId, // 客户ID
+                mid: that.data.mid, // 客户ID
                 status: data.status == 1 ? 0 : 1
         } 
         app.net.$Api.modifystatus(params).then((res) => {
