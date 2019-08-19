@@ -230,11 +230,11 @@ Page({
             making_time: that.data.daynum + " " + that.data.time
         }
         let data = {
-            pid: this.data.pid,
-            mid: this.data.mid,
+            pid: that.data.pid,
+            mid: that.data.mid,
             maktime: that.data.daynum + "," + that.data.time,
-            number: this.data.count,
-            specid: this.data.specid,
+            number: that.data.count,
+            specid: that.data.specid,
         }
         if (that.data.specid == '') {
             that.selectItems();
@@ -274,7 +274,7 @@ Page({
         //     mid: that.data.mid,//用户ID
         //     projectid: that.data.pid,//项目/产品/服务人员ID
         //     maktime:'',//预约时间
-    	// 	number: that.data.count//采购数
+    	//     number: that.data.count//采购数
         // }
         // app.net.$Api.instantBuy(params).then((res) => {
         //     console.log(res)

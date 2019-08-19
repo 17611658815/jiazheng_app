@@ -9,7 +9,14 @@ Page({
         scrollLeft: 0,
         currentTab:0,
         isIphoneX:false,
-        navArr: [{ name: '推荐即使' }, { name: '推荐即使' }, { name: '推荐即使' }, { name: '推荐即使' }, { name: '推荐即使' }, { name: '推荐即使' }, { name: '推荐即使' }]
+        navArr: [
+            { name: '推荐即使' }, 
+            { name: '推荐即使' }, 
+            { name: '推荐即使' }, 
+            { name: '推荐即使' }, 
+            { name: '推荐即使' }, 
+            { name: '推荐即使' }, 
+            { name: '推荐即使' }]
     },
 
     /**

@@ -34,8 +34,13 @@
     <view class='adept_content dpfC'>
     <view class="adept_content_part width90" wx:if='{{isOpen}}'>
             <view class='fontSize-34 color1 fontWeight5'>专业技能</view>
-            <view style='margin-top:25rpx' class='fontSize28 color2'>技术专业，从事维修专业6年，擅长家电、工装水电门窗维修短发哦额技巧哦 i 去哦
-            技术专业，从事维修专业6年，擅长家电、工装水电门窗维修短发哦额技巧哦 i 去哦技术专业，从事维修专业6年，擅长家电、工装水电门窗维修短发哦额技巧哦 i 去哦技术专业，从事维修专业6年，擅长家电、工装水电门窗维修短发哦额技巧哦 i 去哦技术专业，从事维修专业6年，擅长家电、工装水电门窗维修短发哦额技巧哦 i 去哦</view>
+            <view style='margin-top:25rpx' class='fontSize28 color2'>
+                技术专业，从事维修专业6年，擅长家电、工装水电门窗维修短发哦额技巧哦 i 去哦
+                技术专业，从事维修专业6年，擅长家电、工装水电门窗维修短发哦额技巧哦 i 去哦
+                技术专业，从事维修专业6年，擅长家电、工装水电门窗维修短发哦额技巧哦 i 去哦
+                技术专业，从事维修专业6年，擅长家电、工装水电门窗维修短发哦额技巧哦 i 去哦
+                技术专业，从事维修专业6年，擅长家电、工装水电门窗维修短发哦额技巧哦 i 去哦
+            </view>
             <view class='adept_content_icon' bindtap='unfold'>
                 <image src='../../../../images/icon/icon_up.png'></image>
             </view>

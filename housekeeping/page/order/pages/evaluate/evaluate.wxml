@@ -43,7 +43,12 @@
             <!-- 星级评价 -->
             <view class='starBox' style='margin-top:30rpx;'>
                 <view class='star_item'>
-                    <view class='rui-star'wx:for="{{[1,2,3,4,5]}}" wx:key="star1" bindtap='getStar' data-star='{{item}}' style='background:url({{diagnosisStar >= item ? iconArr[1] : iconArr[0]}}) no-repeat center center/6.7vw 6.7vw;'></view>
+                    <view class='rui-star' 
+                        wx:for="{{[1,2,3,4,5]}}"
+                        wx:key="star1" 
+                        bindtap='getStar' 
+                        data-star='{{item}}' 
+                        style='background:url({{diagnosisStar >= item ? iconArr[1] : iconArr[0]}}) no-repeat center center/6.7vw 6.7vw;'></view>
                 </view>
                  <view style='margin-top:20rpx;' class='fontSize-24 color3'>{{diagnosistext}}</view>
             </view>

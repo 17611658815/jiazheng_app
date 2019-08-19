@@ -37,11 +37,9 @@ Page({
     oncommentMsg(e){
         let that = this;
         let msg = e.detail.value
-       
         that.setData({
             oncommentMsg: msg
         })
-        console.log(e)
     },
     getcommentList(){
         let that = this;
