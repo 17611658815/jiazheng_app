@@ -55,3 +55,16 @@ page{
 .marginBottom{
     border-bottom: 20rpx solid #f8f8f8;
 }
+.loginBtn{
+    width: 200rpx;
+    background: none;
+    font-size: 34rpx;
+     margin-left: 0!important;
+    margin-right: 0!important;
+}
+button::after{
+    width: 100rpx;
+    border: none;
+   
+
+}

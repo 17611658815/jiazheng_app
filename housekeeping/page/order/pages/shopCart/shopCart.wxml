@@ -60,7 +60,7 @@
 </view>
 
 <view class='purchase' wx:if='{{CartData.length>0}}'>
-    <view style='width:100%;' class='dpf' wx:if='{{flag}}'>
+    <view style='width:100%;' class='dpf' wx:if='{{flag}}'> 
         <view class='purchase_price dpf'>
             <view class='radioBox marginRight marginLeft' data-index='{{index}}' bindtap='Checked'>
                 <image wx:if='{{selectAll}}' src='../../../../images/icon/inon_checked.png'></image>

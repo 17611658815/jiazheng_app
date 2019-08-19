@@ -16,7 +16,12 @@
             </view>
             <!-- 差评选项 -->
             <view class='evaluate_icon_content'>
-                <view class='tab_item {{tagCurrent == index ? "activeClass":""}}' wx:for='{{tabArr}}' data-index="{{index}}" bindtap="changeTag" data-id='{{index}}' wx:key='key'>
+                <view class='tab_item {{tagCurrent == index ? "activeClass":""}}' 
+                        wx:for='{{tabArr}}' 
+                        data-index="{{index}}" 
+                        bindtap="changeTag" 
+                        data-id='{{index}}' 
+                        wx:key='key'>
                     {{item}}
                 </view>
             </view>

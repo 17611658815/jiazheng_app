@@ -1,11 +1,15 @@
 <!--pages/tabber/may/may.wxml-->
-<view class='container' wx:if='{{userInfo!=null}}'>
+<view class='container'>
     <view class='width100 dpfC'>
         <view class='width90' style='padding-bottom:30rpx;'>
             <!-- 头像昵称 -->
-            <view class='dpf padding40'>
+            <view class='dpf padding40' wx:if='{{userInfo}}'>
                 <image class='userPic' src='{{userInfo.headimgurl}}'></image>
                 <text class='fontSize-34 color1'>{{userInfo.nickname}}</text>
+            </view>
+            <view class='dpf padding40' wx:else>
+                <image class='userPic' src='../../../images/icon/default_img.png'></image>
+                 <button class="loginBtn" open-type="getUserInfo" lang="zh_CN" bindgetuserinfo="bindgetUserInfo">微信登录</button>
             </view>
             <!-- 开通会员 -->
             <view class='openVip dpfb padding30 fontSize28 color6'>
@@ -25,12 +29,12 @@
         <view class='width90'>
            <view class='dpfb'>
                 <view class='fontSize-32 color1 fontWeight5'>我的订单</view>
-                <view class='fontSize-26 color3 dpf'>查看更多
+                <view class='fontSize-26 color3 dpf' data-type="0" bindtap="goOtherType">查看更多
                       <image style='width:30rpx;height:30rpx' src='../../../images/icon/icon_right.png'></image>
                 </view>
            </view>
            <view class='otherList' style='padding-top:50rpx;'>
-                <view class='other_nav_item' wx:for="{{arr}}" wx:key='key'>
+                <view class='other_nav_item' wx:for="{{arr}}"  data-type="{{index}}" bindtap="goOtherType" wx:key='key'>
                     <view class='other_nav_icon'>
                         <!-- icon图片 -->
                         <image src='{{item.icon}}'></image>
@@ -55,6 +59,6 @@
    
 </view>
 
-<view wx:else>
+<!-- <view wx:else>
   <button  open-type="getUserInfo" lang="zh_CN" bindgetuserinfo="bindgetUserInfo">微信登录</button>
-</view>
+</view> -->

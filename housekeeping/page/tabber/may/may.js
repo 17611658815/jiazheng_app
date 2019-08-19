@@ -109,6 +109,12 @@ Page({
             }
         })
     },
+    goOtherType(e){
+        let current = e.currentTarget.dataset.type
+        wx.navigateTo({
+            url: '/page/order/pages/otherType/otherType?current=' + current,
+        })
+    },
     /**
      * 生命周期函数--监听页面加载
      */

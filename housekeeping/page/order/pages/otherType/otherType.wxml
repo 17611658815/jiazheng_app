@@ -1,0 +1,60 @@
+<!--page/order/pages/collectible/collectible.wxml-->
+<import src="./otherTemp.wxml"></import>
+<view class='width100 header_nav'>
+    <view wx:for='{{navArr}}' data-index='{{index}}' bindtap='swichNav'  wx:key='key'>
+        <text class='item_text fontSize-30 color1 {{currentTab == index ? "active":""}}'>{{item}}</text>
+    </view>
+</view>
+<!-- <view style='height:120rpx'></view> -->
+<view class='container'>
+    <!-- 头部导航 -->
+
+    <!-- 轮播滑动切换 -->
+    <swiper current="{{currentTab}}" class="swiper-box" duration="300" style="height:{{winHeight}}px;" bindchange="bindChange">
+        <swiper-item>
+            <scroll-view scroll-y="true" style='height:100%;' bindscrolltolower="pullUpLoad" bindscrolltoupper="PullDownRefresh">
+                <view class='listBox'>
+                    <template is="otherTemp" data='{{otherArr:otherArr}}'></template>
+                </view>
+                <!-- <view class='noContent'>
+                        <view class='noContent_icon'></view>
+                        <view class='noContent_text fontSize-30 color2'>你还没有相关订单哦~</view>
+                </view> -->
+            </scroll-view>
+        </swiper-item>
+        <swiper-item>
+            <scroll-view scroll-y="true" style='height:100%;' bindscrolltolower="pullUpLoad" bindscrolltoupper="PullDownRefresh">
+                <view class='technician_list'>
+                    <import src="../../../../common/technicianList/technicianList.wxml"></import>
+                    <template is="technicianList" data='{{isIphoneX:isIphoneX,goTechnicianDetails:goTechnicianDetails}}'></template>
+                </view>
+            </scroll-view>
+        </swiper-item>
+        <swiper-item>
+            <scroll-view scroll-y="true" style='height:100%;' bindscrolltolower="pullUpLoad" bindscrolltoupper="PullDownRefresh">
+               <view class='listBox' wx:if='{{flag}}'>
+                    <template is="cleaningList" data='{{cleaningArr:10,gocleaningDetails:gocleaningDetails,show:true}}'></template>
+                </view>
+                <view class='noContent' wx:else>
+                        <view class='noContent_icon'>
+                            <image src="../../../../images/icon/icon_noMsg_collect.png"></image>
+                        </view>
+                        <view class='noContent_text fontSize-30 color2'>你还没有相关订单哦~</view>
+                </view>
+            </scroll-view>
+        </swiper-item>
+        <swiper-item>
+            <scroll-view scroll-y="true" style='height:100%;' bindscrolltolower="pullUpLoad" bindscrolltoupper="PullDownRefresh">
+               <view class='listBox' wx:if='{{flag}}'>
+                    <template is="cleaningList" data='{{cleaningArr:10,gocleaningDetails:gocleaningDetails,show:true}}'></template>
+                </view>
+                <view class='noContent' wx:else>
+                        <view class='noContent_icon'>
+                            <image src="../../../../images/icon/icon_noMsg_collect.png"></image>
+                        </view>
+                        <view class='noContent_text fontSize-30 color2'>你还没有相关订单哦~</view>
+                </view>
+            </scroll-view>
+        </swiper-item>
+    </swiper>
+</view>

@@ -15,7 +15,12 @@
                 <text class='fontSize-30 color1' wx:if='{{pickerFlag}}'> {{multiArray[0][multiIndex[0]].name}}-{{multiArray[1][multiIndex[1]].name}}</text>
                 <text wx:else>所在地区</text>
                 </view>
-                <picker mode="multiSelector" bindchange="bindMultiPickerChange" bindcolumnchange="bindMultiPickerColumnChange" value="{{multiIndex}}" range="{{multiArray}}" range-key="name">
+                <picker mode="multiSelector" 
+                        bindchange="bindMultiPickerChange" 
+                        bindcolumnchange="bindMultiPickerColumnChange" 
+                        value="{{multiIndex}}" 
+                        range="{{multiArray}}" 
+                        range-key="name">
                     <view class="picker">
                        
                         <image class='icon-right' src='../../../../images/icon/icon_right.png'></image>
@@ -24,8 +29,12 @@
             </view>
             <view class='itembox' style='border:none;padding-bottom:0'>
                 <view class='fontSize-30 color2'>
-                    <textarea value='{{addresMsg}}' bindinput='ontextareaChange' placeholder-class='textAreaCtyle' placeholder='详细地址:如街道、楼牌号等' placeholder-style>
-                    
+                    <textarea 
+                        value='{{addresMsg}}' 
+                        bindinput='ontextareaChange' 
+                        placeholder-class='textAreaCtyle' 
+                        placeholder='详细地址:如街道、楼牌号等' 
+                        placeholder-style>
                     </textarea>
                 </view>
                 <view class='default dpf' bindtap='selectAcquiescent'>
