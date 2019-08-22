@@ -8,8 +8,8 @@
                 <text class='fontSize-34 color1'>{{userInfo.nickname}}</text>
             </view>
             <view class='dpf padding40' wx:else>
-                <image class='userPic' src='../../../images/icon/default_img.png'></image>
-                 <button class="loginBtn" open-type="getUserInfo" lang="zh_CN" bindgetuserinfo="bindgetUserInfo">微信登录</button>
+                <image class='defaultuserPic' src='../../../images/icon/default_img.png'></image>
+                <button class="loginBtn" open-type="getUserInfo" lang="zh_CN" bindgetuserinfo="bindgetUserInfo">登录/注册</button>
             </view>
             <!-- 开通会员 -->
             <view class='openVip dpfb padding30 fontSize28 color6'>

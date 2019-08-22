@@ -32,7 +32,7 @@
                                 <text class='fontWeight5'>{{item.price}}</text>/元小时</view>
                         </view>
                         <view class='dpfb width100'>
-                            <view class='fontSize-32 color4 fontWeight5'>合计：{{item.price * item.num}}元</view>
+                            <view class='fontSize-32 color4 fontWeight5'>合计：{{item.total}}元</view>
                             <view class='dpf'>
                                 <text class='add' data-type='sub' data-index='{{index}}' catchtap='can'>-</text>
                                 <text class='num'>{{item.num}}</text>

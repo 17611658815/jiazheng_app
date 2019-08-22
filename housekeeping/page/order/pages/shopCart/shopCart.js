@@ -6,19 +6,19 @@ Page({
      * 页面的初始数据
      */
     data: {
-        mid:0,
-        selectAll: false,//全选
-        isIphoneX:false,//判断机型
-        Cart:[],//购物车数据
+        mid: 0,
+        selectAll: false, //全选
+        isIphoneX: false, //判断机型
+        Cart: [], //购物车数据
         CartData: [],
-        flag:true,
-        tapTime: '',//方式快速点击
-        cartStr:[],//选中状态
+        flag: true,
+        tapTime: '', //方式快速点击
+        cartStr: [], //选中状态
     },
     /**
      * 生命周期函数--监听页面加载
      */
-    onLoad: function (options) {
+    onLoad: function(options) {
         let that = this;
         let isIphoneX = app.globalData.isIphoneX;
         let userInfo = wx.getStorageSync('userinfo');
@@ -37,7 +37,8 @@ Page({
             }
         app.net.$Api.getcartList(params).then((res) => {
             res.data.Data.forEach(item => {
-                item.checked = true
+                item.checked = true,
+                item.total = (item.price * item.num / 1).toFixed(2)
             })
             let data = res.data.Data
             that.setData({
@@ -47,19 +48,19 @@ Page({
         })
     },
     //编辑购物车
-    redactCart(){
+    redactCart() {
         this.setData({
             flag: false
         })
     },
     //完成编辑
-    comRedact(){
+    comRedact() {
         this.setData({
-            flag:true
+            flag: true
         })
     },
     //删除购物车数据
-    delCartMsg(){
+    delCartMsg() {
         let that = this;
         let Cart = that.data.Cart;
         let cartStr = that.data.cartStr;
@@ -67,14 +68,14 @@ Page({
             cartidstr: cartStr.join(',')
         }
         console.log(cartStr)
-        if (cartStr.length == 0){
+        if (cartStr.length == 0) {
             wx.showModal({
                 title: '提示',
                 content: '请选择要删除的项目',
                 showCancel: false,
             })
             return;
-        }else{
+        } else {
             wx.showModal({
                 title: '提示',
                 content: '确认删除此商品？',
@@ -82,20 +83,20 @@ Page({
                     if (res.confirm) {
                         for (var i = 0; i < Cart.length; i++) {
                             if (Cart[i].checked) {
-                                Cart.splice(i,1)
+                                Cart.splice(i, 1)
                             }
                         }
                         app.net.$Api.delCartMsg(params).then((res) => {
                             wx.showToast({
                                 title: res.data.msg,
                                 icon: 'success',
-                                duration:500,
-                                success:function(){
-                                    setTimeout(function () {
-                                       that.setData({
-                                           Cart: Cart,
-                                           CartData: Cart
-                                       })
+                                duration: 500,
+                                success: function() {
+                                    setTimeout(function() {
+                                        that.setData({
+                                            Cart: Cart,
+                                            CartData: Cart
+                                        })
                                     }, 550);
                                 }
                             })
@@ -110,12 +111,12 @@ Page({
                 }
             })
         }
-       
-       
-       
+
+
+
     },
     //合计单选
-    summation(){
+    summation() {
         let CartData = this.data.CartData;
         // 合计
         var sum = 0
@@ -128,8 +129,8 @@ Page({
         }
         this.setData({
             Cart: CartData,
-            cartStr: cartStr,//选中状态
-            total: sum.toFixed(2)//合计
+            cartStr: cartStr, //选中状态
+            total: sum.toFixed(2) //合计
         })
         console.log(cartStr)
         // 单选
@@ -156,12 +157,12 @@ Page({
         })
     },
     // 全选
-    Checked: function (e) {
+    Checked: function(e) {
         let CartData = this.data.CartData;
         let selectAll = this.data.selectAll;
         selectAll = !selectAll
         for (let i = 0; i < CartData.length; i++) {
-            CartData[i].checked = selectAll;// 改变所有商品状态
+            CartData[i].checked = selectAll; // 改变所有商品状态
         }
         //  合计
         var sum = 0
@@ -185,7 +186,7 @@ Page({
         console.log(cartStr)
     },
     // 单选
-    SingChecked: function (e) {
+    SingChecked: function(e) {
         let CartData = this.data.CartData;
         let index = e.currentTarget.dataset.index;
         CartData[index].checked = !CartData[index].checked
@@ -195,20 +196,20 @@ Page({
             if (CartData[i].checked) {
                 cartStr.push(CartData[i].id)
                 Num++;
-            }else{
-                cartStr.splice(i,1)
+            } else {
+                cartStr.splice(i, 1)
             }
             if (CartData[i].checked) {
                 this.setData({
                     selectAll: false
                 })
-                console.log(this.data.selectAll,260)
+                console.log(this.data.selectAll, 260)
             }
             if (Num == CartData.length) {
                 this.setData({
                     selectAll: true
                 })
-            }else{
+            } else {
                 this.setData({
                     selectAll: false
                 })
@@ -233,10 +234,10 @@ Page({
             key: 'CartData',
             data: CartData,
         })
-     
+
     },
     // 加法
-    add: function (e) {
+    add: function(e) {
         // var nowTime = new Date();
         // if (nowTime - this.data.tapTime < 1000) {
         //     console.log('阻断')
@@ -244,10 +245,12 @@ Page({
         // }
         let CartData = this.data.CartData;
         let index = e.currentTarget.dataset.index
-        
-        if (CartData[index].num < 10) {
-            CartData[index].num++
-        }else{
+       
+        if (CartData[index].num < 10) { //计算单个商品总价
+            CartData[index].num++;
+            CartData[index].total = 0
+            CartData[index].total = (CartData[index].price * CartData[index].num / 1).toFixed(2)
+        } else {
             CartData[index].num = 10;
             console.log('超过购买数量')
         }
@@ -264,26 +267,27 @@ Page({
             Cart: CartData,
             // tapTime: nowTime
         })
-        this.changeCart(CartData[index]);//同时后台也进行修改
+        this.changeCart(CartData[index]); //同时后台也进行修改
         wx.setStorage({
             key: 'CartData',
             data: CartData,
         })
-     
+
     },
     // 减法  
-    can: function (e) {
-        // var nowTime = new Date();
-        // if (nowTime - this.data.tapTime < 1000) {
-        //     console.log('阻断')
-        //     return;
-        // }
+    can: function(e) {
         let CartData = this.data.CartData;
-        let index = e.currentTarget.dataset.index
-        CartData[index].num--
-        if (CartData[index].num <= 1) {
-            CartData[index].num = 1
-        }
+        let index = e.currentTarget.dataset.index;
+      
+            if (CartData[index].num <= 1) { //计算单个商品总价
+                CartData[index].num = 1
+                CartData[index].total =0;
+                CartData[index].total = (CartData[index].price * CartData[index].num / 1).toFixed(2)
+            }else{
+                CartData[index].num--
+                CartData[index].total = 0;
+                CartData[index].total = (CartData[index].price * CartData[index].num / 1).toFixed(2)
+            }
         // 合计
         var sum = 0
         for (var i = 0; i < CartData.length; i++) {
@@ -296,14 +300,14 @@ Page({
             Cart: CartData,
             // tapTime: nowTime
         })
-        this.changeCart(CartData[index])//同时后台也进行修改
+        this.changeCart(CartData[index]) //同时后台也进行修改
         wx.setStorage({
             key: 'CartData',
             data: CartData,
         })
     },
     // 合计
-    getsumTotal: function () {
+    getsumTotal: function() {
         let sum = 0;
         let CartData = this.data.CartData;
         for (var i = 0; i < CartData.length; i++) {
@@ -321,34 +325,34 @@ Page({
         })
     },
     // 修改购物车商品
-    changeCart(res){
+    changeCart(res) {
         console.log(res)
         let that = this,
             params = {
-                mid: res.member_id,// 用户ID
-                projectid: res.projectid,// 项目 / 产品 / 服务人员ID
-                num: res.num,// 订购数
-                cartid: res.id,//购物车ID
+                mid: res.member_id, // 用户ID
+                projectid: res.projectid, // 项目 / 产品 / 服务人员ID
+                num: res.num, // 订购数
+                cartid: res.id, //购物车ID
             }
         app.net.$Api.changeCart(params).then((res) => {
             console.log(res)
         })
     },
     // 去下单
-    goPayment(e){
+    goPayment(e) {
         let data = {
-         /*    pid: this.data.pid,
-            mid: this.data.mid,
-            maktime: that.data.daynum + "," + that.data.time,
-            number: this.data.count,
-            specid: this.data.specid, */
+            /*    pid: this.data.pid,
+               mid: this.data.mid,
+               maktime: that.data.daynum + "," + that.data.time,
+               number: this.data.count,
+               specid: this.data.specid, */
         }
         wx.navigateTo({
             url: '/page/order/pages/placeorder/placeorder',
         })
     },
     // 下单
-    order: function (e) {
+    order: function(e) {
         wx.getStorage({
             key: 'CartData',
             success: (res) => {

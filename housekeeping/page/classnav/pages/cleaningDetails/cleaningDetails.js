@@ -39,16 +39,16 @@ Page({
             time: time,
             daynum: daynum
         })
-        console.log('日期=>' + that.data.day, '日期num=>', that.data.daynum,'time=>', that.data.time,)
+        console.log('日期=>' + that.data.day, '日期num=>', that.data.daynum,'time=>', that.data.time)
     },
     formatTime(date) {
         var year = date.getFullYear();
         var month = date.getMonth() + 1;
         var day = date.getDate();
         var hour = date.getHours();
-        var minute = date.getMinutes() < 10 ? '0' + date.getMinutes() : date.getMinutes()
-        var second = date.getSeconds()
-        return [year + "" + month + "" +day, hour+1+":"+minute].map(this.formatNumber)
+        var minute = date.getMinutes() < 10 ? '0' + date.getMinutes() : date.getMinutes();
+        var second = date.getSeconds();
+        return [year + "" + month + "" +day, hour+1+":"+minute].map(this.formatNumber);
     },
     formatNumber(n) {
         n = n.toString()
@@ -59,7 +59,7 @@ Page({
      */
     onLoad: function (options) {
         console.log(this.formatTime(new Date()))
-        let isIphoneX = app.globalData.isIphoneX
+        let isIphoneX = app.globalData.isIphoneX;
         let userInfo = wx.getStorageSync('userinfo');
         this.setData({
             isIphoneX: isIphoneX,
@@ -240,6 +240,7 @@ Page({
             that.selectItems();
             return;
         }
+        console.log(that.data.mid,243)
         if (that.data.mid == 0) {
             wx.showModal({
                 title: '温馨提示',

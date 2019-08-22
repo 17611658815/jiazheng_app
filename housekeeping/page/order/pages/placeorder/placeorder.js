@@ -11,7 +11,7 @@ Page({
         mid: '',//用户ID
         maktime: '',//预约时间
         number: '',//采购数
-        specid:'',
+        specid: '',// 项目/产品/服务人员ID
         price:'',//单价
         count: 1,//服务数量
         day: '今天',//预约日期

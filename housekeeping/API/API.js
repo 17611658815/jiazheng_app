@@ -12,7 +12,7 @@ export const api = {
 
     // 获取openid
     getOpenId: function (paramObj) {
-        return Promise.get(Url.default.getOpenIdUrl(), paramObj);
+        return Promise.post(Url.default.getOpenIdUrl(), paramObj);
     },
     // 微信登录
     wxLogin: function (paramObj) {
@@ -20,35 +20,35 @@ export const api = {
     },
     // 首页图片
     getindexImg: function (paramObj) {
-        return Promise.get(Url.default.getindexImgUrl(), paramObj);
+        return Promise.post(Url.default.getindexImgUrl(), paramObj);
     },
     // 分类页标题
     getClassTitle: function (paramObj) {
-        return Promise.get(Url.default.getClassTitleUrl(), paramObj);
+        return Promise.post(Url.default.getClassTitleUrl(), paramObj);
     },
     // 项目列表
     getTypeList: function (paramObj) {
-        return Promise.get(Url.default.getTypeListUrl(), paramObj);
+        return Promise.post(Url.default.getTypeListUrl(), paramObj);
     },
     // 项目详情
     getShopdetails: function (paramObj) {
-        return Promise.get(Url.default.getShopdetailsUrl(), paramObj);
+        return Promise.post(Url.default.getShopdetailsUrl(), paramObj);
     },
     // 项目详情
     getcommentList: function (paramObj) {
-        return Promise.get(Url.default.getcommentListUrl(), paramObj);
+        return Promise.post(Url.default.getcommentListUrl(), paramObj);
     },
     // 项目服务时间
     getShopTime: function (paramObj) {
-        return Promise.get(Url.default.getShopTimeUrl(), paramObj);
+        return Promise.post(Url.default.getShopTimeUrl(), paramObj);
     },
     // 所在地区列表
     getArea: function (paramObj) {
-        return Promise.get(Url.default.getAreaUrl(), paramObj);
+        return Promise.post(Url.default.getAreaUrl(), paramObj);
     },
     // 购物车列表
     getcartList: function (paramObj) {
-        return Promise.get(Url.default.getcartListUrl(), paramObj);
+        return Promise.post(Url.default.getcartListUrl(), paramObj);
     },
     // 添加购物车
     addCart: function (paramObj) {

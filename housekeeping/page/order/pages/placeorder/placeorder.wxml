@@ -10,7 +10,7 @@
                 <image style='width:35rpx;height:35rpx' src='../../../../images/icon/icon_right.png'></image>
             </view>
         </view>
-        <view style='width:95%' class='dpfC' bindtap='goAddress' wx:else>
+        <view style='width:95%' class='dpfC'  bindtap='goAddress' wx:else>
             <view style='width:100%' class='dpfb'>
                 <view class='dpf fontWeight5 fontSize-32 color1'>
                     <image class='icon_GPS' style='margin-right:10rpx' src='../../../../images/icon/icon_GPS.png'></image> {{addresList[0].address}}

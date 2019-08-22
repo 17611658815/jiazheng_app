@@ -15,6 +15,7 @@ Page({
         projecttagid: '',//项目分类标签ID
         nums: 10,//获取条数
         page: 1,// 页码
+        on_off:false,//分页开关
         typeData: [],//
         tagData:[],//筛选
         shopData:[],//服务商
@@ -54,7 +55,8 @@ Page({
         let index = e.currentTarget.dataset.index;
         this.handleScroll(index)
         this.setData({
-            currentTab:index
+            currentTab:index,
+            page:1,
         })
     },
     // 初始化数据
@@ -72,12 +74,19 @@ Page({
         app.loading()
         app.net.$Api.getTypeList(params).then((res) => {
             wx.hideLoading();
-            that.setData({
-                data: res.data.data,
-                typeData: res.data.typeData,//导航list
-                tagData: res.data.tagData,//筛选
-                shopData: res.data.shopData,//服务商
-            })
+            if (res.data.data.length>0){
+                that.setData({
+                    data: that.data.data.concat(res.data.data),
+                    typeData: res.data.typeData,//导航list
+                    tagData: res.data.tagData,//筛选
+                    shopData: res.data.shopData,//服务商
+                })
+            }else{
+                that.setData({
+                    on_off:true
+                })
+            }
+           
         })
     },  
     //排序
@@ -135,6 +144,10 @@ Page({
      * 页面上拉触底事件的处理函数
      */
     onReachBottom: function () {
+        if(!this.data.page){
+            this.data.page++;
+            this.getTypeList()
+        }
         console.log('触底了...')
     },
 

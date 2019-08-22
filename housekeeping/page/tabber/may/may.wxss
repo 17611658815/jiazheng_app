@@ -7,6 +7,11 @@ page{
     height: 110rpx;
     border-radius: 50%;
 }
+.defaultuserPic{
+     width: 110rpx;
+    height: 110rpx;
+    border-radius: 50%;
+}
 .openVip{
     border-radius: 4rpx;
     background: #f9e9e4;
@@ -56,15 +61,13 @@ page{
     border-bottom: 20rpx solid #f8f8f8;
 }
 .loginBtn{
-    width: 200rpx;
     background: none;
     font-size: 34rpx;
+    color: #999999;
      margin-left: 0!important;
     margin-right: 0!important;
 }
 button::after{
     width: 100rpx;
     border: none;
-   
-
 }

@@ -19,7 +19,7 @@
                 <!-- <view class='noContent'>
                         <view class='noContent_icon'></view>
                         <view class='noContent_text fontSize-30 color2'>你还没有相关收藏哦~</view>
-                </view> -->
+                     </view> -->
             </scroll-view>
         </swiper-item>
         <swiper-item>
