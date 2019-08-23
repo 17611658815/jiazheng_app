@@ -48,7 +48,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 19,
+			"current": 20,
 			"list": [
 				{
 					"id": -1,
@@ -188,6 +188,13 @@
 					"name": "地址",
 					"pathName": "page/order/pages/address/address",
 					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "购物车订单",
+					"pathName": "page/order/pages/bayCartOther/bayCartOther",
+					"query": "mid=10&cartStr=37",
 					"scene": null
 				}
 			]

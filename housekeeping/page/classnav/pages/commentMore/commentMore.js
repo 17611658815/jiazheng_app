@@ -8,13 +8,13 @@ Page({
     data: {
         pid:'',// 项目ID
         shopid:'',//店铺ID
-        type:'',//类型
+        type:0,//类型
         nums:10,// 每一页条数
         page:1,// 页数
         selected:false,//只看当前选中状态
         currentTab:0,// 好评/中评/差评/筛选/当前选中项
         isIphoneX:false,
-        commentArr:['全部','好评','中评','差评','有图'],
+        commentArr: ['全部', '好评', '中评', '差评','投诉'],
         isfocus: false,//评论文本框
         bottom:'',//文本框据底部距离
         commentMsgArr: [],//评论列表
@@ -48,11 +48,14 @@ Page({
             shopid: that.data.shopid,//项目/产品/服务人员ID
             nums: that.data.nums,//订购数
             page: that.data.page,//项目/产品规格
+            type: that.data.type,//项目/产品规格
         }
         app.net.$Api.getcommentList(params).then((res) => {
             console.log(res)
             if (res.data.code == 200) {
-              
+                that.setData({
+                    commentMsgArr: that.data.commentMsgArr.concat(res.data.Data)
+                })
             } else {
                
             }
@@ -61,8 +64,11 @@ Page({
     swatchChange(e){
         let index = e.currentTarget.dataset.index;
         this.setData({
-            currentTab: index
+            type: e.currentTarget.dataset.index,
+            currentTab: index,
+            commentMsgArr:[]
         })
+        this.getcommentList()
     },
     selectedChange(){
         let that = this;

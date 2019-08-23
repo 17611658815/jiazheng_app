@@ -71,7 +71,8 @@
                 "pages/evaluate/evaluate",
                 "pages/coupons/coupons",
                 "pages/collectible/collectible",
-                "pages/otherType/otherType"
+                "pages/otherType/otherType",
+                "pages/bayCartOther/bayCartOther"
             ]
         }
     ],

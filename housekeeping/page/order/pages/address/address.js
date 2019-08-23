@@ -81,10 +81,10 @@ Page({
     setaddres(e){
         let that = this;
         let data = e.currentTarget.dataset.item;
-        let  params = {
-                addressid: data.id, //地址id
-                mid: that.data.mid, // 客户ID
-                status: data.status == 1 ? 0 : 1
+        let params = {
+            addressid: data.id, //地址id
+            mid: that.data.mid, // 客户ID
+            status: data.status == 1 ? 0 : 1
         } 
         app.net.$Api.modifystatus(params).then((res) => {
             wx.showToast({

@@ -1,16 +1,16 @@
 <template name="commentList">
-    <view class='commentList' wx:for='{{5}}' wx:key='key'>
+    <view class='commentList' wx:for='{{commentMsgArr}}' wx:key='key'>
         <view class='commentList-item width90'>
             <view class='commentList-item-header'>
                 <view class='commentList-item-header-pic'>
                     <view class='userPic'>
-                        <image src='http://i2.chuimg.com/e7da54e68b6611e6a9a10242ac110002_1117w_1080h.jpg?imageView2/2/w/620/interlace/1/q/90'></image>
+                        <image src='{{item.avatar}}'></image>
                     </view>
                     <view class='userName'>
-                        <view class='fontSize28'>萤火虫</view>
+                        <view class='fontSize28'>{{item.username}}</view>
                     </view>
                 </view>
-                <view class='fontSize-24 color3'>2018-10-12</view>
+                <view class='fontSize-24 color3'>{{item.created}}</view>
             </view>
             <view class='commentList-item-label'>
                 <text>2小时达</text>
@@ -19,13 +19,13 @@
                 <text>态度满意</text>
             </view>
             <view class='commentList-item-describe fontSize28 color1'>
-                小蝈蝈特别专业,打扫的很干净噢
+                {{item.details}}
             </view>
             <view class='commentList-item-img'>
-                <image wx:for='{{3}}' src='http://i2.chuimg.com/e7da54e68b6611e6a9a10242ac110002_1117w_1080h.jpg?imageView2/2/w/620/interlace/1/q/90' wx:key='key'></image>
+                <image wx:for='{{item.pics}}' wx:for-item="k" src='{{k}}' wx:key='key'></image>
             </view>
             <view class='commentList-item-support dpfb'>
-                <view class='fontSize-26 color3'>家庭保洁</view>
+                <view class='fontSize-26 color3'>{{item.shopname}}</view>
                 <view class='commentList-item-support-right dpf'>
                     <view bindtap='comment'>
                         <image src='../../../../images/icon/icon_comment.png'></image>
@@ -38,7 +38,7 @@
                 </view>
             </view>
         </view>
-        <view class='comment-tetx' wx:if="{{index == 1 && commentMsgArr.length>0}}" wx:for-index="idx" wx:for='{{commentMsgArr}}' wx:key='key'>
+        <!-- <view class='comment-tetx'  wx:for-index="idx" wx:for='1' wx:key='key'>
             <view class='comment_tetx_item width90'>
                 <view class='comment_tetx_item_right'>
                     <view class='dpfb'>
@@ -49,12 +49,12 @@
                     </view>
                     <view class='com-tetx fontSize28 color3'>
                         <view style='width:28rpx;height:28rpx;margin-right: 20rpx;' class='com_icon fontSize28 color1'>
-                             <!-- <image src='../../../../images/icon/icon_comment_2.png'></image>萤火虫 -->
+                             <image src='../../../../images/icon/icon_comment_2.png'></image>萤火虫
                         </view>
-                        <view class='comment_py'>{{item}}</view>
+                        <view class='comment_py'>666</view>
                     </view>
                 </view>
             </view>
-        </view>
+        </view> -->
     </view>
 </template>

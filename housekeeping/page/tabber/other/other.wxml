@@ -8,7 +8,13 @@
         </view>
     </view>
     <view style='height:110rpx;background: #ffffff;'></view>
-    <view class='otherContent dpfC padding30' wx:for='{{otherArr}}' wx:key='key' data-id='{{item.id}}' data-status='{{item.status}}' catchtap='goOtherDetails' wx:if='{{item.status>0}}'>
+    <view class='otherContent dpfC padding30' 
+            wx:for='{{otherArr}}' 
+            wx:key='key' 
+            data-id='{{item.id}}' 
+            data-status='{{item.status}}' 
+            catchtap='goOtherDetails' 
+            wx:if='{{item.status>0}}'>
         <view class='other_item width90'>
             <!-- 订单状态 -->
             <view class='width100 dpfb'>

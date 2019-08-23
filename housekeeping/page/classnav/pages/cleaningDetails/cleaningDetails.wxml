@@ -81,13 +81,13 @@
             <view class='fontSize-34 color1 fontWeight5'> 用户评价(343)</view>
             <view class='fontSize-26 color2 dpf' bindtap='commentMore'>查看更多<image class='icon-right' src='../../../../images/icon/icon_right.png'></image> </view>
         </view>
-        <view class='comment-message-item width90' wx:for='{{2}}' wx:key='key'>
+        <view class='comment-message-item width90' wx:for='{{shopDetailed.shopProjectCommentsData}}' wx:key='key'>
             <view class='comment-message-item-userInfo dpf'>
-                <image class='icon-userPic' src='http://i2.chuimg.com/f30f7ea4346c11e7947d0242ac110002_3264w_2448h.jpg?imageView2/2/w/620/interlace/1/q/90'></image>
-                <text class='fontSize28'>萤火虫</text>
+                <image class='icon-userPic' src='{{item.avatar}}'></image>
+                <text class='fontSize28'>{{item.username}}</text>
             </view>
             <view class='comment-message-item-text fontSize28 color2'>
-            第二次购买了，鞋底不软不硬，很适合人工草地，舒适。
+            {{item.details}}
             </view>
         </view>
     </view>

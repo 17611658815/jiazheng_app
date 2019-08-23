@@ -14,6 +14,7 @@ Page({
         flag: true,
         tapTime: '', //方式快速点击
         cartStr: [], //选中状态
+        cartid:[],
     },
     /**
      * 生命周期函数--监听页面加载
@@ -42,8 +43,10 @@ Page({
             })
             let data = res.data.Data
             that.setData({
-                CartData: data
+                CartData: data,
+                cartid: data[0].id
             })
+            console.log(data)
             that.summation()
         })
     },
@@ -330,7 +333,7 @@ Page({
         let that = this,
             params = {
                 mid: res.member_id, // 用户ID
-                projectid: res.projectid, // 项目 / 产品 / 服务人员ID
+                price: res.total, // 项目 / 产品 / 服务人员ID
                 num: res.num, // 订购数
                 cartid: res.id, //购物车ID
             }
@@ -340,16 +343,19 @@ Page({
     },
     // 去下单
     goPayment(e) {
-        let data = {
-            /*    pid: this.data.pid,
-               mid: this.data.mid,
-               maktime: that.data.daynum + "," + that.data.time,
-               number: this.data.count,
-               specid: this.data.specid, */
+        let that = this;
+        let mid = that.data.mid;
+        let cartStr = that.data.cartStr;
+        let cartid = that.data.cartid
+        if (cartStr.length == 0){
+            app.alert('请选择要购买得服务');
+            return;
+        }else{
+            wx.navigateTo({
+                url: '/page/order/pages/bayCartOther/bayCartOther?mid=' + mid + "&cartStr=" + cartStr.join(',') + "&cartid=" + cartid,
+            })
         }
-        wx.navigateTo({
-            url: '/page/order/pages/placeorder/placeorder',
-        })
+       
     },
     // 下单
     order: function(e) {

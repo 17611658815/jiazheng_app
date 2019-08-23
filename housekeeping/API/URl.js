@@ -118,5 +118,9 @@ export default class Url {
     static createdUrl() {
         return Url.PATH + '/api/comments/created';
     };
+    //  购物车下单
+    static buycartUrl() {
+        return Url.PATH + '/api/order/buycart';
+    };
 
 }

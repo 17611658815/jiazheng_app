@@ -126,4 +126,8 @@ export const api = {
     created: function (paramObj) {
         return Promise.post(Url.default.createdUrl(), paramObj);
     },
+    // 购物车提交订单
+    buycart: function (paramObj) {
+        return Promise.post(Url.default.buycartUrl(), paramObj);
+    },
 }
