@@ -58,7 +58,7 @@
         <view class='evaluate_content_box width90'>
             <view class='dpfb'>
                 <view class='fontSize-34 color1 fontWeight5'>TA的评价</view>
-                <view class='dpf fontSize-26 color2'>32条评价 <image style='width:35rpx;height:35rpx' src='../../../../images/icon/icon_right.png'></image> </view>
+                <view class='dpf fontSize-26 color2'>32条评价 <image class='icon_right' src='../../../../images/icon/icon_right.png'></image> </view>
             </view>
             <view class='evaluate_content_pic dpf'>
             <image class='radiusPic' src='http://i2.chuimg.com/f30f7ea4346c11e7947d0242ac110002_3264w_2448h.jpg?imageView2/2/w/620/interlace/1/q/90'></image>
@@ -89,7 +89,7 @@
                 <view class='dpf'>
                     <text style='margin-right:10rpx' class='fontSize-26 color1'>最近可约</text>
                     <text class='fontSize-26 color4'>明天12:00</text>
-                    <image style='width:35rpx;height:35rpx' src='../../../../images/icon/icon_right.png'></image> 
+                    <image class='icon_right' src='../../../../images/icon/icon_right.png'></image> 
                 </view>
             </view>
             <view class='other_content_list dpf' wx:for='{{5}}'>

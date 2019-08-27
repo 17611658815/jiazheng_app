@@ -52,8 +52,8 @@ page{
     height: 23rpx;
 }
 .icon_right{
-    width: 23rpx;
-    height: 23rpx;    
+    width: 15rpx;
+    height: 25rpx;    
 }
 /* 专业技能 */
 .adept_content{

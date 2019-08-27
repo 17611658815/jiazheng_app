@@ -189,17 +189,19 @@ Page({
         app.net.$Api.purchase(params).then((res) => {
             let data = res.data.Data
             data.total = that.data.total;
-            if (res.data.code == 200) {
-                wx.navigateTo({
-                    url: '/page/order/pages/payment/payment?data=' + JSON.stringify(data),
-                })
-            } else {
-                wx.showToast({
-                    title: res.data.msg,
-                    icon: 'none',
-                    duration: 2000
-                })
-            }
+            data.orderid = res.data.Data.order_id
+            console.log(data)
+            // if (res.data.code == 200) {
+            //     wx.navigateTo({
+            //         url: '/page/order/pages/payment/payment?data=' + JSON.stringify(data),
+            //     })
+            // } else {
+            //     wx.showToast({
+            //         title: res.data.msg,
+            //         icon: 'none',
+            //         duration: 2000
+            //     })
+            // }
         })
        
     },

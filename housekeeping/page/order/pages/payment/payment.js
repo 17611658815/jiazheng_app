@@ -29,7 +29,7 @@ Page({
         that.setData({
             mid: userInfo.member_id,
             isIphoneX: isIphoneX,
-            order_id: data.order_id,
+            order_id: data.orderid,
             order_sn: data.order_sn,
             pay_type: data.pay_type,
             total: data.total || data.price,

@@ -10,7 +10,7 @@ App({
                 }
             }
         })
-        this.checkauth()
+        // this.checkauth()
         // this.getUserLocation()
     },
     checkauth: function () {
