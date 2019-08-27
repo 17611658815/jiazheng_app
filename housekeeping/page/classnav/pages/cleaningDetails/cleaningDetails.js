@@ -6,7 +6,7 @@ Page({
      */
     data: {
         mid:0,
-        pid: '',//商品id
+        pid: '',//商品idf
         shopid:'',
         type:'',//类型
         specid:'',//服务项目id
@@ -113,8 +113,8 @@ Page({
         let that = this;
         that.setData({
             selectShow: !that.data.selectShow,
-            shopName: that.data.shopDetailed.shopProjectRelevantData[that.data.selectindex].name,
-            specid: that.data.shopDetailed.shopProjectRelevantData[that.data.selectindex].id
+            shopName: that.data.shopDetailed.shopProjectSpecsData[that.data.selectindex].name,
+            specid: that.data.shopDetailed.shopProjectSpecsData[that.data.selectindex].id
         })
         console.log('项目名称=>', that.data.shopName, '项目数量=>', that.data.count, '项目id=>', that.data.specid)
     },
@@ -174,7 +174,12 @@ Page({
         let data = {
             pid: that.data.pid,
     		shopid: that.data.shopDetailed.projectData.shopid,
-    		type: that.data.shopDetailed.projectData.typeid
+    		type: that.data.shopDetailed.projectData.typeid,
+            mid: that.data.mid,//用户ID
+            projectid: that.data.pid,//项目/产品/服务人员ID
+            num: that.data.count,//订购数
+            spec: that.data.specid,//项目/产品规格
+            making_time: that.data.daynum + " " + that.data.time
         }
         wx.navigateTo({
             url: '/page/classnav/pages/commentMore/commentMore?data='+JSON.stringify(data),
@@ -232,7 +237,7 @@ Page({
         let data = {
             pid: that.data.pid,
             mid: that.data.mid,
-            maktime: that.data.daynum + "," + that.data.time,
+            maktime: that.data.daynum + " " + that.data.time,
             number: that.data.count,
             specid: that.data.specid,
         }
@@ -281,6 +286,14 @@ Page({
         //     console.log(res)
         // })
     },
+    // 评论详情
+    gocommentDetails(e){
+        let id = e.currentTarget.dataset.id
+        wx.navigateTo({
+            url: '/page/classnav/pages/commentDetails/commentDetails?id='+id,
+        })
+    },
+    
     /**
      * 生命周期函数--监听页面隐藏
      */

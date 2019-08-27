@@ -23,7 +23,7 @@
                         range-key="name">
                     <view class="picker">
                        
-                        <image class='icon-right' src='../../../../images/icon/icon_right.png'></image>
+                        <image class='icon_right' src='../../../../images/icon/icon_right.png'></image>
                     </view>
                 </picker>
             </view>

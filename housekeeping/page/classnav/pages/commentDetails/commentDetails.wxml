@@ -1,0 +1,76 @@
+<view class='commentList' style='background: #ffffff' wx:key='key'>
+    <view class='commentList-item width90'>
+        <view class='commentList-item-header'>
+            <view class='commentList-item-header-pic'>
+                <view class='userPic'>
+                    <image src='{{item.avatar}}'></image>
+                </view>
+                <view class='userName'>
+                    <view class='fontSize28'>张三</view>
+                </view>
+            </view>
+            <view class='fontSize-24 color3'>2019-08-01</view>
+        </view>
+        <view class='commentList-item-label'>
+            <text>2小时达</text>
+            <text>价格透明</text>
+            <text>服务行业</text>
+            <text>态度满意</text>
+        </view>
+        <view class='commentList-item-describe fontSize28 color1'>
+            服务很满意服务很满意服务很满意服务很满意
+        </view>
+        <view class='commentList-item-img'>
+            <!-- <image wx:for='{{item.pics}}' wx:for-item="k" src='{{k}}' wx:key='key'></image> -->
+        </view>
+
+    </view>
+    <view class="width100 dpf padding30" style="border-bottom: 1rpx solid #e2e2e2">
+        <image style="width:90%;height:550rpx;" src="http://sj.dkjis.com/uploads/projectthumb/projectthumb20190717112743.jpg"></image>
+    </view>
+    <view class='commentList-item-support dpfb width90 marginTop'>
+        <view class='fontSize-26 color3'>大众工匠</view>
+        <view class='commentList-item-support-right dpf'>
+            <view bindtap='comment'>
+                <image src='../../../../images/icon/icon_comment.png'></image>
+                <text>666</text>
+            </view>
+            <view>
+                <image src='../../../../images/icon/icon_appreciate.png'></image>
+                <text>66</text>
+            </view>
+        </view>
+    </view>
+
+</view>
+<!-- 评论列表 -->
+<view class="width100 marginTop dpfC">
+    <view class="width100 dp marginTop">
+        <view class="lefticon">
+            <image src='../../../../images/icon/icon_comment_2.png'></image>
+        </view>
+        <view class="rightMsg marginLeft">
+            <view class="dpfb wtdth95">
+                <view class="fontSize-28 color1">萤火虫</view>
+                <view class="fontSize-22 color3">2019-10-12</view>
+            </view>
+            <view class="fontSize28 color3 wtdth95">
+                萤火虫萤火虫萤火虫萤火虫萤火虫萤火虫萤火虫萤火虫
+            </view>
+        </view>
+    </view>
+</view>
+
+<!-- 评论文本框 -->
+<view class="inputBox" wx:if='{{isfocus}}' style="bottom:{{bottom}}px">
+    <input class="input" 
+    adjust-position="{{false}}" 
+    cursor-spacing="90" type='text'
+     bindfocus='onbindfocus' 
+     bindconfirm='onbindconfirm' 
+     bindblur="onbindblur" 
+     placeholder="评论" 
+     focus="{{isfocus}}"  
+     bindinput="oncommentMsg" 
+     placeholder-style='color:#9a9a9a; font-size: 14px;padding-left:20rpx;' />
+</view>

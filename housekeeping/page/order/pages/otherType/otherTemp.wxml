@@ -5,7 +5,7 @@
             <view class='width100 dpfb'>
                 <view class='dpf'>
                     <image class='icon_common2' src='../../../../images/icon/icon_common2.png'></image>
-                    <text style='margin:0rpx 10rpx' class='fontSize-30 color3'>大众工匠</text>
+                    <text style='margin:0rpx 10rpx' class='fontSize-30 color3'>{{item.shopname}}</text>
                     <image class='icon_right' src='../../../../images/icon/icon_right.png'></image>
                 </view>
                 <view class='fontSize-30 color5' wx:if='{{item.status == 1}}'>待付款</view>
@@ -19,15 +19,15 @@
             <!-- 订单内容 -->
             <view style='margin:40rpx 0' class='width100 dpf'>
                 <view class='otherPic'>
-                      <image src='http://i2.chuimg.com/e7da54e68b6611e6a9a10242ac110002_1117w_1080h.jpg?imageView2/2/w/620/interlace/1/q/90'></image>
+                      <image src='{{item.projectthumb}}'></image>
                 </view>
                 <view class='otherText'>
                     <view class='fontSize-32 color1 fontWeight5'>
-                        日常保洁
+                        {{item.projectname}}
                     </view>
                     <view>
-                        <view class='fontSize-26 color2'>数量 : 1</view>
-                        <view class='fontSize-26 color2'>总价 : 24.00元</view>
+                        <view class='fontSize-26 color2'>数量 : {{item.ordernum}}</view>
+                        <view class='fontSize-26 color2'>总价 : {{item.amount}}元</view>
                     </view>
                 </view>
             </view>
@@ -40,8 +40,7 @@
 
                     <view class='btn_2' data-item='{{item}}' catchtap="gopayment" wx:if='{{item.status == 1}}'>去付款</view>
                     <view catchtap='delOther' class='btn_1' wx:if='{{item.status == 4 || item.status==6}}'>删除订单</view>
-                    <!-- <view class='btn_2' wx:if='{{item.status == 4}}'>评价</view> -->
-                    <view class='btn_2' data-orderid="{{item.orderid}}" data-projectid="{{item.projectid}}" catchtap="goCommentMore">评价</view>
+                    <view class='btn_2' wx:if='{{item.status == 4}}' data-orderid="{{item.orderid}}" data-projectid="{{item.projectid}}" catchtap="goCommentMore">评价</view>
                     <view class='btn_1' wx:if='{{item.status == 6}}'>再来一单</view>
                 </view>
             </view>

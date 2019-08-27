@@ -17,12 +17,12 @@
             <!-- 差评选项 -->
             <view class='evaluate_icon_content'>
                 <view class='tab_item {{tagCurrent == index ? "activeClass":""}}' 
-                        wx:for='{{tabArr}}' 
+                        wx:for='{{comdetails.tagData}}' 
                         data-index="{{index}}" 
                         bindtap="changeTag" 
-                        data-id='{{index}}' 
+                        data-id='{{item.id}}' 
                         wx:key='key'>
-                    {{item}}
+                    {{item.name}}
                 </view>
             </view>
         </view>
@@ -33,7 +33,7 @@
             <view class='dpfb'>
                 <view class='dpf'>
                     <image class='userimg' src='http://i2.chuimg.com/e7da54e68b6611e6a9a10242ac110002_1117w_1080h.jpg?imageView2/2/w/620/interlace/1/q/90'></image>
-                    <text class='fontSize-32 color1 marginLeft'>大众工匠</text>
+                    <text class='fontSize-32 color1 marginLeft'>{{comdetails.shopData.name}}</text>
                 </view>
                 <view class='fontSize-26 color3 dpf'>
                     <image style='width:28rpx;height:28rpx' class='marginRight' src='../../../../images/icon/tick_dddddd.png'></image>

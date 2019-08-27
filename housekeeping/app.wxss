@@ -39,6 +39,9 @@ page {
 .width90{
     width: 92%;
 }
+.dp{
+    display: flex;
+}
 .dpfC {
     display: flex;
     flex-direction: column;
@@ -255,12 +258,11 @@ page {
     height: 26rpx;
 }
 
-
-.icon-right {
-    width: 30rpx;
-    height: 30rpx;
+.icon_right{
+    width: 15rpx;
+    height: 25rpx;
+    margin-left: 10rpx;    
 }
-
 .icon-userPic {
     width: 52rpx;
     height: 52rpx;

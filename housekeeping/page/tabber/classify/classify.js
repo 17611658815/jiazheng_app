@@ -9,7 +9,8 @@ Page({
         toView: '',
         currentTab: 0,
         winHeight:0,
-        listArr: []
+        listArr: [],
+        recommendData:[]
     },
 
     /**
@@ -45,7 +46,8 @@ Page({
         app.net.$Api.getClassTitle().then((res) => {
             console.log(res)
             that.setData({
-                listArr: res.data.Data
+                listArr: res.data.Data,
+                recommendData: res.data.recommendData
             })
         })
     },

@@ -66,3 +66,18 @@ page{
 .otherFootFd_Box>view{
     margin-left: 20rpx;
 }
+button::after{
+  border: none;
+  border-radius: 0;
+}
+.contactBtn{
+    width: 170rpx;
+    height: 63rpx;
+    text-align: center;
+    line-height: 60rpx;
+    background: none;
+    font-size: 28rpx;
+    color: #5994f7;
+    border: 1rpx solid #5994f7;
+    border-radius: 6rpx;
+}

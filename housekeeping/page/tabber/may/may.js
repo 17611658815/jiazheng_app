@@ -14,22 +14,28 @@ Page({
             ],
         navigateArr: [{
             title: '我的购物车',
-            path: '/page/order/pages/shopCart/shopCart'
+            path: '/page/order/pages/shopCart/shopCart',
+            icon:   "../../../images/icon/may_icon_1.png"
         }, {
             title: '我的优惠卷',
-            path: '/page/order/pages/coupons/coupons'
+            path: '/page/order/pages/coupons/coupons',
+                icon: "../../../images/icon/may_icon_2.png"
         }, {
             title: '我的收藏',
-            path: '/page/order/pages/collectible/collectible'
+            path: '/page/order/pages/collectible/collectible',
+                icon: "../../../images/icon/may_icon_3.png"
         }, {
             title: '收货地址',
-            path: '/page/order/pages/address/address'
+            path: '/page/order/pages/address/address',
+                icon: "../../../images/icon/may_icon_4.png"
         }, {
             title: '客服',
-            path: ''
+            path: '',
+                icon: "../../../images/icon/may_icon_5.png"
         }, {
             title: '商家入驻',
-            path: ''
+            path: '',
+                icon: "../../../images/icon/may_icon_6.png"
         }],
         userInfo:null
     },
@@ -110,9 +116,10 @@ Page({
         })
     },
     goOtherType(e){
-        let current = e.currentTarget.dataset.type
+        let type = e.currentTarget.dataset.type;
+        let current = e.currentTarget.dataset.current;
         wx.navigateTo({
-            url: '/page/order/pages/otherType/otherType?current=' + current,
+            url: '/page/order/pages/otherType/otherType?type=' + type + "&current=" + current,
         })
     },
     /**

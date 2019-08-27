@@ -1,0 +1,45 @@
+/* page/classnav/pages/commentDetails/commentDetails.wxss */
+page{
+    background: #f8f8f8;
+}
+.wtdth95{
+    width: 95%;
+}
+.rightMsg{
+    padding-bottom: 30rpx;
+    border-bottom: 1rpx solid #e2e2e2;
+}
+.lefticon{
+    width: 50rpx;
+    height: 50rpx;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+.lefticon image{
+    width: 32rpx;
+    height: 32rpx;
+}
+
+.inputBox {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 15rpx 0;
+    background: #e9e9e9;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 99;
+    animation: myfirst2 0.8s;
+}
+
+.input {
+    width: 92%;
+    height: 66rpx;
+    background: #fff;
+    padding-left: 20rpx;
+    border: none;
+    border-radius: 5rpx;
+}

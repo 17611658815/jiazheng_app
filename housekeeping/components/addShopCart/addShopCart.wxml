@@ -13,6 +13,9 @@
             <view class='addCartBox-box-left-item' bindtap='goshopCart'>
                 <image src='../../images/icon/icon_cart.png'></image>
                 <text>购物车</text>
+                <view class="msgIcon">
+                    1
+                </view>
             </view>
         </view>
         <view class='addCartBox-box-right'>

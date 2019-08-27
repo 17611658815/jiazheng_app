@@ -54,7 +54,7 @@ Page({
             isIphoneX: isIphoneX,
             pid: data.pid,// 项目 / 产品ID 	
             mid: data.mid,//用户ID
-            maktime: data.maktime.split(","),//预约时间
+            maktime: data.maktime,//预约时间
             number: data.number,//采购数	
             specid: data.specid,
             cart_id: data.cart_id,//购物车id
@@ -75,7 +75,7 @@ Page({
             if (res.data.code == 200) {
                 this.setData({
                     addresList: res.data.Data,
-                    address_id: res.data.Data[0].id,
+                    address_id: res.data.Data[0].id || 0,
                 })
                 console.log(res.data.Data)
             } else {
@@ -89,9 +89,10 @@ Page({
             params = {
                 pid: that.data.pid,// 项目 / 产品ID 	
                 mid: that.data.mid,//用户ID
-                maktime: that.data.maktime[0] + " " + that.data.maktime[1],//预约时间
+                maktime: that.data.maktime,//预约时间
                 number: that.data.number,//数量
-                projectid: that.data.specid
+                projectid: that.data.specid,
+                cart_id: that.data.cart_id
             }
         app.loading()
         app.net.$Api.instantBuy(params).then((res) => {
@@ -174,6 +175,17 @@ Page({
                 remark: that.data.textVal,//留言
                 making_time: that.data.daynum + " "+that.data.time,// 预约时间
             }
+        if (!that.data.address_id){
+            wx.showModal({
+                title: '温馨提示',
+                content: '请选择服务地址',
+                showCancel: false,
+                success:function(){
+                    that.goAddress()
+                    return
+                }
+            })
+        }
         app.net.$Api.purchase(params).then((res) => {
             let data = res.data.Data
             data.total = that.data.total;

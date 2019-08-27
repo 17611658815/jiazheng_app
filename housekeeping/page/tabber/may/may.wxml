@@ -29,17 +29,38 @@
         <view class='width90'>
            <view class='dpfb'>
                 <view class='fontSize-32 color1 fontWeight5'>我的订单</view>
-                <view class='fontSize-26 color3 dpf' data-type="0" bindtap="goOtherType">查看更多
-                      <image style='width:30rpx;height:30rpx' src='../../../images/icon/icon_right.png'></image>
+                <view class='fontSize-26 color3 dpf' data-type="1" data-current="0" bindtap="goOtherType">查看更多
+                      <image style='width:15rpx;height:30rpx;margin-left:10rpx;' src='../../../images/icon/icon_right.png'></image>
                 </view>
            </view>
            <view class='otherList' style='padding-top:50rpx;'>
-                <view class='other_nav_item' wx:for="{{arr}}"  data-type="{{index}}" bindtap="goOtherType" wx:key='key'>
+                <view class='other_nav_item' data-type="1" data-current="0" bindtap="goOtherType">
                     <view class='other_nav_icon'>
-                        <!-- icon图片 -->
-                        <image src='{{item.icon}}'></image>
+                        <!-- 待付款 -->
+                        <image src='../../../images/icon/icon_DD_1.png'></image>
                     </view>
-                    <view style='padding-top:30rpx;' class='fontSize-26 color1'>{{item.status}}</view>
+                    <view style='padding-top:30rpx;' class='fontSize-26 color1'>待付款</view>
+                </view>
+                <view class='other_nav_item' data-type="2"  data-current="1" bindtap="goOtherType">
+                    <view class='other_nav_icon'>
+                        <!-- 进行中 -->
+                        <image src='../../../images/icon/icon_DD_2.png'></image>
+                    </view>
+                    <view style='padding-top:30rpx;' class='fontSize-26 color1'>进行中</view>
+                </view>
+                <view class='other_nav_item' data-type="4"  data-current="2" bindtap="goOtherType">
+                    <view class='other_nav_icon'>
+                        <!-- 已完成 -->
+                        <image src='../../../images/icon/icon_DD_4.png'></image>
+                    </view>
+                    <view style='padding-top:30rpx;' class='fontSize-26 color1'>已完成</view>
+                </view>
+                <view class='other_nav_item' data-type="8"  data-current="3" bindtap="goOtherType">
+                    <view class='other_nav_icon'>
+                        <!-- 已取消 -->
+                        <image src='../../../images/icon/icon_DD_3.png'></image>
+                    </view>
+                    <view style='padding-top:30rpx;' class='fontSize-26 color1'>已取消</view>
                 </view>
            </view>
         </view>
@@ -49,10 +70,12 @@
         <navigator class='content_box width90 {{index == 0 || index==1 || index== 3 ? "borderACtive":""}}' hover-class='none' url='{{item.path}}'>
             <view class='dpfb width100'>
                 <view class='dpf'>
-                    <view class='icon_box marginRight'></view>
+                    <view class='icon_box marginRight'>
+                        <image src="{{item.icon}}"></image>
+                    </view>
                     <view class='fontSize-30 color1'>{{item.title}}</view>
                 </view>
-                <image style='width:30rpx;height:30rpx' src='../../../images/icon/icon_right.png'></image>
+                <image  style='width:15rpx;height:30rpx;margin-left:10rpx;' src='../../../images/icon/icon_right.png'></image>
             </view>
         </navigator>
     </view>

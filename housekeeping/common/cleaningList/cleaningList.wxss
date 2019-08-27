@@ -36,12 +36,9 @@
     margin-right: 20rpx;
 }
 .cleaningList-item-type{
+    height: 33rpx;
     display: flex;
     align-items: center;
-}
-.cleaningList-item-type .icon_right{
-    width: 22rpx;
-    height: 22rpx;
 }
 .cleaningList-item-bottom{
     display: flex;

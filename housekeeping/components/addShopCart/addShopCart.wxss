@@ -81,3 +81,16 @@ button::after{
     border: none;
     background: none;
 }
+.msgIcon{
+    position: absolute;
+    top: 10rpx;
+    right: 30rpx;
+    background: #ff4747;
+    color: #ffffff;
+    width: 20rpx;
+    height: 20rpx;
+    text-align: center;
+    line-height: 20rpx;
+    font-size: 16rpx;
+    border-radius: 50%;
+}

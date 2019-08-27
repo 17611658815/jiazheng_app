@@ -1,5 +1,5 @@
 <template name="commentList">
-    <view class='commentList' wx:for='{{commentMsgArr}}' wx:key='key'>
+    <view class='commentList marginTop' wx:for='{{commentMsgArr}}' bindtap="gocommentDetails" data-id="{{item.id}}" wx:key='key'>
         <view class='commentList-item width90'>
             <view class='commentList-item-header'>
                 <view class='commentList-item-header-pic'>
@@ -22,18 +22,18 @@
                 {{item.details}}
             </view>
             <view class='commentList-item-img'>
-                <image wx:for='{{item.pics}}' wx:for-item="k" src='{{k}}' wx:key='key'></image>
+                <image wx:for='{{item.pics}}' catchtap="previewImg" data-img='{{item.pics}}' wx:for-item="k" src='{{k}}' wx:key='key'></image>
             </view>
             <view class='commentList-item-support dpfb'>
                 <view class='fontSize-26 color3'>{{item.shopname}}</view>
                 <view class='commentList-item-support-right dpf'>
-                    <view bindtap='comment'>
+                    <view catchtap='comment'>
                         <image src='../../../../images/icon/icon_comment.png'></image>
-                        <text>468</text>
+                        <text>{{item.reply}}</text>
                     </view>
                     <view>
                         <image src='../../../../images/icon/icon_appreciate.png'></image>
-                        <text>468</text>
+                        <text>{{item.support}}</text>
                     </view>
                 </view>
             </view>

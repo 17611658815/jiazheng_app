@@ -49,7 +49,8 @@
                 "pages/cleaningList/cleaningList",
                 "pages/cleaningDetails/cleaningDetails",
                 "pages/selectTime/selectTime",
-                "pages/commentMore/commentMore"
+                "pages/commentMore/commentMore",
+                "pages/commentDetails/commentDetails"
             ]
         },
         {

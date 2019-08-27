@@ -16,9 +16,9 @@
             wx:for='{{daysData[currentDay].hourArr}}' 
             class='timer_content_time_item {{currentTime == index ? "checkedClass":"time"}}' 
             wx:key="key">
-            <text>{{item.hour}}</text> 
-            <!-- <text class='{{index==8 ? "colors":""}}'>{{item.hour}}</text>  -->
-            <!-- <text class='{{index==8 ? "colors":""}}' wx:if='{{index==8}}'>约满</text>  -->
+            <text class='{{item.is_making==1 ? "colors":""}}' wx:if='{{item.is_making==1}}'>{{item.hour}}</text>  
+            <text class='{{item.is_making==1 ? "colors":""}}' wx:if='{{item.is_making==1}}'>约满</text> 
+             <text wx:else>{{item.hour}}</text> 
         </view>
     </view>
     <view class='timer_content_text'>

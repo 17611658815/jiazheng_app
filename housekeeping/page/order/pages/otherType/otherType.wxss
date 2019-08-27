@@ -77,3 +77,7 @@ background: #ffffff;
 border-bottom: 20rpx solid #f8f8f8;
 
 }
+.btnBox view {
+margin-left: 20rpx;
+
+}

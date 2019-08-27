@@ -47,10 +47,7 @@
     width: 23rpx;
     height: 23rpx;
 }
-.icon_right{
-    width: 23rpx;
-    height: 26rpx;    
-}
+
 .technician_list_item_info_label{
      width: 540rpx;
     display: flex;

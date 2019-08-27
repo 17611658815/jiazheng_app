@@ -129,7 +129,7 @@ Page({
             tagid: id,
             tagCurrent: index
         })
-
+        console.log(id, index)
     },
     // 选取图片
     chooseImageTap: function () {

@@ -9,6 +9,7 @@ Page({
         mid:0,
         status:0,//订单状态
         orderid:0,//订单id
+        projectid:0,//
         isIphoneX:false,
         otherObj:{},//订单详情
         progressArr: [{ name: '派单中', flag: true }, { name: '已接单', flag: true }, { name: '服务中', flag: true }, { name: '已完成', flag: false }] 
@@ -28,7 +29,13 @@ Page({
         })
         this.otherDetails()
     },
-    
+    gopayment(e) {
+        let data = this.data.otherObj;
+        data.order_id = this.data.otherObj.id
+        wx.navigateTo({
+            url: '/page/order/pages/payment/payment?data=' + JSON.stringify(data),
+        })
+    },
     // 订单详情
     otherDetails(){
         let that = this,
@@ -40,14 +47,9 @@ Page({
         app.net.$Api.otherDetails(params).then((res) => {
             that.setData({
                 otherObj:res.data.Data,
-                status: res.data.Data.status
+                status: res.data.Data.status,
+                projectid: res.data.Data.projectid
             })
-        })
-    },
-    //去评价
-    goEvaluate(){
-        wx.navigateTo({
-            url: '/page/order/pages/evaluate/evaluate',
         })
     },
     //取消订单
@@ -97,6 +99,13 @@ Page({
                 })
             }
 
+        })
+    },
+    goCommentMore() {
+        let orderid = this.data.orderid;
+        let projectid = this.data.projectid
+        wx.navigateTo({
+            url: '/page/order/pages/evaluate/evaluate?orderid=' + orderid + "&projectid=" + projectid,
         })
     },
     /**

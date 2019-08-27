@@ -56,10 +56,10 @@
             <view class='width100 dpfb' style='padding-top:30rpx'>
                 <view class='dpf'>
                     <image class='icon_common2' src='../../../../images/icon/icon_common2.png'></image>
-                    <text style='margin:0rpx 10rpx' class='fontSize-30 color3'>大众工匠</text>
+                    <text style='margin:0rpx 10rpx' class='fontSize-30 color3'>{{otherObj.shopname}}</text>
                     <image class='icon_right' src='../../../../images/icon/icon_right.png'></image>   
                 </view>
-                <view class='fontSize-24 color3'>{{otherObj.making_time}}</view>
+                <view class='fontSize-24 color3'>{{otherObj.modify}}</view>
             </view>
             <import src="../../../../common/othertemp/othertemp.wxml"></import>
             <template is="othertemp" data='{{item:otherObj}}'></template>
@@ -73,7 +73,7 @@
             </view>
             <view class='dpfb fontSize-30 color1 padding30'>
                 <view>待付款</view>
-                <view class='color4'>19.00元</view>
+                <view class='color4'>{{otherObj.amount}}元</view>
             </view>
         </view>
     </view>
@@ -102,9 +102,12 @@
 <!-- 底部定位 -->
  <view class='otherFootFd'>
     <view style='width:95%;' class='otherFootFd_Box'>
-        <view class='btn_1' bindtap="recallOther">取消订单</view>
-        <view class='btn_2'>联系客服</view>
-        <view class='btn_2' bindtap='goEvaluate'>评价</view>
+        <view class='btn_1' wx:if='{{status == 1 || status == 4}}' bindtap="recallOther">取消订单</view>
+         <view class='btn_2' catchtap="gopayment" wx:if='{{status == 1}}'>去付款</view>
+        <view  wx:if='{{status == 1 || status == 2 || status == 3}}'>
+           <button class="contactBtn" open-type='contact'>联系客服</button>  
+        </view> 
+        <view class='btn_2'  wx:if='{{status == 2 || status == 4}}' bindtap='goCommentMore'>评价</view>
     </view>
     <view class='isIphoneXBox' wx:if='{{isIphoneX}}'></view>
 </view>

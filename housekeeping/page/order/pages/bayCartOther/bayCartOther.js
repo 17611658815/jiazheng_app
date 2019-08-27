@@ -34,6 +34,33 @@ Page({
         
         that.getbuyCart()
     },
+    // 获取用户地址
+    getaddresList() {
+        let that = this,
+            params = {
+                mid: that.data.mid,//客户ID
+            }
+        app.loading()
+        app.net.$Api.addresList(params).then((res) => {
+            wx.hideLoading();
+            console.log(res)
+            if (res.data.code == 200) {
+                this.setData({
+                    addresList: res.data.Data,
+                    address_id: res.data.Data[0].id,
+                })
+                console.log(res.data.Data)
+            } else {
+
+            }
+        })
+    },
+    //去添加地址
+    goAddress() {
+        wx.navigateTo({
+            url: '/page/order/pages/address/address',
+        })
+    },
     // 留言
     changeText(e) {
         this.setData({
@@ -101,7 +128,7 @@ Page({
      * 生命周期函数--监听页面显示
      */
     onShow: function () {
-
+        this.getaddresList()
     },
 
     /**

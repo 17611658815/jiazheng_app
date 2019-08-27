@@ -122,5 +122,9 @@ export default class Url {
     static buycartUrl() {
         return Url.PATH + '/api/order/buycart';
     };
+    //  评论详细
+    static commDetailsUrl() {
+        return Url.PATH + '/api/comments/details';
+    };
 
 }

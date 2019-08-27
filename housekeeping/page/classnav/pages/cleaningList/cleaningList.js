@@ -29,7 +29,7 @@ Page({
     onLoad: function (options) {
         let that = this;
         that.setData({
-            // typeid: options.id
+            typeid: options.id,
         })
         that.getTypeList()
         console.log(options)
@@ -52,12 +52,20 @@ Page({
     },
     // 导航tab切换
     swatchTab(e){
+        let that = this;
         let index = e.currentTarget.dataset.index;
-        this.handleScroll(index)
-        this.setData({
+        let id = e.currentTarget.dataset.id;
+        that.handleScroll(index)
+        console.log(index, id)
+        console.log(that.data.typeData)
+        that.setData({
             currentTab:index,
+            projecttagid: that.data.typeData[index].id,
             page:1,
+            data: [],
+            on_off: false,//分页开关
         })
+        that.getTypeList()
     },
     // 初始化数据
     getTypeList(){
@@ -92,21 +100,27 @@ Page({
     //排序
     onChecked(e){
         this.setData({
-            orderbyIndex: e.detail.index
+            orderbyIndex: e.detail.index,
+            data:[],
+            on_off: false,//分页开关
         })
         this.getTypeList()
     },
     //服务商确定选中
     onSeleted(e){
         this.setData({
-            shopid: e.detail.id
+            shopid: e.detail.id,
+            data: [],
+            on_off: false,//分页开关
         })
         this.getTypeList()
     },
     //筛选更新数据
     onconfirmsf(e){ 
         this.setData({
-            typeid: e.detail.id
+            typeid: e.detail.id,
+            data: [],
+            on_off: false,//分页开关
         })
         this.getTypeList()
     },

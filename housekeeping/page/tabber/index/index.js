@@ -98,6 +98,14 @@ Page({
             url: '/page/nearby/pages/nearby/nearby',
         })
     },
+    // 服务详情
+    gocleaningDetails(e) {
+        console.log(e)
+        let id = e.currentTarget.dataset.id
+        wx.navigateTo({
+            url: '/page/classnav/pages/cleaningDetails/cleaningDetails?id=' + id,
+        })
+    },
     bindPickerChange: function(e) {
         console.log('picker发送选择改变，携带值为', e.detail.value)
         this.setData({

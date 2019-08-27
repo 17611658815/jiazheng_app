@@ -14,24 +14,38 @@
     <scroll-view class="rightBox" style='height:{{winHeight}}px' scroll-into-view="{{toView}}" scroll-y="true" scroll-with-animation="true">
         <view class='contenItem width90' id="{{'toView'+item.id}}" wx:for-index="index"  wx:key='key'>
                 <!-- 推荐样式 -->
-                <view class='right_title_1 fontWeight5' wx:if='{{index == 0}}'>为您推荐</view>
+                <view class='right_title_1 fontWeight5'>为您推荐</view>
+                <view class='conten_cover'>
+                    <view class='conten_cover_box' data-id='{{item.id}}' bindtap="gocleaningDetails" wx:for='{{recommendData}}' wx:for-index="keys" wx:key='key'>
+                         <image src='{{item.data.pic}}'></image>
+                         <!-- 为您推荐 -->
+                        <view class='hotTitle dpf' wx:if='{{index == 0}}'>
+                            <text class='dpf fontSize-30 color1 fontWeight5' style='padding-left:20rpx'>{{item.data.title}}
+                            </text> 
+                        </view>
+                        <view class='hotTitle dpf' wx:else>
+                             <text class='dpf fontSize-24 color1' style='text-align: center'>{{item.data.title}}
+                            </text> 
+                        </view>
+                    </view>
+                </view>
                 <!-- 大众样式 -->
-                <view class='right_title_1 dpfb' wx:else>
+                <view class='right_title_1 dpfb'>
                     <view class='fontSize-32 color1 fontWeight5'>{{listArr[currentTab].name}}</view>
                     <view class='fontSize-24 color3 dpf'>更多
-                        <image style='width:30rpx;height:30rpx' src='../../../images/icon/icon_right.png'></image>
+                        <image style='width:15rpx;height:25rpx;margin-left:10rpx;' src='../../../images/icon/icon_right.png'></image>
                      </view>
                 </view>
                 <view class='conten_cover'>
                     <view class='conten_cover_box' data-id='{{item.id}}' bindtap="gocleaningDetails" wx:for='{{listArr[currentTab].sontype}}' wx:for-index="keys" wx:key='key'>
-                         <image src='http://i2.chuimg.com/e7da54e68b6611e6a9a10242ac110002_1117w_1080h.jpg?imageView2/2/w/620/interlace/1/q/90'></image>
+                         <image src='{{item.thumb}}'></image>
                          <!-- 为您推荐 -->
                         <view class='hotTitle dpf' wx:if='{{index == 0}}'>
-                            <text class='dpf fontSize-30 color1 fontWeight5' style='padding-left:20rpx'>洗衣机维修
+                            <text class='dpf fontSize-30 color1 fontWeight5' style='padding-left:20rpx'>{{item.name}}
                             </text> 
                         </view>
                         <view class='hotTitle dpf' wx:else>
-                             <text class='dpf fontSize-24 color1' style='text-align: center'>洗衣机维修
+                             <text class='dpf fontSize-24 color1' style='text-align: center'>{{item.name}}
                             </text> 
                         </view>
                     </view>

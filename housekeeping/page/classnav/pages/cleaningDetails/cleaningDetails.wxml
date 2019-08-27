@@ -19,10 +19,10 @@
         </view>
         <view class='cleaningDetails-title-price width90'>
             <view class='fontSize-34 color4'>
-                <text class='fontWeight5'>{{shopDetailed.projectData.price}}</text>元/小时
+                <text class='fontWeight5'>{{shopDetailed.projectData.price}}</text>
             </view>
             <view class='fontSize-22 color3'>
-                已售2341
+                已售{{shopDetailed.projectData.ordernum}}
             </view>
         </view>
         <view class='stateBox'>
@@ -79,9 +79,9 @@
     <view class='comment-message dpfC'>
         <view class='comment-message-num width90'> 
             <view class='fontSize-34 color1 fontWeight5'> 用户评价(343)</view>
-            <view class='fontSize-26 color2 dpf' bindtap='commentMore'>查看更多<image class='icon-right' src='../../../../images/icon/icon_right.png'></image> </view>
+            <view class='fontSize-26 color2 dpf' bindtap='commentMore'>查看更多<image class='icon_right' src='../../../../images/icon/icon_right.png'></image> </view>
         </view>
-        <view class='comment-message-item width90' wx:for='{{shopDetailed.shopProjectCommentsData}}' wx:key='key'>
+        <view class='comment-message-item width90' bindtap="gocommentDetails" data-id='{{item.id}}' wx:for='{{shopDetailed.shopProjectCommentsData}}' wx:key='key'>
             <view class='comment-message-item-userInfo dpf'>
                 <image class='icon-userPic' src='{{item.avatar}}'></image>
                 <text class='fontSize28'>{{item.username}}</text>
@@ -123,4 +123,4 @@
     <add-shop-cart bind:addCart='onaddCart' bind:instantBuy='oninstantBuy'></add-shop-cart>
 </view>
 <import src="../../../../common/selectItems/selectItems.wxml"></import>
-<template is="selectItems" data="{{selectItems:shopDetailed.shopProjectRelevantData,selectindex:selectindex,selectItemsType:selectItemsType,changeCount:changeCount,count:count,selectName:selectName,isIphoneX:isIphoneX,selectShow:selectShow,confirm:confirm}}" wx:if='{{selectShow}}'></template>
+<template is="selectItems" data="{{selectItems:shopDetailed.shopProjectSpecsData,selectindex:selectindex,selectItemsType:selectItemsType,changeCount:changeCount,count:count,selectName:selectName,isIphoneX:isIphoneX,selectShow:selectShow,confirm:confirm}}" wx:if='{{selectShow}}'></template>

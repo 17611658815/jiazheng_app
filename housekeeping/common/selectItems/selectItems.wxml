@@ -5,10 +5,10 @@
     <view class='{{selectShow ? "selectItems-content-box2":"selectItems-content-box"}}' catchtouchmove='ture'>
             <view class='selectItems-content-item'>
                 <view class='selectItems-content-header'>
-                    <view class='header-image'> <image src='../../../../images/logo/bg_4.png'></image> </view>
+                    <view class='header-image'> <image src='{{selectItems[selectindex].thumb}}'></image> </view>
                     <view class='header-text'>
                         <view style='margin-bottom: 22rpx;' class='fontSize-32 fontWeight5'>{{selectItems[selectindex].name}}</view>
-                        <view style='margin-bottom: 30rpx;' class='fontSize-32 color4'>{{selectItems[selectindex].price}}/元小时</view>
+                        <view style='margin-bottom: 30rpx;' class='fontSize-32 color4'>{{selectItems[selectindex].price}}元</view>
                     </view>
                 </view>
                 <view class='header-item'>

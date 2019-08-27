@@ -105,6 +105,19 @@ Page({
                 address: that.data.addresMsg, // 收货人详细地址
                 status: that.data.defaultFlag ? 1 : 0, // 是否为默认
             }
+        if (that.data.username == ''){
+            app.alert('请完善联系人姓名~')
+            return;
+        }
+        if (that.data.mobile == '' && that.data.mobile.length>11){
+            app.alert('请输入正确的手机号~')
+        }
+        if (that.data.multiId.length == 0){
+            app.alert('请选择所在地区~')
+        }
+        if (that.data.addresMsg == ''){
+            app.alert('请输入详细地址~')
+        }
         app.net.$Api.saveaddres(params).then((res) => {
             wx.showToast({
                 title: '添加成功',

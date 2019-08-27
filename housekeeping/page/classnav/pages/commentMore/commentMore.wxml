@@ -21,7 +21,7 @@
     </view>
     <view class='commentList-box {{isIphoneX ? "paddingBtm180":"paddingBtm90"}}'>
         <import src="../../../../common/commentList/commentList.wxml"></import>
-        <template is="commentList" data="{{comment:comment,commentMsgArr:commentMsgArr}}"></template>
+        <template is="commentList" data="{{comment:comment,commentMsgArr:commentMsgArr,gocommentDetails:gocommentDetails,previewImg:previewImg}}"></template>
     </view>
 </view>
 <!-- 评论文本框 -->
@@ -38,4 +38,4 @@
      placeholder-style='color:#9a9a9a; font-size: 14px;padding-left:20rpx;' />
 </view>
 <!-- 底部加入购物车 -->
-<add-shop-cart bind:addCart='onaddCart' wx:else></add-shop-cart>
+   <add-shop-cart bind:addCart='onaddCart' bind:instantBuy='oninstantBuy' wx:else></add-shop-cart>

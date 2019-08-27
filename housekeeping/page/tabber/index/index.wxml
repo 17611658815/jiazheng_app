@@ -90,12 +90,12 @@
                 <view class='fontSize-36 fontWeight5'>{{item.name}}</view>
                   <navigator hover-class='none' url='../../classnav/pages/cleaningList/cleaningList?id={{item.id}}'>
                 <view class='fontSize-24 color3 dpf'>更多
-                    <image style='width:30rpx;height:30rpx' src='../../../images/icon/icon_right.png'></image>
+                    <image style='width:15rpx;height:25rpx;margin-left:10rpx;' src='../../../images/icon/icon_right.png'></image>
                 </view>
                 </navigator>
             </view>
             <view class='home-class-server-item-img width90'>
-                <view class='home-class-server-item-img-Msg' wx:for='{{item.shopProjectData}}'  wx:for-item="k"  wx:key='key'>
+                <view class='home-class-server-item-img-Msg' wx:for='{{item.shopProjectData}}' bindtap="gocleaningDetails"  wx:for-item="k" data-id='{{item.id}}' wx:key='key'>
                     <image src='{{k.thumb}}'></image>
                     <view style='padding: 15rpx 0;' class='fontSize-32 fontWeight5'>
                         {{k.name}}
@@ -112,7 +112,7 @@
             <view class='home-class-server-item-title width90'>
                 <view class='fontSize-36 fontWeight5'>会员福利</view>
                 <view class='fontSize-24 color3 dpf'>更多
-                    <image style='width:30rpx;height:30rpx' src='../../../images/icon/icon_right.png'></image>
+                    <image style='width:15rpx;height:25rpx;margin-left:10rpx;' src='../../../images/icon/icon_right.png'></image>
                 </view>
             </view>
             <scroll-view scroll-x="true" class='vip_welfare'>

@@ -130,4 +130,8 @@ export const api = {
     buycart: function (paramObj) {
         return Promise.post(Url.default.buycartUrl(), paramObj);
     },
+    // 评论详情
+    commDetails: function (paramObj) {
+        return Promise.post(Url.default.commDetailsUrl(), paramObj);
+    },
 }

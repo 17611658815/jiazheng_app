@@ -7,7 +7,7 @@
             <view class='cleaningList-item-text'>
                 <view class='cleaningList-item-title fontSize-32 color1'>{{item.name}}</view>
                 <view class='cleaningList-item-time color4 fontSize-32'>
-                    <text style='font-weight:500'>{{item.price}}</text>元/小时</view>
+                    <text style='font-weight:500'>{{item.price}}</text></view>
                 <view class='cleaningList-item-hot fontSize-22 color3' wx:if='{{show}}'>
                     <text>已售{{item.ordernum}}</text>
                     <text>好评97%</text>
@@ -16,7 +16,8 @@
                     <view class='cleaningList-item-icon'>
                         <image src='../../../../images/icon/icon_common2.png'></image>
                     </view>
-                    <view class='cleaningList-item-type fontSize-22 color3'> 大众工匠
+                    <view class='cleaningList-item-type fontSize-22 color3 dpf'>
+                        {{item.shopname}}
                         <image class='icon_right' src='../../../../images/icon/icon_right.png'></image>
                     </view>
                 </view>

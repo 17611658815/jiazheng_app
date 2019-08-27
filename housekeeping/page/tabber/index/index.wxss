@@ -16,6 +16,7 @@ swiper-item {
 
 .home-content-search {
     flex: 1;
+  
 }
 
 .icon_down {

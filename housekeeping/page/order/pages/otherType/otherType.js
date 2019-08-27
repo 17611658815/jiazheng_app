@@ -1,202 +1,66 @@
 // page/order/pages/otherType/otherType.js
+var app = getApp()
 Page({
 
     /**
      * 页面的初始数据
      */
     data: {
+        mid:0,
         isIphoneX: false,
         currentTab: 0,
+        winWidth:"",
         winHeight: '',
         navArr: ['待付款', '进行中', '已完成','已取消'],
         flag: false,
-        otherArr:  [
-                {
-                    "id": "32",
-                    "order_sn": "98167309",
-                    "projectid": "1",
-                    "shopid": "1",
-                    "making_time": "2019-08-19 10:28",
-                    "price": 53940,
-                    "amount": 5394000,
-                    "price_h": 0,
-                    "modify": "2019-08-12 14:14:53",
-                    "ordernum": "6",
-                    "status": "1",
-                    "pay_time": "0",
-                    "orderid": "32",
-                    "shopname": "娄小包",
-                    "projectname": "日常保洁"
-                },
-                {
-                    "id": "31",
-                    "order_sn": "40122959",
-                    "projectid": "1",
-                    "shopid": "1",
-                    "making_time": "2019-08-19 10:28",
-                    "price": 8990,
-                    "amount": 899000,
-                    "price_h": 0,
-                    "modify": "2019-08-12 14:01:01",
-                    "ordernum": "1",
-                    "status": "-1",
-                    "pay_time": "0",
-                    "orderid": "31",
-                    "shopname": "娄小包",
-                    "projectname": "日常保洁"
-                },
-                {
-                    "id": "30",
-                    "order_sn": "9974494",
-                    "projectid": "1",
-                    "shopid": "1",
-                    "making_time": "2019-08-19 10:28",
-                    "price": 53940,
-                    "amount": 5394000,
-                    "price_h": 0,
-                    "modify": "2019-08-12 14:00:29",
-                    "ordernum": "6",
-                    "status": "-1",
-                    "pay_time": "0",
-                    "orderid": "30",
-                    "shopname": "娄小包",
-                    "projectname": "日常保洁"
-                },
-                {
-                    "id": "29",
-                    "order_sn": "64432371",
-                    "projectid": "1",
-                    "shopid": "1",
-                    "making_time": "2019-08-19 10:28",
-                    "price": 53940,
-                    "amount": 5394000,
-                    "price_h": 0,
-                    "modify": "2019-08-12 14:00:03",
-                    "ordernum": "6",
-                    "status": "-1",
-                    "pay_time": "0",
-                    "orderid": "29",
-                    "shopname": "娄小包",
-                    "projectname": "日常保洁"
-                },
-                {
-                    "id": "28",
-                    "order_sn": "2038901",
-                    "projectid": "1",
-                    "shopid": "1",
-                    "making_time": "2019-08-19 10:28",
-                    "price": 8990,
-                    "amount": 899000,
-                    "price_h": 0,
-                    "modify": "2019-08-12 10:22:24",
-                    "ordernum": "1",
-                    "status": "-1",
-                    "pay_time": "0",
-                    "orderid": "28",
-                    "shopname": "娄小包",
-                    "projectname": "日常保洁"
-                },
-                {
-                    "id": "27",
-                    "order_sn": "16738249",
-                    "projectid": "1",
-                    "shopid": "1",
-                    "making_time": "2019-08-19 10:28",
-                    "price": 8990,
-                    "amount": 899000,
-                    "price_h": 0,
-                    "modify": "2019-08-12 10:07:19",
-                    "ordernum": "1",
-                    "status": "-1",
-                    "pay_time": "0",
-                    "orderid": "27",
-                    "shopname": "娄小包",
-                    "projectname": "日常保洁"
-                },
-                {
-                    "id": "26",
-                    "order_sn": "48673232",
-                    "projectid": "1",
-                    "shopid": "1",
-                    "making_time": "2019-08-19 10:28",
-                    "price": 8990,
-                    "amount": 899000,
-                    "price_h": 0,
-                    "modify": "2019-08-08 14:38:48",
-                    "ordernum": "1",
-                    "status": "-1",
-                    "pay_time": "0",
-                    "orderid": "26",
-                    "shopname": "娄小包",
-                    "projectname": "日常保洁"
-                },
-                {
-                    "id": "25",
-                    "order_sn": "446147",
-                    "projectid": "1",
-                    "shopid": "1",
-                    "making_time": "2019-08-19 10:28",
-                    "price": 8990,
-                    "amount": 899000,
-                    "price_h": 0,
-                    "modify": "2019-08-08 14:11:57",
-                    "ordernum": "1",
-                    "status": "-1",
-                    "pay_time": "0",
-                    "orderid": "25",
-                    "shopname": "娄小包",
-                    "projectname": "日常保洁"
-                },
-                {
-                    "id": "24",
-                    "order_sn": "3716710",
-                    "projectid": "1",
-                    "shopid": "1",
-                    "making_time": "2019-08-19 10:28",
-                    "price": 8990,
-                    "amount": 899000,
-                    "price_h": 0,
-                    "modify": "2019-08-08 14:10:26",
-                    "ordernum": "1",
-                    "status": "-1",
-                    "pay_time": "0",
-                    "orderid": "24",
-                    "shopname": "娄小包",
-                    "projectname": "日常保洁"
-                },
-                {
-                    "id": "23",
-                    "order_sn": "19167802",
-                    "projectid": "1",
-                    "shopid": "1",
-                    "making_time": "2019-08-19 10:28",
-                    "price": 8990,
-                    "amount": 899000,
-                    "price_h": 0,
-                    "modify": "2019-08-08 13:57:00",
-                    "ordernum": "1",
-                    "status": "-1",
-                    "pay_time": "0",
-                    "orderid": "23",
-                    "shopname": "娄小包",
-                    "projectname": "日常保洁"
-                }
-            ]
-
+        otherArr: [],
+        status:0,
+        page: 0,
+        num: 10,
+        on_off: false,//开关
     },
 
     onLoad: function (options) {
         var that = this;
-        console.log(options)
+        let userInfo = wx.getStorageSync('userinfo');
         wx.getSystemInfo({
             success: function (res) {
                 that.setData({
                     winWidth: res.windowWidth,
                     winHeight: res.windowHeight,
-                    currentTab: options.current
                 });
             }
         });
+        that.setData({
+            mid: userInfo.member_id,
+            status: options.type,
+            currentTab: options.current,
+        })
+        that.getorderList()
+    },
+    // 获取订单列表
+    getorderList() {
+        let that = this,
+            params = {
+                mid: that.data.mid,//客户ID
+                page: that.data.page,
+                status: that.data.status,
+                num: that.data.num,
+            }
+        app.loading()
+        app.net.$Api.getorderList(params).then((res) => {
+            wx.hideLoading();
+            console.log(res)
+            if (res.data.code == 200 && res.data.Data.length > 0) {
+                that.setData({
+                    otherArr: that.data.otherArr.concat(res.data.Data)
+                })
+            } else {
+                that.setData({
+                    on_off: true
+                })
+            }
+        })
     },
     // 点击tab切换
     swichNav: function (e) {
@@ -204,14 +68,24 @@ Page({
         console.log(e)
         that.setData({
             currentTab: e.currentTarget.dataset.index,
+            on_off: false,
+            page:0,
+            otherArr:[],
+            status: e.currentTarget.dataset.index == 3 ? 8 : e.currentTarget.dataset.index/1+1
         });
+        that.getorderList()
     },
     //滑动切换
     bindChange: function (e) {
         var that = this;
         that.setData({
             currentTab: e.detail.current,
+            on_off: false,
+            page: 0,
+            otherArr: [],
+            status: e.detail.current == 3 ? 8 : e.detail.current / 1 + 1
         });
+        that.getorderList()
     },
     // 取消订单
     removeOther(res) {
@@ -309,7 +183,8 @@ Page({
      * 生命周期函数--监听页面显示
      */
     onShow: function () {
-
+        let that = this;
+      
     },
 
     /**
@@ -332,12 +207,18 @@ Page({
     onPullDownRefresh: function () {
 
     },
-
+    pullUpLoad(){
+        let that = this;
+        if (!that.data.on_off) {
+            that.data.page++;
+            that.getorderList()
+        }
+    },
     /**
      * 页面上拉触底事件的处理函数
      */
     onReachBottom: function () {
-
+       
     },
 
     /**

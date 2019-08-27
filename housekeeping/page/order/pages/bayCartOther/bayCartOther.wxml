@@ -1,7 +1,6 @@
 <!--page/order/pages/placeorder/placeorder.wxml-->
 <view class='container' style="padding-bottom:100rpx">
     <!-- 请选择地址 -->
-    <view style='margin:20rpx 0' class='width_padding dpfC'>
         <!-- <view class='add_address dpfb width90'  bindtap='goAddress' wx:if="{{addresList.length==0}}">
             <view class='dpf fontSize-32 color1'>
                 <image class='icon_GPS' style='margin-right:10rpx' src='../../../../images/icon/icon_GPS.png'></image> 请选择服务地址
@@ -10,18 +9,27 @@
                 <image style='width:35rpx;height:35rpx' src='../../../../images/icon/icon_right.png'></image>
             </view>
         </view> -->
-        <view style='width:95%' class='dpfC' bindtap='goAddress'>
+         <view style='margin:20rpx 0' class='width_padding dpfC'>
+        <view class='add_address dpfb width90'  bindtap='goAddress' wx:if="{{addresList.length==0}}">
+            <view class='dpf fontSize-32 color1'>
+                <image class='icon_GPS' style='margin-right:10rpx' src='../../../../images/icon/icon_GPS.png'></image> 请选择服务地址
+            </view>
+            <view>
+                <image style='width:15rpx;height:25rpx;margin-left:10rpx;' src='../../../../images/icon/icon_right.png'></image>
+            </view>
+        </view>
+        <view style='width:95%' class='dpfC'  bindtap='goAddress' wx:else>
             <view style='width:100%' class='dpfb'>
                 <view class='dpf fontWeight5 fontSize-32 color1'>
-                    <image class='icon_GPS' style='margin-right:10rpx' src='../../../../images/icon/icon_GPS.png'></image>{{addres}}
+                    <image class='icon_GPS' style='margin-right:10rpx' src='../../../../images/icon/icon_GPS.png'></image> {{addresList[0].address}}
                 </view>
                 <view>
-                    <image style='width:35rpx;height:35rpx' src='../../../../images/icon/icon_right.png'></image>
+                    <image style='width:15rpx;height:25rpx;margin-left:10rpx;' src='../../../../images/icon/icon_right.png'></image>
                 </view>
             </view>
-            <view class='address_info fontSize-24 color1' style='width:90%'>
-                <!-- <text>{{addresList[0].username}}</text>
-                <text>{{addresList[0].mobile}}</text> -->
+            <view  class='address_info fontSize-24 color1' style='width:90%'>
+                <text>{{addresList[0].username}}</text>
+                <text>{{addresList[0].mobile}}</text>
             </view>
         </view>
     </view>

@@ -47,7 +47,11 @@ page{
 .icon_box{
     width: 40rpx;
     height: 40rpx;
-    background: #ff4a26;
+    /* background: #ff4a26; */
+}
+.icon_box image{
+    width: 100%;
+    height: 100%;
 }
 .content_box{
     height: 110rpx;

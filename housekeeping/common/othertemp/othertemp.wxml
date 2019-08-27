@@ -10,7 +10,7 @@
             </view>
             <view>
                 <view class='fontSize-26 color2'>数量 : {{item.ordernum}}</view>
-                <view class='fontSize-26 color2'>总价 : {{item.price}}元</view>
+                <view class='fontSize-26 color2'>总价 : {{item.amount}}元</view>
             </view>
         </view>
     </view>
