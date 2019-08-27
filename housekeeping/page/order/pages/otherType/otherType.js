@@ -55,6 +55,7 @@ Page({
                 that.setData({
                     otherArr: that.data.otherArr.concat(res.data.Data)
                 })
+                console.log(that.data.otherArr,'获取订单列表')
             } else {
                 that.setData({
                     on_off: true
@@ -65,15 +66,11 @@ Page({
     // 点击tab切换
     swichNav: function (e) {
         var that = this;
-        console.log(e)
         that.setData({
             currentTab: e.currentTarget.dataset.index,
-            on_off: false,
-            page:0,
-            otherArr:[],
-            status: e.currentTarget.dataset.index == 3 ? 8 : e.currentTarget.dataset.index/1+1
         });
-        that.getorderList()
+        // console.log(that.data.otherArr,'点击tab切换')
+        // that.getorderList()
     },
     //滑动切换
     bindChange: function (e) {
@@ -85,6 +82,7 @@ Page({
             otherArr: [],
             status: e.detail.current == 3 ? 8 : e.detail.current / 1 + 1
         });
+        console.log(that.data.otherArr,'滑动切换')
         that.getorderList()
     },
     // 取消订单

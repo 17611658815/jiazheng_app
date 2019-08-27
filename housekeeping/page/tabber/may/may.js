@@ -42,7 +42,9 @@ Page({
     bindgetUserInfo(res) {
         let that = this,
             userInfo = res.detail.userInfo;
+
         if (res.detail.userInfo) {
+            
             wx.login({
                 success: function(res) {
                     console.log(res)
@@ -77,7 +79,9 @@ Page({
                 secret: app.globalData.AppSecret,
                 js_code: loginCode
             }
+       
         app.net.$Api.getOpenId(params).then((res) => {
+
             userInfo.openid = res.data.openid
             that.wxLogin(userInfo)
         })
@@ -85,6 +89,9 @@ Page({
     // 登录
     wxLogin(userInfo) {
         console.log('登录=>',68)
+        wx.showLoading({
+            title: '登陆中',
+        })
         let that = this,
             params = {
                 openid: userInfo.openid,
@@ -105,6 +112,7 @@ Page({
             that.setData({
                 userInfo: that.data.userInfo
             })
+            wx.hideLoading()
         })
     },
     getMsg(){

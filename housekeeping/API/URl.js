@@ -88,7 +88,7 @@ export default class Url {
     };
     //  微信支付
     static wxpayUrl() {
-        return Url.PATH + '/api/shop/pay/wxpay/';
+        return Url.PATH + '/api/pay';
     };
     //  优惠卷列表
     static couponUrl() {

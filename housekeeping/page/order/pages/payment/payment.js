@@ -14,7 +14,7 @@ Page({
         mid: 0, //用户id
         order_id: '', // 订单ID
         order_sn: '', //  订单编号
-        pay_type: '', //  支付方式
+        pay_type: 'weixin', //  支付方式
     },
 
     /**
@@ -31,7 +31,7 @@ Page({
             isIphoneX: isIphoneX,
             order_id: data.orderid,
             order_sn: data.order_sn,
-            pay_type: data.pay_type,
+            pay_type: data.pay_type || that.data.pay_type,
             total: data.total || data.price,
         })
 
