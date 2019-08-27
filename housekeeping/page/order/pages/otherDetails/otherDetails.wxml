@@ -13,24 +13,24 @@
             <view class='status_box_item dpfC'>
                 <view class='status_box_item_icon'>
                     <image wx:if='{{status == 2 ||  status == 3 || status == 4}}' src="../../../../images/icon/order_status_2.png"></image>
-                  <image wx:else src="../../../../images/icon/order_status_2_2.png"></image>
-                 
+                    <image wx:else src="../../../../images/icon/order_status_2_2.png"></image>
+
                 </view>
                 <view class='fontSize-24 color3 {{ status == 2 ||  status == 3 || status == 4 ? "color5":""}}'>已结单</view>
             </view>
-        <view class='soliders'></view>
+            <view class='soliders'></view>
             <view class='status_box_item dpfC'>
                 <view class='status_box_item_icon'>
-                              <image wx:if='{{status == 3 || status == 4}}' src="../../../../images/icon/order_status_3.png"></image>
-                            <image wx:else src="../../../../images/icon/order_status_3_3.png"></image>
+                    <image wx:if='{{status == 3 || status == 4}}' src="../../../../images/icon/order_status_3.png"></image>
+                    <image wx:else src="../../../../images/icon/order_status_3_3.png"></image>
                 </view>
                 <view class='fontSize-24 color3 {{ status == 3 || status == 4 ? "color5":""}}'>服务中</view>
             </view>
             <view class='soliders'></view>
             <view class='status_box_item dpfC'>
                 <view class='status_box_item_icon'>
-                      <image wx:if='{{status == 4 }}' src="../../../../images/icon/order_status_4_4.png"></image>
-                            <image wx:else src="../../../../images/icon/order_status_4.png"></image>
+                    <image wx:if='{{status == 4 }}' src="../../../../images/icon/order_status_4_4.png"></image>
+                    <image wx:else src="../../../../images/icon/order_status_4.png"></image>
                 </view>
                 <view class='fontSize-24 color3 {{ status == 4  ? "color5":""}}'>已完成</view>
             </view>
@@ -38,13 +38,13 @@
     </view>
     <!-- 地址 -->
     <view class='addresContent dpfC'>
-         <view style='width:90%' class='dpfC' bindtap='goAddress'>
+        <view style='width:90%' class='dpfC' bindtap='goAddress'>
             <view style='width:100%' class='dpfb'>
                 <view class='dpf fontWeight5 fontSize-32 color1'>
                     <image class='icon_GPS' style='margin-right:10rpx' src='../../../../images/icon/icon_GPS.png'></image>{{otherObj.address}}
                 </view>
             </view>
-            <view  class='address_info fontSize-24 color1' style='width:90%;margin-top:15rpx'>
+            <view class='address_info fontSize-24 color1' style='width:90%;margin-top:15rpx'>
                 <text class='marginRight'>{{otherObj.username}}</text>
                 <text>{{otherObj.mobile}}</text>
             </view>
@@ -57,12 +57,27 @@
                 <view class='dpf'>
                     <image class='icon_common2' src='../../../../images/icon/icon_common2.png'></image>
                     <text style='margin:0rpx 10rpx' class='fontSize-30 color3'>{{otherObj.shopname}}</text>
-                    <image class='icon_right' src='../../../../images/icon/icon_right.png'></image>   
+                    <image class='icon_right' src='../../../../images/icon/icon_right.png'></image>
                 </view>
                 <view class='fontSize-24 color3'>{{otherObj.modify}}</view>
             </view>
-            <import src="../../../../common/othertemp/othertemp.wxml"></import>
-            <template is="othertemp" data='{{item:otherObj}}'></template>
+            <!-- <import src="../../../../common/othertemp/othertemp.wxml"></import>
+            <template is="othertemp" data='{{item:otherObj}}'></template> -->
+            <view style='margin:40rpx 0' class='width100 dpf'>
+                <view class='otherPic'>
+                    <!-- <image src='{{item.project_thumb}}'></image> -->
+                    <image src='http://sj.dkjis.com/uploads/projectthumb/projectthumb20190717112743.jpg'></image>
+                </view>
+                <view class='otherText'>
+                    <view class='fontSize-32 color1 fontWeight5'>
+                        {{otherObj.projectname}}
+                    </view>
+                    <view>
+                        <view class='fontSize-26 color2'>数量 : {{otherObj.ordernum}}</view>
+                        <view class='fontSize-26 color2'>总价 : {{otherObj.price}}元</view>
+                    </view>
+                </view>
+            </view>
             <view class='dpfb fontSize-30 color1'>
                 <view>优惠卷</view>
                 <view>-{{otherObj.couponprice}}元</view>
@@ -73,7 +88,7 @@
             </view>
             <view class='dpfb fontSize-30 color1 padding30'>
                 <view>待付款</view>
-                <view class='color4'>{{otherObj.amount}}元</view>
+                <view class='color4'>{{otherObj.price}}元</view>
             </view>
         </view>
     </view>
@@ -100,14 +115,14 @@
 </view>
 <view style='height:120rpx'></view>
 <!-- 底部定位 -->
- <view class='otherFootFd'>
+<view class='otherFootFd'>
     <view style='width:95%;' class='otherFootFd_Box'>
         <view class='btn_1' wx:if='{{status == 1 || status == 4}}' bindtap="recallOther">取消订单</view>
-         <view class='btn_2' catchtap="gopayment" wx:if='{{status == 1}}'>去付款</view>
-        <view  wx:if='{{status == 1 || status == 2 || status == 3}}'>
-           <button class="contactBtn" open-type='contact'>联系客服</button>  
-        </view> 
-        <view class='btn_2'  wx:if='{{status == 2 || status == 4}}' bindtap='goCommentMore'>评价</view>
+        <view class='btn_2' catchtap="gopayment" wx:if='{{status == 1}}'>去付款</view>
+        <view wx:if='{{status == 1 || status == 2 || status == 3}}'>
+            <button class="contactBtn" open-type='contact'>联系客服</button>
+        </view>
+        <view class='btn_2' wx:if='{{status == 2 || status == 4}}' bindtap='goCommentMore'>评价</view>
     </view>
     <view class='isIphoneXBox' wx:if='{{isIphoneX}}'></view>
 </view>

@@ -77,7 +77,7 @@ Page({
             }
         ]
     },
-    onLoad(){
+    onShow(){
         let that = this;
         that.getindexImg()
     },

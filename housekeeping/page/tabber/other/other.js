@@ -28,10 +28,7 @@ Page({
      * 生命周期函数--监听页面加载
      */
     onLoad: function (options) {
-        let userInfo = wx.getStorageSync('userinfo');
-        this.setData({
-            mid: userInfo.member_id
-        })
+       
     },
     // 获取订单列表
     getorderList(){ 
@@ -59,23 +56,6 @@ Page({
             console.log(that.data.otherArr)
         })
     },
-    /*  NeworderList(){ 
-        let that = this,
-            params = {
-                mid: that.data.mid,//客户ID
-                page: that.data.page,
-                num: that.data.num,
-            }
-        app.loading()
-        app.net.$Api.getorderList(params).then((res) => {
-            console.log('6666')
-            wx.hideLoading();
-                that.setData({
-                    otherArr: res.data.Data
-                })
-            
-        })
-    },  */
     // 取消订单
     removeOther(res){
         console.log(res)
