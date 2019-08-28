@@ -138,4 +138,12 @@ export const api = {
     commDetails: function (paramObj) {
         return Promise.post(Url.default.commDetailsUrl(), paramObj);
     },
+    // 我的收藏
+    collect: function (paramObj) {
+        return Promise.post(Url.default.collectUrl(), paramObj);
+    },
+    // 添加收藏
+    collectCreated: function (paramObj) {
+        return Promise.post(Url.default.collectCreatedUrl(), paramObj);
+    },
 }

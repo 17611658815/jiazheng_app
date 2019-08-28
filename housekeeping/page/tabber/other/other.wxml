@@ -1,7 +1,7 @@
 <!--pages/tabber/other/other.wxml-->
 <import src="../../../common/othertemp/othertemp.wxml"></import>
 
-<view class='container' wx:if='{{mid==0 && otherArr.length==0}}'>
+<view class='container' wx:if='{{mid==0 || otherArr.length==0}}'>
     <view class='nocoupons'>
         <view class='nocoupons_icon'>
              <image src="../../../images/icon/icon_noMsg_collect.png"></image>

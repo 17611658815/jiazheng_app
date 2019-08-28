@@ -80,7 +80,7 @@
             <view class='fontSize-30 color1 marginRight'>全选</view>
 
         </view>
-          <view class='btn_1 marginRight'>移到收藏夹</view>
+          <view class='btn_1 marginRight' bindtap="changeCart">移到收藏夹</view>
            <view bindtap="delCartMsg" class='btn_2 marginRight'>删除</view>
     </view>
     <view class='isIphoneXBox' wx:if='{{isIphoneX}}'></view>

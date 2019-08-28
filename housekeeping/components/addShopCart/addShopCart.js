@@ -16,9 +16,8 @@ Component({
     },
    
     attached(){
-        let isIphoneX = app.globalData.isIphoneX
         this.setData({
-            isIphoneX: isIphoneX
+            isIphoneX: app.globalData.isIphoneX
         })
         console.log(this.data.isIphoneX)
     },

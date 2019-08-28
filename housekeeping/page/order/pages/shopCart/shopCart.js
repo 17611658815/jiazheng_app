@@ -14,17 +14,17 @@ Page({
         flag: true,
         tapTime: '', //方式快速点击
         cartStr: [], //选中状态
-        cartid:[],
+        cartid:[],//
+        projectidstr:[],//产品id
     },
     /**
      * 生命周期函数--监听页面加载
      */
     onLoad: function(options) {
         let that = this;
-        let isIphoneX = app.globalData.isIphoneX;
         let userInfo = wx.getStorageSync('userinfo');
         that.setData({
-            isIphoneX: isIphoneX,
+            isIphoneX: app.globalData.isIphoneX,
             mid: userInfo.member_id
         })
         // 获取购物车列表
@@ -124,18 +124,21 @@ Page({
         // 合计
         var sum = 0
         let cartStr = []
+        let projectidstr = []
         for (var i = 0; i < CartData.length; i++) {
             if (CartData[i].checked) {
                 cartStr.push(CartData[i].id)
+                projectidstr.push(CartData[i].projectid)
                 sum += CartData[i].num * CartData[i].price
             }
         }
         this.setData({
             Cart: CartData,
             cartStr: cartStr, //选中状态
+            projectidstr: projectidstr,//收藏产品id
             total: sum.toFixed(2) //合计
         })
-        console.log(cartStr)
+        console.log('购物车id=>', cartStr, '收藏产品id=>', projectidstr)
         // 单选
         let Num = 0;
         for (var i = 0; i < CartData.length; i++) {
@@ -170,9 +173,11 @@ Page({
         //  合计
         var sum = 0
         let cartStr = []
+        let projectidstr = []
         for (var i = 0; i < CartData.length; i++) {
             if (CartData[i].checked) {
                 cartStr.push(CartData[i].id)
+                projectidstr.push(CartData[i].projectid)
                 sum += CartData[i].num * CartData[i].price
             }
         }
@@ -180,13 +185,14 @@ Page({
             selectAll: selectAll,
             Cart: CartData,
             cartStr: cartStr,
+            projectidstr: projectidstr,
             total: sum.toFixed(2)
         })
         wx.setStorage({
             key: 'CartData',
             data: CartData,
         })
-        console.log(cartStr)
+        console.log('购物车id=>', cartStr, '收藏产品id=>', projectidstr)
     },
     // 单选
     SingChecked: function(e) {
@@ -195,12 +201,15 @@ Page({
         CartData[index].checked = !CartData[index].checked
         let Num = 0;
         let cartStr = []
+        let projectidstr = []
         for (var i = 0; i < CartData.length; i++) {
             if (CartData[i].checked) {
                 cartStr.push(CartData[i].id)
+                projectidstr.push(CartData[i].projectid)
                 Num++;
             } else {
                 cartStr.splice(i, 1)
+                projectidstr.splice(i,1)
             }
             if (CartData[i].checked) {
                 this.setData({
@@ -217,7 +226,7 @@ Page({
                     selectAll: false
                 })
             }
-            console.log(cartStr)
+           
         }
         // 合计
         var sum = 0
@@ -230,14 +239,15 @@ Page({
         this.setData({
             total: sum.toFixed(2),
             Cart: CartData,
-            cartStr: cartStr
+            cartStr: cartStr,
+            projectidstr: projectidstr,
         })
 
         wx.setStorage({
             key: 'CartData',
             data: CartData,
         })
-
+        console.log('购物车id=>', cartStr, '收藏产品id=>', projectidstr)
     },
     // 加法
     add: function(e) {
@@ -353,6 +363,41 @@ Page({
         }else{
             wx.navigateTo({
                 url: '/page/order/pages/bayCartOther/bayCartOther?mid=' + mid + "&cartStr=" + cartStr.join(',') + "&cartid=" + cartid,
+            })
+        }
+       
+    },
+    // 移到收藏夹
+    changeCart(res) {
+        console.log(res)
+        let that = this,
+            params = {
+                mid: that.data.mid, // 用户ID
+                projectidstr: that.data.projectidstr.join(',')
+              
+            }
+        if (that.data.projectidstr.length == 0) {
+            wx.showModal({
+                title: '提示',
+                content: '请选择要收藏的项目',
+                showCancel: false,
+            })
+            return;
+        } else {
+            app.net.$Api.collectCreated(params).then((res) => {
+                console.log(res)
+                wx.showToast({
+                    title: res.data.msg,
+                    icon: 'success',
+                    duration: 500,
+                    success: function () {
+                        setTimeout(function () {
+                            that.setData({
+                                flag: true
+                            })
+                        }, 550);
+                    }
+                })
             })
         }
        

@@ -19,7 +19,14 @@
         </view>
         <!-- 轮播图部分 -->
         <view class='home-swiper'>
-            <swiper class="swiper" indicator-dots='true' indicator-color='rgba(255,255, 255, .3)' indicator-active-color="#ffffff" autoplay="true" circular='true' duration="1000" interval="5000">
+            <swiper class="swiper" 
+                    indicator-dots='true' 
+                    indicator-color='rgba(255,255, 255, .3)' 
+                    indicator-active-color="#ffffff" 
+                    autoplay="true" 
+                    circular='true' 
+                    duration="1000" 
+                    interval="5000">
                 <swiper-item wx:for='{{homePicData.recommendBannerData}}' wx:key='key'>
                     <image mode="aspectFit" src="{{item.data.pic}}"></image>
                 </swiper-item>
@@ -49,7 +56,7 @@
             </navigator> -->
         </view>
         <!-- 电话预约 -->
-        <view class='phoneNumber width90' wx:for='{{homePicData.recommendTelData}}' wx:key='key'>
+        <view class='phoneNumber width100' wx:for='{{homePicData.recommendTelData}}' wx:key='key'>
             <image mode='scaleToFill' src='{{item.data.pic}}'></image>
         </view>
         <!-- 领卷 -->
@@ -95,7 +102,12 @@
                 </navigator>
             </view>
             <view class='home-class-server-item-img width90'>
-                <view class='home-class-server-item-img-Msg' wx:for='{{item.shopProjectData}}' bindtap="gocleaningDetails"  wx:for-item="k" data-id='{{item.id}}' wx:key='key'>
+                <view class='home-class-server-item-img-Msg' 
+                    wx:for='{{item.shopProjectData}}' 
+                    bindtap="gocleaningDetails"  
+                    wx:for-item="k" 
+                    data-id='{{item.id}}' 
+                    wx:key='key'>
                     <image src='{{k.thumb}}'></image>
                     <view style='padding: 15rpx 0;' class='fontSize-32 fontWeight5'>
                         {{k.name}}

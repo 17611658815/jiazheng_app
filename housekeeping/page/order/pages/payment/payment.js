@@ -22,13 +22,12 @@ Page({
      */
     onLoad: function(options) {
         let that = this;
-        let isIphoneX = app.globalData.isIphoneX;
         let userInfo = wx.getStorageSync('userinfo');
         let data = JSON.parse(options.data)
         console.log(data)
         that.setData({
             mid: userInfo.member_id,
-            isIphoneX: isIphoneX,
+            isIphoneX: app.globalData.isIphoneX,
             order_id: data.orderid,
             order_sn: data.order_sn,
             pay_type: data.pay_type || that.data.pay_type,

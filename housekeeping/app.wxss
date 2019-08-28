@@ -187,8 +187,8 @@ page {
 }
 
 .icon_GPS {
-    width: 29rpx;
-    height: 35rpx;
+    width: 20rpx;
+    height: 26rpx;
     margin-right: 10rpx;
 }
 

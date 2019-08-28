@@ -15,7 +15,11 @@
     <view class='cleaningDetails-title'>
         <view class='cleaningDetails-title-name width90'>
             <text class='fontSize-34 fontWeight5'>{{shopDetailed.projectData.name}}</text>
-            <image src='../../../../images/icon/icon_noFocus.png'></image>
+            <!-- 未关注 -->
+            <image bindtap="changeCart" src='../../../../images/icon/icon_noFocus.png' wx:if='{{!isCollect}}'></image>
+            <!-- 已关注 -->
+             <image  src='../../../../images/icon/icon_Focus.png' wx:else></image> 
+         
         </view>
         <view class='cleaningDetails-title-price width90'>
             <view class='fontSize-34 color4'>
@@ -79,9 +83,16 @@
     <view class='comment-message dpfC'>
         <view class='comment-message-num width90'> 
             <view class='fontSize-34 color1 fontWeight5'> 用户评价(343)</view>
-            <view class='fontSize-26 color2 dpf' bindtap='commentMore'>查看更多<image class='icon_right' src='../../../../images/icon/icon_right.png'></image> </view>
+            <view class='fontSize-26 color2 dpf' bindtap='commentMore'>
+            查看更多
+            <image class='icon_right' src='../../../../images/icon/icon_right.png'></image> 
+            </view>
         </view>
-        <view class='comment-message-item width90' bindtap="gocommentDetails" data-id='{{item.id}}' wx:for='{{shopDetailed.shopProjectCommentsData}}' wx:key='key'>
+        <view class='comment-message-item width90' 
+            bindtap="gocommentDetails" 
+            data-id='{{item.id}}'
+            wx:for='{{shopDetailed.shopProjectCommentsData}}' 
+            wx:key='key'>
             <view class='comment-message-item-userInfo dpf'>
                 <image class='icon-userPic' src='{{item.avatar}}'></image>
                 <text class='fontSize28'>{{item.username}}</text>
@@ -123,4 +134,5 @@
     <add-shop-cart bind:addCart='onaddCart' bind:instantBuy='oninstantBuy'></add-shop-cart>
 </view>
 <import src="../../../../common/selectItems/selectItems.wxml"></import>
-<template is="selectItems" data="{{selectItems:shopDetailed.shopProjectSpecsData,selectindex:selectindex,selectItemsType:selectItemsType,changeCount:changeCount,count:count,selectName:selectName,isIphoneX:isIphoneX,selectShow:selectShow,confirm:confirm}}" wx:if='{{selectShow}}'></template>
+<template is="selectItems" 
+data="{{selectItems:shopDetailed.shopProjectSpecsData,selectindex:selectindex,selectItemsType:selectItemsType,changeCount:changeCount,count:count,selectName:selectName,isIphoneX:isIphoneX,selectShow:selectShow,confirm:confirm}}" wx:if='{{selectShow}}'></template>

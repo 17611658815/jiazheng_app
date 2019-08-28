@@ -30,10 +30,9 @@ page{
     margin-left: 68rpx;
 }
 .technician_name text:nth-child(2){
-    padding: 7rpx 7rpx;
+    padding: 7rpx 10rpx;
     background: #5994F7;
     color: #ffffff;
-    text-align: center;
     font-size: 24rpx;
     border-radius: 30rpx;
     margin-left: 36rpx;
@@ -48,8 +47,8 @@ page{
     padding: 17rpx 0 23rpx 0;
 }
 .icon_common2{
-    width: 23rpx;
-    height: 23rpx;
+    width: 24rpx;
+    height: 24rpx;
 }
 .icon_right{
     width: 15rpx;

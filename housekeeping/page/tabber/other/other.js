@@ -53,7 +53,7 @@ Page({
                     on_off: true
                 })
             }
-            console.log(that.data.otherArr)
+            console.log(that.data.otherArr.length)
         })
     },
     NeworderList(){

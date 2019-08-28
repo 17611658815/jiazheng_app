@@ -8,6 +8,7 @@ page{
     position: fixed;
     top: 0;
     left: 0;
+    z-index: 99;
 }
 .otherContent{
     width: 100%;
@@ -35,7 +36,6 @@ button::after{
     top: 0;
     left: 0;
     background: none;
-    z-index: 9999
 
 }
 .nocoupons{
@@ -46,7 +46,7 @@ button::after{
     align-items: center;
 }
 .nocoupons_icon{
-    margin-top: 175rpx;
+    margin-top: 239rpx
 }
 .nocoupons_icon image{
     width: 341rpx;

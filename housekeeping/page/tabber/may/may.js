@@ -42,9 +42,7 @@ Page({
     bindgetUserInfo(res) {
         let that = this,
             userInfo = res.detail.userInfo;
-
         if (res.detail.userInfo) {
-            
             wx.login({
                 success: function(res) {
                     console.log(res)

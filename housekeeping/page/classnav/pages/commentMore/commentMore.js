@@ -27,10 +27,9 @@ Page({
      * 生命周期函数--监听页面加载
      */
     onLoad: function (options) {
-        let isIphoneX = app.globalData.isIphoneX;
         let optData = JSON.parse(options.data)
         this.setData({
-            isIphoneX: isIphoneX,
+            isIphoneX: app.globalData.isIphoneX,
             pid: optData.pid,// 项目ID
             shopid: optData.shopid,//店铺ID
             optData: optData

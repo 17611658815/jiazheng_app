@@ -130,6 +130,14 @@ export default class Url {
     static buycartUrl() {
         return Url.PATH + '/api/order/buycart';
     };
+    //  我的收藏列表
+    static collectUrl() {
+        return Url.PATH + '/api/collect';
+    };
+    //  添加收藏
+    static collectCreatedUrl() {
+        return Url.PATH + '/api/collect/created';
+    };
    
 
 }

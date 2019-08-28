@@ -57,9 +57,7 @@ Page({
                 url: '../../classnav/pages/cleaningList/cleaningList'
             }
         ],
-        classList: [{
-
-        }],
+        classList: [],
         vipActivity: [
             {
                 bgUrl: 'http://pic.39yst.com/group1/M00/5D/1C/Pb832l0K7xOAF6a_AABNE3A_0V8898.png',

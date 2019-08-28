@@ -115,6 +115,7 @@
     /* align-items: center; */
     justify-content: space-between;
     animation: myfirst2 0.5s;
+    z-index: 999;
 }
 .pullListScroll-item{
     width: 280rpx;

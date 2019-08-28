@@ -13,13 +13,13 @@
     <swiper current="{{currentTab}}" class="swiper-box" duration="300" style="height:{{winHeight}}px;" bindchange="bindChange">
         <swiper-item>
             <scroll-view scroll-y="true" style='height:100%;' bindscrolltolower="pullUpLoad" bindscrolltoupper="PullDownRefresh">
-                <view class='listBox'>
-                    <template is="cleaningList" data='{{cleaningArr:10,gocleaningDetails:gocleaningDetails,show:true}}'></template>
+                <view class='listBox' wx:if='{{collectArr.length>0}}'>
+                    <template is="cleaningList" data='{{cleaningArr:collectArr,gocleaningDetails:gocleaningDetails,show:true}}'></template>
                 </view>
-                <!-- <view class='noContent'>
+                <view class='noContent' wx:else>
                         <view class='noContent_icon'></view>
                         <view class='noContent_text fontSize-30 color2'>你还没有相关收藏哦~</view>
-                     </view> -->
+                     </view>
             </scroll-view>
         </swiper-item>
         <swiper-item>

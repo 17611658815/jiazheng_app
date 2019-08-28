@@ -24,9 +24,8 @@ Page({
      */
     onLoad: function (options) {
         let userInfo = wx.getStorageSync('userinfo');
-        let isIphoneX = app.globalData.isIphoneX
         this.setData({
-            isIphoneX: isIphoneX,
+            isIphoneX: app.globalData.isIphoneX,
             mid: userInfo.member_id
         })
         this.getaddresList()

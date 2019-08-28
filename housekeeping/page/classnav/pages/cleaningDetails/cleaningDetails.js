@@ -20,6 +20,7 @@ Page({
         day:'今天',//预约日期
         time:"",//预约时间
         daynum:"",//预约日期
+        isCollect:false
     },
     /**
      * 生命周期函数--监听页面显示
@@ -285,6 +286,31 @@ Page({
         // app.net.$Api.instantBuy(params).then((res) => {
         //     console.log(res)
         // })
+    },
+    // 移到收藏夹
+    changeCart(res) {
+        console.log(res)
+        let that = this,
+        params = {
+            mid: that.data.mid, // 用户ID
+            projectidstr: that.data.pid
+        }
+        app.net.$Api.collectCreated(params).then((res) => {
+            console.log(res)
+            wx.showToast({
+                title: res.data.msg,
+                icon: 'success',
+                duration: 500,
+                success: function () {
+                    setTimeout(function () {
+                        that.setData({
+                            isCollect: true
+                        })
+                    }, 550);
+                }
+            })
+        })
+
     },
     // 评论详情
     gocommentDetails(e){

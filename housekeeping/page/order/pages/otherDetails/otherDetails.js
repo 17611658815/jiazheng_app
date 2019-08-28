@@ -20,18 +20,17 @@ Page({
      */
     onLoad: function (options) {
         let userInfo = wx.getStorageSync('userinfo');
-        let isIphoneX = app.globalData.isIphoneX;
         this.setData({
             mid: userInfo.member_id,
             status: options.status,
             orderid: options.orderid,//订单id
-            isIphoneX: isIphoneX
+            isIphoneX: app.globalData.isIphoneX
         })
         this.otherDetails()
     },
     gopayment(e) {
         let data = this.data.otherObj;
-        data.order_id = this.data.otherObj.id
+        data.orderid = this.data.otherObj.id
         wx.navigateTo({
             url: '/page/order/pages/payment/payment?data=' + JSON.stringify(data),
         })

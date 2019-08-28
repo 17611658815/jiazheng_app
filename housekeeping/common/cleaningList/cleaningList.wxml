@@ -2,12 +2,12 @@
     <view class='cleaningList'>
         <view class='cleaningList-item' bindtap='gocleaningDetails' data-id='{{item.id}}' wx:for="{{cleaningArr}}" wx:key='key'>
             <view class='cleaningList-item-photo'>
-                <image src='{{item.thumb}}'></image>
+                <image src='{{item.thumb || item.project_thumb}}'></image>
             </view>
             <view class='cleaningList-item-text'>
-                <view class='cleaningList-item-title fontSize-32 color1'>{{item.name}}</view>
+                <view class='cleaningList-item-title fontSize-32 color1'>{{item.name || item.project_name}}</view>
                 <view class='cleaningList-item-time color4 fontSize-32'>
-                    <text style='font-weight:500'>{{item.price}}</text></view>
+                    <text style='font-weight:500'>{{item.price || item.project_price}}</text>{{item.unitname}}</view>
                 <view class='cleaningList-item-hot fontSize-22 color3' wx:if='{{show}}'>
                     <text>已售{{item.ordernum}}</text>
                     <text>好评97%</text>

@@ -29,6 +29,7 @@ Page({
             mid: that.data.mid, // 客户ID
         }
         app.net.$Api.couponList(params).then((res) => {
+            console.log(res,32)
             that.setData({
                 couponList: res.data.Data
             })

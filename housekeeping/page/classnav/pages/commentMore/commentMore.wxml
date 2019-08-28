@@ -27,8 +27,8 @@
 <!-- 评论文本框 -->
 <view class="inputBox" wx:if='{{isfocus}}' style="bottom:{{bottom}}px">
     <input class="input" 
-    adjust-position="{{false}}" 
-    cursor-spacing="90" type='text'
+     adjust-position="{{false}}" 
+     cursor-spacing="90" type='text'
      bindfocus='onbindfocus' 
      bindconfirm='onbindconfirm' 
      bindblur="onbindblur" 

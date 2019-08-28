@@ -99,7 +99,6 @@ swiper-item {
 }
 
 .phoneNumber {
-    width: 92%;
     height: 71rpx;
     display: flex;
     align-items: center;
@@ -217,7 +216,7 @@ swiper-item {
 }
 
 .home-class-server-item-img-Msg {
-    flex: 1;
+    width: 48.5%;
 }
 
 .home-class-server-item-img-Msg:nth-child(2) {
