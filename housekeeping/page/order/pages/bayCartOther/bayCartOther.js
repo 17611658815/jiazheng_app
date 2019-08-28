@@ -17,6 +17,7 @@ Page({
         addres:{},//地址
         shopData:[],//商品列表
         data:[],
+        isIphoneX:false,
 
     },
 
@@ -29,7 +30,8 @@ Page({
         that.setData({
             mid: options.mid,
             cartidstr: options.cartStr,
-            cart_id:options.cartid
+            cart_id:options.cartid,
+            isIphoneX: app.globalData.isIphoneX,
         })
         
         that.getbuyCart()
@@ -101,8 +103,10 @@ Page({
             }
         console.log(params)
          app.net.$Api.purchase(params).then((res) => {
+             console.log(res,104)
             let data = res.data.Data
              data.total = that.data.price_h;
+             data.orderid = res.data.Data.order_id
             if (res.data.code == 200) {
                 wx.navigateTo({
                     url: '/page/order/pages/payment/payment?data=' + JSON.stringify(data),

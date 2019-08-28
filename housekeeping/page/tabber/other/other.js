@@ -15,9 +15,9 @@ Page({
         on_off:false,//开关
     },
     onShow: function () {
-        let userInfo = wx.getStorageSync('userinfo');
+        let userInfo = wx.getStorageSync('userinfo') || "";
         this.setData({
-            mid: userInfo.member_id,
+            mid: userInfo.member_id || 0,
             otherArr:[],
             page:0
         })
@@ -54,6 +54,27 @@ Page({
                 })
             }
             console.log(that.data.otherArr)
+        })
+    },
+    NeworderList(){
+        let that = this,
+            params = {
+                mid: that.data.mid,//客户ID
+                page: 0,
+                num: that.data.num,
+            }
+        app.loading()
+        app.net.$Api.getorderList(params).then((res) => {
+            wx.hideLoading();
+            console.log(res, 555)
+            let data = []
+            if (res.data.code == 200) {
+                that.setData({
+                    otherArr:res.data.Data
+                })
+            } else {
+                console.log('刷新了')
+            }
         })
     },
     // 取消订单

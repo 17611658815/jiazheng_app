@@ -75,10 +75,7 @@ Page({
                 signType: 'MD5',
                 paySign: res.data.data.paySign, //签名
                 success(res) {
-                    wx.switchTab({
-                        url: '/page/tabber/index/index',
-                    })
-                    console.log(res)
+                    that.paybac()
                 },
                 fail(res) {
                     console.log(res)
@@ -86,11 +83,26 @@ Page({
             })
         })
     },
+    paybac(){
+        let that = this,
+            params = {
+                mid: that.data.mid, //客户ID
+                order_id: that.data.order_id, // 订单ID
+                order_sn: that.data.order_sn, //支付订单号
+            }
+        app.net.$Api.paybac(params).then((res) => {
+            wx.switchTab({
+                url: '/page/tabber/index/index',
+            })
+           
+        })
+    },
     /**
      * 生命周期函数--监听页面隐藏
      */
     onHide: function() {
-        clearInterval(that.data.timer)
+        
+        clearInterval(this.data.timer)
     },
 
     /**

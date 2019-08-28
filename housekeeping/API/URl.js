@@ -26,9 +26,13 @@ export default class Url {
     static getShopdetailsUrl() {
         return Url.PATH + '/api/details';
     };
-    // 项目详情
+    // 评论列表
     static getcommentListUrl() {
         return Url.PATH + '/api/comments';
+    };
+    // 评论详细
+    static commDetailsUrl() {
+        return Url.PATH + '/api/comments/details';
     };
     // 项目服务时间
     static getShopTimeUrl() {
@@ -90,6 +94,10 @@ export default class Url {
     static wxpayUrl() {
         return Url.PATH + '/api/pay';
     };
+    //  微信支付回调
+    static paybackUrl() {
+        return Url.PATH + '/api/pay/payback';
+    };
     //  优惠卷列表
     static couponUrl() {
         return Url.PATH + '/api/coupon';
@@ -122,9 +130,6 @@ export default class Url {
     static buycartUrl() {
         return Url.PATH + '/api/order/buycart';
     };
-    //  评论详细
-    static commDetailsUrl() {
-        return Url.PATH + '/api/comments/details';
-    };
+   
 
 }

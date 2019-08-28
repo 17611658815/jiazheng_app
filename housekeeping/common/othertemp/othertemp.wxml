@@ -1,5 +1,8 @@
 <template name="othertemp">
-    <view style='margin:40rpx 0' class='width100 dpf'>
+    <view style='margin:40rpx 0'  
+            data-id='{{item.id}}' 
+            data-status='{{item.status}}'  
+            bindtap="goOtherDetails" class='width100 dpf'>
         <view class='otherPic'>
                 <!-- <image src='{{item.project_thumb}}'></image> -->
                 <image src='http://sj.dkjis.com/uploads/projectthumb/projectthumb20190717112743.jpg'></image>

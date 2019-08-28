@@ -1,6 +1,15 @@
 <!--pages/tabber/other/other.wxml-->
 <import src="../../../common/othertemp/othertemp.wxml"></import>
-<view class="container">
+
+<view class='container' wx:if='{{mid==0 && otherArr.length==0}}'>
+    <view class='nocoupons'>
+        <view class='nocoupons_icon'>
+             <image src="../../../images/icon/icon_noMsg_collect.png"></image>
+        </view>
+        <view class='fontSize-30 color2' style='margin-top:110rpx;'>你暂时还没优惠卷哦~</view>
+    </view> 
+</view>
+<view class="container" wx:else>
     <view class='header width100 dpfC'>
         <view class='width90 dpfb'>
             <text class='fontSize-34 color1 fontWeight5'>历史订单</text>
@@ -13,11 +22,10 @@
             wx:key='key' 
             data-id='{{item.id}}' 
             data-status='{{item.status}}' 
-            catchtap='goOtherDetails' 
             wx:if='{{item.status!=-1}}'>
         <view class='other_item width90'>
             <!-- 订单状态 -->
-            <view class='width100 dpfb'>
+            <view class='width100 dpfb' catchtap='goOtherDetails' >
                 <view class='dpf'>
                     <image class='icon_common2' src='../../../images/icon/icon_common2.png'></image>
                     <text style='margin:0rpx 10rpx' class='fontSize-30 color3'>{{item.shopname}}</text>
@@ -46,18 +54,22 @@
                     </view>
                 </view>
             </view> -->
-            <template is="othertemp" data='{{item}}'></template>
+            <template is="othertemp" data='{{item,goOtherDetails:goOtherDetails}}'></template>
             <!-- 订单日期 -->
             <view class='width100 dpfb'>
                 <view class='fontSize-24 color3'>{{item.modify}}</view>
                 <view class='btnBox dpf'>
-                    <view catchtap='recallOther' data-item='{{item}}' class='btn_1' wx:if='{{item.status == 1}}'>取消订单</view>
+                    <view catchtap='recallOther' data-item='{{item}}' class='btn_1' wx:if='{{item.status == 1 ||item.status == 2}}'>取消订单</view>
 
                     <view class='btn_2' data-item='{{item}}' catchtap="gopayment" wx:if='{{item.status == 1}}'>去付款</view>
                     <view catchtap='delOther' class='btn_1' wx:if='{{item.status == 4 || item.status==6}}'>删除订单</view>
                     <view class='btn_2' wx:if='{{item.status == 4}}' data-orderid="{{item.orderid}}" data-projectid="{{item.projectid}}" catchtap="goCommentMore">评价</view>
                     <!-- <view class='btn_2' data-orderid="{{item.orderid}}" data-projectid="{{item.projectid}}" catchtap="goCommentMore">评价</view> -->
                     <view class='btn_1' data-item='{{item}}' wx:if='{{item.status == 6}}' catchtap="recurOther">再来一单</view>
+                    <view class='btn_2' data-item='{{item}}' wx:if='{{item.status == 2}}'>
+                         联系客服
+                        <button open-type='contact'></button>
+                    </view>
                 </view>
             </view>
             <!-- <view style='margin:20rpx 0 0 0;padding:15rpx 0 0 0;border-top:1rpx solid #e0e0e0' class='width100 dpfb fontSize-22 color3'>
@@ -66,9 +78,3 @@
         </view>
     </view>
 </view>
-<!-- <view class='container' wx:else>
-    <view class='nocoupons'>
-        <view class='nocoupons_icon'></view>
-        <view class='fontSize-30 color2' style='margin-top:110rpx;'>你暂时还没优惠卷哦~</view>
-    </view> 
-</view> -->

@@ -98,6 +98,10 @@ export const api = {
     wxpay: function (paramObj) {
         return Promise.post(Url.default.wxpayUrl(), paramObj);
     },
+    // 微信支付回调
+    paybac: function (paramObj) {
+        return Promise.post(Url.default.paybackUrl(), paramObj);
+    },
     // 优惠卷列表
     couponList: function (paramObj) {
         return Promise.post(Url.default.couponUrl(), paramObj);

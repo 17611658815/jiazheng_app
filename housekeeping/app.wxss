@@ -296,4 +296,5 @@ page {
     color: #5994f7;
     border: 2rpx solid #5994f7;
     border-radius: 6rpx;
+    position: relative;
 }

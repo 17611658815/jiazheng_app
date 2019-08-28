@@ -29,7 +29,7 @@
                     <view class='technician_list_item_info_comment_left dpf'>
                         <image class='icon_common2' src='../../../../images/icon/icon_common2.png'></image>
                         <text style='margin:0rpx 10rpx' class='fontSize-22 color3'>大众工匠</text>
-                        <image class='icon_right' src='../../../../images/icon/icon_right.png'></image>
+                        <image style="height:20rpx;width:10rpx;" src='../../../../images/icon/icon_right.png'></image>
                     </view>
                     <view class='technician_list_item_info_comment_right fontSize-22 color3'>
                         <text style='margin-right:10rpx;'>已接单2345</text>

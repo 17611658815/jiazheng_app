@@ -21,7 +21,7 @@
                      <view class='technician_distance_left dpf'>
                         <image class='icon_common2' src='../../../../images/icon/icon_common2.png'></image>
                         <text style='margin:0rpx 10rpx' class='fontSize-22 color3'>大众工匠</text>
-                        <image class='icon_right' src='../../../../images/icon/icon_right.png'></image>
+                        <image style="height:20rpx;width:10rpx;" src='../../../../images/icon/icon_right.png'></image>
                     </view>
                     <view class='fontSize-22 color3 dpf'>
                          <image class='icon_GPS' src='../../../../images/icon/icon_GPS.png'></image>2.3km
@@ -96,11 +96,11 @@
                 <view class='other_content_list_left'>
                     <image src='http://i2.chuimg.com/f30f7ea4346c11e7947d0242ac110002_3264w_2448h.jpg?imageView2/2/w/620/interlace/1/q/90'></image>
                 </view>
-                <view class='other_content_list_right fontWeight5'>
-                    <view class='fontSize-32 color1'>空调不制冷加氟</view>
+                <view class='other_content_list_right'>
+                    <view class='fontSize-32 color1 fontWeight5'>空调不制冷加氟</view>
                     <view class='fontSize28 color2 white_noWrap'>使用专业工具,向空调外机注入几十块的接口是多少</view>
                     <view class='fontSize-32 color4'>
-                        <text>24</text>
+                        <text class="fontWeight5">24</text>
                         <text>元/小时</text>
                     </view>
                 </view>

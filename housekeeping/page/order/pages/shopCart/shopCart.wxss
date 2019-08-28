@@ -46,6 +46,7 @@ page{
     flex: 1;
     height: 98rpx;
     background: #ffffff;
+    padding-left: 10rpx;
 }
 .purchase_btn{
     width: 220rpx;

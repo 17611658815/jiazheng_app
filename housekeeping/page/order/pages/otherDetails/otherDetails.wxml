@@ -119,8 +119,9 @@
     <view style='width:95%;' class='otherFootFd_Box'>
         <view class='btn_1' wx:if='{{status == 1 || status == 4}}' bindtap="recallOther">取消订单</view>
         <view class='btn_2' catchtap="gopayment" wx:if='{{status == 1}}'>去付款</view>
-        <view wx:if='{{status == 1 || status == 2 || status == 3}}'>
-            <button class="contactBtn" open-type='contact'>联系客服</button>
+        <view class='btn_2' wx:if='{{status == 1 || status == 2 || status == 3}}'>
+         <button open-type='contact'></button>
+            联系客服
         </view>
         <view class='btn_2' wx:if='{{status == 2 || status == 4}}' bindtap='goCommentMore'>评价</view>
     </view>

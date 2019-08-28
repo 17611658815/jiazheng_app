@@ -18,7 +18,7 @@
                     </view>
                     <view class='cleaningList-item-type fontSize-22 color3 dpf'>
                         {{item.shopname}}
-                        <image class='icon_right' src='../../../../images/icon/icon_right.png'></image>
+                        <image style="height:20rpx;width:10rpx;margin-left:10rpx;" src='../../../../images/icon/icon_right.png'></image>
                     </view>
                 </view>
             </view>
