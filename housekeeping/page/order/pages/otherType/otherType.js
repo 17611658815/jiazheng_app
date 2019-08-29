@@ -69,8 +69,6 @@ Page({
         that.setData({
             currentTab: e.currentTarget.dataset.index,
         });
-        // console.log(that.data.otherArr,'点击tab切换')
-        // that.getorderList()
     },
     //滑动切换
     bindChange: function (e) {
@@ -181,7 +179,6 @@ Page({
      * 生命周期函数--监听页面显示
      */
     onShow: function () {
-        let that = this;
       
     },
 

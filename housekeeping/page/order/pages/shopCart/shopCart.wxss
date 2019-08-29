@@ -6,7 +6,7 @@ page{
     width: 30rpx;
     height: 30rpx;
     border-radius: 50%;
-    border: 2rpx solid #999999;
+    border: 1.5rpx solid #999999;
     position: relative;
 }
 .radioBox image{

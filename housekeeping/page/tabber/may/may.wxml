@@ -30,7 +30,7 @@
            <view class='dpfb'>
                 <view class='fontSize-32 color1 fontWeight5'>我的订单</view>
                 <view class='fontSize-26 color3 dpf' data-type="1" data-current="0" bindtap="goOtherType">查看更多
-                      <image style='width:15rpx;height:30rpx;margin-left:10rpx;' src='../../../images/icon/icon_right.png'></image>
+                      <image class="icon_right_m" src='../../../images/icon/icon_right.png'></image>
                 </view>
            </view>
            <view class='otherList' style='padding-top:50rpx;'>
@@ -70,12 +70,12 @@
         <navigator class='content_box width90 {{index == 0 || index==1 || index== 3 ? "borderACtive":""}}' hover-class='none' url='{{item.path}}'>
             <view class='dpfb width100'>
                 <view class='dpf'>
-                    <view class='icon_box marginRight'>
+                    <view class='marginRight {{index == 1 ? "reelIcon":"icon_box"}}'>
                         <image src="{{item.icon}}"></image>
                     </view>
                     <view class='fontSize-30 color1'>{{item.title}}</view>
                 </view>
-                <image  style='width:15rpx;height:30rpx;margin-left:10rpx;' src='../../../images/icon/icon_right.png'></image>
+                <image class="icon_right_left" src='../../../images/icon/icon_right.png'></image>
             </view>
         </navigator>
     </view>

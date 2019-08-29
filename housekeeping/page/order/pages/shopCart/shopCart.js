@@ -368,7 +368,7 @@ Page({
        
     },
     // 移到收藏夹
-    changeCart(res) {
+    collectCreated(res) {
         console.log(res)
         let that = this,
             params = {

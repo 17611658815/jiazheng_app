@@ -25,7 +25,6 @@ Page({
      * 生命周期函数--监听页面加载
      */
     onLoad: function (options) {
-        
         let that = this;
         that.setData({
             mid: options.mid,
@@ -33,8 +32,13 @@ Page({
             cart_id:options.cartid,
             isIphoneX: app.globalData.isIphoneX,
         })
-        
         that.getbuyCart()
+    },
+    /**
+    * 生命周期函数--监听页面显示
+    */
+    onShow: function () {
+        this.getaddresList()
     },
     // 获取用户地址
     getaddresList() {
@@ -84,15 +88,12 @@ Page({
                 data: res.data.shopProjectData,
                 address_id: res.data.addressid
             })
-
             console.log(res.data.shopProjectData['1'].Data)
-            
         })
     },
     //立即购买
     goPayment(e) {
         let that = this,
-
           params = {
                 mid: that.data.mid,// 用户ID
                 cart_id: that.data.cart_id,//购物车id
@@ -119,7 +120,6 @@ Page({
                 })
             }
         }) 
-
     },
     /**
      * 生命周期函数--监听页面初次渲染完成
@@ -128,12 +128,7 @@ Page({
 
     },
 
-    /**
-     * 生命周期函数--监听页面显示
-     */
-    onShow: function () {
-        this.getaddresList()
-    },
+   
 
     /**
      * 生命周期函数--监听页面隐藏

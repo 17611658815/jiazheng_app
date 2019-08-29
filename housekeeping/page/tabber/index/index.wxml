@@ -97,7 +97,7 @@
                 <view class='fontSize-36 fontWeight5'>{{item.name}}</view>
                   <navigator hover-class='none' url='../../classnav/pages/cleaningList/cleaningList?id={{item.id}}'>
                 <view class='fontSize-24 color3 dpf'>更多
-                    <image style='width:15rpx;height:25rpx;margin-left:10rpx;' src='../../../images/icon/icon_right.png'></image>
+                    <image class="icon_right_m" src='../../../images/icon/icon_right.png'></image>
                 </view>
                 </navigator>
             </view>
@@ -124,7 +124,7 @@
             <view class='home-class-server-item-title width90'>
                 <view class='fontSize-36 fontWeight5'>会员福利</view>
                 <view class='fontSize-24 color3 dpf'>更多
-                    <image style='width:15rpx;height:25rpx;margin-left:10rpx;' src='../../../images/icon/icon_right.png'></image>
+                    <image class="icon_right_m" src='../../../images/icon/icon_right.png'></image>
                 </view>
             </view>
             <scroll-view scroll-x="true" class='vip_welfare'>

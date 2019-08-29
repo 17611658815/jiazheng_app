@@ -111,12 +111,15 @@ Page({
         }
         if (that.data.mobile == '' && that.data.mobile.length>11){
             app.alert('请输入正确的手机号~')
+            return;
         }
         if (that.data.multiId.length == 0){
             app.alert('请选择所在地区~')
+            return;
         }
         if (that.data.addresMsg == ''){
             app.alert('请输入详细地址~')
+            return;
         }
         app.net.$Api.saveaddres(params).then((res) => {
             wx.showToast({

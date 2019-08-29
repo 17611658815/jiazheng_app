@@ -2,21 +2,35 @@
 <view class='searchBox dpfC'>
     <view class='searchContent dpf width90'>
             <image class='marginRight' style='width:40rpx;height:40rpx' src='../../../images/icon/icon_search.png'></image>
-        <input style='text' placeholder='小区/写字楼/学校等'></input>
+        <input style='text' placeholder='小区 / 写字楼 / 学校等'></input>
     </view>
 </view>
 <view class='containerBox'>
     <view class='leftBox'>
-        <view class='leftitme {{index==currentTab ? "selseActive":""}}' data-index='{{index}}' data-id="{{item.id}}" bindtap='scrollToViewFn' wx:for='{{listArr}}' wx:key='key'>
+        <view class='leftitme {{index==currentTab ? "selseActive":""}}' 
+            data-index='{{index}}' 
+            data-id="{{item.id}}"
+            bindtap='scrollToViewFn' 
+            wx:for='{{listArr}}' 
+            wx:key='key'>
             <view class='{{index==currentTab ? "borderLeft":""}}'>{{item.name}}</view>
         </view>
     </view>
-    <scroll-view class="rightBox" style='height:{{winHeight}}px' scroll-into-view="{{toView}}" scroll-y="true" scroll-with-animation="true">
+    <scroll-view class="rightBox" 
+                style='height:{{winHeight}}px' 
+                scroll-into-view="{{toView}}" 
+                scroll-y="true" 
+                scroll-with-animation="true">
         <view class='contenItem width90' id="{{'toView'+item.id}}" wx:for-index="index"  wx:key='key'>
                 <!-- 推荐样式 -->
                 <view class='right_title_1 fontWeight5'>为您推荐</view>
                 <view class='conten_cover'>
-                    <view class='conten_cover_box' data-id='{{item.id}}' bindtap="gocleaningDetails" wx:for='{{recommendData}}' wx:for-index="keys" wx:key='key'>
+                    <view class='conten_cover_box' 
+                        data-id='{{item.id}}' 
+                        bindtap="gocleaningDetails" 
+                        wx:for='{{recommendData}}' 
+                        wx:for-index="keys" 
+                        wx:key='key'>
                          <image src='{{item.data.pic}}'></image>
                          <!-- 为您推荐 -->
                         <view class='hotTitle dpf' wx:if='{{index == 0}}'>
@@ -33,11 +47,16 @@
                 <view class='right_title_1 dpfb'>
                     <view class='fontSize-32 color1 fontWeight5'>{{listArr[currentTab].name}}</view>
                     <view class='fontSize-24 color3 dpf'>更多
-                        <image style='width:15rpx;height:25rpx;margin-left:10rpx;' src='../../../images/icon/icon_right.png'></image>
+                        <image class="icon_right_m" src='../../../images/icon/icon_right.png'></image>
                      </view>
                 </view>
                 <view class='conten_cover'>
-                    <view class='conten_cover_box' data-id='{{item.id}}' bindtap="gocleaningDetails" wx:for='{{listArr[currentTab].sontype}}' wx:for-index="keys" wx:key='key'>
+                    <view class='conten_cover_box' 
+                        data-id='{{item.id}}' 
+                        bindtap="gocleaningDetails" 
+                        wx:for='{{listArr[currentTab].sontype}}' 
+                        wx:for-index="keys" 
+                        wx:key='key'>
                          <image src='{{item.thumb}}'></image>
                          <!-- 为您推荐 -->
                         <view class='hotTitle dpf' wx:if='{{index == 0}}'>

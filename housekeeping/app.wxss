@@ -191,7 +191,16 @@ page {
     height: 26rpx;
     margin-right: 10rpx;
 }
-
+.icon_right_left{
+    width:15rpx;
+    height:30rpx;
+    margin-left:10rpx;
+}
+.icon_right_m{
+    width:10rpx;
+    height:20rpx;
+    margin-left:10rpx;
+}
 .leaberBox {
     padding: 7rpx 8rpx;
     background: #f4f5f7;
