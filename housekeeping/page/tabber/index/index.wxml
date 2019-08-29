@@ -76,14 +76,14 @@
                     <image src='../../../images/logo/bg_2.png'></image>
                     <view class='activity_title'>限时秒杀</view>
                     <view class='activity_text'>
-                        <text style='margin-right:20rpx;'>限量优惠</text>
+                        <text class="marginRight">限量优惠</text>
                         <text>先抢先得</text> </view>
                 </view>
                 <view>
                     <image src='../../../images/logo/bg_3.png'></image>
                     <view class='activity_title'>特惠精选</view>
                     <view class='activity_text'>
-                        <text style='margin-right:20rpx;'>优质服务</text>
+                        <text class="marginRight">优质服务</text>
                         <text>低至五折</text>
                     </view>
                 </view>

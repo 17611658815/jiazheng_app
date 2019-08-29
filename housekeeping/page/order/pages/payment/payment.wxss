@@ -32,3 +32,9 @@ page{
     left: 50%;
     transform: translate(-50%,-50%)
 }
+.icno_wxplay{
+    width:38rpx;
+    height:38rpx;
+    margin:0 20rpx; 
+    display: block
+}

@@ -20,8 +20,8 @@
                 <view class='technician_distance dpf'>
                      <view class='technician_distance_left dpf'>
                         <image class='icon_common2' src='../../../../images/icon/icon_common2.png'></image>
-                        <text style='margin:0rpx 10rpx' class='fontSize-22 color3'>大众工匠</text>
-                        <image style="height:20rpx;width:10rpx;" src='../../../../images/icon/icon_right.png'></image>
+                        <text  class='fontSize-22 color3'>大众工匠</text>
+                        <image class="icon_right_m" src='../../../../images/icon/icon_right.png'></image>
                     </view>
                     <view class='fontSize-22 color3 dpf'>
                          <image class='icon_GPS' src='../../../../images/icon/icon_GPS.png'></image>2.3km
@@ -73,7 +73,7 @@
                 <text class='leaberBox'>服务专业</text>
                 <text class='leaberBox'>态度满意</text>
             </view>
-            <view style='padding:27rpx 0' class='fontSize28 color1'>
+            <view class="padding30" class='fontSize28 color1'>
                 小哥哥特别专业,打扫的很干净噢
             </view>
             <view class='fontSize-26 color3'>

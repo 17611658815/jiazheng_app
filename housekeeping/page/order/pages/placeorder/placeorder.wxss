@@ -60,3 +60,9 @@ textarea{
     font-size: 32rpx;
     background: #5994f7;
 }
+.icno_wxplay{
+    width:38rpx;
+    height:38rpx;
+    margin:0 20rpx;
+     display: block;
+}

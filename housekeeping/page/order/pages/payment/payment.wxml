@@ -16,7 +16,7 @@
         <view style='width:95%' class='dpf'>
             <view class='fontSize-30 color3'>支付方式</view>
             <view class='dpf'>
-                <image style='width:38rpx;height:38rpx;margin:0 20rpx; display: block' src='../../../../images/icon/icno_wxplay.png'></image>
+                <image class="icno_wxplay" src='../../../../images/icon/icno_wxplay.png'></image>
                 <text class='fontSize-30 color1'>微信支付</text>
             </view>
         </view>

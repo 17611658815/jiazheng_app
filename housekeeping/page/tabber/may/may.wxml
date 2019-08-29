@@ -39,28 +39,28 @@
                         <!-- 待付款 -->
                         <image src='../../../images/icon/icon_DD_1.png'></image>
                     </view>
-                    <view style='padding-top:30rpx;' class='fontSize-26 color1'>待付款</view>
+                    <view class='fontSize-26 color1 paddingTop30'>待付款</view>
                 </view>
                 <view class='other_nav_item' data-type="2"  data-current="1" bindtap="goOtherType">
                     <view class='other_nav_icon'>
                         <!-- 进行中 -->
                         <image src='../../../images/icon/icon_DD_2.png'></image>
                     </view>
-                    <view style='padding-top:30rpx;' class='fontSize-26 color1'>进行中</view>
+                    <view class='fontSize-26 color1 paddingTop30'>进行中</view>
                 </view>
                 <view class='other_nav_item' data-type="4"  data-current="2" bindtap="goOtherType">
                     <view class='other_nav_icon'>
                         <!-- 已完成 -->
                         <image src='../../../images/icon/icon_DD_4.png'></image>
                     </view>
-                    <view style='padding-top:30rpx;' class='fontSize-26 color1'>已完成</view>
+                    <view class='fontSize-26 color1 paddingTop30'>已完成</view>
                 </view>
                 <view class='other_nav_item' data-type="8"  data-current="3" bindtap="goOtherType">
                     <view class='other_nav_icon'>
                         <!-- 已取消 -->
                         <image src='../../../images/icon/icon_DD_3.png'></image>
                     </view>
-                    <view style='padding-top:30rpx;' class='fontSize-26 color1'>已取消</view>
+                    <view class='fontSize-26 color1 paddingTop30'>已取消</view>
                 </view>
            </view>
         </view>

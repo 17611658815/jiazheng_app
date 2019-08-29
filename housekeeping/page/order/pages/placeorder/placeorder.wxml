@@ -7,7 +7,7 @@
                 <image class='icon_GPS' style='margin-right:10rpx' src='../../../../images/icon/icon_GPS.png'></image> 请选择服务地址
             </view>
             <view>
-                <image style='width:15rpx;height:25rpx;margin-left:10rpx;' src='../../../../images/icon/icon_right.png'></image>
+                <image class="icon_right_left" src='../../../../images/icon/icon_right.png'></image>
             </view>
         </view>
         <view style='width:95%' class='dpfC'  bindtap='goAddress' wx:else>
@@ -16,7 +16,7 @@
                     <image class='icon_GPS' style='margin-right:10rpx' src='../../../../images/icon/icon_GPS.png'></image> {{addresList[0].address}}
                 </view>
                 <view>
-                    <image style='width:15rpx;height:25rpx;margin-left:10rpx;' src='../../../../images/icon/icon_right.png'></image>
+                    <image class="icon_right_left" src='../../../../images/icon/icon_right.png'></image>
                 </view>
             </view>
             <view  class='address_info fontSize-24 color1' style='width:90%'>
@@ -57,14 +57,14 @@
             <view class='dpf'>
                 <text style='margin-right:10rpx' class='fontSize-26 color1'>最近可约</text>
                 <text class='fontSize-26 color4'>{{day}}  {{time}}</text>
-                <image style='width:15rpx;height:25rpx;margin-left:10rpx;' src='../../../../images/icon/icon_right.png'></image>
+                <image class="icon_right_left" src='../../../../images/icon/icon_right.png'></image>
             </view>
         </view>
         <view class='dpfb' bindtap='goCoupon'>
             <view class='fontSize-32 color1'>优惠卷</view>
             <view class='dpf'>
                 <text class='fontSize-26 color3'>{{otherData.shopMemberCouponNum == 0 ? "暂无优惠卷" : otherData.shopMemberCouponNum}}</text>
-                <image style='width:15rpx;height:25rpx;margin-left:10rpx;' src='../../../../images/icon/icon_right.png'></image>
+                <image class="icon_right_left" src='../../../../images/icon/icon_right.png'></image>
             </view>
         </view>
     </view>
@@ -73,7 +73,7 @@
         <view  class='dpf width90'>
             <view class='fontSize-30 color3'>支付方式</view>
             <view class='dpf'>
-                <image style='width:38rpx;height:38rpx;margin:0 20rpx; display: block' src='../../../../images/icon/icno_wxplay.png'></image>
+                <image class="icno_wxplay" src='../../../../images/icon/icno_wxplay.png'></image>
                 <text class='fontSize-30 color1'>微信支付</text>
             </view>
         </view>

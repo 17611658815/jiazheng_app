@@ -10,17 +10,17 @@ App({
                 }
             }
         })
-        // this.checkauth()
+        this.checkauth()
         // this.getUserLocation()
     },
     checkauth: function () {
         var that = this;
         wx.getSetting({
             success(res) {
-                if (!res.authSetting['scope.userLocation']) {
+                // if (!res.authSetting['scope.userLocation']) {
                     wx.showModal({
-                        title: '提示',
-                        content: '录音功能需要您的授权',
+                        title: '请求授权当前位置',
+                        content: '需要获取您的地理位置，请确认授权',
                         success: function (res) {
                             if (res.confirm) {
                                 wx.authorize({
@@ -44,7 +44,7 @@ App({
                             }
                         }
                     })
-                }
+                // }
             }
         })
     },

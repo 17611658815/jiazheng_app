@@ -17,6 +17,9 @@ page{
     background: #f9e9e4;
     
 }
+.paddingTop30{
+    padding-top: 30rpx;
+}
 .padding40{
     padding: 40rpx 0;
 }

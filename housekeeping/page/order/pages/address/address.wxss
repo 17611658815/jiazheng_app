@@ -62,5 +62,5 @@ page{
     font-size: 32rpx;
     border-radius: 44rpx;
     margin-top: 80rpx;
-    border: 1rpx solid #6297f3;
+    border: 1.5rpx solid #6297f3;
 }
