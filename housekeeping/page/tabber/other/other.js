@@ -7,7 +7,6 @@ Page({
      */
     data: {
         mid:0,//用户id
-        // otherArr:[{msg:'待付款',type:1},{msg:'进行中',type:2},{msg:'已完成',type:3},{msg:'已取消',type:4}]
         otherArr:[],
         status:0,
         page:0,
@@ -205,7 +204,7 @@ Page({
     }, */
     formatTime(date) {
         var year = date.getFullYear();
-        var month = date.getMonth() + 1;
+        var month = (date.getMonth() + 1) < 10 ? '0' + (date.getMonth() + 1) : (date.getMonth() + 1);
         var day = date.getDate();
         var hour = date.getHours();
         var minute = date.getMinutes() < 10 ? '0' + date.getMinutes() : date.getMinutes();

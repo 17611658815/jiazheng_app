@@ -12,7 +12,11 @@ Page({
         projectid:0,//
         isIphoneX:false,
         otherObj:{},//订单详情
-        progressArr: [{ name: '派单中', flag: true }, { name: '已接单', flag: true }, { name: '服务中', flag: true }, { name: '已完成', flag: false }] 
+        progressArr: [
+        { name: '派单中', flag: true }, 
+        { name: '已接单', flag: true },
+        { name: '服务中', flag: true }, 
+        { name: '已完成', flag: false}] 
     },
 
     /**

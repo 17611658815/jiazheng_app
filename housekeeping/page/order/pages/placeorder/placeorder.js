@@ -47,11 +47,10 @@ Page({
      * 生命周期函数--监听页面加载
      */
     onLoad: function (options) {
-        let isIphoneX = app.globalData.isIphoneX;
         let data = JSON.parse(options.data);
         console.log(data)
         this.setData({
-            isIphoneX: isIphoneX,
+            isIphoneX: app.globalData.isIphoneX,
             pid: data.pid,// 项目 / 产品ID 	
             mid: data.mid,//用户ID
             maktime: data.maktime,//预约时间

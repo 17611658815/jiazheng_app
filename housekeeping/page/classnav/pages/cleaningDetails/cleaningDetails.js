@@ -44,7 +44,7 @@ Page({
     },
     formatTime(date) {
         var year = date.getFullYear();
-        var month = date.getMonth() + 1;
+        var month = (date.getMonth() + 1) < 10 ? '0' + (date.getMonth() + 1) : (date.getMonth() + 1);
         var day = date.getDate();
         var hour = date.getHours();
         var minute = date.getMinutes() < 10 ? '0' + date.getMinutes() : date.getMinutes();
@@ -60,15 +60,15 @@ Page({
      */
     onLoad: function (options) {
         console.log(this.formatTime(new Date()))
-        let isIphoneX = app.globalData.isIphoneX;
         let userInfo = wx.getStorageSync('userinfo');
         this.setData({
-            isIphoneX: isIphoneX,
+            isIphoneX: app.globalData.isIphoneX,
             pid: options.id,
             time: this.formatTime(new Date())[1],//默认预约时间
             daynum: this.formatTime(new Date())[0],
             mid: userInfo.member_id || 0
         })
+        console.log(this.formatTime(new Date()))
         console.log('日期=>' + this.data.day, '日期num=>', this.data.daynum, 'time=>', this.data.time)
         this.getShopDetaile()
     },
