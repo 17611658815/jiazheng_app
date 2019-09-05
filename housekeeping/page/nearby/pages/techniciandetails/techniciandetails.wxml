@@ -73,7 +73,7 @@
                 <text class='leaberBox'>服务专业</text>
                 <text class='leaberBox'>态度满意</text>
             </view>
-            <view class="padding30" class='fontSize28 color1'>
+            <view class='fontSize28 color1 padding30'>
                 小哥哥特别专业,打扫的很干净噢
             </view>
             <view class='fontSize-26 color3'>

@@ -1,0 +1,58 @@
+<view class="contBox">
+    <!-- 头部 -->
+    <view class='dpfC width90'>
+        <view class='home-content-header dpf'>
+            <view style='flex:1;' bindtap="goMapPage">
+                <view class='dpf fontSize-32 color1'>
+                    <view class="picker">
+                        {{loactioninfo.originalData.result.addressComponent.city}}
+                    </view>
+                    <image style="margin:0 10rpx;width:40rpx;height:40rpx;" src='../../../images/icon/icon_down_2.png'></image>
+                </view>
+            </view>
+            <view class='home-content-search'>
+                <image class='icon_search' src='../../../images/icon/icon_search.png'></image>
+                <input class="searchInput" auto-focus type="text" bindinput="bindKeyInput" placeholder="小区 / 写字楼 / 学校等"></input>
+            </view>
+        </view>
+
+        <view class="sug_info width100" wx:for='{{sugData}}' wx:key='key'>
+            <text>{{item.name}}</text>
+        </view>
+    </view>
+    <view class="dpf width90 fontSize-28 color3">
+        <image class="location_icon marginRight10" src="../../../images/icon/location_icon.png"></image>
+        当前定位
+    </view>
+    <view class="dpfb width90 padding20">
+        <view class="fontSize-30 color1 fontWeight5 white_noWrap addresName">
+            <image class="location_icon" src=""></image>
+            {{loactioninfo.wxMarkerData[0].desc}}
+        </view>
+        <view class="dpf fontSize-28 color3" bindtap="newloactioninfo">
+            <image class="location_icon_A marginRight10" src="../../../images/icon/location_icon_A.png"></image>
+            重新定位
+        </view>
+    </view>
+</view>
+
+<view class="dpfC width100 marginTop padding30">
+    <view class="dpf width90 fontSize-28 color3">
+        <image class="location_icon marginRight10" src="../../../images/icon/house_icon.png"></image>
+        我的上门地址
+    </view>
+    <view class="width90 fontSize-30 color2 marginTop">
+        <image class="location_icon" src=""></image>
+        您还没有添加过上门地址哦～
+    </view>
+</view>
+<view class="dpfC width100 marginTop">
+    <view class="dpf width90 fontSize-28 color3" style="padding-top:30rpx;">
+        <image class="icon_GPS_2 marginRight20" src="../../../images/icon/icon_GPS.png"></image>
+        附近位置
+    </view>
+    <view class="nearbyaddres padding30 width90" bindtap="Selectlocation" data-item='{{item}}' wx:for='{{loactioninfo.originalData.result.pois}}' wx:key='key'>
+        <view class="fontSize-30 color1 fontWeight5">{{item.name}}</view>
+        <view class="fontSize-26 color3 marginTop10">{{item.addr}}</view>
+    </view>
+</view>

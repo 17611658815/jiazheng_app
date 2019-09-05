@@ -1,8 +1,11 @@
 //index.js
 //获取应用实例
 const app = getApp()
+const bmap = require('../../../utils/bmap-wx.min.js');
+var wxMarkerData = [];  //定位成功回调对象  
 Page({
     data: {
+        LocateName:'请选择您的位置',
         homePicData:{},//轮播图片
         index: 0,
         array: ['北京城市学院', '北京城市学院', '北京城市学院', '北京城市学院'],
@@ -73,10 +76,60 @@ Page({
                 text1: '抽奖',
                 text2: '免单等你来'
             }
-        ]
+        ],
+       
+        markers: [],
+        longitude: '',   //经度  
+        latitude: '',    //纬度  
+        address: '',     //地址  
+        cityInfo: {},     //城市信息
+        rgcData:{},
+    },
+    onLoad(){
+        var that = this;
+        var BMap = new bmap.BMapWX({
+            ak: 'jTvAgQfAwt9QHpu2DocWiOg7mR1UQI8A'
+        });
+
+        wx.getLocation({
+            type: 'wgs84',
+            success: function (res) {
+               
+                that.setData({
+                    latitude: res.latitude,//经度
+                    longitude: res.longitude//纬度
+                })
+                console.log(res,'经纬度')
+                BMap.regeocoding({
+                    location: that.data.latitude + ',' + that.data.longitude,
+                    success: function (res) {
+                        console.log(res)
+                        wxMarkerData = res.wxMarkerData;
+                        app.globalData.loactioninfo = res
+                        app.globalData.LocateName = res.wxMarkerData[0].desc
+                        that.setData({
+                            LocateName: res.wxMarkerData[0].desc
+                        })
+                    },
+                    fail: function () {
+                        wx.showToast({
+                            title: '请检查位置服务是否开启',
+                        })
+                    },
+                });
+            },
+            fail: function () {
+                console.log('小程序得到坐标失败')
+            }
+        })
+        
+       
     },
     onShow(){
         let that = this;
+        that.setData({
+            LocateName: app.globalData.LocateName
+        })
         that.getindexImg()
     },
     // 获取首页图片
@@ -104,6 +157,13 @@ Page({
             url: '/page/classnav/pages/cleaningDetails/cleaningDetails?id=' + id,
         })
     },
+    // 去选择定位
+    goMapPage(){
+        wx.navigateTo({
+            url: '/page/tabber/mappage/mappage',
+        })
+    },
+    // 选择定位
     bindPickerChange: function(e) {
         console.log('picker发送选择改变，携带值为', e.detail.value)
         this.setData({

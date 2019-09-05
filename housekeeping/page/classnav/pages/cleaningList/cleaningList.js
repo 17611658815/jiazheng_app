@@ -79,7 +79,7 @@ Page({
                 nums: that.data.nums,//获取条数
                 page: that.data.page,// 页码
             }
-        app.loading()
+            app.loading('加载中')
         app.net.$Api.getTypeList(params).then((res) => {
             wx.hideLoading();
             if (res.data.data.length>0){

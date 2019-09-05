@@ -47,7 +47,7 @@ Page({
                 status: that.data.status,
                 num: that.data.num,
             }
-        app.loading()
+            app.loading('加载中')
         app.net.$Api.getorderList(params).then((res) => {
             wx.hideLoading();
             console.log(res)

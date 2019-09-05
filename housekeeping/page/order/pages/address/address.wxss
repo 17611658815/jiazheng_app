@@ -45,10 +45,14 @@ page{
 
 /* 暂无可用地址 */
 .noAddres_icon{
-    width: 300rpx;
-    height: 200rpx;
+    width: 290rpx;
+    height: 230rpx;
     margin-top: 230rpx;
     background: #6297f3;
+}
+.noAddres_icon image{
+    width: 100%;
+    height: 100%;
 }
 .noAddres_text{
     margin-top: 100rpx;
@@ -62,5 +66,5 @@ page{
     font-size: 32rpx;
     border-radius: 44rpx;
     margin-top: 80rpx;
-    border: 1.5rpx solid #6297f3;
+    border: 2rpx solid #6297f3;
 }

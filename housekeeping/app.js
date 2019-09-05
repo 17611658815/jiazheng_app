@@ -10,7 +10,7 @@ App({
                 }
             }
         })
-        this.getUserLocation()
+        // this.getUserLocation()
     },
     // 获取地图信息
      getUserLocation() {
@@ -46,6 +46,7 @@ App({
         wx.getLocation({
             type: 'wgs84',
             success:function(res){
+                that.globalData.location = res
                 console.log(res,51)
             }
         })
@@ -55,15 +56,18 @@ App({
         isIphoneX: false,
         AppSecret: 'e59d0cdd609f571d478f9b482a55cea3',
         AppID: 'wx2490759807dcf531',
+        ak: "jTvAgQfAwt9QHpu2DocWiOg7mR1UQI8A", //填写申请到的ak  
+        loactioninfo:{},
+        LocateName: '请选择您的位置',
     },
     //挂载网络请求api
     net: {
         $Api: Api.api,
     },
-    loading: function() {
+    loading: function(content) {
         wx.showLoading({
             mask: true,
-            title: '加载中',
+            title: content,
             icon: 'loading',
         })
     },

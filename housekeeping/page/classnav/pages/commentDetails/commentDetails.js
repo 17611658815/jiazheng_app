@@ -26,7 +26,7 @@ Page({
             params = {
                 cid: that.data.id
             }
-        app.loading()
+            app.loading('加载中')
         app.net.$Api.commDetails(params).then((res) => {
             wx.hideLoading();
             console.log(res)

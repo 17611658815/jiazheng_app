@@ -3,7 +3,8 @@
         "page/tabber/index/index",
         "page/tabber/other/other",
         "page/tabber/classify/classify",
-        "page/tabber/may/may"
+        "page/tabber/may/may",
+        "page/tabber/mappage/mappage"
     ],
     "window": {
         "backgroundTextStyle": "light",
@@ -87,7 +88,7 @@
     "sitemapLocation": "sitemap.json",
     "permission": {
         "scope.userLocation": {
-            "desc": "你的位置信息将用于小程序位置接口的效果展示"
+            "desc": "获取您当前位置信息"
         }
     }
 }

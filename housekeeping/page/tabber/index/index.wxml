@@ -3,15 +3,24 @@
     <view class='dpfC width90'>
         <!-- 头部 -->
         <view class='home-content-header dpf'>
-            <picker style='flex:1;' bindchange="bindPickerChange" value="{{index}}" range="{{array}}">
+            <!-- <picker style='flex:1;' bindchange="bindPickerChange" value="{{index}}" range="{{array}}">
                 <view class='dpf fontSize-32 color1'>
                     <image class='icon_GPS' src='../../../images/icon/icon_GPS.png'></image>
                     <view class="picker">
                         {{array[index]}}
                     </view>
-                    <image class='icon_down' src='../../../images/icon/icon_down.png'></image>
+                    <image class='icon_down marginRight' src='../../../images/icon/icon_down.png'></image>
                 </view>
-            </picker>
+            </picker> -->
+            <view style='flex:1;' bindtap="goMapPage">
+                <view class='dpf fontSize-32 color1'>
+                    <image class='icon_GPS' src='../../../images/icon/icon_GPS.png'></image>
+                    <view class="picker">
+                       {{LocateName}}
+                    </view>
+                    <image class='icon_down' style="margin:0 10rpx" src='../../../images/icon/icon_down.png'></image>
+                </view>
+            </view>
             <view class='home-content-search'>
                 <image class='icon_search' src='../../../images/icon/icon_search.png'></image>
                 快速搜索商家，服务

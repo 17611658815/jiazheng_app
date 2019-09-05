@@ -67,7 +67,7 @@ Page({
             params = {
                 mid: that.data.mid,//客户ID
             }
-        app.loading()
+            app.loading('加载中')
         app.net.$Api.addresList(params).then((res) => {
             wx.hideLoading();
             console.log(res)
@@ -93,7 +93,7 @@ Page({
                 projectid: that.data.specid,
                 cart_id: that.data.cart_id
             }
-        app.loading()
+            app.loading('加载中')
         app.net.$Api.instantBuy(params).then((res) => {
             wx.hideLoading();
             console.log(res)

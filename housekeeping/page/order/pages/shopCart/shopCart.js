@@ -127,8 +127,8 @@ Page({
         let projectidstr = []
         for (var i = 0; i < CartData.length; i++) {
             if (CartData[i].checked) {
-                cartStr.push(CartData[i].id)
-                projectidstr.push(CartData[i].projectid)
+                cartStr.push(CartData[i].id) //购物车id数组
+                projectidstr.push(CartData[i].projectid) //项目id数组
                 sum += CartData[i].num * CartData[i].price
             }
         }

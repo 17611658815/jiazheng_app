@@ -37,7 +37,7 @@ Page({
                 page: that.data.page,
                 num: that.data.num,
             }
-        app.loading()
+            app.loading('加载中')
         app.net.$Api.getorderList(params).then((res) => {
             wx.hideLoading();
             console.log(res,555)
@@ -62,7 +62,7 @@ Page({
                 page: 0,
                 num: that.data.num,
             }
-        app.loading()
+            app.loading('加载中')
         app.net.$Api.getorderList(params).then((res) => {
             wx.hideLoading();
             console.log(res, 555)

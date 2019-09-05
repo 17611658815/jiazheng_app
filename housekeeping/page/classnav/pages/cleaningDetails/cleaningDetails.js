@@ -78,7 +78,7 @@ Page({
             params = {
                 pid: that.data.pid
             }
-        app.loading()
+        app.loading('加载中')
         app.net.$Api.getShopdetails(params).then((res) => {
             wx.hideLoading();
             console.log(res)

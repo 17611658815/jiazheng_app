@@ -142,7 +142,7 @@ export const api = {
     collect: function (paramObj) {
         return Promise.post(Url.default.collectUrl(), paramObj);
     },
-    // 添加收藏66667777
+    // 添加收藏
     collectCreated: function (paramObj) {
         return Promise.post(Url.default.collectCreatedUrl(), paramObj);
     },

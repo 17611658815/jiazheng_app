@@ -128,6 +128,9 @@ page {
 .padding30{
     padding: 30rpx 0;
 }
+.marginTop10{
+    margin-top: 10rpx;
+}
 .marginTop{
     margin-top: 20rpx;
 }
@@ -146,7 +149,6 @@ page {
 .borderTop {
     border-top: 1rpx solid #e2e2e2;
 }
-
 .btnStyle {
     width: 100%;
     height: 98rpx;

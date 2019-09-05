@@ -14,6 +14,7 @@ page{
     min-width: 150rpx;
 }
 input{
+    flex: 1;
     font-size: 30rpx;
     color: #333333;
 }

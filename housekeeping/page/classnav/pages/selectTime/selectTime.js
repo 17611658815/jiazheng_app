@@ -59,7 +59,7 @@ Page({
             params = {
                 pid: that.data.pid
             }
-        app.loading()
+            app.loading('加载中')
         app.net.$Api.getShopTime(params).then((res) => {
             wx.hideLoading();
             console.log(res)

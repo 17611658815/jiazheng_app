@@ -14,7 +14,7 @@ Page({
         selected:false,//只看当前选中状态
         on_off:false,//下拉开关
         currentTab:0,// 好评/中评/差评/筛选/当前选中项
-        isIphoneX:false,
+        isIphoneX:false,//判断iphoneX
         commentArr: ['全部', '好评', '中评', '差评','投诉'],
         isfocus: false,//评论文本框
         bottom:'',//文本框据底部距离
@@ -34,7 +34,6 @@ Page({
             shopid: optData.shopid,//店铺ID
             optData: optData
         })
-        console.log(optData)
         this.getcommentList()
     },
     oncommentMsg(e){
@@ -50,7 +49,7 @@ Page({
         let imgArr = e.currentTarget.dataset.img
         wx.previewImage({
             current: imgArr,     //当前图片地址
-            urls: imgArr,               //所有要预览的图片的地址集合 数组形式
+            urls: imgArr,       //所有要预览的图片的地址集合 数组形式
         })
     },
     //添加购物车
@@ -146,7 +145,6 @@ Page({
             return;
         }
         app.net.$Api.addCart(params).then((res) => {
-            console.log(res)
             data.cart_id = res.data.cart_id
             if (res.data.code == 200) {
                 wx.navigateTo({
@@ -168,8 +166,8 @@ Page({
             pid: that.data.pid,//用户ID
             shopid: that.data.shopid,//项目/产品/服务人员ID
             nums: that.data.nums,//订购数
-            page: that.data.page,//项目/产品规格
-            type: that.data.type,//项目/产品规格
+            page: that.data.page,//页码
+            type: that.data.type,//类型
         }
         app.net.$Api.getcommentList(params).then((res) => {
             console.log(res)

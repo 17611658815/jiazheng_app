@@ -38,4 +38,4 @@
      placeholder-style='color:#9a9a9a; font-size: 14px;padding-left:20rpx;' />
 </view>
 <!-- 底部加入购物车 -->
-   <add-shop-cart bind:addCart='onaddCart' bind:instantBuy='oninstantBuy' wx:else></add-shop-cart>
+<add-shop-cart bind:addCart='onaddCart' bind:instantBuy='oninstantBuy' wx:else></add-shop-cart>
