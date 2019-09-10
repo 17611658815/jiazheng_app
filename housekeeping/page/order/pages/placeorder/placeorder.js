@@ -70,9 +70,9 @@ Page({
             app.loading('加载中')
         app.net.$Api.addresList(params).then((res) => {
             wx.hideLoading();
-            console.log(res)
+            console.log(res,73)
             if (res.data.code == 200) {
-                this.setData({
+                that.setData({
                     addresList: res.data.Data,
                     address_id: res.data.Data[0].id || 0,
                 })
@@ -93,15 +93,15 @@ Page({
                 projectid: that.data.specid,
                 cart_id: that.data.cart_id
             }
-            app.loading('加载中')
+        app.loading('加载中')
         app.net.$Api.instantBuy(params).then((res) => {
             wx.hideLoading();
-            console.log(res)
+            console.log(res.data.Data,99)
             if (res.data.code == 200) {
                 that.setData({
                     otherData:res.data.Data,
                     count: res.data.Data.number,//数量
-                    total: res.data.Data.price * res.data.Data.number.toFixed(2),//合计
+                    total: (res.data.Data.price/1 * res.data.Data.number/1).toFixed(2),
                       day: res.data.Data.maktime.slice(11, 13),//截取 周几
                      time: res.data.Data.maktime.slice(14, 19),//时间
                     price: res.data.Data.price,

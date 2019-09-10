@@ -8,7 +8,7 @@
         duration="1000" 
         interval="5000">
         <swiper-item wx:for='{{3}}' wx:key='key'>
-            <image src='{{shopDetailed.projectData.thumb}}'></image>
+            <image mode='aspectFill' src='{{shopDetailed.projectData.thumb}}'></image>
         </swiper-item>
     </swiper>
     </view>
@@ -107,20 +107,11 @@
         <view class='fontWeight5 paddingBtm width90'>服务详情</view>
         <view class='service-details-content dpfC width90'>
             <view class='service-details-content-name fontSize28 dpf width90 marginTop'>
-                <text class='color3'>被里面料俗称</text>
-                <text class='color1'>法兰绒</text>
-            </view>
-            <view class='service-details-content-name fontSize28 dpf width90 marginTop'>
-                <text class='color3'>被里面料俗称</text>
-                <text class='color1'>法兰绒</text>
-            </view>
-            <view class='service-details-content-name fontSize28 dpf width90 marginTop'>
-                <text class='color3'>被里面料俗称</text>
-                <text class='color1'>法兰绒</text>
+                <rich-text nodes="{{shopDetailed.projectData.content}}"></rich-text>
             </view>
         </view>
         <view class='service-details-msg fontSize-28 color2 width90'> 
-            被里面料俗称被里面料俗称被里面料俗称被里面料俗称被里面料俗称被里面料俗称被里面料俗称被
+            <rich-text nodes="{{shopDetailed.projectData.describe}}"></rich-text>
         </view>
     </view>
     <!-- 为你推荐 -->

@@ -45,7 +45,7 @@ Page({
     formatTime(date) {
         var year = date.getFullYear();
         var month = (date.getMonth() + 1) < 10 ? '0' + (date.getMonth() + 1) : (date.getMonth() + 1);
-        var day = date.getDate();
+        var day = date.getDate() < 10 ? '0' + date.getDate() : date.getDate();
         var hour = date.getHours();
         var minute = date.getMinutes() < 10 ? '0' + date.getMinutes() : date.getMinutes();
         var second = date.getSeconds();
@@ -81,7 +81,8 @@ Page({
         app.loading('加载中')
         app.net.$Api.getShopdetails(params).then((res) => {
             wx.hideLoading();
-            console.log(res)
+            res.data.Data.projectData.content = res.data.Data.projectData.content.replace(/\<img/gi, '<img class="rich-img" ')
+
             if(res.data.code == 200){
                 that.setData({
                     shopDetailed: res.data.Data

@@ -88,13 +88,12 @@ Page({
     onLoad(){
         var that = this;
         var BMap = new bmap.BMapWX({
-            ak: 'jTvAgQfAwt9QHpu2DocWiOg7mR1UQI8A'
+            ak: app.globalData.ak
         });
 
         wx.getLocation({
             type: 'wgs84',
             success: function (res) {
-               
                 that.setData({
                     latitude: res.latitude,//经度
                     longitude: res.longitude//纬度

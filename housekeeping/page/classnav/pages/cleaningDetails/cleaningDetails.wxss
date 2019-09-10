@@ -169,3 +169,6 @@ page{
 .paddingBtm{
     padding-bottom: 30rpx;
 }
+.rich-img{
+    width: 100%;
+}

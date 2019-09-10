@@ -81,14 +81,12 @@ Page({
                 cartidstr: that.data.cartidstr, 
             }
         app.net.$Api.buycart(params).then((res) => {
-            console.log(res)
             that.setData({
                 addres: res.data.address,
                 price_h: res.data.price_h,
                 data: res.data.shopProjectData,
                 address_id: res.data.addressid
             })
-            console.log(res.data.shopProjectData['1'].Data)
         })
     },
     //立即购买
@@ -102,7 +100,6 @@ Page({
                 address_id: that.data.address_id, //会员常用地址ID对应
                 remark: that.data.textVal,//留言
             }
-        console.log(params)
          app.net.$Api.purchase(params).then((res) => {
              console.log(res,104)
             let data = res.data.Data

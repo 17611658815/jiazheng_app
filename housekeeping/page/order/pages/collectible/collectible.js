@@ -44,7 +44,7 @@ Page({
                 type: that.data.type[currentTab],
                 page: that.data.page,
                 num: that.data.num,
-            }
+            };
         app.net.$Api.collect(params).then((res) => {
             console.log(res)
             if (res.data.Data.length > 0) {
@@ -52,13 +52,11 @@ Page({
                     collectArr: that.data.collectArr.concat(res.data.Data)
                 })
             } else {
-                console.log('刷新了')
                 that.setData({
                     on_off: true
                 })
             }
         })
-        console.log(that.data.collectArr)
     },
     // 点击tab切换
     swichNav: function (e) {

@@ -5,11 +5,11 @@
             bindtap="goOtherDetails" class='width100 dpf'>
         <view class='otherPic'>
                 <!-- <image src='{{item.project_thumb}}'></image> -->
-                <image src='http://sj.dkjis.com/uploads/projectthumb/projectthumb20190717112743.jpg'></image>
+                <image src='{{item.projectthumb}}'></image>
         </view>
         <view class='otherText'>
             <view class='fontSize-32 color1 fontWeight5'>
-                {{item.projectname}}
+            <text>{{item.projectname}}</text>
             </view>
             <view>
                 <view class='fontSize-26 color2'>数量 : {{item.ordernum}}</view>

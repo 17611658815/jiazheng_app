@@ -104,5 +104,4 @@ page{
 }
 .daycheckedClass{
     color: #5994F7;
-    border-bottom: 5rpx solid #5994F7;
 }

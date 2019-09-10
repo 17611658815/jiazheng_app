@@ -5,8 +5,8 @@
             data-index='{{index}}' 
             data-day="{{item.day}}" 
             bindtap="selectDays" wx:key='key'>
-            <text class="fontSize-32 color1">{{item.day}}</text>
-            <text class="fontSize-22 color3">{{item.time}}</text>
+            <text class="fontSize-32">{{item.day}}</text>
+            <text class="fontSize-22">{{item.time}}</text>
         </view>
     </scroll-view>
     <view class='timer_content_time'>
