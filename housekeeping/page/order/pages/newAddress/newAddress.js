@@ -43,14 +43,12 @@ Page({
     },
     // 联系人姓名
     mobileInpt(e) {
-        console.log(e)
         this.setData({
             mobile: e.detail.value
         })
     },
     // 联系人姓名
     usernameInpt(e) {
-        console.log(e)
         this.setData({
             username: e.detail.value
         })

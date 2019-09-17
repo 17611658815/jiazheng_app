@@ -90,7 +90,6 @@ Page({
         var BMap = new bmap.BMapWX({
             ak: app.globalData.ak
         });
-
         wx.getLocation({
             type: 'wgs84',
             success: function (res) {
@@ -98,16 +97,15 @@ Page({
                     latitude: res.latitude,//经度
                     longitude: res.longitude//纬度
                 })
-                console.log(res,'经纬度')
                 BMap.regeocoding({
                     location: that.data.latitude + ',' + that.data.longitude,
                     success: function (res) {
                         console.log(res)
                         wxMarkerData = res.wxMarkerData;
                         app.globalData.loactioninfo = res
-                        app.globalData.LocateName = res.wxMarkerData[0].desc
+                        app.globalData.LocateName = res.originalData.result.formatted_address
                         that.setData({
-                            LocateName: res.wxMarkerData[0].desc
+                            LocateName: res.originalData.result.formatted_address
                         })
                     },
                     fail: function () {
@@ -126,6 +124,7 @@ Page({
     },
     onShow(){
         let that = this;
+        console.log(app.globalData.LocateName)
         that.setData({
             LocateName: app.globalData.LocateName
         })

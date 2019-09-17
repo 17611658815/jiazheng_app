@@ -26,5 +26,4 @@
         <view class='btnStyle' bindtap="wxpay">确定</view>
         <view class='isIphoneXBox' wx:if='{{isIphoneX}}'></view>
     </view>
-    
 </view>

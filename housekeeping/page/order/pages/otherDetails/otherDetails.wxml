@@ -14,7 +14,6 @@
                 <view class='status_box_item_icon'>
                     <image wx:if='{{status == 2 ||  status == 3 || status == 4}}' src="../../../../images/icon/order_status_2.png"></image>
                     <image wx:else src="../../../../images/icon/order_status_2_2.png"></image>
-
                 </view>
                 <view class='fontSize-24 color3 {{ status == 2 ||  status == 3 || status == 4 ? "color5":""}}'>已结单</view>
             </view>

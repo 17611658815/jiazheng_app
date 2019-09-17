@@ -4,7 +4,6 @@
         <view class='width90'>
             <view class='itembox dpf'>
                 <input placeholder='联系人' value="{{username}}" bindinput="usernameInpt" type='tetx'></input>
-
             </view>
             <view class='itembox dpf'>
                 <input placeholder='手机号码' value="{{mobile}}" bindinput="mobileInpt" type='number'></input>

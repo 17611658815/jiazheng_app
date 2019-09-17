@@ -9,7 +9,11 @@
             </view>
             <!-- 选择评价 -->
             <view class='evaluate_icon_content padding30'>
-                <view class='evaluate_icon_content_item' bindtap='selectEvaluate' data-index='{{index}}' wx:for='{{evaluateIcon}}' wx:key='key'>
+                <view class='evaluate_icon_content_item' 
+                    bindtap='selectEvaluate' 
+                    data-index='{{index}}' 
+                    wx:for='{{evaluateIcon}}' 
+                    wx:key='key'>
                     <image class='evaluate_icon_img' src='{{ evaluateCurrent == index ?item.newPath : item.oldPath }}'></image>
                     <view class='fontSize-24 color3' wx:if='{{evaluateCurrent == index}}'>{{item.text}}</view>
                 </view>

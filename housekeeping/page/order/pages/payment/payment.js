@@ -57,6 +57,7 @@ Page({
             }
         }, 1000);
     },
+    // 微信支付
     wxpay() {
         let that = this,
             params = {
@@ -82,6 +83,7 @@ Page({
             })
         })
     },
+    // 支付成功记录
     paybac(){
         let that = this,
             params = {

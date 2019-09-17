@@ -185,7 +185,6 @@ Page({
         })
     },
     upImgs: function (imgurl, index) {
-        console.log(imgurl)
         var that = this;
         wx.showLoading({
             title: '上传中',
@@ -223,8 +222,8 @@ Page({
     },
     //图片预览
     previewImg(e){
-        var that = this
-        var index = e.currentTarget.dataset.index
+        var that = this;
+        var index = e.currentTarget.dataset.index;
         wx.previewImage({
             current: that.data.imgs[index],     //当前图片地址
             urls: that.data.imgs,               //所有要预览的图片的地址集合 数组形式
@@ -232,8 +231,8 @@ Page({
     },
     //删除图片
     deletePic(e) {
-        var that = this
-        var index = e.currentTarget.dataset.index
+        var that = this;
+        var index = e.currentTarget.dataset.index;
         that.data.imgs.splice(index, 1);
         // that.data.picPaths.splice(index, 1)
         that.setData({

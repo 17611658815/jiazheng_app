@@ -106,7 +106,7 @@ Page({
     },
     goCommentMore() {
         let orderid = this.data.orderid;
-        let projectid = this.data.projectid
+        let projectid = this.data.projectid;
         wx.navigateTo({
             url: '/page/order/pages/evaluate/evaluate?orderid=' + orderid + "&projectid=" + projectid,
         })

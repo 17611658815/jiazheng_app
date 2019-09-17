@@ -198,7 +198,7 @@ Page({
     swatchChange(e){
         let index = e.currentTarget.dataset.index;
         this.setData({
-            type: e.currentTarget.dataset.index,
+            type: index,
             currentTab: index,
             commentMsgArr:[]
         })

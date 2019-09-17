@@ -5,10 +5,7 @@
         <text class='item_text fontSize-30 color1 {{currentTab == index ? "active":""}}'>{{item}}</text>
     </view>
 </view>
-<!-- <view style='height:120rpx'></view> -->
 <view class='container'>
-    <!-- 头部导航 -->
-
     <!-- 轮播滑动切换 -->
     <swiper current="{{currentTab}}" class="swiper-box" duration="300" style="height:{{winHeight}}px;" bindchange="bindChange">
         <swiper-item>

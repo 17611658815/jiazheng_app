@@ -89,6 +89,37 @@ Page({
          BMap.regeocoding({
             location: item.point.y + ',' + item.point.x,
             success: function (res) {
+                wx.hideLoading()
+                wxMarkerData = res.wxMarkerData;
+                app.globalData.LocateName = res.wxMarkerData[0].desc;
+                app.globalData.loactioninfo = res
+                that.setData({
+                    loactioninfo: res,
+                    LocateName: res.wxMarkerData[0].desc
+                },()=>{
+                    wx.navigateBack({
+                        delta: 1
+                    })
+                })
+              
+            },
+            fail: function () {
+                wx.showToast({
+                    title: '请检查位置服务是否开启',
+                })
+            },
+        }); 
+    },
+    // 选择附近位置
+    selectAddres(res){
+        let that = this;
+        var BMap = new bmap.BMapWX({
+            ak: app.globalData.ak
+        });
+        app.loading('定位中..')
+        /* BMap.regeocoding({
+            location: that.data.latitude + ',' + that.data.longitude,
+            success: function (res) {
                 wxMarkerData = res.wxMarkerData;
                 app.globalData.LocateName = res.wxMarkerData[0].desc;
                 app.globalData.loactioninfo = res
@@ -103,9 +134,8 @@ Page({
                     title: '请检查位置服务是否开启',
                 })
             },
-        }); 
+        }) */
     },
-
     onLoad: function () {
         var that = this;
         this.setData({
@@ -113,6 +143,4 @@ Page({
         })
         console.log(app.globalData.loactioninfo)
     },
-   
-
 })
