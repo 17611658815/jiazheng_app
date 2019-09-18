@@ -16,7 +16,7 @@
             </view>
         </view>
 
-        <view class="sug_info width100" wx:for='{{sugData}}' wx:key='key'>
+        <view class="sug_info width100" bindtap="selectAddres" data-location="{{item.location}}" wx:for='{{sugData}}' wx:key='key'>
             <text>{{item.name}}</text>
         </view>
     </view>
@@ -27,7 +27,7 @@
     <view class="dpfb width90 padding20">
         <view class="fontSize-30 color1 fontWeight5 white_noWrap addresName">
             <image class="location_icon" src=""></image>
-            {{loactioninfo.wxMarkerData[0].desc}}
+            {{LocateName}}
         </view>
         <view class="dpf fontSize-28 color3" bindtap="newloactioninfo">
             <image class="location_icon_A marginRight10" src="../../../images/icon/location_icon_A.png"></image>

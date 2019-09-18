@@ -1,4 +1,5 @@
 {
+   "navigationBarTitleText": "选择时间",
   "usingComponents": {
     "timeList": "../../../../components/timeList/timeList"
   }

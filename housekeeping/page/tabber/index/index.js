@@ -87,25 +87,28 @@ Page({
     },
     onLoad(){
         var that = this;
+        
         var BMap = new bmap.BMapWX({
             ak: app.globalData.ak
         });
         wx.getLocation({
-            type: 'wgs84',
+            type: 'gcj02',
             success: function (res) {
+                console.log(res,97)
                 that.setData({
                     latitude: res.latitude,//经度
                     longitude: res.longitude//纬度
                 })
+                console.log(res, that.data.latitude, that.data.longitude,111)
                 BMap.regeocoding({
-                    location: that.data.latitude + ',' + that.data.longitude,
+                    location: res.latitude + ',' + res.longitude,
                     success: function (res) {
                         console.log(res)
                         wxMarkerData = res.wxMarkerData;
                         app.globalData.loactioninfo = res
-                        app.globalData.LocateName = res.originalData.result.formatted_address
+                        app.globalData.LocateName = res.originalData.result.sematic_description
                         that.setData({
-                            LocateName: res.originalData.result.formatted_address
+                            LocateName: res.originalData.result.sematic_description
                         })
                     },
                     fail: function () {

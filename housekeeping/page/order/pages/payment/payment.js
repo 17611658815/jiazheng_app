@@ -33,7 +33,6 @@ Page({
             pay_type: data.pay_type || that.data.pay_type,
             total: data.total || data.price,
         })
-
         that.countDown()
     },
     // 倒计时

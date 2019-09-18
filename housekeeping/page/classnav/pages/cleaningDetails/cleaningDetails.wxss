@@ -139,8 +139,8 @@ page{
     width: 92%;
 } */
 .service-details-content{
-    padding: 10rpx 0 30rpx 0;
-    background: #FAFAFA;
+    /* padding: 10rpx 0 30rpx 0; */
+    /* background: #FAFAFA; */
 }
 .service-details-content-name text:nth-child(1){
     display: block;
@@ -171,4 +171,8 @@ page{
 }
 .rich-img{
     width: 100%;
+}
+.rich-p{
+    font-size: 35rpx;
+    padding: 10rpx 0;
 }

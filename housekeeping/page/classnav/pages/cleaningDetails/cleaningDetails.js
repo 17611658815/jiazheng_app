@@ -82,13 +82,18 @@ Page({
         app.net.$Api.getShopdetails(params).then((res) => {
             wx.hideLoading();
             res.data.Data.projectData.content = res.data.Data.projectData.content.replace(/\<img/gi, '<img class="rich-img" ')
+            res.data.Data.projectData.content = res.data.Data.projectData.content.replace(/\<p/gi, '<p class="rich-p fontWeight5" ')
 
             if(res.data.code == 200){
                 that.setData({
                     shopDetailed: res.data.Data
                 })
             }else{
-                
+                wx.showToast({
+                    title: res.data.msg,
+                    icon: 'none',
+                    duration: 2000
+                })
             }
         })
     },  

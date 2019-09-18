@@ -23,7 +23,7 @@
                 </view>
                 <view style='flex:1' class='dpf'>
                     <view class='leftImg marginRight'>
-                        <image src='{{item.project_thumb}}'></image>
+                        <image mode="aspectFill" src='{{item.project_thumb}}'></image>
                     </view>
                     <view class='goodsContent'>
                         <view>
@@ -65,7 +65,7 @@
             <view class='radioBox marginRight marginLeft' data-index='{{index}}' bindtap='Checked'>
                 <image wx:if='{{selectAll}}' src='../../../../images/icon/inon_checked.png'></image>
             </view>
-            <view class='fontSize-30 color1 marginRight'>全选</view>
+            <view data-index='{{index}}' bindtap='Checked' class='fontSize-30 color1 marginRight'>全选</view>
             <view class='fontSize-30 color1'>合计：</view>
             <view class='fontSize-30 color4 fontWeight5'>{{total}}元</view>
         </view>
@@ -77,7 +77,7 @@
                 <image wx:if='{{selectAll}}' src='../../../../images/icon/inon_checked.png'></image>
               
             </view>
-            <view class='fontSize-30 color1 marginRight'>全选</view>
+            <view data-index='{{index}}' bindtap='Checked' class='fontSize-30 color1 marginRight'>全选</view>
 
         </view>
           <view class='btn_1 marginRight' bindtap="collectCreated">移到收藏夹</view>

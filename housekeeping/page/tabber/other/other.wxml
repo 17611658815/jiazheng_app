@@ -25,7 +25,7 @@
             wx:if='{{item.status!=-1}}'>
         <view class='other_item width90'>
             <!-- 订单状态 -->
-            <view class='width100 dpfb' catchtap='goOtherDetails' >
+            <view class='width100 dpfb' catchtap='goOtherDetails'>
                 <view class='dpf'>
                     <image class='icon_common2' src='../../../images/icon/icon_common2.png'></image>
                     <text style='margin:0rpx 10rpx' class='fontSize-30 color3'>{{item.shopname}}</text>

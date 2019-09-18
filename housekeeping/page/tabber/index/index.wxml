@@ -43,7 +43,7 @@
         </view>
         <!-- 导航 -->
         <view class='home-navList'>
-            <navigator hover-class='none' wx:for='{{homePicData.typeData}}' wx:key='key' url='../../classnav/pages/cleaningList/cleaningList?id={{item.id}}'>
+            <navigator hover-class='none' wx:for='{{homePicData.typeData}}' wx:key='key' url='../../classnav/pages/cleaningList/cleaningList?id={{item.id}}&name={{item.name}}'>
                 <view class='home-navList-item {{index>=5 ? "marginTop":""}}'>
                     <view class='home-navList-item-icon'>
                         <image src='{{item.thumb}}'></image>
@@ -66,11 +66,11 @@
         </view>
         <!-- 电话预约 -->
         <view class='phoneNumber width100' wx:for='{{homePicData.recommendTelData}}' wx:key='key'>
-            <image mode='scaleToFill' src='{{item.data.pic}}'></image>
+            <image mode="aspectFill" src='{{item.data.pic}}'></image>
         </view>
         <!-- 领卷 -->
         <view class='home-advertising' wx:for='{{homePicData.recommendHdData}}' wx:key='key'>
-             <image mode='scaleToFill' src='{{item.data.pic}}'></image>
+             <image mode="aspectFill" src='{{item.data.pic}}'></image>
         </view>
         <!-- 附近技师 -->
         <view class='home-hot-activity'>
@@ -86,7 +86,8 @@
                     <view class='activity_title'>限时秒杀</view>
                     <view class='activity_text'>
                         <text class="marginRight">限量优惠</text>
-                        <text>先抢先得</text> </view>
+                        <text>先抢先得</text> 
+                    </view>
                 </view>
                 <view>
                     <image src='../../../images/logo/bg_3.png'></image>
@@ -117,7 +118,7 @@
                     wx:for-item="k" 
                     data-id='{{item.id}}' 
                     wx:key='key'>
-                    <image src='{{k.thumb}}'></image>
+                    <image mode="aspectFill" src='{{k.thumb}}'></image>
                     <view style='padding: 15rpx 0;' class='fontSize-32 fontWeight5'>
                         {{k.name}}
                     </view>

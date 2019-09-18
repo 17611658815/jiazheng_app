@@ -8,7 +8,7 @@
         duration="1000" 
         interval="5000">
         <swiper-item wx:for='{{3}}' wx:key='key'>
-            <image mode='aspectFill' src='{{shopDetailed.projectData.thumb}}'></image>
+            <image mode="aspectFill" src='{{shopDetailed.projectData.thumb}}'></image>
         </swiper-item>
     </swiper>
     </view>
@@ -19,7 +19,6 @@
             <image bindtap="changeCart" src='../../../../images/icon/icon_noFocus.png' wx:if='{{!isCollect}}'></image>
             <!-- 已关注 -->
              <image  src='../../../../images/icon/icon_Focus.png' wx:else></image> 
-         
         </view>
         <view class='cleaningDetails-title-price width90'>
             <view class='fontSize-34 color4'>
@@ -82,7 +81,7 @@
     <!-- 用户评价 -->
     <view class='comment-message dpfC'>
         <view class='comment-message-num width90'> 
-            <view class='fontSize-34 color1 fontWeight5'> 用户评价(343)</view>
+            <view class='fontSize-34 color1 fontWeight5'>用户评价(343)</view>
             <view class='fontSize-26 color2 dpf' bindtap='commentMore'>
             查看更多
             <image class='icon_right' src='../../../../images/icon/icon_right.png'></image> 
@@ -106,13 +105,13 @@
     <view class='service-details dpfC'>
         <view class='fontWeight5 paddingBtm width90'>服务详情</view>
         <view class='service-details-content dpfC width90'>
-            <view class='service-details-content-name fontSize28 dpf width90 marginTop'>
+            <view class='service-details-content-name fontSize28 dpf width100 marginTop'>
                 <rich-text nodes="{{shopDetailed.projectData.content}}"></rich-text>
             </view>
         </view>
-        <view class='service-details-msg fontSize-28 color2 width90'> 
+       <!--  <view class='service-details-msg fontSize-28 color2 width90'> 
             <rich-text nodes="{{shopDetailed.projectData.describe}}"></rich-text>
-        </view>
+        </view> -->
     </view>
     <!-- 为你推荐 -->
     <view class='recommend dpfC' wx:if='{{!selectShow}}'>

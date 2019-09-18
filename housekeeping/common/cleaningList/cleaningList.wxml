@@ -1,6 +1,10 @@
 <template name="cleaningList">
     <view class='cleaningList'>
-        <view class='cleaningList-item' bindtap='gocleaningDetails' data-id='{{item.id}}' wx:for="{{cleaningArr}}" wx:key='key'>
+        <view class='cleaningList-item' 
+                bindtap='gocleaningDetails' 
+                data-id='{{item.id}}' 
+                wx:for="{{cleaningArr}}" 
+                wx:key='key'>
             <view class='cleaningList-item-photo'>
                 <image mode="aspectFill" src='{{item.thumb || item.project_thumb}}'></image>
             </view>

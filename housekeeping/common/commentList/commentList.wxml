@@ -22,7 +22,12 @@
                 {{item.details}}
             </view>
             <view class='commentList-item-img'>
-                <image wx:for='{{item.pics}}' catchtap="previewImg" data-img='{{item.pics}}' wx:for-item="k" src='{{k}}' wx:key='key'></image>
+                <image wx:for='{{item.pics}}' 
+                    catchtap="previewImg" 
+                    data-img='{{item.pics}}' 
+                    wx:for-item="k" 
+                    src='{{k}}' 
+                    wx:key='key'></image>
             </view>
             <view class='commentList-item-support dpfb'>
                 <view class='fontSize-26 color3'>{{item.shopname}}</view>

@@ -261,7 +261,6 @@ Page({
             case 5:
                 that.data.diagnosistext = '优秀'
                 break;
-          
         } 
         console.log(star)
         this.setData({ 

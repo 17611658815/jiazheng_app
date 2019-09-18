@@ -1,4 +1,5 @@
 {
+    "navigationBarTitleText": "商品评论",
 "usingComponents": {
     "add-shop-cart": "../../../../components/addShopCart/addShopCart"
 }

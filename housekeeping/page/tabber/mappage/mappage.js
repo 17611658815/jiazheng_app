@@ -8,6 +8,7 @@ Page({
         longitude:"",//纬度
         sugData: '',
         loactioninfo:{},
+        LocateName:''
     },
     // 绑定input输入 
     bindKeyInput: function (e) {
@@ -48,7 +49,7 @@ Page({
         });
         app.loading('定位中..')
         wx.getLocation({
-            type: 'wgs84',
+            type: 'gcj02',
             success: function (res) {
                 that.setData({
                     latitude: res.latitude,//经度
@@ -58,11 +59,12 @@ Page({
                     location: that.data.latitude + ',' + that.data.longitude,
                     success: function (res) {
                         wxMarkerData = res.wxMarkerData;
-                        app.globalData.LocateName = res.wxMarkerData[0].desc;
+                        // app.globalData.LocateName = res.wxMarkerData[0].desc;
+                        app.globalData.LocateName = res.originalData.result.sematic_description;
                         app.globalData.loactioninfo = res
                         that.setData({
                             loactioninfo: res,
-                            LocateName: res.wxMarkerData[0].desc
+                            LocateName: res.originalData.result.sematic_description
                         })
                         wx.hideLoading()
                     },
@@ -91,11 +93,12 @@ Page({
             success: function (res) {
                 wx.hideLoading()
                 wxMarkerData = res.wxMarkerData;
-                app.globalData.LocateName = res.wxMarkerData[0].desc;
+                // app.globalData.LocateName = res.wxMarkerData[0].desc;
+                app.globalData.LocateName = res.originalData.result.sematic_description;
                 app.globalData.loactioninfo = res
                 that.setData({
                     loactioninfo: res,
-                    LocateName: res.wxMarkerData[0].desc
+                    LocateName: res.originalData.result.sematic_description
                 },()=>{
                     wx.navigateBack({
                         delta: 1
@@ -113,19 +116,23 @@ Page({
     // 选择附近位置
     selectAddres(res){
         let that = this;
+        let Res = res.currentTarget.dataset.location;
         var BMap = new bmap.BMapWX({
             ak: app.globalData.ak
         });
         app.loading('定位中..')
-        /* BMap.regeocoding({
-            location: that.data.latitude + ',' + that.data.longitude,
+        BMap.regeocoding({
+            location: Res.lat + ',' + Res.lng,
             success: function (res) {
+                console.log(res)
                 wxMarkerData = res.wxMarkerData;
-                app.globalData.LocateName = res.wxMarkerData[0].desc;
+                // app.globalData.LocateName = res.wxMarkerData[0].desc;
+                app.globalData.LocateName = res.originalData.result.sematic_description;
                 app.globalData.loactioninfo = res
                 that.setData({
                     loactioninfo: res,
-                    LocateName: res.wxMarkerData[0].desc
+                    LocateName: res.originalData.result.sematic_description,
+                    sugData:[]
                 })
                 wx.hideLoading()
             },
@@ -134,12 +141,13 @@ Page({
                     title: '请检查位置服务是否开启',
                 })
             },
-        }) */
+        })
     },
     onLoad: function () {
         var that = this;
         this.setData({
-            loactioninfo: app.globalData.loactioninfo
+            loactioninfo: app.globalData.loactioninfo,
+            LocateName: app.globalData.LocateName
         })
         console.log(app.globalData.loactioninfo)
     },
